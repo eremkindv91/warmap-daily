@@ -1,5 +1,67 @@
 [
-  {"id":"mod-ru","name":"Министерство обороны РФ","role":"Официальные заявления российской стороны","url":"https://mil.ru/","health":"paused","health_label":"адаптер не подключён","usage_note":"Фиксирует факт официального заявления; сам по себе не подтверждает территориальный контроль."},
-  {"id":"general-staff-ua","name":"Генеральный штаб ВСУ","role":"Официальные заявления украинской стороны","url":"https://www.zsu.gov.ua/","health":"paused","health_label":"адаптер не подключён","usage_note":"Фиксирует факт официального заявления; сам по себе не подтверждает территориальный контроль."},
-  {"id":"isw","name":"Institute for the Study of War","role":"Независимая аналитика и картографическая оценка","url":"https://www.understandingwar.org/","health":"paused","health_label":"требуется разрешение на геоданные","usage_note":"Тексты можно использовать по правилам цитирования; геоданные нельзя копировать без письменного согласия правообладателя."}
+  {
+    "id": "mod-ru",
+    "name": "Министерство обороны РФ",
+    "role": "Официальные заявления российской стороны",
+    "side": "russian",
+    "kind": "official",
+    "url": "https://mil.ru/",
+    "health": "paused",
+    "health_label": "адаптер не подключён",
+    "license_status": "review_required",
+    "monitor": true,
+    "usage_note": "Подтверждает факт официального заявления, но не территориальный контроль."
+  },
+  {
+    "id": "general-staff-ua",
+    "name": "Генеральный штаб ВСУ",
+    "role": "Официальные заявления украинской стороны",
+    "side": "ukrainian",
+    "kind": "official",
+    "url": "https://www.zsu.gov.ua/",
+    "health": "paused",
+    "health_label": "адаптер не подключён",
+    "license_status": "review_required",
+    "monitor": true,
+    "usage_note": "Подтверждает факт официального заявления, но не территориальный контроль."
+  },
+  {
+    "id": "mod-ua",
+    "name": "Министерство обороны Украины",
+    "role": "Официальные заявления украинской стороны",
+    "side": "ukrainian",
+    "kind": "official",
+    "url": "https://mod.gov.ua/",
+    "health": "paused",
+    "health_label": "адаптер не подключён",
+    "license_status": "review_required",
+    "monitor": true,
+    "usage_note": "Подтверждает факт публикации. Территориальные выводы требуют независимой проверки."
+  },
+  {
+    "id": "isw",
+    "name": "Institute for the Study of War",
+    "role": "Независимая аналитика и картографическая оценка",
+    "side": "independent",
+    "kind": "osint_map",
+    "url": "https://www.understandingwar.org/",
+    "health": "paused",
+    "health_label": "геоданные не лицензированы",
+    "license_status": "written_permission_required",
+    "monitor": true,
+    "usage_note": "Геометрию нельзя копировать без письменного согласия правообладателя."
+  },
+  {
+    "id": "openstreetmap",
+    "name": "OpenStreetMap",
+    "role": "Базовая карта",
+    "side": "independent",
+    "kind": "basemap",
+    "url": "https://www.openstreetmap.org/",
+    "health": "ok",
+    "health_label": "используется с атрибуцией",
+    "license_status": "odbl_1_0",
+    "monitor": true,
+    "usage_note": "Используется только как базовая карта; не является источником линии контроля."
+  }
 ]

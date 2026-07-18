@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "WarMap Daily evidence registry",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": ["id", "source_id", "published_at", "url", "evidence_type", "independence_group", "verification_note"],
+    "properties": {
+      "id": {"type": "string", "minLength": 1},
+      "source_id": {"type": "string", "minLength": 1},
+      "published_at": {"type": "string", "format": "date-time"},
+      "url": {"type": "string", "format": "uri"},
+      "evidence_type": {"enum": ["official_statement", "geolocated_media", "satellite", "licensed_map", "local_authority", "news_report"]},
+      "independence_group": {"type": "string", "minLength": 1},
+      "verification_note": {"type": "string"}
+    }
+  }
+}

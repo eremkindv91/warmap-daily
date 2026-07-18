@@ -1,4 +1,4 @@
-methodology_version: "1.0"
+methodology_version: "1.1"
 public_delay_hours: 24
 sources:
   - id: mod-ru
@@ -7,15 +7,25 @@ sources:
     homepage: https://mil.ru/
     enabled: false
     license_review: required
+    feed_url: null
   - id: general-staff-ua
     side: ukrainian
     kind: official
     homepage: https://www.zsu.gov.ua/
     enabled: false
     license_review: required
+    feed_url: null
+  - id: mod-ua
+    side: ukrainian
+    kind: official
+    homepage: https://mod.gov.ua/
+    enabled: false
+    license_review: required
+    feed_url: null
   - id: isw
     side: independent
     kind: osint_map
     homepage: https://www.understandingwar.org/
     enabled: false
     license_review: written_permission_required_for_geodata
+    feed_url: null

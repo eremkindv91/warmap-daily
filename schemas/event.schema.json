@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "WarMap Daily events",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": ["id", "title", "summary", "event_date", "verification_status", "source_ids", "evidence_ids"],
+    "properties": {
+      "id": {"type": "string", "minLength": 1},
+      "title": {"type": "string", "minLength": 1},
+      "summary": {"type": "string", "minLength": 1},
+      "event_date": {"type": "string", "format": "date"},
+      "verification_status": {"enum": ["claim", "disputed", "probable", "confirmed", "corrected", "withdrawn"]},
+      "source_ids": {"type": "array", "items": {"type": "string"}},
+      "evidence_ids": {"type": "array", "items": {"type": "string"}},
+      "location": {
+        "type": ["object", "null"],
+        "properties": {"lat": {"type": "number"}, "lon": {"type": "number"}}
+      }
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "checked_at": "2026-07-18T13:26:54.357739+00:00",
+  "monitor_state": "monitor_error",
+  "results": [
+    {
+      "source_id": "mod-ru",
+      "state": "unknown",
+      "http_status": null,
+      "checked_at": "2026-07-18T13:26:54.357739+00:00",
+      "error": "monitor_network_error"
+    },
+    {
+      "source_id": "general-staff-ua",
+      "state": "unknown",
+      "http_status": null,
+      "checked_at": "2026-07-18T13:26:54.357739+00:00",
+      "error": "monitor_network_error"
+    },
+    {
+      "source_id": "mod-ua",
+      "state": "unknown",
+      "http_status": null,
+      "checked_at": "2026-07-18T13:26:54.357739+00:00",
+      "error": "monitor_network_error"
+    },
+    {
+      "source_id": "isw",
+      "state": "unknown",
+      "http_status": null,
+      "checked_at": "2026-07-18T13:26:54.357739+00:00",
+      "error": "monitor_network_error"
+    },
+    {
+      "source_id": "openstreetmap",
+      "state": "unknown",
+      "http_status": null,
+      "checked_at": "2026-07-18T13:26:54.357739+00:00",
+      "error": "monitor_network_error"
+    }
+  ]
+}

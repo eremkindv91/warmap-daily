@@ -18,104 +18,162 @@
       <span>WarMap <b>Daily</b></span>
     </a>
     <nav aria-label="Основная навигация">
-      <a href="#map-section">Карта</a>
-      <a href="#changes">Изменения</a>
-      <a href="#events">События</a>
-      <a href="#sources">Источники</a>
-      <a href="#methodology">Методика</a>
+      <a href="#map-section" data-i18n="nav_map">Карта</a>
+      <a href="#changes" data-i18n="nav_changes">Изменения</a>
+      <a href="#events" data-i18n="nav_events">События</a>
+      <a href="#sources" data-i18n="nav_sources">Источники</a>
+      <a href="#archive" data-i18n="nav_archive">Архив</a>
+      <a href="#methodology" data-i18n="nav_method">Методика</a>
     </nav>
-    <button id="aboutButton" class="ghost-button" type="button">О проекте</button>
+    <div class="top-actions">
+      <label class="language-control"><span class="sr-only">Язык</span><select id="languageSelect" aria-label="Язык интерфейса"><option value="ru">RU</option><option value="uk">UK</option><option value="en">EN</option></select></label>
+      <button id="aboutButton" class="ghost-button" type="button" data-i18n="about">О проекте</button>
+    </div>
   </header>
+
+  <div class="safety-notice" role="note">
+    <span data-i18n="safety_delay">Данные публикуются с задержкой не менее 24 часов.</span>
+    <span data-i18n="safety_use">Не используйте карту для навигации, эвакуации или решений, связанных с безопасностью.</span>
+  </div>
+  <noscript><div class="noscript">Для интерактивной карты требуется JavaScript. Публичные GeoJSON-файлы доступны в каталоге <code>data</code>.</div></noscript>
 
   <main id="top">
     <section class="hero shell">
       <div>
         <div class="eyebrow"><span class="live-dot"></span><span id="freshnessLabel">Проверка данных…</span></div>
-        <h1>Что изменилось<br><em>за последние сутки</em></h1>
-        <p class="lede">Ежедневный снимок линии контроля с задержкой, источниками и отдельной маркировкой заявлений сторон.</p>
+        <h1 data-i18n-html="hero_title">Что изменилось<br><em>за последние сутки</em></h1>
+        <p class="lede" data-i18n="hero_lede">Ежедневный снимок линии контроля с задержкой, источниками и отдельной маркировкой заявлений сторон.</p>
       </div>
       <div class="update-card">
-        <span>Последний опубликованный снимок</span>
+        <span data-i18n="last_snapshot">Последний опубликованный снимок</span>
         <strong id="snapshotDate">—</strong>
         <small id="snapshotTime">Данные загружаются</small>
+        <small id="snapshotHash" class="mono">Версия: —</small>
       </div>
     </section>
 
     <section class="stats shell" aria-label="Сводные показатели">
-      <article><span>Изменение за сутки</span><strong id="areaDay">—</strong><small>подтверждённая площадь</small></article>
-      <article><span>Новые статусы</span><strong id="settlementCount">—</strong><small>населённых пунктов</small></article>
-      <article><span>События</span><strong id="eventCount">—</strong><small>подтверждено за сутки</small></article>
-      <article><span>Спорные заявления</span><strong id="disputedCount">—</strong><small>не меняют геометрию</small></article>
+      <article><span id="areaPeriodLabel">Изменение за сутки</span><strong id="areaDay">—</strong><small data-i18n="confirmed_area">подтверждённая площадь</small></article>
+      <article><span data-i18n="new_statuses">Новые статусы</span><strong id="settlementCount">—</strong><small data-i18n="settlements">населённых пунктов</small></article>
+      <article><span data-i18n="events">События</span><strong id="eventCount">—</strong><small data-i18n="confirmed_day">подтверждено за сутки</small></article>
+      <article><span data-i18n="disputed_claims">Спорные заявления</span><strong id="disputedCount">—</strong><small data-i18n="no_geometry">не меняют геометрию</small></article>
+    </section>
+
+    <section class="geo-search shell" aria-label="Поиск населённого пункта">
+      <div class="search-field">
+        <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m21 21-4.35-4.35m2.35-5.65a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z"/></svg>
+        <label class="sr-only" for="settlementSearch">Населённый пункт</label>
+        <input id="settlementSearch" type="search" autocomplete="off" placeholder="Найти населённый пункт на русском, украинском или английском">
+        <kbd>⌘ K</kbd>
+      </div>
+      <button id="bandwidthButton" class="bandwidth-button" type="button" aria-pressed="false">Экономия трафика</button>
+      <div id="searchResults" class="search-results" hidden></div>
     </section>
 
     <section id="map-section" class="map-shell shell">
       <div class="map-toolbar">
         <div>
-          <p class="section-kicker">КАРТА КОНТРОЛЯ</p>
-          <h2>Состояние на <span id="mapDate">—</span></h2>
+          <p class="section-kicker" data-i18n="control_map">КАРТА КОНТРОЛЯ</p>
+          <h2><span data-i18n="state_on">Состояние на</span> <span id="mapDate">—</span></h2>
         </div>
-        <div class="period-switcher" role="group" aria-label="Период изменений">
-          <button class="active" type="button" data-period="day">24 часа</button>
-          <button type="button" data-period="week">7 дней</button>
-          <button type="button" data-period="month">30 дней</button>
+        <div class="map-actions">
+          <div class="period-switcher" role="group" aria-label="Период изменений">
+            <button class="active" type="button" data-period="day" aria-pressed="true" data-i18n="hours24">24 часа</button>
+            <button type="button" data-period="week" aria-pressed="false" data-i18n="days7">7 дней</button>
+            <button type="button" data-period="month" aria-pressed="false" data-i18n="days30">30 дней</button>
+          </div>
+          <a id="downloadGeojson" class="download-button" href="data/current.geojson" download data-i18n="download">Скачать GeoJSON</a>
         </div>
       </div>
       <div class="map-grid">
         <div class="map-wrap">
-          <div id="map" aria-label="Интерактивная карта"></div>
+          <div id="map" aria-label="Интерактивная карта" aria-describedby="mapCaption"></div>
           <div id="mapEmpty" class="map-empty" hidden>
-            <strong>Подтверждённая геометрия пока не опубликована</strong>
-            <span>Базовая карта доступна; данные появятся после проверки и одобрения snapshot.</span>
+            <strong data-i18n="no_geometry_title">Подтверждённая геометрия пока не опубликована</strong>
+            <span data-i18n="no_geometry_text">Базовая карта доступна; данные появятся после проверки и одобрения snapshot.</span>
           </div>
           <div class="map-legend">
-            <button type="button" data-layer="control_ru"><i class="swatch rus"></i>Контроль российских сил</button>
-            <button type="button" data-layer="control_ua"><i class="swatch ukr"></i>Контроль украинских сил</button>
-            <button type="button" data-layer="contested"><i class="swatch contested"></i>Оспариваемая зона</button>
-            <button type="button" data-layer="change"><i class="swatch change"></i>Новое изменение</button>
+            <button type="button" data-layer="control_ru" aria-pressed="true"><i class="swatch rus"></i><span data-i18n="legend_ru">Контроль российских сил</span></button>
+            <button type="button" data-layer="control_ua" aria-pressed="true"><i class="swatch ukr"></i><span data-i18n="legend_ua">Контроль украинских сил</span></button>
+            <button type="button" data-layer="contested" aria-pressed="true"><i class="swatch contested"></i><span data-i18n="legend_contested">Оспариваемая зона</span></button>
+            <button type="button" data-layer="unknown" aria-pressed="true"><i class="swatch unknown"></i><span data-i18n="legend_unknown">Неопределённо</span></button>
+            <button type="button" data-layer="change" aria-pressed="true"><i class="swatch change"></i><span data-i18n="legend_change">Новое изменение</span></button>
+            <button type="button" data-layer="previous" aria-pressed="false" class="off"><i class="swatch previous"></i><span data-i18n="legend_previous">Предыдущая граница</span></button>
+            <button type="button" data-layer="events" aria-pressed="true"><i class="swatch events"></i><span data-i18n="legend_events">Подтверждённые события</span></button>
           </div>
+          <p id="mapCaption" class="sr-only">Цвет показывает опубликованную оценку территориального статуса. Яркий слой показывает изменения за выбранный период.</p>
         </div>
         <aside class="map-aside">
           <div class="aside-head">
-            <div><span class="section-kicker">ИЗМЕНЕНИЯ</span><h3>За выбранный период</h3></div>
+            <div><span class="section-kicker" data-i18n="changes_kicker">ИЗМЕНЕНИЯ</span><h3 data-i18n="selected_period">За выбранный период</h3></div>
             <span id="changeBadge" class="badge">0</span>
           </div>
           <div id="changeList" class="scroll-list"></div>
+          <div id="changeSummary" class="aside-summary">Площадь изменений: —</div>
         </aside>
       </div>
     </section>
 
     <section id="changes" class="content-grid shell">
       <div id="events" class="panel">
-        <div class="panel-head"><div><p class="section-kicker">ХРОНОЛОГИЯ</p><h2>Ключевые события</h2></div><span id="eventBadge" class="badge">0</span></div>
+        <div class="panel-head"><div><p class="section-kicker" data-i18n="chronology">ХРОНОЛОГИЯ</p><h2 data-i18n="key_events">Ключевые события</h2></div><span id="eventBadge" class="badge">0</span></div>
         <div id="eventList" class="timeline"></div>
       </div>
       <div class="panel disputed-panel">
-        <div class="panel-head"><div><p class="section-kicker">РАСХОЖДЕНИЯ</p><h2>Заявления сторон</h2></div></div>
-        <p class="panel-intro">Заявление подтверждает лишь факт публикации. Без независимой проверки оно не меняет карту.</p>
+        <div class="panel-head"><div><p class="section-kicker" data-i18n="disagreements">РАСХОЖДЕНИЯ</p><h2 data-i18n="side_claims">Заявления сторон</h2></div></div>
+        <p class="panel-intro" data-i18n="claim_note">Заявление подтверждает лишь факт публикации. Без независимой проверки оно не меняет карту.</p>
         <div id="claimList"></div>
       </div>
     </section>
 
     <section id="sources" class="sources shell">
-      <div class="section-heading"><div><p class="section-kicker">ПРОЗРАЧНОСТЬ</p><h2>Источники и состояние сбора</h2></div><p>Для каждого источника показаны роль, лицензия и время последней успешной проверки.</p></div>
+      <div class="section-heading"><div><p class="section-kicker" data-i18n="transparency">ПРОЗРАЧНОСТЬ</p><h2 data-i18n="sources_title">Источники и состояние сбора</h2></div><p data-i18n="sources_note">Для каждого источника показаны роль, лицензия и время последней успешной проверки.</p></div>
+      <div class="source-filters" role="group" aria-label="Фильтр источников">
+        <button type="button" class="active" data-source-filter="all" aria-pressed="true" data-i18n="filter_all">Все</button>
+        <button type="button" data-source-filter="russian" aria-pressed="false" data-i18n="filter_ru">Российская сторона</button>
+        <button type="button" data-source-filter="ukrainian" aria-pressed="false" data-i18n="filter_ua">Украинская сторона</button>
+        <button type="button" data-source-filter="independent" aria-pressed="false" data-i18n="filter_independent">Независимые</button>
+      </div>
       <div id="sourceGrid" class="source-grid"></div>
     </section>
 
+    <section id="archive" class="archive shell">
+      <div class="archive-copy">
+        <p class="section-kicker" data-i18n="daily_archive">ЕЖЕДНЕВНЫЙ АРХИВ</p>
+        <h2 data-i18n="archive_title">Версии карты и контрольные суммы</h2>
+        <p data-i18n="archive_note">Каждый опубликованный снимок хранит дату, площадь изменений и SHA-256. Выберите дату, чтобы открыть состояние карты на тот день.</p>
+      </div>
+      <div class="archive-control">
+        <label for="snapshotSelect" data-i18n="snapshot_date">Дата снимка</label>
+        <select id="snapshotSelect"><option value="current">Текущий снимок</option></select>
+        <div id="archiveMeta" class="archive-meta">Архив пока пуст.</div>
+        <details class="audit-details"><summary>Журнал публикаций и исправлений</summary><div id="auditList"></div></details>
+      </div>
+    </section>
+
     <section id="methodology" class="methodology shell">
-      <div><p class="section-kicker">МЕТОДИКА</p><h2>Автоматический сбор.<br>Ручное решение по геометрии.</h2></div>
+      <div><p class="section-kicker" data-i18n="methodology">МЕТОДИКА</p><h2 data-i18n-html="method_title">Автоматический сбор.<br>Ручное решение по геометрии.</h2></div>
       <div class="method-steps">
         <article><span>01</span><h3>Сбор</h3><p>Официальные публикации сторон и разрешённые независимые источники сохраняются с URL и временем.</p></article>
         <article><span>02</span><h3>Сопоставление</h3><p>Дубли объединяются по происхождению, а противоречия остаются видимыми.</p></article>
         <article><span>03</span><h3>Проверка</h3><p>Новая геометрия требует независимых подтверждений, evidence bundle и проверки топологии.</p></article>
         <article><span>04</span><h3>Публикация</h3><p>Одобренный снимок выходит с задержкой не менее 24 часов и сохраняется в архиве.</p></article>
       </div>
+      <div class="integrity-row">
+        <span><b>≥ 0,93</b> confidence для геометрии</span>
+        <span><b>≥ 24 ч</b> задержка публикации</span>
+        <span><b>2+</b> независимых подтверждения</span>
+        <span><b>SHA-256</b> для каждой версии</span>
+      </div>
     </section>
   </main>
 
   <footer class="footer shell">
     <p><strong>WarMap Daily</strong> · аналитическая карта открытых источников</p>
-    <p>Не предназначена для навигации, эвакуации или решений, связанных с безопасностью.</p>
+    <p><a href="https://github.com/eremkindv91/warmap-daily" target="_blank" rel="noopener noreferrer">Код и журнал изменений ↗</a> · <a href="data/current.geojson">Публичный GeoJSON</a></p>
   </footer>
+
+  <div id="appStatus" class="sr-only" role="status" aria-live="polite"></div>
 
   <dialog id="aboutDialog">
     <button id="closeAbout" class="dialog-close" type="button" aria-label="Закрыть">×</button>
@@ -123,6 +181,12 @@
     <h2>Карта с проверяемой историей изменений</h2>
     <p>Система разделяет заявления российской стороны, заявления украинской стороны, независимые подтверждения и опубликованную оценку контроля. Публичные данные отображаются с задержкой.</p>
     <p>Каждое подтверждённое изменение должно содержать дату, источники, confidence, evidence bundle и запись модерации.</p>
+    <p><strong>Важно:</strong> автоматический сбор формирует только кандидаты. Публичную геометрию меняет одобренный аналитиком snapshot, прошедший проверки площади, пересечений и задержки.</p>
+  </dialog>
+
+  <dialog id="recordDialog" class="record-dialog">
+    <button id="closeRecord" class="dialog-close" type="button" aria-label="Закрыть">×</button>
+    <div id="recordContent"></div>
   </dialog>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
