@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="WarMap Daily — архивная карта изменений территориального контроля по проверяемым открытым источникам.">
+  <title>WarMap Daily — ежедневная карта изменений</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='29' fill='%2324523e'/%3E%3Cpath d='M10 30h20l12-16 12 8-15 27-16-5z' fill='%23b9db57'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://unpkg.com">
+  <link rel="preconnect" href="https://tile.openstreetmap.org">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIINfQ3ynhYwZQuxqaoZixGZx7KT5iZB8Yw=" crossorigin="">
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="WarMap Daily, на главную">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span>WarMap <b>Daily</b></span>
+    </a>
+    <nav aria-label="Основная навигация">
+      <a href="#map-section">Карта</a>
+      <a href="#changes">Изменения</a>
+      <a href="#events">События</a>
+      <a href="#sources">Источники</a>
+      <a href="#methodology">Методика</a>
+    </nav>
+    <button id="aboutButton" class="ghost-button" type="button">О проекте</button>
+  </header>
+
+  <main id="top">
+    <section class="hero shell">
+      <div>
+        <div class="eyebrow"><span class="live-dot"></span><span id="freshnessLabel">Проверка данных…</span></div>
+        <h1>Что изменилось<br><em>за последние сутки</em></h1>
+        <p class="lede">Ежедневный снимок линии контроля с задержкой, источниками и отдельной маркировкой заявлений сторон.</p>
+      </div>
+      <div class="update-card">
+        <span>Последний опубликованный снимок</span>
+        <strong id="snapshotDate">—</strong>
+        <small id="snapshotTime">Данные загружаются</small>
+      </div>
+    </section>
+
+    <section class="stats shell" aria-label="Сводные показатели">
+      <article><span>Изменение за сутки</span><strong id="areaDay">—</strong><small>подтверждённая площадь</small></article>
+      <article><span>Новые статусы</span><strong id="settlementCount">—</strong><small>населённых пунктов</small></article>
+      <article><span>События</span><strong id="eventCount">—</strong><small>подтверждено за сутки</small></article>
+      <article><span>Спорные заявления</span><strong id="disputedCount">—</strong><small>не меняют геометрию</small></article>
+    </section>
+
+    <section id="map-section" class="map-shell shell">
+      <div class="map-toolbar">
+        <div>
+          <p class="section-kicker">КАРТА КОНТРОЛЯ</p>
+          <h2>Состояние на <span id="mapDate">—</span></h2>
+        </div>
+        <div class="period-switcher" role="group" aria-label="Период изменений">
+          <button class="active" type="button" data-period="day">24 часа</button>
+          <button type="button" data-period="week">7 дней</button>
+          <button type="button" data-period="month">30 дней</button>
+        </div>
+      </div>
+      <div class="map-grid">
+        <div class="map-wrap">
+          <div id="map" aria-label="Интерактивная карта"></div>
+          <div id="mapEmpty" class="map-empty" hidden>
+            <strong>Подтверждённая геометрия пока не опубликована</strong>
+            <span>Базовая карта доступна; данные появятся после проверки и одобрения snapshot.</span>
+          </div>
+          <div class="map-legend">
+            <button type="button" data-layer="control_ru"><i class="swatch rus"></i>Контроль российских сил</button>
+            <button type="button" data-layer="control_ua"><i class="swatch ukr"></i>Контроль украинских сил</button>
+            <button type="button" data-layer="contested"><i class="swatch contested"></i>Оспариваемая зона</button>
+            <button type="button" data-layer="change"><i class="swatch change"></i>Новое изменение</button>
+          </div>
+        </div>
+        <aside class="map-aside">
+          <div class="aside-head">
+            <div><span class="section-kicker">ИЗМЕНЕНИЯ</span><h3>За выбранный период</h3></div>
+            <span id="changeBadge" class="badge">0</span>
+          </div>
+          <div id="changeList" class="scroll-list"></div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="changes" class="content-grid shell">
+      <div id="events" class="panel">
+        <div class="panel-head"><div><p class="section-kicker">ХРОНОЛОГИЯ</p><h2>Ключевые события</h2></div><span id="eventBadge" class="badge">0</span></div>
+        <div id="eventList" class="timeline"></div>
+      </div>
+      <div class="panel disputed-panel">
+        <div class="panel-head"><div><p class="section-kicker">РАСХОЖДЕНИЯ</p><h2>Заявления сторон</h2></div></div>
+        <p class="panel-intro">Заявление подтверждает лишь факт публикации. Без независимой проверки оно не меняет карту.</p>
+        <div id="claimList"></div>
+      </div>
+    </section>
+
+    <section id="sources" class="sources shell">
+      <div class="section-heading"><div><p class="section-kicker">ПРОЗРАЧНОСТЬ</p><h2>Источники и состояние сбора</h2></div><p>Для каждого источника показаны роль, лицензия и время последней успешной проверки.</p></div>
+      <div id="sourceGrid" class="source-grid"></div>
+    </section>
+
+    <section id="methodology" class="methodology shell">
+      <div><p class="section-kicker">МЕТОДИКА</p><h2>Автоматический сбор.<br>Ручное решение по геометрии.</h2></div>
+      <div class="method-steps">
+        <article><span>01</span><h3>Сбор</h3><p>Официальные публикации сторон и разрешённые независимые источники сохраняются с URL и временем.</p></article>
+        <article><span>02</span><h3>Сопоставление</h3><p>Дубли объединяются по происхождению, а противоречия остаются видимыми.</p></article>
+        <article><span>03</span><h3>Проверка</h3><p>Новая геометрия требует независимых подтверждений, evidence bundle и проверки топологии.</p></article>
+        <article><span>04</span><h3>Публикация</h3><p>Одобренный снимок выходит с задержкой не менее 24 часов и сохраняется в архиве.</p></article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer shell">
+    <p><strong>WarMap Daily</strong> · аналитическая карта открытых источников</p>
+    <p>Не предназначена для навигации, эвакуации или решений, связанных с безопасностью.</p>
+  </footer>
+
+  <dialog id="aboutDialog">
+    <button id="closeAbout" class="dialog-close" type="button" aria-label="Закрыть">×</button>
+    <p class="section-kicker">О ПРОЕКТЕ</p>
+    <h2>Карта с проверяемой историей изменений</h2>
+    <p>Система разделяет заявления российской стороны, заявления украинской стороны, независимые подтверждения и опубликованную оценку контроля. Публичные данные отображаются с задержкой.</p>
+    <p>Каждое подтверждённое изменение должно содержать дату, источники, confidence, evidence bundle и запись модерации.</p>
+  </dialog>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="assets/app.js" defer></script>
+</body>
+</html>
