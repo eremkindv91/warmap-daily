@@ -1,1 +1,37 @@
-[]
+[
+  {
+    "id": "settlement-deepstate-1025d9b270f6634a",
+    "name": "Дорожное",
+    "name_uk": "Дорожнє",
+    "name_ru": "Дорожное",
+    "name_en": "Dorozhnie",
+    "aliases": [
+      "Dorozhnie",
+      "Дорожное",
+      "Дорожнього",
+      "Дорожнє"
+    ],
+    "admin1": "Донецька область",
+    "lat": 48.4240851,
+    "lon": 37.2294474,
+    "status": "unknown",
+    "source_id": "deepstate-map"
+  },
+  {
+    "id": "settlement-deepstate-e31da50e77eb38a5",
+    "name": "Иванополье",
+    "name_uk": "Іванопілля",
+    "name_ru": "Иванополье",
+    "name_en": "Ivanopillia",
+    "aliases": [
+      "Ivanopillia",
+      "Іванопілля",
+      "Иванополье"
+    ],
+    "admin1": "Донецька область",
+    "lat": 48.462732,
+    "lon": 37.7395391,
+    "status": "unknown",
+    "source_id": "deepstate-map"
+  }
+]

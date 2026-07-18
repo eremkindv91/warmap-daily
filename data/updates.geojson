@@ -1,0 +1,65 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "deepstate-e31da50e77eb38a5",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.7395391,
+          48.462732
+        ]
+      },
+      "properties": {
+        "id": "deepstate-e31da50e77eb38a5",
+        "title": "Геолокированное обновление: Иванополье",
+        "title_uk": "Геолоковане оновлення: Іванопілля",
+        "title_en": "Geolocated map update: Ivanopillia",
+        "summary": "По оценке DeepStateMAP, российские силы продвинулись в районе Иванополье.",
+        "summary_uk": "Ворог просунувся поблизу Іванопілля",
+        "summary_en": "DeepStateMAP assesses that Russian forces advanced near Ivanopillia.",
+        "event_date": "2026-07-17",
+        "published_at": "2026-07-17T05:04:15+00:00",
+        "verification_status": "probable",
+        "source_ids": [
+          "deepstate-map"
+        ],
+        "evidence_ids": [
+          "ev-deepstate-e31da50e77eb38a5"
+        ],
+        "location_label": "Іванопілля"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "deepstate-1025d9b270f6634a",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.2294474,
+          48.4240851
+        ]
+      },
+      "properties": {
+        "id": "deepstate-1025d9b270f6634a",
+        "title": "Геолокированное обновление: Дорожное",
+        "title_uk": "Геолоковане оновлення: Дорожнє",
+        "title_en": "Geolocated map update: Dorozhnie",
+        "summary": "По оценке DeepStateMAP, российские силы продвинулись в районе Дорожное.",
+        "summary_uk": "Ворог просунувся поблизу Дорожнього",
+        "summary_en": "DeepStateMAP assesses that Russian forces advanced near Dorozhnie.",
+        "event_date": "2026-07-15",
+        "published_at": "2026-07-15T14:40:25+00:00",
+        "verification_status": "probable",
+        "source_ids": [
+          "deepstate-map"
+        ],
+        "evidence_ids": [
+          "ev-deepstate-1025d9b270f6634a"
+        ],
+        "location_label": "Дорожнє"
+      }
+    }
+  ]
+}

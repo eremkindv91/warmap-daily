@@ -29,3 +29,10 @@ sources:
     enabled: false
     license_review: written_permission_required_for_geodata
     feed_url: null
+  - id: deepstate-map
+    side: independent
+    kind: osint_map
+    homepage: https://deepstatemap.live/
+    enabled: true
+    license_review: visual_and_text_reuse_with_attribution
+    feed_url: https://t.me/s/DeepStateUA

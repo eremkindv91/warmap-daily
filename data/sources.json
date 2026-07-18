@@ -52,6 +52,19 @@
     "usage_note": "Геометрию нельзя копировать без письменного согласия правообладателя."
   },
   {
+    "id": "deepstate-map",
+    "name": "DeepStateMAP / DeepStateUA",
+    "role": "Независимые геолокированные обновления карты",
+    "side": "independent",
+    "kind": "osint_map",
+    "url": "https://deepstatemap.live/",
+    "health": "ok",
+    "health_label": "публичные посты и прямые ссылки доступны",
+    "license_status": "visual_and_text_reuse_with_attribution",
+    "monitor": true,
+    "usage_note": "Публикуются только координаты из прямых ссылок в официальных постах с атрибуцией. API и полигональная геометрия не копируются."
+  },
+  {
     "id": "openstreetmap",
     "name": "OpenStreetMap",
     "role": "Базовая карта",

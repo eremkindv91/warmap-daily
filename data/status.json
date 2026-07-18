@@ -1,11 +1,15 @@
 {
-  "state": "awaiting_first_snapshot",
+  "state": "point_updates_live",
   "snapshot_date": null,
   "published_at": null,
   "area_change_km2": 0,
-  "new_settlements": 0,
+  "new_settlements": 2,
   "methodology_version": "1.1",
   "snapshot_sha256": null,
   "public_delay_hours": 24,
-  "warning": "Карта является аналитической оценкой по открытым источникам, отображается с задержкой и не предназначена для навигации, эвакуации или принятия решений, связанных с безопасностью."
+  "warning": "Карта является аналитической оценкой по открытым источникам, отображается с задержкой и не предназначена для навигации, эвакуации или принятия решений, связанных с безопасностью.",
+  "point_feed_date": "2026-07-17",
+  "point_feed_published_at": "2026-07-17T05:04:15+00:00",
+  "point_feed_updated_at": "2026-07-18T14:02:20.233561+00:00",
+  "point_update_count": 2
 }
