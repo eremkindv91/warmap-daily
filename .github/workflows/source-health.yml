@@ -7,6 +7,8 @@ on:
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
 
 concurrency:
   group: source-health
@@ -33,3 +35,18 @@ jobs:
             git commit -m "Update source health"
             git push
           fi
+      - name: Upload refreshed site
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: .
+
+  deploy:
+    needs: check
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy refreshed source status
+        id: deployment
+        uses: actions/deploy-pages@v5
