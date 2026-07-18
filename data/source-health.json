@@ -1,41 +1,41 @@
 {
-  "checked_at": "2026-07-18T13:26:54.357739+00:00",
-  "monitor_state": "monitor_error",
+  "checked_at": "2026-07-18T13:35:51.233043+00:00",
+  "monitor_state": "ok",
   "results": [
     {
       "source_id": "mod-ru",
-      "state": "unknown",
+      "state": "unavailable",
       "http_status": null,
-      "checked_at": "2026-07-18T13:26:54.357739+00:00",
-      "error": "monitor_network_error"
+      "checked_at": "2026-07-18T13:35:51.233043+00:00",
+      "error": "URLError"
     },
     {
       "source_id": "general-staff-ua",
-      "state": "unknown",
-      "http_status": null,
-      "checked_at": "2026-07-18T13:26:54.357739+00:00",
-      "error": "monitor_network_error"
+      "state": "degraded",
+      "http_status": 403,
+      "checked_at": "2026-07-18T13:35:51.233043+00:00",
+      "error": "HTTP 403"
     },
     {
       "source_id": "mod-ua",
-      "state": "unknown",
-      "http_status": null,
-      "checked_at": "2026-07-18T13:26:54.357739+00:00",
-      "error": "monitor_network_error"
+      "state": "ok",
+      "http_status": 200,
+      "checked_at": "2026-07-18T13:35:51.233043+00:00",
+      "error": null
     },
     {
       "source_id": "isw",
-      "state": "unknown",
-      "http_status": null,
-      "checked_at": "2026-07-18T13:26:54.357739+00:00",
-      "error": "monitor_network_error"
+      "state": "ok",
+      "http_status": 200,
+      "checked_at": "2026-07-18T13:35:51.233043+00:00",
+      "error": null
     },
     {
       "source_id": "openstreetmap",
-      "state": "unknown",
-      "http_status": null,
-      "checked_at": "2026-07-18T13:26:54.357739+00:00",
-      "error": "monitor_network_error"
+      "state": "ok",
+      "http_status": 200,
+      "checked_at": "2026-07-18T13:35:51.233043+00:00",
+      "error": null
     }
   ]
 }
