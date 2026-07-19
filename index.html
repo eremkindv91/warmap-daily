@@ -93,11 +93,11 @@
             <span data-i18n="no_geometry_text">Базовая карта доступна; точечные обновления появятся после 24-часовой задержки.</span>
           </div>
           <div id="mapPointNotice" class="map-point-notice" hidden>
-            <strong>Точечные обновления</strong>
-            <span data-i18n="point_only">Показаны точечные обновления; это не границы контроля.</span>
+            <strong data-i18n="reference_notice_title">Закрашенный слой от 24 апреля 2026</strong>
+            <span data-i18n="reference_notice_text">Открытая оценка Wikimedia Commons; яркие точки поверх — более новые сообщения, а не границы.</span>
           </div>
           <div class="map-legend">
-            <button type="button" data-layer="control_ru" aria-pressed="true"><i class="swatch rus"></i><span data-i18n="legend_ru">Контроль российских сил</span></button>
+            <button type="button" data-layer="reference_ru" aria-pressed="true"><i class="swatch rus"></i><span data-i18n="legend_reference_ru">Оценка контроля РФ · 24.04.2026</span></button>
             <button type="button" data-layer="control_ua" aria-pressed="true"><i class="swatch ukr"></i><span data-i18n="legend_ua">Контроль украинских сил</span></button>
             <button type="button" data-layer="contested" aria-pressed="true"><i class="swatch contested"></i><span data-i18n="legend_contested">Оспариваемая зона</span></button>
             <button type="button" data-layer="unknown" aria-pressed="true"><i class="swatch unknown"></i><span data-i18n="legend_unknown">Неопределённо</span></button>
@@ -105,7 +105,7 @@
             <button type="button" data-layer="previous" aria-pressed="false" class="off"><i class="swatch previous"></i><span data-i18n="legend_previous">Предыдущая граница</span></button>
             <button type="button" data-layer="events" aria-pressed="true"><i class="swatch events"></i><span data-i18n="legend_events">Геолокированные обновления</span></button>
           </div>
-          <p id="mapCaption" class="sr-only">Цвет показывает опубликованную оценку территориального статуса. Яркий слой показывает изменения за выбранный период.</p>
+          <p id="mapCaption" class="sr-only">Красный слой показывает датированную открытую оценку контроля на 24 апреля 2026 года. Яркие точки показывают более новые сообщения и не являются границами.</p>
         </div>
         <aside class="map-aside">
           <div class="aside-head">
@@ -174,7 +174,7 @@
 
   <footer class="footer shell">
     <p><strong>WarMap Daily</strong> · аналитическая карта открытых источников</p>
-    <p><a href="https://github.com/eremkindv91/warmap-daily" target="_blank" rel="noopener noreferrer">Код и журнал изменений ↗</a> · <a href="data/updates.geojson">GeoJSON обновлений</a></p>
+    <p><a href="https://github.com/eremkindv91/warmap-daily" target="_blank" rel="noopener noreferrer">Код и журнал изменений ↗</a> · <a href="data/reference-control.geojson">GeoJSON закрашенного слоя</a> · <a href="data/updates.geojson">точечные обновления</a></p>
   </footer>
 
   <div id="appStatus" class="sr-only" role="status" aria-live="polite"></div>

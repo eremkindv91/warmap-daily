@@ -76,5 +76,18 @@
     "license_status": "odbl_1_0",
     "monitor": true,
     "usage_note": "Используется только как базовая карта; не является источником линии контроля."
+  },
+  {
+    "id": "wikimedia-control-map",
+    "name": "Wikimedia Commons · карта вторжения",
+    "role": "Датированная открытая оценка территориального контроля",
+    "side": "independent",
+    "kind": "licensed_reference_map",
+    "url": "https://commons.wikimedia.org/wiki/File:2022_Russian_invasion_of_Ukraine.svg",
+    "health": "ok",
+    "health_label": "слой опубликован 24.04.2026",
+    "license_status": "cc_by_sa_4_0",
+    "monitor": true,
+    "usage_note": "Закрашенный справочный слой получен из SVG Viewsridge под CC BY-SA 4.0. Дата геометрии показана на карте; слой не считается оперативно подтверждённым snapshot."
   }
 ]

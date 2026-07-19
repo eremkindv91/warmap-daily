@@ -1,5 +1,5 @@
 const paths = {
-  status: 'data/status.json', current: 'data/current.geojson', previous: 'data/previous.geojson',
+  status: 'data/status.json', current: 'data/current.geojson', referenceControl: 'data/reference-control.geojson', previous: 'data/previous.geojson',
   changes: 'data/changes.geojson', updates: 'data/updates.geojson', settlements: 'data/settlements.json', events: 'data/events.json',
   claims: 'data/claims.json', evidence: 'data/evidence.json', sources: 'data/sources.json',
   settlementIndex: 'data/settlements-index.json', sourceHealth: 'data/source-health.json',
@@ -22,11 +22,11 @@ const i18n = {
   uk:{nav_map:'Мапа',nav_changes:'Зміни',nav_events:'Події',nav_sources:'Джерела',nav_archive:'Архів',nav_method:'Методика',about:'Про проєкт',safety_delay:'Дані публікуються із затримкою щонайменше 24 години.',safety_use:'Не використовуйте мапу для навігації, евакуації чи рішень, пов’язаних із безпекою.',hero_title:'Що змінилося<br><em>за останню добу</em>',hero_lede:'Щоденний знімок лінії контролю із затримкою, джерелами та окремим маркуванням заяв сторін.',last_snapshot:'Останнє опубліковане оновлення',version:'Версія',confirmed_area:'підтверджена площа',new_statuses:'Нові точки',settlements:'населених пунктів',events:'Події',confirmed_day:'перевірено й опубліковано',disputed_claims:'Спірні заяви',no_geometry:'не змінюють геометрію',control_map:'МАПА ЗМІН',state_on:'Дані станом на',hours24:'24 години',days7:'7 днів',days30:'30 днів',download:'Завантажити GeoJSON оновлень',no_geometry_title:'Перевірених даних поки немає',no_geometry_text:'Базова мапа доступна; точкові оновлення з’являться після 24-годинної затримки.',search_placeholder:'Знайти населений пункт українською, російською або англійською',bandwidth:'Економія трафіку',bandwidth_on:'Економія трафіку: увімкнено',no_search:'Збігів не знайдено',no_published:'немає опублікованих даних',no_publications:'Публікацій ще немає',fresh_empty:'ОЧІКУЮТЬСЯ ДАНІ',fresh_points:'ГЕОЛОКОВАНІ ОНОВЛЕННЯ',fresh_current:'ДАНІ АКТУАЛЬНІ',fresh_stale:'ДАНІ ЗАСТАРІЛИ',area_day:'Зміна за добу',area_week:'Зміна за 7 днів',area_month:'Зміна за 30 днів'},
   en:{nav_map:'Map',nav_changes:'Changes',nav_events:'Events',nav_sources:'Sources',nav_archive:'Archive',nav_method:'Methodology',about:'About',safety_delay:'Data is published with a delay of at least 24 hours.',safety_use:'Do not use this map for navigation, evacuation, or safety-related decisions.',hero_title:'What changed<br><em>in the last 24 hours</em>',hero_lede:'A daily control-line snapshot with publication delay, linked sources, and separate labels for each side’s claims.',last_snapshot:'Latest published update',version:'Version',confirmed_area:'confirmed area',new_statuses:'New points',settlements:'settlements',events:'Events',confirmed_day:'reviewed and published',disputed_claims:'Disputed claims',no_geometry:'do not change geometry',control_map:'CHANGE MAP',state_on:'Data as of',hours24:'24 hours',days7:'7 days',days30:'30 days',download:'Download updates GeoJSON',no_geometry_title:'No reviewed data yet',no_geometry_text:'The basemap is available. Point updates appear after the 24-hour delay.',search_placeholder:'Find a settlement in Ukrainian, Russian, or English',bandwidth:'Low bandwidth',bandwidth_on:'Low bandwidth: on',no_search:'No matches found',no_published:'no published data',no_publications:'No publications yet',fresh_empty:'AWAITING DATA',fresh_points:'GEOLOCATED UPDATES',fresh_current:'DATA IS CURRENT',fresh_stale:'DATA IS STALE',area_day:'Change in 24 hours',area_week:'Change in 7 days',area_month:'Change in 30 days'}
 };
-Object.assign(i18n.ru,{legend_ru:'Контроль российских сил',legend_ua:'Контроль украинских сил',legend_contested:'Оспариваемая зона',legend_unknown:'Неопределённо',legend_change:'Новое изменение',legend_previous:'Предыдущая граница',legend_events:'Геолокированные обновления',changes_kicker:'ИЗМЕНЕНИЯ',selected_period:'За выбранный период',chronology:'ХРОНОЛОГИЯ',key_events:'Ключевые события',disagreements:'РАСХОЖДЕНИЯ',side_claims:'Заявления сторон',claim_note:'Заявление подтверждает лишь факт публикации. Без независимой проверки оно не меняет карту.',transparency:'ПРОЗРАЧНОСТЬ',sources_title:'Источники и состояние сбора',sources_note:'Для каждого источника показаны роль, лицензия и время последней успешной проверки.',filter_all:'Все',filter_ru:'Российская сторона',filter_ua:'Украинская сторона',filter_independent:'Независимые',daily_archive:'ЕЖЕДНЕВНЫЙ АРХИВ',archive_title:'Версии карты и контрольные суммы',archive_note:'Каждый опубликованный снимок хранит дату, площадь изменений и SHA-256. Выберите дату, чтобы открыть состояние карты на тот день.',snapshot_date:'Дата снимка',current_snapshot:'Текущие данные',methodology:'МЕТОДИКА',method_title:'Автоматический сбор.<br>Ручное решение по геометрии.',no_changes:'За выбранный период нет опубликованных территориальных обновлений.',total_changes:'Полигональная площадь',no_events:'Проверенных событий пока нет.',no_claims:'Неподтверждённых или спорных заявлений пока нет.',no_sources:'Источники этой категории не настроены.',archive_empty:'Архив полигональных снимков появится после первой подтверждённой публикации.',archive_current:'Открыты текущие данные.',point_only:'Показаны точечные обновления; это не границы контроля.',single_source:'Оценка одного OSINT-источника'});
+Object.assign(i18n.ru,{legend_ru:'Контроль российских сил',legend_reference_ru:'Оценка контроля РФ · 24.04.2026',legend_ua:'Контроль украинских сил',legend_contested:'Оспариваемая зона',legend_unknown:'Неопределённо',legend_change:'Новое изменение',legend_previous:'Предыдущая граница',legend_events:'Геолокированные обновления',changes_kicker:'ИЗМЕНЕНИЯ',selected_period:'За выбранный период',chronology:'ХРОНОЛОГИЯ',key_events:'Ключевые события',disagreements:'РАСХОЖДЕНИЯ',side_claims:'Заявления сторон',claim_note:'Заявление подтверждает лишь факт публикации. Без независимой проверки оно не меняет карту.',transparency:'ПРОЗРАЧНОСТЬ',sources_title:'Источники и состояние сбора',sources_note:'Для каждого источника показаны роль, лицензия и время последней успешной проверки.',filter_all:'Все',filter_ru:'Российская сторона',filter_ua:'Украинская сторона',filter_independent:'Независимые',daily_archive:'ЕЖЕДНЕВНЫЙ АРХИВ',archive_title:'Версии карты и контрольные суммы',archive_note:'Каждый опубликованный снимок хранит дату, площадь изменений и SHA-256. Выберите дату, чтобы открыть состояние карты на тот день.',snapshot_date:'Дата снимка',current_snapshot:'Текущие данные',methodology:'МЕТОДИКА',method_title:'Автоматический сбор.<br>Ручное решение по геометрии.',no_changes:'За выбранный период нет опубликованных территориальных обновлений.',total_changes:'Полигональная площадь',no_events:'Проверенных событий пока нет.',no_claims:'Неподтверждённых или спорных заявлений пока нет.',no_sources:'Источники этой категории не настроены.',archive_empty:'Архив полигональных снимков появится после первой подтверждённой публикации.',archive_current:'Открыты текущие данные.',download:'Скачать GeoJSON карты',point_only:'Яркие точки — более новые сообщения, а не границы контроля.',reference_notice_title:'Закрашенный слой от 24 апреля 2026',reference_notice_text:'Открытая оценка Wikimedia Commons; яркие точки поверх — более новые сообщения, а не границы.',single_source:'Оценка одного OSINT-источника'});
 Object.assign(i18n.uk,{legend_ru:'Контроль російських сил',legend_ua:'Контроль українських сил',legend_contested:'Спірна зона',legend_unknown:'Невизначено',legend_change:'Нова зміна',legend_previous:'Попередня межа',legend_events:'Підтверджені події',changes_kicker:'ЗМІНИ',selected_period:'За вибраний період',chronology:'ХРОНОЛОГІЯ',key_events:'Ключові події',disagreements:'РОЗБІЖНОСТІ',side_claims:'Заяви сторін',claim_note:'Заява підтверджує лише факт публікації. Без незалежної перевірки вона не змінює мапу.',transparency:'ПРОЗОРІСТЬ',sources_title:'Джерела та стан збору',sources_note:'Для кожного джерела показано роль, ліцензію та час останньої успішної перевірки.',filter_all:'Усі',filter_ru:'Російська сторона',filter_ua:'Українська сторона',filter_independent:'Незалежні',daily_archive:'ЩОДЕННИЙ АРХІВ',archive_title:'Версії мапи та контрольні суми',archive_note:'Кожен опублікований знімок зберігає дату, площу змін і SHA-256. Виберіть дату, щоб відкрити стан мапи на той день.',snapshot_date:'Дата знімка',current_snapshot:'Поточний знімок',methodology:'МЕТОДИКА',method_title:'Автоматичний збір.<br>Ручне рішення щодо геометрії.',no_changes:'За вибраний період немає опублікованих підтверджених змін.',total_changes:'Загальна площа змін',no_events:'Підтверджених подій поки немає.',no_claims:'Непідтверджених або спірних заяв поки немає.',no_sources:'Джерела цієї категорії не налаштовано.',archive_empty:'Архів з’явиться після першої підтвердженої публікації.',archive_current:'Відкрито поточний опублікований знімок.'});
-Object.assign(i18n.uk,{point_only:'Показано точкові оновлення; це не межі контролю.'});
+Object.assign(i18n.uk,{legend_reference_ru:'Оцінка контролю РФ · 24.04.2026',download:'Завантажити GeoJSON мапи',point_only:'Яскраві точки — новіші повідомлення, а не межі контролю.',reference_notice_title:'Зафарбований шар від 24 квітня 2026',reference_notice_text:'Відкрита оцінка Wikimedia Commons; яскраві точки зверху — новіші повідомлення, а не межі.'});
 Object.assign(i18n.en,{legend_ru:'Russian forces control',legend_ua:'Ukrainian forces control',legend_contested:'Contested area',legend_unknown:'Unknown',legend_change:'New change',legend_previous:'Previous boundary',legend_events:'Confirmed events',changes_kicker:'CHANGES',selected_period:'Selected period',chronology:'TIMELINE',key_events:'Key events',disagreements:'DISAGREEMENTS',side_claims:'Claims by side',claim_note:'A claim confirms only that a statement was published. It does not change the map without independent review.',transparency:'TRANSPARENCY',sources_title:'Sources and collection status',sources_note:'Each source shows its role, licence status, and latest availability check.',filter_all:'All',filter_ru:'Russian side',filter_ua:'Ukrainian side',filter_independent:'Independent',daily_archive:'DAILY ARCHIVE',archive_title:'Map versions and checksums',archive_note:'Every published snapshot records its date, changed area, and SHA-256. Select a date to open the map as it appeared that day.',snapshot_date:'Snapshot date',current_snapshot:'Current snapshot',methodology:'METHODOLOGY',method_title:'Automated collection.<br>Human geometry decision.',no_changes:'No confirmed changes were published for this period.',total_changes:'Total changed area',no_events:'No confirmed events yet.',no_claims:'No unconfirmed or disputed claims yet.',no_sources:'No sources are configured for this category.',archive_empty:'The archive will appear after the first confirmed publication.',archive_current:'Current published snapshot is open.'});
-Object.assign(i18n.en,{point_only:'Point updates are shown; they are not control boundaries.'});
+Object.assign(i18n.en,{legend_reference_ru:'RF control estimate · 24 Apr 2026',download:'Download map GeoJSON',point_only:'Bright points are newer reports, not control boundaries.',reference_notice_title:'Shaded layer dated 24 April 2026',reference_notice_text:'Open Wikimedia Commons estimate; bright points above it are newer reports, not boundaries.'});
 
 const map = L.map('map',{zoomControl:false,minZoom:5,maxZoom:14}).setView([48.7,35.2],6);
 L.control.zoom({position:'topright'}).addTo(map);
@@ -34,8 +34,10 @@ L.control.scale({imperial:false,position:'bottomright'}).addTo(map);
 const baseLayer=L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{
   maxZoom:14,attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);
+map.attributionControl.addAttribution('<a href="https://commons.wikimedia.org/wiki/File:2022_Russian_invasion_of_Ukraine.svg" target="_blank" rel="noopener">Viewsridge / Wikimedia Commons</a> · CC BY-SA 4.0');
 
 const styles = {
+  reference_ru:{color:'#8f332d',fillColor:'#bd584c',fillOpacity:.40,weight:1.2},
   control_ru:{color:'#9e3f37',fillColor:'#bd584c',fillOpacity:.34,weight:1},
   control_ua:{color:'#345a86',fillColor:'#4770a2',fillOpacity:.28,weight:1},
   contested:{color:'#a96c1d',fillColor:'#d89b3c',fillOpacity:.42,weight:1,dashArray:'5 4'},
@@ -48,14 +50,14 @@ const layerStyle = feature => styles[feature.properties?.layer||feature.properti
 function popup(feature,layer){
   const p=feature.properties||{};
   const sources=(p.source_ids||[]).map(id=>escapeHtml(sourceName(id))).join(', ');
-  layer.bindPopup(`<div class="map-popup"><strong>${escapeHtml(p.name||'Территориальная оценка')}</strong>${p.summary?`<p>${escapeHtml(p.summary)}</p>`:''}<dl><dt>Статус</dt><dd>${escapeHtml(statusLabel(p.to_status||p.status))}</dd><dt>Площадь</dt><dd>${p.area_km2!=null?formatArea(p.area_km2):'—'}</dd><dt>Confidence</dt><dd>${p.confidence!=null?Number(p.confidence).toFixed(2):'—'}</dd>${sources?`<dt>Источники</dt><dd>${sources}</dd>`:''}</dl></div>`);
+  layer.bindPopup(`<div class="map-popup"><strong>${escapeHtml(p.name||'Территориальная оценка')}</strong>${p.summary?`<p>${escapeHtml(p.summary)}</p>`:''}<dl><dt>Статус</dt><dd>${escapeHtml(statusLabel(p.to_status||p.status))}</dd>${p.reference_date?`<dt>Дата слоя</dt><dd>${escapeHtml(formatDate(p.reference_date))}</dd>`:''}<dt>Площадь</dt><dd>${p.area_km2!=null?formatArea(p.area_km2):'—'}</dd><dt>Confidence</dt><dd>${p.confidence!=null?Number(p.confidence).toFixed(2):'—'}</dd>${sources?`<dt>Источник</dt><dd>${sources}</dd>`:''}${p.license?`<dt>Лицензия</dt><dd>${escapeHtml(p.license)}</dd>`:''}</dl></div>`);
 }
 
 function statusLabel(status){
   const labels={
-    ru:{control_ru:'Контроль российских сил',control_ua:'Контроль украинских сил',contested:'Оспариваемая зона',unknown:'Неопределённо'},
-    uk:{control_ru:'Контроль російських сил',control_ua:'Контроль українських сил',contested:'Спірна зона',unknown:'Невизначено'},
-    en:{control_ru:'Russian forces control',control_ua:'Ukrainian forces control',contested:'Contested',unknown:'Unknown'}
+    ru:{reference_ru:'Датированная оценка контроля РФ',control_ru:'Контроль российских сил',control_ua:'Контроль украинских сил',contested:'Оспариваемая зона',unknown:'Неопределённо'},
+    uk:{reference_ru:'Датована оцінка контролю РФ',control_ru:'Контроль російських сил',control_ua:'Контроль українських сил',contested:'Спірна зона',unknown:'Невизначено'},
+    en:{reference_ru:'Dated RF control estimate',control_ru:'Russian forces control',control_ua:'Ukrainian forces control',contested:'Contested',unknown:'Unknown'}
   };
   return labels[state.language]?.[status]||({ru:'Не указан',uk:'Не вказано',en:'Not specified'})[state.language];
 }
@@ -90,8 +92,9 @@ function addGeoLayer(key,collection,styleOverride){
   return layer;
 }
 
-function renderMap(current,previous,changes,settlements,claims,events=[]){
+function renderMap(current,referenceControl,previous,changes,settlements,claims,events=[]){
   clearOperationalLayers();
+  addGeoLayer('reference_ru',referenceControl,()=>styles.reference_ru);
   ['control_ru','control_ua','contested','unknown'].forEach(status=>{
     addGeoLayer(status,{type:'FeatureCollection',features:(current.features||[]).filter(f=>f.properties?.status===status)});
   });
@@ -150,9 +153,10 @@ function renderStatus(status,settlements,events,claims){
   $('eventCount').textContent=events.filter(e=>['confirmed','probable','corrected'].includes(e.verification_status)).length;
   $('disputedCount').textContent=[...events,...claims].filter(e=>['claim','disputed'].includes(e.verification_status)).length;
   const hasPoints=events.some(event=>['confirmed','probable','corrected'].includes(event.verification_status)&&event.location);
-  $('mapEmpty').hidden=Boolean(state.data.current?.features?.length)||hasPoints;
-  $('mapPointNotice').hidden=Boolean(state.data.current?.features?.length)||!hasPoints;
-  $('downloadGeojson').href=state.data.current?.features?.length?'data/current.geojson':'data/updates.geojson';
+  const hasReference=Boolean(state.data.referenceControl?.features?.length);
+  $('mapEmpty').hidden=Boolean(state.data.current?.features?.length)||hasReference||hasPoints;
+  $('mapPointNotice').hidden=!hasReference&&!hasPoints;
+  $('downloadGeojson').href=state.data.current?.features?.length?'data/current.geojson':hasReference?'data/reference-control.geojson':'data/updates.geojson';
 }
 
 function changeCard(feature){
@@ -298,22 +302,22 @@ async function selectSnapshot(value){
   ]);
   const previous=value==='current'?state.data.previous:emptyGeojson();
   state.data.current=current;state.data.changes=changes;
-  renderMap(current,previous,changes,settlements,state.data.claims,events);renderStatus(status,settlements,events,state.data.claims);renderChanges(changes,'day');
+  renderMap(current,value==='current'?state.data.referenceControl:emptyGeojson(),previous,changes,settlements,state.data.claims,events);renderStatus(status,settlements,events,state.data.claims);renderChanges(changes,'day');
   if(state.lowBandwidth)setLowBandwidth(true);
-  $('downloadGeojson').href=`${base}/current.geojson`;
+  if(value!=='current')$('downloadGeojson').href=`${base}/current.geojson`;
   const record=state.data.manifest.find(item=>item.date===value);
   $('archiveMeta').textContent=record?`${record.change_count} changes · ${formatArea(record.area_change_km2)} · SHA-256 ${record.sha256.slice(0,12)}…`:i18n[state.language].archive_current;
   announce(`Открыт снимок ${value==='current'?'текущий':formatDate(value)}`);
 }
 
 async function init(){
-  const [status,current,previous,changes,updates,settlements,events,claims,evidence,sources,settlementIndex,sourceHealth,manifest,audit]=await Promise.all([
-    getJson(paths.status,{}),getJson(paths.current,emptyGeojson()),getJson(paths.previous,emptyGeojson()),getJson(paths.changes,emptyGeojson()),
+  const [status,current,referenceControl,previous,changes,updates,settlements,events,claims,evidence,sources,settlementIndex,sourceHealth,manifest,audit]=await Promise.all([
+    getJson(paths.status,{}),getJson(paths.current,emptyGeojson()),getJson(paths.referenceControl,emptyGeojson()),getJson(paths.previous,emptyGeojson()),getJson(paths.changes,emptyGeojson()),
     getJson(paths.updates,emptyGeojson()),getJson(paths.settlements,[]),getJson(paths.events,[]),getJson(paths.claims,[]),getJson(paths.evidence,[]),getJson(paths.sources,[]),
     getJson(paths.settlementIndex,[]),getJson(paths.sourceHealth,{checked_at:null,results:[]}),getJson(paths.manifest,[]),getJson(paths.audit,[])
   ]);
-  state.data={status,current,previous,changes,updates,settlements,events,claims,evidence,sources,settlementIndex,sourceHealth,manifest,audit};
-  renderMap(current,previous,changes,settlements,claims,events);renderStatus(status,settlements,events,claims);renderChanges(changes);renderEvents(events,claims);renderSources();renderArchive(manifest);
+  state.data={status,current,referenceControl,previous,changes,updates,settlements,events,claims,evidence,sources,settlementIndex,sourceHealth,manifest,audit};
+  renderMap(current,referenceControl,previous,changes,settlements,claims,events);renderStatus(status,settlements,events,claims);renderChanges(changes);renderEvents(events,claims);renderSources();renderArchive(manifest);
   let savedLanguage='ru',savedBandwidth=false;try{savedLanguage=localStorage.getItem('warmap-language')||'ru';savedBandwidth=localStorage.getItem('warmap-low-bandwidth')==='true'}catch{}
   $('languageSelect').value=i18n[savedLanguage]?savedLanguage:'ru';setLanguage($('languageSelect').value);setLowBandwidth(savedBandwidth);
   announce('Карта и реестр источников загружены');
