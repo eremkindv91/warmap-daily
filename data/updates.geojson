@@ -3,6 +3,66 @@
   "features": [
     {
       "type": "Feature",
+      "id": "deepstate-ee6143b30a8071f7",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.9457903,
+          48.7700502
+        ]
+      },
+      "properties": {
+        "id": "deepstate-ee6143b30a8071f7",
+        "title": "Геолокированное обновление: Пазено",
+        "title_uk": "Геолоковане оновлення: Пазено",
+        "title_en": "Geolocated map update: Пазено",
+        "summary": "По оценке DeepStateMAP, российские силы продвинулись в районе Пазено.",
+        "summary_uk": "Ворог просунувся поблизу Пазено та Родинського",
+        "summary_en": "DeepStateMAP assesses that Russian forces advanced near Пазено.",
+        "event_date": "2026-07-18",
+        "published_at": "2026-07-18T15:25:05+00:00",
+        "verification_status": "probable",
+        "source_ids": [
+          "deepstate-map"
+        ],
+        "evidence_ids": [
+          "ev-deepstate-ee6143b30a8071f7"
+        ],
+        "location_label": "Пазено"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "deepstate-1e596bd588c7b493",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.1824765,
+          48.34438
+        ]
+      },
+      "properties": {
+        "id": "deepstate-1e596bd588c7b493",
+        "title": "Геолокированное обновление: Родинського",
+        "title_uk": "Геолоковане оновлення: Родинського",
+        "title_en": "Geolocated map update: Родинського",
+        "summary": "По оценке DeepStateMAP, российские силы продвинулись в районе Родинського.",
+        "summary_uk": "Ворог просунувся поблизу Пазено та Родинського",
+        "summary_en": "DeepStateMAP assesses that Russian forces advanced near Родинського.",
+        "event_date": "2026-07-18",
+        "published_at": "2026-07-18T15:25:05+00:00",
+        "verification_status": "probable",
+        "source_ids": [
+          "deepstate-map"
+        ],
+        "evidence_ids": [
+          "ev-deepstate-1e596bd588c7b493"
+        ],
+        "location_label": "Родинського"
+      }
+    },
+    {
+      "type": "Feature",
       "id": "deepstate-e31da50e77eb38a5",
       "geometry": {
         "type": "Point",
@@ -29,36 +89,6 @@
           "ev-deepstate-e31da50e77eb38a5"
         ],
         "location_label": "Іванопілля"
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "deepstate-1025d9b270f6634a",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          37.2294474,
-          48.4240851
-        ]
-      },
-      "properties": {
-        "id": "deepstate-1025d9b270f6634a",
-        "title": "Геолокированное обновление: Дорожное",
-        "title_uk": "Геолоковане оновлення: Дорожнє",
-        "title_en": "Geolocated map update: Dorozhnie",
-        "summary": "По оценке DeepStateMAP, российские силы продвинулись в районе Дорожное.",
-        "summary_uk": "Ворог просунувся поблизу Дорожнього",
-        "summary_en": "DeepStateMAP assesses that Russian forces advanced near Dorozhnie.",
-        "event_date": "2026-07-15",
-        "published_at": "2026-07-15T14:40:25+00:00",
-        "verification_status": "probable",
-        "source_ids": [
-          "deepstate-map"
-        ],
-        "evidence_ids": [
-          "ev-deepstate-1025d9b270f6634a"
-        ],
-        "location_label": "Дорожнє"
       }
     }
   ]

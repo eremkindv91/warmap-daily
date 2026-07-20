@@ -1,54 +1,54 @@
 {
-  "checked_at": "2026-07-19T06:07:17.577202+00:00",
+  "checked_at": "2026-07-20T06:25:09.666391+00:00",
   "monitor_state": "ok",
   "results": [
     {
       "source_id": "mod-ru",
       "state": "unavailable",
       "http_status": null,
-      "checked_at": "2026-07-19T06:07:17.577202+00:00",
+      "checked_at": "2026-07-20T06:25:09.666391+00:00",
       "error": "URLError"
     },
     {
       "source_id": "general-staff-ua",
       "state": "degraded",
       "http_status": 403,
-      "checked_at": "2026-07-19T06:07:17.577202+00:00",
+      "checked_at": "2026-07-20T06:25:09.666391+00:00",
       "error": "HTTP 403"
     },
     {
       "source_id": "mod-ua",
       "state": "ok",
       "http_status": 200,
-      "checked_at": "2026-07-19T06:07:17.577202+00:00",
+      "checked_at": "2026-07-20T06:25:09.666391+00:00",
       "error": null
     },
     {
       "source_id": "isw",
       "state": "ok",
       "http_status": 200,
-      "checked_at": "2026-07-19T06:07:17.577202+00:00",
+      "checked_at": "2026-07-20T06:25:09.666391+00:00",
       "error": null
     },
     {
       "source_id": "deepstate-map",
       "state": "ok",
       "http_status": 200,
-      "checked_at": "2026-07-19T06:07:17.577202+00:00",
+      "checked_at": "2026-07-20T06:25:09.666391+00:00",
       "error": null
     },
     {
       "source_id": "openstreetmap",
       "state": "ok",
       "http_status": 200,
-      "checked_at": "2026-07-19T06:07:17.577202+00:00",
+      "checked_at": "2026-07-20T06:25:09.666391+00:00",
       "error": null
     },
     {
       "source_id": "wikimedia-control-map",
       "state": "ok",
       "http_status": 200,
-      "checked_at": "2026-07-19T06:07:17.577202+00:00",
+      "checked_at": "2026-07-20T06:25:09.666391+00:00",
       "error": null
     }
   ]

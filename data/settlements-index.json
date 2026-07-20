@@ -1,23 +1,5 @@
 [
   {
-    "id": "settlement-deepstate-1025d9b270f6634a",
-    "name": "Дорожное",
-    "name_uk": "Дорожнє",
-    "name_ru": "Дорожное",
-    "name_en": "Dorozhnie",
-    "aliases": [
-      "Dorozhnie",
-      "Дорожное",
-      "Дорожнього",
-      "Дорожнє"
-    ],
-    "admin1": "Донецька область",
-    "lat": 48.4240851,
-    "lon": 37.2294474,
-    "status": "unknown",
-    "source_id": "deepstate-map"
-  },
-  {
     "id": "settlement-deepstate-e31da50e77eb38a5",
     "name": "Иванополье",
     "name_uk": "Іванопілля",
@@ -31,6 +13,36 @@
     "admin1": "Донецька область",
     "lat": 48.462732,
     "lon": 37.7395391,
+    "status": "unknown",
+    "source_id": "deepstate-map"
+  },
+  {
+    "id": "settlement-deepstate-ee6143b30a8071f7",
+    "name": "Пазено",
+    "name_uk": "Пазено",
+    "name_ru": "Пазено",
+    "name_en": "Пазено",
+    "aliases": [
+      "Пазено"
+    ],
+    "admin1": "Україна",
+    "lat": 48.7700502,
+    "lon": 37.9457903,
+    "status": "unknown",
+    "source_id": "deepstate-map"
+  },
+  {
+    "id": "settlement-deepstate-1e596bd588c7b493",
+    "name": "Родинського",
+    "name_uk": "Родинського",
+    "name_ru": "Родинського",
+    "name_en": "Родинського",
+    "aliases": [
+      "Родинського"
+    ],
+    "admin1": "Україна",
+    "lat": 48.34438,
+    "lon": 37.1824765,
     "status": "unknown",
     "source_id": "deepstate-map"
   }
