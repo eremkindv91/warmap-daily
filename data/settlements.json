@@ -17,6 +17,36 @@
     "source_id": "deepstate-map"
   },
   {
+    "id": "settlement-deepstate-0f7df65a414d6ea2",
+    "name": "Міньківки",
+    "name_uk": "Міньківки",
+    "name_ru": "Міньківки",
+    "name_en": "Міньківки",
+    "aliases": [
+      "Міньківки"
+    ],
+    "admin1": "Україна",
+    "lat": 48.6960295,
+    "lon": 37.8178167,
+    "status": "unknown",
+    "source_id": "deepstate-map"
+  },
+  {
+    "id": "settlement-deepstate-467f3706436a2cc2",
+    "name": "Новомаркового",
+    "name_uk": "Новомаркового",
+    "name_ru": "Новомаркового",
+    "name_en": "Новомаркового",
+    "aliases": [
+      "Новомаркового"
+    ],
+    "admin1": "Україна",
+    "lat": 48.6710413,
+    "lon": 37.804513,
+    "status": "unknown",
+    "source_id": "deepstate-map"
+  },
+  {
     "id": "settlement-deepstate-ee6143b30a8071f7",
     "name": "Пазено",
     "name_uk": "Пазено",

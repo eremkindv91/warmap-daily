@@ -1,5 +1,57 @@
 [
   {
+    "id": "deepstate-467f3706436a2cc2",
+    "title": "Геолокированное обновление: Новомаркового",
+    "title_uk": "Геолоковане оновлення: Новомаркового",
+    "title_en": "Geolocated map update: Новомаркового",
+    "summary": "По оценке DeepStateMAP, российские силы продвинулись в районе Новомаркового.",
+    "summary_uk": "Ворог просунувся поблизу Міньківки та Новомаркового",
+    "summary_en": "DeepStateMAP assesses that Russian forces advanced near Новомаркового.",
+    "event_date": "2026-07-19",
+    "published_at": "2026-07-19T18:41:27+00:00",
+    "verification_status": "probable",
+    "event_kind": "territorial_update",
+    "source_ids": [
+      "deepstate-map"
+    ],
+    "evidence_ids": [
+      "ev-deepstate-467f3706436a2cc2"
+    ],
+    "location": {
+      "lat": 48.6710413,
+      "lon": 37.804513
+    },
+    "location_label": "Новомаркового",
+    "settlement_id": "settlement-deepstate-467f3706436a2cc2",
+    "publication_note": "Точка взята из прямой ссылки DeepStateMAP. Контур территории не публикуется и не выводится из точки."
+  },
+  {
+    "id": "deepstate-0f7df65a414d6ea2",
+    "title": "Геолокированное обновление: Міньківки",
+    "title_uk": "Геолоковане оновлення: Міньківки",
+    "title_en": "Geolocated map update: Міньківки",
+    "summary": "По оценке DeepStateMAP, российские силы продвинулись в районе Міньківки.",
+    "summary_uk": "Ворог просунувся поблизу Міньківки та Новомаркового",
+    "summary_en": "DeepStateMAP assesses that Russian forces advanced near Міньківки.",
+    "event_date": "2026-07-19",
+    "published_at": "2026-07-19T18:41:27+00:00",
+    "verification_status": "probable",
+    "event_kind": "territorial_update",
+    "source_ids": [
+      "deepstate-map"
+    ],
+    "evidence_ids": [
+      "ev-deepstate-0f7df65a414d6ea2"
+    ],
+    "location": {
+      "lat": 48.6960295,
+      "lon": 37.8178167
+    },
+    "location_label": "Міньківки",
+    "settlement_id": "settlement-deepstate-0f7df65a414d6ea2",
+    "publication_note": "Точка взята из прямой ссылки DeepStateMAP. Контур территории не публикуется и не выводится из точки."
+  },
+  {
     "id": "deepstate-ee6143b30a8071f7",
     "title": "Геолокированное обновление: Пазено",
     "title_uk": "Геолоковане оновлення: Пазено",
