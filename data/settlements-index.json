@@ -62,6 +62,21 @@
     "source_id": "deepstate-map"
   },
   {
+    "id": "settlement-deepstate-b358003315914a36",
+    "name": "Рай-Олександрівки",
+    "name_uk": "Рай-Олександрівки",
+    "name_ru": "Рай-Олександрівки",
+    "name_en": "Рай-Олександрівки",
+    "aliases": [
+      "Рай-Олександрівки"
+    ],
+    "admin1": "Україна",
+    "lat": 48.834811,
+    "lon": 37.8894854,
+    "status": "unknown",
+    "source_id": "deepstate-map"
+  },
+  {
     "id": "settlement-deepstate-1e596bd588c7b493",
     "name": "Родинського",
     "name_uk": "Родинського",

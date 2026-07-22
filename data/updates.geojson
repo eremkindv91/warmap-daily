@@ -3,6 +3,36 @@
   "features": [
     {
       "type": "Feature",
+      "id": "deepstate-b358003315914a36",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.8894854,
+          48.834811
+        ]
+      },
+      "properties": {
+        "id": "deepstate-b358003315914a36",
+        "title": "Геолокированное обновление: Рай-Олександрівки",
+        "title_uk": "Геолоковане оновлення: Рай-Олександрівки",
+        "title_en": "Geolocated map update: Рай-Олександрівки",
+        "summary": "По оценке DeepStateMAP, российские силы продвинулись в районе Рай-Олександрівки.",
+        "summary_uk": "Ворог просунувся поблизу Рай-Олександрівки",
+        "summary_en": "DeepStateMAP assesses that Russian forces advanced near Рай-Олександрівки.",
+        "event_date": "2026-07-20",
+        "published_at": "2026-07-20T20:55:51+00:00",
+        "verification_status": "probable",
+        "source_ids": [
+          "deepstate-map"
+        ],
+        "evidence_ids": [
+          "ev-deepstate-b358003315914a36"
+        ],
+        "location_label": "Рай-Олександрівки"
+      }
+    },
+    {
+      "type": "Feature",
       "id": "deepstate-467f3706436a2cc2",
       "geometry": {
         "type": "Point",
