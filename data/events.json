@@ -1,5 +1,57 @@
 [
   {
+    "id": "deepstate-c19708736ea5cc0e",
+    "title": "Геолокированное обновление: Никанорівки",
+    "title_uk": "Геолоковане оновлення: Никанорівки",
+    "title_en": "Geolocated map update: Никанорівки",
+    "summary": "По оценке DeepStateMAP, российские силы продвинулись в районе Никанорівки.",
+    "summary_uk": "Ворог просунувся поблизу Никанорівки",
+    "summary_en": "DeepStateMAP assesses that Russian forces advanced near Никанорівки.",
+    "event_date": "2026-07-22",
+    "published_at": "2026-07-22T12:37:32+00:00",
+    "verification_status": "probable",
+    "event_kind": "territorial_update",
+    "source_ids": [
+      "deepstate-map"
+    ],
+    "evidence_ids": [
+      "ev-deepstate-c19708736ea5cc0e"
+    ],
+    "location": {
+      "lat": 48.4141044,
+      "lon": 37.2388029
+    },
+    "location_label": "Никанорівки",
+    "settlement_id": "settlement-deepstate-c19708736ea5cc0e",
+    "publication_note": "Точка взята из прямой ссылки DeepStateMAP. Контур территории не публикуется и не выводится из точки."
+  },
+  {
+    "id": "deepstate-bc3dcaa36a8f14a4",
+    "title": "Геолокированное обновление: Залізничного",
+    "title_uk": "Геолоковане оновлення: Залізничного",
+    "title_en": "Geolocated map update: Залізничного",
+    "summary": "По оценке DeepStateMAP, российские силы продвинулись в районе Залізничного.",
+    "summary_uk": "Ворог просунувся поблизу Залізничного",
+    "summary_en": "DeepStateMAP assesses that Russian forces advanced near Залізничного.",
+    "event_date": "2026-07-22",
+    "published_at": "2026-07-22T09:29:31+00:00",
+    "verification_status": "probable",
+    "event_kind": "territorial_update",
+    "source_ids": [
+      "deepstate-map"
+    ],
+    "evidence_ids": [
+      "ev-deepstate-bc3dcaa36a8f14a4"
+    ],
+    "location": {
+      "lat": 47.6283809,
+      "lon": 36.1518002
+    },
+    "location_label": "Залізничного",
+    "settlement_id": "settlement-deepstate-bc3dcaa36a8f14a4",
+    "publication_note": "Точка взята из прямой ссылки DeepStateMAP. Контур территории не публикуется и не выводится из точки."
+  },
+  {
     "id": "deepstate-b358003315914a36",
     "title": "Геолокированное обновление: Рай-Олександрівки",
     "title_uk": "Геолоковане оновлення: Рай-Олександрівки",
@@ -127,32 +179,6 @@
     },
     "location_label": "Родинського",
     "settlement_id": "settlement-deepstate-1e596bd588c7b493",
-    "publication_note": "Точка взята из прямой ссылки DeepStateMAP. Контур территории не публикуется и не выводится из точки."
-  },
-  {
-    "id": "deepstate-e31da50e77eb38a5",
-    "title": "Геолокированное обновление: Иванополье",
-    "title_uk": "Геолоковане оновлення: Іванопілля",
-    "title_en": "Geolocated map update: Ivanopillia",
-    "summary": "По оценке DeepStateMAP, российские силы продвинулись в районе Иванополье.",
-    "summary_uk": "Ворог просунувся поблизу Іванопілля",
-    "summary_en": "DeepStateMAP assesses that Russian forces advanced near Ivanopillia.",
-    "event_date": "2026-07-17",
-    "published_at": "2026-07-17T05:04:15+00:00",
-    "verification_status": "probable",
-    "event_kind": "territorial_update",
-    "source_ids": [
-      "deepstate-map"
-    ],
-    "evidence_ids": [
-      "ev-deepstate-e31da50e77eb38a5"
-    ],
-    "location": {
-      "lat": 48.462732,
-      "lon": 37.7395391
-    },
-    "location_label": "Іванопілля",
-    "settlement_id": "settlement-deepstate-e31da50e77eb38a5",
     "publication_note": "Точка взята из прямой ссылки DeepStateMAP. Контур территории не публикуется и не выводится из точки."
   }
 ]

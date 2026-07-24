@@ -1,18 +1,16 @@
 [
   {
-    "id": "settlement-deepstate-e31da50e77eb38a5",
-    "name": "Иванополье",
-    "name_uk": "Іванопілля",
-    "name_ru": "Иванополье",
-    "name_en": "Ivanopillia",
+    "id": "settlement-deepstate-bc3dcaa36a8f14a4",
+    "name": "Залізничного",
+    "name_uk": "Залізничного",
+    "name_ru": "Залізничного",
+    "name_en": "Залізничного",
     "aliases": [
-      "Ivanopillia",
-      "Іванопілля",
-      "Иванополье"
+      "Залізничного"
     ],
-    "admin1": "Донецька область",
-    "lat": 48.462732,
-    "lon": 37.7395391,
+    "admin1": "Україна",
+    "lat": 47.6283809,
+    "lon": 36.1518002,
     "status": "unknown",
     "source_id": "deepstate-map"
   },
@@ -28,6 +26,21 @@
     "admin1": "Україна",
     "lat": 48.6960295,
     "lon": 37.8178167,
+    "status": "unknown",
+    "source_id": "deepstate-map"
+  },
+  {
+    "id": "settlement-deepstate-c19708736ea5cc0e",
+    "name": "Никанорівки",
+    "name_uk": "Никанорівки",
+    "name_ru": "Никанорівки",
+    "name_en": "Никанорівки",
+    "aliases": [
+      "Никанорівки"
+    ],
+    "admin1": "Україна",
+    "lat": 48.4141044,
+    "lon": 37.2388029,
     "status": "unknown",
     "source_id": "deepstate-map"
   },
