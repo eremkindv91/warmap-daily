@@ -3,6 +3,36 @@
   "features": [
     {
       "type": "Feature",
+      "id": "deepstate-d89d4ed98264cb4b",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          36.7342901,
+          48.0841551
+        ]
+      },
+      "properties": {
+        "id": "deepstate-d89d4ed98264cb4b",
+        "title": "Геолокированное обновление: Філії",
+        "title_uk": "Геолоковане оновлення: Філії",
+        "title_en": "Geolocated map update: Філії",
+        "summary": "По оценке DeepStateMAP, российские силы продвинулись в районе Філії.",
+        "summary_uk": "Сили Оборони України відкинули ворога поблизу Філії",
+        "summary_en": "DeepStateMAP assesses that Russian forces advanced near Філії.",
+        "event_date": "2026-07-23",
+        "published_at": "2026-07-23T13:59:34+00:00",
+        "verification_status": "probable",
+        "source_ids": [
+          "deepstate-map"
+        ],
+        "evidence_ids": [
+          "ev-deepstate-d89d4ed98264cb4b"
+        ],
+        "location_label": "Філії"
+      }
+    },
+    {
+      "type": "Feature",
       "id": "deepstate-c19708736ea5cc0e",
       "geometry": {
         "type": "Point",

@@ -103,5 +103,20 @@
     "lon": 37.1824765,
     "status": "unknown",
     "source_id": "deepstate-map"
+  },
+  {
+    "id": "settlement-deepstate-d89d4ed98264cb4b",
+    "name": "Філії",
+    "name_uk": "Філії",
+    "name_ru": "Філії",
+    "name_en": "Філії",
+    "aliases": [
+      "Філії"
+    ],
+    "admin1": "Україна",
+    "lat": 48.0841551,
+    "lon": 36.7342901,
+    "status": "unknown",
+    "source_id": "deepstate-map"
   }
 ]
