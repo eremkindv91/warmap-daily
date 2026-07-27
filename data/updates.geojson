@@ -3,6 +3,66 @@
   "features": [
     {
       "type": "Feature",
+      "id": "deepstate-0c53e668219b88dc",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.8903866,
+          48.8457962
+        ]
+      },
+      "properties": {
+        "id": "deepstate-0c53e668219b88dc",
+        "title": "Геолокированное обновление: Калеників",
+        "title_uk": "Геолоковане оновлення: Калеників",
+        "title_en": "Geolocated map update: Калеників",
+        "summary": "По оценке DeepStateMAP, российские силы продвинулись в районе Калеників.",
+        "summary_uk": "Ворог просунувся поблизу Малих Проходів та Калеників",
+        "summary_en": "DeepStateMAP assesses that Russian forces advanced near Калеників.",
+        "event_date": "2026-07-25",
+        "published_at": "2026-07-25T17:10:01+00:00",
+        "verification_status": "probable",
+        "source_ids": [
+          "deepstate-map"
+        ],
+        "evidence_ids": [
+          "ev-deepstate-0c53e668219b88dc"
+        ],
+        "location_label": "Калеників"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "deepstate-0ab63d6fc2e33c25",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          36.3725567,
+          50.2845132
+        ]
+      },
+      "properties": {
+        "id": "deepstate-0ab63d6fc2e33c25",
+        "title": "Геолокированное обновление: Малих Проходів",
+        "title_uk": "Геолоковане оновлення: Малих Проходів",
+        "title_en": "Geolocated map update: Малих Проходів",
+        "summary": "По оценке DeepStateMAP, российские силы продвинулись в районе Малих Проходів.",
+        "summary_uk": "Ворог просунувся поблизу Малих Проходів та Калеників",
+        "summary_en": "DeepStateMAP assesses that Russian forces advanced near Малих Проходів.",
+        "event_date": "2026-07-25",
+        "published_at": "2026-07-25T17:10:01+00:00",
+        "verification_status": "probable",
+        "source_ids": [
+          "deepstate-map"
+        ],
+        "evidence_ids": [
+          "ev-deepstate-0ab63d6fc2e33c25"
+        ],
+        "location_label": "Малих Проходів"
+      }
+    },
+    {
+      "type": "Feature",
       "id": "deepstate-d89d4ed98264cb4b",
       "geometry": {
         "type": "Point",

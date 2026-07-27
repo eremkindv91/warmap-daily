@@ -1,5 +1,57 @@
 [
   {
+    "id": "deepstate-0c53e668219b88dc",
+    "title": "Геолокированное обновление: Калеників",
+    "title_uk": "Геолоковане оновлення: Калеників",
+    "title_en": "Geolocated map update: Калеників",
+    "summary": "По оценке DeepStateMAP, российские силы продвинулись в районе Калеників.",
+    "summary_uk": "Ворог просунувся поблизу Малих Проходів та Калеників",
+    "summary_en": "DeepStateMAP assesses that Russian forces advanced near Калеників.",
+    "event_date": "2026-07-25",
+    "published_at": "2026-07-25T17:10:01+00:00",
+    "verification_status": "probable",
+    "event_kind": "territorial_update",
+    "source_ids": [
+      "deepstate-map"
+    ],
+    "evidence_ids": [
+      "ev-deepstate-0c53e668219b88dc"
+    ],
+    "location": {
+      "lat": 48.8457962,
+      "lon": 37.8903866
+    },
+    "location_label": "Калеників",
+    "settlement_id": "settlement-deepstate-0c53e668219b88dc",
+    "publication_note": "Точка взята из прямой ссылки DeepStateMAP. Контур территории не публикуется и не выводится из точки."
+  },
+  {
+    "id": "deepstate-0ab63d6fc2e33c25",
+    "title": "Геолокированное обновление: Малих Проходів",
+    "title_uk": "Геолоковане оновлення: Малих Проходів",
+    "title_en": "Geolocated map update: Малих Проходів",
+    "summary": "По оценке DeepStateMAP, российские силы продвинулись в районе Малих Проходів.",
+    "summary_uk": "Ворог просунувся поблизу Малих Проходів та Калеників",
+    "summary_en": "DeepStateMAP assesses that Russian forces advanced near Малих Проходів.",
+    "event_date": "2026-07-25",
+    "published_at": "2026-07-25T17:10:01+00:00",
+    "verification_status": "probable",
+    "event_kind": "territorial_update",
+    "source_ids": [
+      "deepstate-map"
+    ],
+    "evidence_ids": [
+      "ev-deepstate-0ab63d6fc2e33c25"
+    ],
+    "location": {
+      "lat": 50.2845132,
+      "lon": 36.3725567
+    },
+    "location_label": "Малих Проходів",
+    "settlement_id": "settlement-deepstate-0ab63d6fc2e33c25",
+    "publication_note": "Точка взята из прямой ссылки DeepStateMAP. Контур территории не публикуется и не выводится из точки."
+  },
+  {
     "id": "deepstate-d89d4ed98264cb4b",
     "title": "Геолокированное обновление: Філії",
     "title_uk": "Геолоковане оновлення: Філії",

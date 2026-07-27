@@ -15,6 +15,36 @@
     "source_id": "deepstate-map"
   },
   {
+    "id": "settlement-deepstate-0c53e668219b88dc",
+    "name": "Калеників",
+    "name_uk": "Калеників",
+    "name_ru": "Калеників",
+    "name_en": "Калеників",
+    "aliases": [
+      "Калеників"
+    ],
+    "admin1": "Україна",
+    "lat": 48.8457962,
+    "lon": 37.8903866,
+    "status": "unknown",
+    "source_id": "deepstate-map"
+  },
+  {
+    "id": "settlement-deepstate-0ab63d6fc2e33c25",
+    "name": "Малих Проходів",
+    "name_uk": "Малих Проходів",
+    "name_ru": "Малих Проходів",
+    "name_en": "Малих Проходів",
+    "aliases": [
+      "Малих Проходів"
+    ],
+    "admin1": "Україна",
+    "lat": 50.2845132,
+    "lon": 36.3725567,
+    "status": "unknown",
+    "source_id": "deepstate-map"
+  },
+  {
     "id": "settlement-deepstate-0f7df65a414d6ea2",
     "name": "Міньківки",
     "name_uk": "Міньківки",
