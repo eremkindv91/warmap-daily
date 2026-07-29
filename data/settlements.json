@@ -45,7 +45,7 @@
     "source_id": "deepstate-map"
   },
   {
-    "id": "settlement-deepstate-0f7df65a414d6ea2",
+    "id": "settlement-deepstate-e3663aaca65e4d50",
     "name": "Міньківки",
     "name_uk": "Міньківки",
     "name_ru": "Міньківки",
@@ -54,8 +54,8 @@
       "Міньківки"
     ],
     "admin1": "Україна",
-    "lat": 48.6960295,
-    "lon": 37.8178167,
+    "lat": 48.697759,
+    "lon": 37.8135681,
     "status": "unknown",
     "source_id": "deepstate-map"
   },
@@ -75,36 +75,6 @@
     "source_id": "deepstate-map"
   },
   {
-    "id": "settlement-deepstate-467f3706436a2cc2",
-    "name": "Новомаркового",
-    "name_uk": "Новомаркового",
-    "name_ru": "Новомаркового",
-    "name_en": "Новомаркового",
-    "aliases": [
-      "Новомаркового"
-    ],
-    "admin1": "Україна",
-    "lat": 48.6710413,
-    "lon": 37.804513,
-    "status": "unknown",
-    "source_id": "deepstate-map"
-  },
-  {
-    "id": "settlement-deepstate-ee6143b30a8071f7",
-    "name": "Пазено",
-    "name_uk": "Пазено",
-    "name_ru": "Пазено",
-    "name_en": "Пазено",
-    "aliases": [
-      "Пазено"
-    ],
-    "admin1": "Україна",
-    "lat": 48.7700502,
-    "lon": 37.9457903,
-    "status": "unknown",
-    "source_id": "deepstate-map"
-  },
-  {
     "id": "settlement-deepstate-b358003315914a36",
     "name": "Рай-Олександрівки",
     "name_uk": "Рай-Олександрівки",
@@ -116,21 +86,6 @@
     "admin1": "Україна",
     "lat": 48.834811,
     "lon": 37.8894854,
-    "status": "unknown",
-    "source_id": "deepstate-map"
-  },
-  {
-    "id": "settlement-deepstate-1e596bd588c7b493",
-    "name": "Родинського",
-    "name_uk": "Родинського",
-    "name_ru": "Родинського",
-    "name_en": "Родинського",
-    "aliases": [
-      "Родинського"
-    ],
-    "admin1": "Україна",
-    "lat": 48.34438,
-    "lon": 37.1824765,
     "status": "unknown",
     "source_id": "deepstate-map"
   },
