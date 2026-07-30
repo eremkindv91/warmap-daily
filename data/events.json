@@ -1,5 +1,31 @@
 [
   {
+    "id": "deepstate-142b66daade96488",
+    "title": "Геолокированное обновление: Артільного",
+    "title_uk": "Геолоковане оновлення: Артільного",
+    "title_en": "Geolocated map update: Артільного",
+    "summary": "По оценке DeepStateMAP, российские силы продвинулись в районе Артільного.",
+    "summary_uk": "Ворог просунувся поблизу Артільного",
+    "summary_en": "DeepStateMAP assesses that Russian forces advanced near Артільного.",
+    "event_date": "2026-07-28",
+    "published_at": "2026-07-28T12:05:22+00:00",
+    "verification_status": "probable",
+    "event_kind": "territorial_update",
+    "source_ids": [
+      "deepstate-map"
+    ],
+    "evidence_ids": [
+      "ev-deepstate-142b66daade96488"
+    ],
+    "location": {
+      "lat": 50.2312851,
+      "lon": 37.6096344
+    },
+    "location_label": "Артільного",
+    "settlement_id": "settlement-deepstate-142b66daade96488",
+    "publication_note": "Точка взята из прямой ссылки DeepStateMAP. Контур территории не публикуется и не выводится из точки."
+  },
+  {
     "id": "deepstate-e3663aaca65e4d50",
     "title": "Геолокированное обновление: Міньківки",
     "title_uk": "Геолоковане оновлення: Міньківки",
@@ -153,32 +179,6 @@
     },
     "location_label": "Залізничного",
     "settlement_id": "settlement-deepstate-bc3dcaa36a8f14a4",
-    "publication_note": "Точка взята из прямой ссылки DeepStateMAP. Контур территории не публикуется и не выводится из точки."
-  },
-  {
-    "id": "deepstate-b358003315914a36",
-    "title": "Геолокированное обновление: Рай-Олександрівки",
-    "title_uk": "Геолоковане оновлення: Рай-Олександрівки",
-    "title_en": "Geolocated map update: Рай-Олександрівки",
-    "summary": "По оценке DeepStateMAP, российские силы продвинулись в районе Рай-Олександрівки.",
-    "summary_uk": "Ворог просунувся поблизу Рай-Олександрівки",
-    "summary_en": "DeepStateMAP assesses that Russian forces advanced near Рай-Олександрівки.",
-    "event_date": "2026-07-20",
-    "published_at": "2026-07-20T20:55:51+00:00",
-    "verification_status": "probable",
-    "event_kind": "territorial_update",
-    "source_ids": [
-      "deepstate-map"
-    ],
-    "evidence_ids": [
-      "ev-deepstate-b358003315914a36"
-    ],
-    "location": {
-      "lat": 48.834811,
-      "lon": 37.8894854
-    },
-    "location_label": "Рай-Олександрівки",
-    "settlement_id": "settlement-deepstate-b358003315914a36",
     "publication_note": "Точка взята из прямой ссылки DeepStateMAP. Контур территории не публикуется и не выводится из точки."
   }
 ]
