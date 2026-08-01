@@ -1,106 +1,16 @@
 [
   {
-    "id": "settlement-deepstate-142b66daade96488",
-    "name": "Артільного",
-    "name_uk": "Артільного",
-    "name_ru": "Артільного",
-    "name_en": "Артільного",
+    "id": "settlement-deepstate-c36615216bc1466a",
+    "name": "Новомаркового",
+    "name_uk": "Новомаркового",
+    "name_ru": "Новомаркового",
+    "name_en": "Новомаркового",
     "aliases": [
-      "Артільного"
+      "Новомаркового"
     ],
     "admin1": "Україна",
-    "lat": 50.2312851,
-    "lon": 37.6096344,
-    "status": "unknown",
-    "source_id": "deepstate-map"
-  },
-  {
-    "id": "settlement-deepstate-bc3dcaa36a8f14a4",
-    "name": "Залізничного",
-    "name_uk": "Залізничного",
-    "name_ru": "Залізничного",
-    "name_en": "Залізничного",
-    "aliases": [
-      "Залізничного"
-    ],
-    "admin1": "Україна",
-    "lat": 47.6283809,
-    "lon": 36.1518002,
-    "status": "unknown",
-    "source_id": "deepstate-map"
-  },
-  {
-    "id": "settlement-deepstate-0c53e668219b88dc",
-    "name": "Калеників",
-    "name_uk": "Калеників",
-    "name_ru": "Калеників",
-    "name_en": "Калеників",
-    "aliases": [
-      "Калеників"
-    ],
-    "admin1": "Україна",
-    "lat": 48.8457962,
-    "lon": 37.8903866,
-    "status": "unknown",
-    "source_id": "deepstate-map"
-  },
-  {
-    "id": "settlement-deepstate-0ab63d6fc2e33c25",
-    "name": "Малих Проходів",
-    "name_uk": "Малих Проходів",
-    "name_ru": "Малих Проходів",
-    "name_en": "Малих Проходів",
-    "aliases": [
-      "Малих Проходів"
-    ],
-    "admin1": "Україна",
-    "lat": 50.2845132,
-    "lon": 36.3725567,
-    "status": "unknown",
-    "source_id": "deepstate-map"
-  },
-  {
-    "id": "settlement-deepstate-e3663aaca65e4d50",
-    "name": "Міньківки",
-    "name_uk": "Міньківки",
-    "name_ru": "Міньківки",
-    "name_en": "Міньківки",
-    "aliases": [
-      "Міньківки"
-    ],
-    "admin1": "Україна",
-    "lat": 48.697759,
-    "lon": 37.8135681,
-    "status": "unknown",
-    "source_id": "deepstate-map"
-  },
-  {
-    "id": "settlement-deepstate-c19708736ea5cc0e",
-    "name": "Никанорівки",
-    "name_uk": "Никанорівки",
-    "name_ru": "Никанорівки",
-    "name_en": "Никанорівки",
-    "aliases": [
-      "Никанорівки"
-    ],
-    "admin1": "Україна",
-    "lat": 48.4141044,
-    "lon": 37.2388029,
-    "status": "unknown",
-    "source_id": "deepstate-map"
-  },
-  {
-    "id": "settlement-deepstate-d89d4ed98264cb4b",
-    "name": "Філії",
-    "name_uk": "Філії",
-    "name_ru": "Філії",
-    "name_en": "Філії",
-    "aliases": [
-      "Філії"
-    ],
-    "admin1": "Україна",
-    "lat": 48.0841551,
-    "lon": 36.7342901,
+    "lat": 48.6893173,
+    "lon": 37.7968311,
     "status": "unknown",
     "source_id": "deepstate-map"
   }

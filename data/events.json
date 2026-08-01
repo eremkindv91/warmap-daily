@@ -1,184 +1,28 @@
 [
   {
-    "id": "deepstate-142b66daade96488",
-    "title": "Геолокированное обновление: Артільного",
-    "title_uk": "Геолоковане оновлення: Артільного",
-    "title_en": "Geolocated map update: Артільного",
-    "summary": "По оценке DeepStateMAP, российские силы продвинулись в районе Артільного.",
-    "summary_uk": "Ворог просунувся поблизу Артільного",
-    "summary_en": "DeepStateMAP assesses that Russian forces advanced near Артільного.",
-    "event_date": "2026-07-28",
-    "published_at": "2026-07-28T12:05:22+00:00",
+    "id": "deepstate-c36615216bc1466a",
+    "title": "Геолокированное обновление: Новомаркового",
+    "title_uk": "Геолоковане оновлення: Новомаркового",
+    "title_en": "Geolocated map update: Новомаркового",
+    "summary": "По оценке DeepStateMAP, российские силы продвинулись в районе Новомаркового.",
+    "summary_uk": "Ворог просунувся поблизу Новомаркового . ✈️ Підтримайте збір для хлопців з 46 ОАеМБр на оптичні кабелі до дронів — https://send.monobank.ua/jar/88pkrej9nt",
+    "summary_en": "DeepStateMAP assesses that Russian forces advanced near Новомаркового.",
+    "event_date": "2026-07-30",
+    "published_at": "2026-07-30T14:55:48+00:00",
     "verification_status": "probable",
     "event_kind": "territorial_update",
     "source_ids": [
       "deepstate-map"
     ],
     "evidence_ids": [
-      "ev-deepstate-142b66daade96488"
+      "ev-deepstate-c36615216bc1466a"
     ],
     "location": {
-      "lat": 50.2312851,
-      "lon": 37.6096344
+      "lat": 48.6893173,
+      "lon": 37.7968311
     },
-    "location_label": "Артільного",
-    "settlement_id": "settlement-deepstate-142b66daade96488",
-    "publication_note": "Точка взята из прямой ссылки DeepStateMAP. Контур территории не публикуется и не выводится из точки."
-  },
-  {
-    "id": "deepstate-e3663aaca65e4d50",
-    "title": "Геолокированное обновление: Міньківки",
-    "title_uk": "Геолоковане оновлення: Міньківки",
-    "title_en": "Geolocated map update: Міньківки",
-    "summary": "По оценке DeepStateMAP, российские силы продвинулись в районе Міньківки.",
-    "summary_uk": "Ворог просунувся поблизу Міньківки",
-    "summary_en": "DeepStateMAP assesses that Russian forces advanced near Міньківки.",
-    "event_date": "2026-07-27",
-    "published_at": "2026-07-27T14:42:34+00:00",
-    "verification_status": "probable",
-    "event_kind": "territorial_update",
-    "source_ids": [
-      "deepstate-map"
-    ],
-    "evidence_ids": [
-      "ev-deepstate-e3663aaca65e4d50"
-    ],
-    "location": {
-      "lat": 48.697759,
-      "lon": 37.8135681
-    },
-    "location_label": "Міньківки",
-    "settlement_id": "settlement-deepstate-e3663aaca65e4d50",
-    "publication_note": "Точка взята из прямой ссылки DeepStateMAP. Контур территории не публикуется и не выводится из точки."
-  },
-  {
-    "id": "deepstate-0c53e668219b88dc",
-    "title": "Геолокированное обновление: Калеників",
-    "title_uk": "Геолоковане оновлення: Калеників",
-    "title_en": "Geolocated map update: Калеників",
-    "summary": "По оценке DeepStateMAP, российские силы продвинулись в районе Калеників.",
-    "summary_uk": "Ворог просунувся поблизу Малих Проходів та Калеників",
-    "summary_en": "DeepStateMAP assesses that Russian forces advanced near Калеників.",
-    "event_date": "2026-07-25",
-    "published_at": "2026-07-25T17:10:01+00:00",
-    "verification_status": "probable",
-    "event_kind": "territorial_update",
-    "source_ids": [
-      "deepstate-map"
-    ],
-    "evidence_ids": [
-      "ev-deepstate-0c53e668219b88dc"
-    ],
-    "location": {
-      "lat": 48.8457962,
-      "lon": 37.8903866
-    },
-    "location_label": "Калеників",
-    "settlement_id": "settlement-deepstate-0c53e668219b88dc",
-    "publication_note": "Точка взята из прямой ссылки DeepStateMAP. Контур территории не публикуется и не выводится из точки."
-  },
-  {
-    "id": "deepstate-0ab63d6fc2e33c25",
-    "title": "Геолокированное обновление: Малих Проходів",
-    "title_uk": "Геолоковане оновлення: Малих Проходів",
-    "title_en": "Geolocated map update: Малих Проходів",
-    "summary": "По оценке DeepStateMAP, российские силы продвинулись в районе Малих Проходів.",
-    "summary_uk": "Ворог просунувся поблизу Малих Проходів та Калеників",
-    "summary_en": "DeepStateMAP assesses that Russian forces advanced near Малих Проходів.",
-    "event_date": "2026-07-25",
-    "published_at": "2026-07-25T17:10:01+00:00",
-    "verification_status": "probable",
-    "event_kind": "territorial_update",
-    "source_ids": [
-      "deepstate-map"
-    ],
-    "evidence_ids": [
-      "ev-deepstate-0ab63d6fc2e33c25"
-    ],
-    "location": {
-      "lat": 50.2845132,
-      "lon": 36.3725567
-    },
-    "location_label": "Малих Проходів",
-    "settlement_id": "settlement-deepstate-0ab63d6fc2e33c25",
-    "publication_note": "Точка взята из прямой ссылки DeepStateMAP. Контур территории не публикуется и не выводится из точки."
-  },
-  {
-    "id": "deepstate-d89d4ed98264cb4b",
-    "title": "Геолокированное обновление: Філії",
-    "title_uk": "Геолоковане оновлення: Філії",
-    "title_en": "Geolocated map update: Філії",
-    "summary": "По оценке DeepStateMAP, российские силы продвинулись в районе Філії.",
-    "summary_uk": "Сили Оборони України відкинули ворога поблизу Філії",
-    "summary_en": "DeepStateMAP assesses that Russian forces advanced near Філії.",
-    "event_date": "2026-07-23",
-    "published_at": "2026-07-23T13:59:34+00:00",
-    "verification_status": "probable",
-    "event_kind": "territorial_update",
-    "source_ids": [
-      "deepstate-map"
-    ],
-    "evidence_ids": [
-      "ev-deepstate-d89d4ed98264cb4b"
-    ],
-    "location": {
-      "lat": 48.0841551,
-      "lon": 36.7342901
-    },
-    "location_label": "Філії",
-    "settlement_id": "settlement-deepstate-d89d4ed98264cb4b",
-    "publication_note": "Точка взята из прямой ссылки DeepStateMAP. Контур территории не публикуется и не выводится из точки."
-  },
-  {
-    "id": "deepstate-c19708736ea5cc0e",
-    "title": "Геолокированное обновление: Никанорівки",
-    "title_uk": "Геолоковане оновлення: Никанорівки",
-    "title_en": "Geolocated map update: Никанорівки",
-    "summary": "По оценке DeepStateMAP, российские силы продвинулись в районе Никанорівки.",
-    "summary_uk": "Ворог просунувся поблизу Никанорівки",
-    "summary_en": "DeepStateMAP assesses that Russian forces advanced near Никанорівки.",
-    "event_date": "2026-07-22",
-    "published_at": "2026-07-22T12:37:32+00:00",
-    "verification_status": "probable",
-    "event_kind": "territorial_update",
-    "source_ids": [
-      "deepstate-map"
-    ],
-    "evidence_ids": [
-      "ev-deepstate-c19708736ea5cc0e"
-    ],
-    "location": {
-      "lat": 48.4141044,
-      "lon": 37.2388029
-    },
-    "location_label": "Никанорівки",
-    "settlement_id": "settlement-deepstate-c19708736ea5cc0e",
-    "publication_note": "Точка взята из прямой ссылки DeepStateMAP. Контур территории не публикуется и не выводится из точки."
-  },
-  {
-    "id": "deepstate-bc3dcaa36a8f14a4",
-    "title": "Геолокированное обновление: Залізничного",
-    "title_uk": "Геолоковане оновлення: Залізничного",
-    "title_en": "Geolocated map update: Залізничного",
-    "summary": "По оценке DeepStateMAP, российские силы продвинулись в районе Залізничного.",
-    "summary_uk": "Ворог просунувся поблизу Залізничного",
-    "summary_en": "DeepStateMAP assesses that Russian forces advanced near Залізничного.",
-    "event_date": "2026-07-22",
-    "published_at": "2026-07-22T09:29:31+00:00",
-    "verification_status": "probable",
-    "event_kind": "territorial_update",
-    "source_ids": [
-      "deepstate-map"
-    ],
-    "evidence_ids": [
-      "ev-deepstate-bc3dcaa36a8f14a4"
-    ],
-    "location": {
-      "lat": 47.6283809,
-      "lon": 36.1518002
-    },
-    "location_label": "Залізничного",
-    "settlement_id": "settlement-deepstate-bc3dcaa36a8f14a4",
+    "location_label": "Новомаркового",
+    "settlement_id": "settlement-deepstate-c36615216bc1466a",
     "publication_note": "Точка взята из прямой ссылки DeepStateMAP. Контур территории не публикуется и не выводится из точки."
   }
 ]
