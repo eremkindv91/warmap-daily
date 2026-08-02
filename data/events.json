@@ -1,5 +1,31 @@
 [
   {
+    "id": "deepstate-47a428e20a8f297e",
+    "title": "Геолокированное обновление: Калеників",
+    "title_uk": "Геолоковане оновлення: Калеників",
+    "title_en": "Geolocated map update: Калеників",
+    "summary": "По оценке DeepStateMAP, российские силы продвинулись в районе Калеників.",
+    "summary_uk": "Ворог просунувся поблизу Калеників . ✈️ Підтримайте збір для хлопців з 46 ОАеМБр на оптичні кабелі до дронів — https://send.monobank.ua/jar/88pkrej9nt",
+    "summary_en": "DeepStateMAP assesses that Russian forces advanced near Калеників.",
+    "event_date": "2026-07-31",
+    "published_at": "2026-07-31T11:08:01+00:00",
+    "verification_status": "probable",
+    "event_kind": "territorial_update",
+    "source_ids": [
+      "deepstate-map"
+    ],
+    "evidence_ids": [
+      "ev-deepstate-47a428e20a8f297e"
+    ],
+    "location": {
+      "lat": 48.8311638,
+      "lon": 37.8767388
+    },
+    "location_label": "Калеників",
+    "settlement_id": "settlement-deepstate-47a428e20a8f297e",
+    "publication_note": "Точка взята из прямой ссылки DeepStateMAP. Контур территории не публикуется и не выводится из точки."
+  },
+  {
     "id": "deepstate-c36615216bc1466a",
     "title": "Геолокированное обновление: Новомаркового",
     "title_uk": "Геолоковане оновлення: Новомаркового",

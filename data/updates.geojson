@@ -3,6 +3,36 @@
   "features": [
     {
       "type": "Feature",
+      "id": "deepstate-47a428e20a8f297e",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.8767388,
+          48.8311638
+        ]
+      },
+      "properties": {
+        "id": "deepstate-47a428e20a8f297e",
+        "title": "Геолокированное обновление: Калеників",
+        "title_uk": "Геолоковане оновлення: Калеників",
+        "title_en": "Geolocated map update: Калеників",
+        "summary": "По оценке DeepStateMAP, российские силы продвинулись в районе Калеників.",
+        "summary_uk": "Ворог просунувся поблизу Калеників . ✈️ Підтримайте збір для хлопців з 46 ОАеМБр на оптичні кабелі до дронів — https://send.monobank.ua/jar/88pkrej9nt",
+        "summary_en": "DeepStateMAP assesses that Russian forces advanced near Калеників.",
+        "event_date": "2026-07-31",
+        "published_at": "2026-07-31T11:08:01+00:00",
+        "verification_status": "probable",
+        "source_ids": [
+          "deepstate-map"
+        ],
+        "evidence_ids": [
+          "ev-deepstate-47a428e20a8f297e"
+        ],
+        "location_label": "Калеників"
+      }
+    },
+    {
+      "type": "Feature",
       "id": "deepstate-c36615216bc1466a",
       "geometry": {
         "type": "Point",

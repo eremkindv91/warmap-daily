@@ -1,5 +1,20 @@
 [
   {
+    "id": "settlement-deepstate-47a428e20a8f297e",
+    "name": "Калеників",
+    "name_uk": "Калеників",
+    "name_ru": "Калеників",
+    "name_en": "Калеників",
+    "aliases": [
+      "Калеників"
+    ],
+    "admin1": "Україна",
+    "lat": 48.8311638,
+    "lon": 37.8767388,
+    "status": "unknown",
+    "source_id": "deepstate-map"
+  },
+  {
     "id": "settlement-deepstate-c36615216bc1466a",
     "name": "Новомаркового",
     "name_uk": "Новомаркового",
