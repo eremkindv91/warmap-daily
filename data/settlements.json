@@ -1,5 +1,20 @@
 [
   {
+    "id": "settlement-deepstate-dbafc2a44d57c150",
+    "name": "Залізничному",
+    "name_uk": "Залізничному",
+    "name_ru": "Залізничному",
+    "name_en": "Залізничному",
+    "aliases": [
+      "Залізничному"
+    ],
+    "admin1": "Україна",
+    "lat": 47.6458461,
+    "lon": 36.1647606,
+    "status": "unknown",
+    "source_id": "deepstate-map"
+  },
+  {
     "id": "settlement-deepstate-47a428e20a8f297e",
     "name": "Калеників",
     "name_uk": "Калеників",
@@ -15,17 +30,17 @@
     "source_id": "deepstate-map"
   },
   {
-    "id": "settlement-deepstate-c36615216bc1466a",
-    "name": "Новомаркового",
-    "name_uk": "Новомаркового",
-    "name_ru": "Новомаркового",
-    "name_en": "Новомаркового",
+    "id": "settlement-deepstate-4c5aa3d66f82b17e",
+    "name": "Костянтинівки",
+    "name_uk": "Костянтинівки",
+    "name_ru": "Костянтинівки",
+    "name_en": "Костянтинівки",
     "aliases": [
-      "Новомаркового"
+      "Костянтинівки"
     ],
     "admin1": "Україна",
-    "lat": 48.6893173,
-    "lon": 37.7968311,
+    "lat": 48.5395115,
+    "lon": 37.7475643,
     "status": "unknown",
     "source_id": "deepstate-map"
   }

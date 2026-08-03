@@ -1,5 +1,57 @@
 [
   {
+    "id": "deepstate-dbafc2a44d57c150",
+    "title": "Геолокированное обновление: Залізничному",
+    "title_uk": "Геолоковане оновлення: Залізничному",
+    "title_en": "Geolocated map update: Залізничному",
+    "summary": "По оценке DeepStateMAP, российские силы продвинулись в районе Залізничному.",
+    "summary_uk": "Ворог просунувся поблизу Костянтинівки та у Залізничному . ✈️ Підтримайте збір для хлопців з 46 ОАеМБр на оптичні кабелі до дронів — https://send.monobank.ua/jar/88pkrej9nt",
+    "summary_en": "DeepStateMAP assesses that Russian forces advanced near Залізничному.",
+    "event_date": "2026-08-01",
+    "published_at": "2026-08-01T19:15:36+00:00",
+    "verification_status": "probable",
+    "event_kind": "territorial_update",
+    "source_ids": [
+      "deepstate-map"
+    ],
+    "evidence_ids": [
+      "ev-deepstate-dbafc2a44d57c150"
+    ],
+    "location": {
+      "lat": 47.6458461,
+      "lon": 36.1647606
+    },
+    "location_label": "Залізничному",
+    "settlement_id": "settlement-deepstate-dbafc2a44d57c150",
+    "publication_note": "Точка взята из прямой ссылки DeepStateMAP. Контур территории не публикуется и не выводится из точки."
+  },
+  {
+    "id": "deepstate-4c5aa3d66f82b17e",
+    "title": "Геолокированное обновление: Костянтинівки",
+    "title_uk": "Геолоковане оновлення: Костянтинівки",
+    "title_en": "Geolocated map update: Костянтинівки",
+    "summary": "По оценке DeepStateMAP, российские силы продвинулись в районе Костянтинівки.",
+    "summary_uk": "Ворог просунувся поблизу Костянтинівки та у Залізничному . ✈️ Підтримайте збір для хлопців з 46 ОАеМБр на оптичні кабелі до дронів — https://send.monobank.ua/jar/88pkrej9nt",
+    "summary_en": "DeepStateMAP assesses that Russian forces advanced near Костянтинівки.",
+    "event_date": "2026-08-01",
+    "published_at": "2026-08-01T19:15:36+00:00",
+    "verification_status": "probable",
+    "event_kind": "territorial_update",
+    "source_ids": [
+      "deepstate-map"
+    ],
+    "evidence_ids": [
+      "ev-deepstate-4c5aa3d66f82b17e"
+    ],
+    "location": {
+      "lat": 48.5395115,
+      "lon": 37.7475643
+    },
+    "location_label": "Костянтинівки",
+    "settlement_id": "settlement-deepstate-4c5aa3d66f82b17e",
+    "publication_note": "Точка взята из прямой ссылки DeepStateMAP. Контур территории не публикуется и не выводится из точки."
+  },
+  {
     "id": "deepstate-47a428e20a8f297e",
     "title": "Геолокированное обновление: Калеників",
     "title_uk": "Геолоковане оновлення: Калеників",
@@ -23,32 +75,6 @@
     },
     "location_label": "Калеників",
     "settlement_id": "settlement-deepstate-47a428e20a8f297e",
-    "publication_note": "Точка взята из прямой ссылки DeepStateMAP. Контур территории не публикуется и не выводится из точки."
-  },
-  {
-    "id": "deepstate-c36615216bc1466a",
-    "title": "Геолокированное обновление: Новомаркового",
-    "title_uk": "Геолоковане оновлення: Новомаркового",
-    "title_en": "Geolocated map update: Новомаркового",
-    "summary": "По оценке DeepStateMAP, российские силы продвинулись в районе Новомаркового.",
-    "summary_uk": "Ворог просунувся поблизу Новомаркового . ✈️ Підтримайте збір для хлопців з 46 ОАеМБр на оптичні кабелі до дронів — https://send.monobank.ua/jar/88pkrej9nt",
-    "summary_en": "DeepStateMAP assesses that Russian forces advanced near Новомаркового.",
-    "event_date": "2026-07-30",
-    "published_at": "2026-07-30T14:55:48+00:00",
-    "verification_status": "probable",
-    "event_kind": "territorial_update",
-    "source_ids": [
-      "deepstate-map"
-    ],
-    "evidence_ids": [
-      "ev-deepstate-c36615216bc1466a"
-    ],
-    "location": {
-      "lat": 48.6893173,
-      "lon": 37.7968311
-    },
-    "location_label": "Новомаркового",
-    "settlement_id": "settlement-deepstate-c36615216bc1466a",
     "publication_note": "Точка взята из прямой ссылки DeepStateMAP. Контур территории не публикуется и не выводится из точки."
   }
 ]
