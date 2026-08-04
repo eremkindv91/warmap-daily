@@ -1,5 +1,23 @@
 [
   {
+    "id": "ev-deepstate-d23fdefdb12c4cb9",
+    "source_id": "deepstate-map",
+    "published_at": "2026-08-02T14:39:01+00:00",
+    "url": "https://t.me/DeepStateUA/23715",
+    "evidence_type": "licensed_map",
+    "independence_group": "deepstate",
+    "verification_note": "Публичный пост DeepStateUA содержит прямую ссылку на DeepStateMAP с координатами. Опубликована только точка сообщения, без копирования полигонов или API-данных."
+  },
+  {
+    "id": "ev-deepstate-8db6c63421ffc883",
+    "source_id": "deepstate-map",
+    "published_at": "2026-08-02T14:39:01+00:00",
+    "url": "https://t.me/DeepStateUA/23715",
+    "evidence_type": "licensed_map",
+    "independence_group": "deepstate",
+    "verification_note": "Публичный пост DeepStateUA содержит прямую ссылку на DeepStateMAP с координатами. Опубликована только точка сообщения, без копирования полигонов или API-данных."
+  },
+  {
     "id": "ev-deepstate-dbafc2a44d57c150",
     "source_id": "deepstate-map",
     "published_at": "2026-08-01T19:15:36+00:00",
@@ -13,15 +31,6 @@
     "source_id": "deepstate-map",
     "published_at": "2026-08-01T19:15:36+00:00",
     "url": "https://t.me/DeepStateUA/23714",
-    "evidence_type": "licensed_map",
-    "independence_group": "deepstate",
-    "verification_note": "Публичный пост DeepStateUA содержит прямую ссылку на DeepStateMAP с координатами. Опубликована только точка сообщения, без копирования полигонов или API-данных."
-  },
-  {
-    "id": "ev-deepstate-47a428e20a8f297e",
-    "source_id": "deepstate-map",
-    "published_at": "2026-07-31T11:08:01+00:00",
-    "url": "https://t.me/DeepStateUA/23698",
     "evidence_type": "licensed_map",
     "independence_group": "deepstate",
     "verification_note": "Публичный пост DeepStateUA содержит прямую ссылку на DeepStateMAP с координатами. Опубликована только точка сообщения, без копирования полигонов или API-данных."

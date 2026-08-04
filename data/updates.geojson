@@ -3,6 +3,66 @@
   "features": [
     {
       "type": "Feature",
+      "id": "deepstate-d23fdefdb12c4cb9",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.1999645,
+          48.3697073
+        ]
+      },
+      "properties": {
+        "id": "deepstate-d23fdefdb12c4cb9",
+        "title": "Геолокированное обновление: Родинського",
+        "title_uk": "Геолоковане оновлення: Родинського",
+        "title_en": "Geolocated map update: Родинського",
+        "summary": "По оценке DeepStateMAP, российские силы продвинулись в районе Родинського.",
+        "summary_uk": "Ворог окупував Сухецьке , а також просунувся поблизу Никанорівки та Родинського . ✈️ Підтримайте збір для хлопців з 46 ОАеМБр на оптичні кабелі до дронів — https://send.monobank.ua/jar/88pkrej9nt",
+        "summary_en": "DeepStateMAP assesses that Russian forces advanced near Родинського.",
+        "event_date": "2026-08-02",
+        "published_at": "2026-08-02T14:39:01+00:00",
+        "verification_status": "probable",
+        "source_ids": [
+          "deepstate-map"
+        ],
+        "evidence_ids": [
+          "ev-deepstate-d23fdefdb12c4cb9"
+        ],
+        "location_label": "Родинського"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "deepstate-8db6c63421ffc883",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.2401333,
+          48.4092063
+        ]
+      },
+      "properties": {
+        "id": "deepstate-8db6c63421ffc883",
+        "title": "Геолокированное обновление: Никанорівки",
+        "title_uk": "Геолоковане оновлення: Никанорівки",
+        "title_en": "Geolocated map update: Никанорівки",
+        "summary": "По оценке DeepStateMAP, российские силы продвинулись в районе Никанорівки.",
+        "summary_uk": "Ворог окупував Сухецьке , а також просунувся поблизу Никанорівки та Родинського . ✈️ Підтримайте збір для хлопців з 46 ОАеМБр на оптичні кабелі до дронів — https://send.monobank.ua/jar/88pkrej9nt",
+        "summary_en": "DeepStateMAP assesses that Russian forces advanced near Никанорівки.",
+        "event_date": "2026-08-02",
+        "published_at": "2026-08-02T14:39:01+00:00",
+        "verification_status": "probable",
+        "source_ids": [
+          "deepstate-map"
+        ],
+        "evidence_ids": [
+          "ev-deepstate-8db6c63421ffc883"
+        ],
+        "location_label": "Никанорівки"
+      }
+    },
+    {
+      "type": "Feature",
       "id": "deepstate-dbafc2a44d57c150",
       "geometry": {
         "type": "Point",
@@ -59,36 +119,6 @@
           "ev-deepstate-4c5aa3d66f82b17e"
         ],
         "location_label": "Костянтинівки"
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "deepstate-47a428e20a8f297e",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          37.8767388,
-          48.8311638
-        ]
-      },
-      "properties": {
-        "id": "deepstate-47a428e20a8f297e",
-        "title": "Геолокированное обновление: Калеників",
-        "title_uk": "Геолоковане оновлення: Калеників",
-        "title_en": "Geolocated map update: Калеників",
-        "summary": "По оценке DeepStateMAP, российские силы продвинулись в районе Калеників.",
-        "summary_uk": "Ворог просунувся поблизу Калеників . ✈️ Підтримайте збір для хлопців з 46 ОАеМБр на оптичні кабелі до дронів — https://send.monobank.ua/jar/88pkrej9nt",
-        "summary_en": "DeepStateMAP assesses that Russian forces advanced near Калеників.",
-        "event_date": "2026-07-31",
-        "published_at": "2026-07-31T11:08:01+00:00",
-        "verification_status": "probable",
-        "source_ids": [
-          "deepstate-map"
-        ],
-        "evidence_ids": [
-          "ev-deepstate-47a428e20a8f297e"
-        ],
-        "location_label": "Калеників"
       }
     }
   ]
