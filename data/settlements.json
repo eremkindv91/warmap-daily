@@ -58,5 +58,20 @@
     "lon": 37.1999645,
     "status": "unknown",
     "source_id": "deepstate-map"
+  },
+  {
+    "id": "settlement-deepstate-32f394f1ec9d68ba",
+    "name": "Рясного",
+    "name_uk": "Рясного",
+    "name_ru": "Рясного",
+    "name_en": "Рясного",
+    "aliases": [
+      "Рясного"
+    ],
+    "admin1": "Україна",
+    "lat": 50.7024649,
+    "lon": 35.4059315,
+    "status": "unknown",
+    "source_id": "deepstate-map"
   }
 ]
