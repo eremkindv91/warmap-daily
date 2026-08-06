@@ -3,6 +3,66 @@
   "features": [
     {
       "type": "Feature",
+      "id": "deepstate-09ef4a8fed6c4254",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.3363495,
+          48.4669461
+        ]
+      },
+      "properties": {
+        "id": "deepstate-09ef4a8fed6c4254",
+        "title": "Геолокированное обновление: Шахового",
+        "title_uk": "Геолоковане оновлення: Шахового",
+        "title_en": "Geolocated map update: Шахового",
+        "summary": "По оценке DeepStateMAP, российские силы продвинулись в районе Шахового.",
+        "summary_uk": "Ворог просунувся поблизу Шахового . ✈️ Підтримайте збір для хлопців з 46 ОАеМБр на оптичні кабелі до дронів — https://send.monobank.ua/jar/88pkrej9nt",
+        "summary_en": "DeepStateMAP assesses that Russian forces advanced near Шахового.",
+        "event_date": "2026-08-04",
+        "published_at": "2026-08-04T20:10:34+00:00",
+        "verification_status": "probable",
+        "source_ids": [
+          "deepstate-map"
+        ],
+        "evidence_ids": [
+          "ev-deepstate-09ef4a8fed6c4254"
+        ],
+        "location_label": "Шахового"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "deepstate-9e910c4be95ca758",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.5701523,
+          50.2329871
+        ]
+      },
+      "properties": {
+        "id": "deepstate-9e910c4be95ca758",
+        "title": "Геолокированное обновление: Устинівки",
+        "title_uk": "Геолоковане оновлення: Устинівки",
+        "title_en": "Geolocated map update: Устинівки",
+        "summary": "По оценке DeepStateMAP, российские силы продвинулись в районе Устинівки.",
+        "summary_uk": "Ворог просунувся поблизу Устинівки . ✈️ Підтримайте збір для хлопців з 46 ОАеМБр на оптичні кабелі до дронів — https://send.monobank.ua/jar/88pkrej9nt",
+        "summary_en": "DeepStateMAP assesses that Russian forces advanced near Устинівки.",
+        "event_date": "2026-08-04",
+        "published_at": "2026-08-04T13:06:23+00:00",
+        "verification_status": "probable",
+        "source_ids": [
+          "deepstate-map"
+        ],
+        "evidence_ids": [
+          "ev-deepstate-9e910c4be95ca758"
+        ],
+        "location_label": "Устинівки"
+      }
+    },
+    {
+      "type": "Feature",
       "id": "deepstate-32f394f1ec9d68ba",
       "geometry": {
         "type": "Point",
