@@ -1,5 +1,31 @@
 [
   {
+    "id": "deepstate-866803f0c61f5ac5",
+    "title": "Геолокированное обновление: Нового Шахового",
+    "title_uk": "Геолоковане оновлення: Нового Шахового",
+    "title_en": "Geolocated map update: Нового Шахового",
+    "summary": "По оценке DeepStateMAP, российские силы продвинулись в районе Нового Шахового.",
+    "summary_uk": "Ворог просунувся поблизу Нового Шахового . ✈️ Підтримайте збір для хлопців з 46 ОАеМБр на оптичні кабелі до дронів — https://send.monobank.ua/jar/88pkrej9nt",
+    "summary_en": "DeepStateMAP assesses that Russian forces advanced near Нового Шахового.",
+    "event_date": "2026-08-05",
+    "published_at": "2026-08-05T16:30:01+00:00",
+    "verification_status": "probable",
+    "event_kind": "territorial_update",
+    "source_ids": [
+      "deepstate-map"
+    ],
+    "evidence_ids": [
+      "ev-deepstate-866803f0c61f5ac5"
+    ],
+    "location": {
+      "lat": 48.4562458,
+      "lon": 37.2700882
+    },
+    "location_label": "Нового Шахового",
+    "settlement_id": "settlement-deepstate-866803f0c61f5ac5",
+    "publication_note": "Точка взята из прямой ссылки DeepStateMAP. Контур территории не публикуется и не выводится из точки."
+  },
+  {
     "id": "deepstate-09ef4a8fed6c4254",
     "title": "Геолокированное обновление: Шахового",
     "title_uk": "Геолоковане оновлення: Шахового",

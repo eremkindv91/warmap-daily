@@ -45,6 +45,21 @@
     "source_id": "deepstate-map"
   },
   {
+    "id": "settlement-deepstate-866803f0c61f5ac5",
+    "name": "Нового Шахового",
+    "name_uk": "Нового Шахового",
+    "name_ru": "Нового Шахового",
+    "name_en": "Нового Шахового",
+    "aliases": [
+      "Нового Шахового"
+    ],
+    "admin1": "Україна",
+    "lat": 48.4562458,
+    "lon": 37.2700882,
+    "status": "unknown",
+    "source_id": "deepstate-map"
+  },
+  {
     "id": "settlement-deepstate-d23fdefdb12c4cb9",
     "name": "Родинського",
     "name_uk": "Родинського",
