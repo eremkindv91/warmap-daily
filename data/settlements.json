@@ -15,6 +15,21 @@
     "source_id": "deepstate-map"
   },
   {
+    "id": "settlement-deepstate-b7ef2a041b49d07b",
+    "name": "Костянтинівки",
+    "name_uk": "Костянтинівки",
+    "name_ru": "Костянтинівки",
+    "name_en": "Костянтинівки",
+    "aliases": [
+      "Костянтинівки"
+    ],
+    "admin1": "Україна",
+    "lat": 48.4786113,
+    "lon": 37.7385521,
+    "status": "unknown",
+    "source_id": "deepstate-map"
+  },
+  {
     "id": "settlement-deepstate-4c5aa3d66f82b17e",
     "name": "Костянтинівки",
     "name_uk": "Костянтинівки",
