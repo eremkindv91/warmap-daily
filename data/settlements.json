@@ -15,6 +15,21 @@
     "source_id": "deepstate-map"
   },
   {
+    "id": "settlement-deepstate-ced94d3e180e3677",
+    "name": "Калеників",
+    "name_uk": "Калеників",
+    "name_ru": "Калеників",
+    "name_en": "Калеників",
+    "aliases": [
+      "Калеників"
+    ],
+    "admin1": "Україна",
+    "lat": 48.8275485,
+    "lon": 37.9399967,
+    "status": "unknown",
+    "source_id": "deepstate-map"
+  },
+  {
     "id": "settlement-deepstate-b7ef2a041b49d07b",
     "name": "Костянтинівки",
     "name_uk": "Костянтинівки",
