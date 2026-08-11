@@ -1,5 +1,20 @@
 [
   {
+    "id": "settlement-deepstate-1072fb4a44be37e9",
+    "name": "Іллінівки",
+    "name_uk": "Іллінівки",
+    "name_ru": "Іллінівки",
+    "name_en": "Іллінівки",
+    "aliases": [
+      "Іллінівки"
+    ],
+    "admin1": "Україна",
+    "lat": 48.4928336,
+    "lon": 37.6447392,
+    "status": "unknown",
+    "source_id": "deepstate-map"
+  },
+  {
     "id": "settlement-deepstate-dbafc2a44d57c150",
     "name": "Залізничному",
     "name_uk": "Залізничному",
@@ -131,6 +146,21 @@
     "admin1": "Україна",
     "lat": 50.2329871,
     "lon": 37.5701523,
+    "status": "unknown",
+    "source_id": "deepstate-map"
+  },
+  {
+    "id": "settlement-deepstate-29cb33beeb52b198",
+    "name": "Часовому Яру",
+    "name_uk": "Часовому Яру",
+    "name_ru": "Часовому Яру",
+    "name_en": "Часовому Яру",
+    "aliases": [
+      "Часовому Яру"
+    ],
+    "admin1": "Україна",
+    "lat": 48.5728874,
+    "lon": 37.8309488,
     "status": "unknown",
     "source_id": "deepstate-map"
   },

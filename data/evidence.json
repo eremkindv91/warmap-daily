@@ -1,5 +1,23 @@
 [
   {
+    "id": "ev-deepstate-29cb33beeb52b198",
+    "source_id": "deepstate-map",
+    "published_at": "2026-08-09T06:36:21+00:00",
+    "url": "https://t.me/DeepStateUA/23726",
+    "evidence_type": "licensed_map",
+    "independence_group": "deepstate",
+    "verification_note": "Публичный пост DeepStateUA содержит прямую ссылку на DeepStateMAP с координатами. Опубликована только точка сообщения, без копирования полигонов или API-данных."
+  },
+  {
+    "id": "ev-deepstate-1072fb4a44be37e9",
+    "source_id": "deepstate-map",
+    "published_at": "2026-08-09T06:36:21+00:00",
+    "url": "https://t.me/DeepStateUA/23726",
+    "evidence_type": "licensed_map",
+    "independence_group": "deepstate",
+    "verification_note": "Публичный пост DeepStateUA содержит прямую ссылку на DeepStateMAP с координатами. Опубликована только точка сообщения, без копирования полигонов или API-данных."
+  },
+  {
     "id": "ev-deepstate-ced94d3e180e3677",
     "source_id": "deepstate-map",
     "published_at": "2026-08-08T13:50:01+00:00",
