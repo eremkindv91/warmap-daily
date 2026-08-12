@@ -1,5 +1,31 @@
 [
   {
+    "id": "deepstate-d46b5d3165ded14e",
+    "title": "Геолокированное обновление: Сухецького",
+    "title_uk": "Геолоковане оновлення: Сухецького",
+    "title_en": "Geolocated map update: Сухецького",
+    "summary": "По оценке DeepStateMAP, российские силы продвинулись в районе Сухецького.",
+    "summary_uk": "Ворог просунувся поблизу Сухецького . ✈️ Підтримайте збір для хлопців з 46 ОАеМБр на оптичні кабелі до дронів — https://send.monobank.ua/jar/88pkrej9nt . Зібрано 5️⃣ 0️⃣ %",
+    "summary_en": "DeepStateMAP assesses that Russian forces advanced near Сухецького.",
+    "event_date": "2026-08-10",
+    "published_at": "2026-08-10T10:15:23+00:00",
+    "verification_status": "probable",
+    "event_kind": "territorial_update",
+    "source_ids": [
+      "deepstate-map"
+    ],
+    "evidence_ids": [
+      "ev-deepstate-d46b5d3165ded14e"
+    ],
+    "location": {
+      "lat": 48.3850432,
+      "lon": 37.2156715
+    },
+    "location_label": "Сухецького",
+    "settlement_id": "settlement-deepstate-d46b5d3165ded14e",
+    "publication_note": "Точка взята из прямой ссылки DeepStateMAP. Контур территории не публикуется и не выводится из точки."
+  },
+  {
     "id": "deepstate-29cb33beeb52b198",
     "title": "Геолокированное обновление: Часовому Яру",
     "title_uk": "Геолоковане оновлення: Часовому Яру",

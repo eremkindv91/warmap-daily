@@ -3,6 +3,36 @@
   "features": [
     {
       "type": "Feature",
+      "id": "deepstate-d46b5d3165ded14e",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.2156715,
+          48.3850432
+        ]
+      },
+      "properties": {
+        "id": "deepstate-d46b5d3165ded14e",
+        "title": "Геолокированное обновление: Сухецького",
+        "title_uk": "Геолоковане оновлення: Сухецького",
+        "title_en": "Geolocated map update: Сухецького",
+        "summary": "По оценке DeepStateMAP, российские силы продвинулись в районе Сухецького.",
+        "summary_uk": "Ворог просунувся поблизу Сухецького . ✈️ Підтримайте збір для хлопців з 46 ОАеМБр на оптичні кабелі до дронів — https://send.monobank.ua/jar/88pkrej9nt . Зібрано 5️⃣ 0️⃣ %",
+        "summary_en": "DeepStateMAP assesses that Russian forces advanced near Сухецького.",
+        "event_date": "2026-08-10",
+        "published_at": "2026-08-10T10:15:23+00:00",
+        "verification_status": "probable",
+        "source_ids": [
+          "deepstate-map"
+        ],
+        "evidence_ids": [
+          "ev-deepstate-d46b5d3165ded14e"
+        ],
+        "location_label": "Сухецького"
+      }
+    },
+    {
+      "type": "Feature",
       "id": "deepstate-29cb33beeb52b198",
       "geometry": {
         "type": "Point",

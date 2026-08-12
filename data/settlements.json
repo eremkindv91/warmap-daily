@@ -135,6 +135,21 @@
     "source_id": "deepstate-map"
   },
   {
+    "id": "settlement-deepstate-d46b5d3165ded14e",
+    "name": "Сухецького",
+    "name_uk": "Сухецького",
+    "name_ru": "Сухецького",
+    "name_en": "Сухецького",
+    "aliases": [
+      "Сухецького"
+    ],
+    "admin1": "Україна",
+    "lat": 48.3850432,
+    "lon": 37.2156715,
+    "status": "unknown",
+    "source_id": "deepstate-map"
+  },
+  {
     "id": "settlement-deepstate-9e910c4be95ca758",
     "name": "Устинівки",
     "name_uk": "Устинівки",
