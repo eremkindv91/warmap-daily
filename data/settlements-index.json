@@ -15,21 +15,6 @@
     "source_id": "deepstate-map"
   },
   {
-    "id": "settlement-deepstate-dbafc2a44d57c150",
-    "name": "Залізничному",
-    "name_uk": "Залізничному",
-    "name_ru": "Залізничному",
-    "name_en": "Залізничному",
-    "aliases": [
-      "Залізничному"
-    ],
-    "admin1": "Україна",
-    "lat": 47.6458461,
-    "lon": 36.1647606,
-    "status": "unknown",
-    "source_id": "deepstate-map"
-  },
-  {
     "id": "settlement-deepstate-ced94d3e180e3677",
     "name": "Калеників",
     "name_uk": "Калеників",
@@ -60,36 +45,6 @@
     "source_id": "deepstate-map"
   },
   {
-    "id": "settlement-deepstate-4c5aa3d66f82b17e",
-    "name": "Костянтинівки",
-    "name_uk": "Костянтинівки",
-    "name_ru": "Костянтинівки",
-    "name_en": "Костянтинівки",
-    "aliases": [
-      "Костянтинівки"
-    ],
-    "admin1": "Україна",
-    "lat": 48.5395115,
-    "lon": 37.7475643,
-    "status": "unknown",
-    "source_id": "deepstate-map"
-  },
-  {
-    "id": "settlement-deepstate-8db6c63421ffc883",
-    "name": "Никанорівки",
-    "name_uk": "Никанорівки",
-    "name_ru": "Никанорівки",
-    "name_en": "Никанорівки",
-    "aliases": [
-      "Никанорівки"
-    ],
-    "admin1": "Україна",
-    "lat": 48.4092063,
-    "lon": 37.2401333,
-    "status": "unknown",
-    "source_id": "deepstate-map"
-  },
-  {
     "id": "settlement-deepstate-866803f0c61f5ac5",
     "name": "Нового Шахового",
     "name_uk": "Нового Шахового",
@@ -105,17 +60,17 @@
     "source_id": "deepstate-map"
   },
   {
-    "id": "settlement-deepstate-d23fdefdb12c4cb9",
-    "name": "Родинського",
-    "name_uk": "Родинського",
-    "name_ru": "Родинського",
-    "name_en": "Родинського",
+    "id": "settlement-deepstate-63da9c7ccf69cfc4",
+    "name": "Піщаного",
+    "name_uk": "Піщаного",
+    "name_ru": "Піщаного",
+    "name_en": "Піщаного",
     "aliases": [
-      "Родинського"
+      "Піщаного"
     ],
     "admin1": "Україна",
-    "lat": 48.3697073,
-    "lon": 37.1999645,
+    "lat": 49.6565163,
+    "lon": 37.7540016,
     "status": "unknown",
     "source_id": "deepstate-map"
   },
