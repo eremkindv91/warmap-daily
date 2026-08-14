@@ -60,6 +60,21 @@
     "source_id": "deepstate-map"
   },
   {
+    "id": "settlement-deepstate-57734dc5302d1ad6",
+    "name": "Привілля",
+    "name_uk": "Привілля",
+    "name_ru": "Привілля",
+    "name_en": "Привілля",
+    "aliases": [
+      "Привілля"
+    ],
+    "admin1": "Україна",
+    "lat": 48.7360121,
+    "lon": 37.8662682,
+    "status": "unknown",
+    "source_id": "deepstate-map"
+  },
+  {
     "id": "settlement-deepstate-63da9c7ccf69cfc4",
     "name": "Піщаного",
     "name_uk": "Піщаного",
@@ -71,21 +86,6 @@
     "admin1": "Україна",
     "lat": 49.6565163,
     "lon": 37.7540016,
-    "status": "unknown",
-    "source_id": "deepstate-map"
-  },
-  {
-    "id": "settlement-deepstate-32f394f1ec9d68ba",
-    "name": "Рясного",
-    "name_uk": "Рясного",
-    "name_ru": "Рясного",
-    "name_en": "Рясного",
-    "aliases": [
-      "Рясного"
-    ],
-    "admin1": "Україна",
-    "lat": 50.7024649,
-    "lon": 35.4059315,
     "status": "unknown",
     "source_id": "deepstate-map"
   },
