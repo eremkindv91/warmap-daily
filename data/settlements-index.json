@@ -45,17 +45,17 @@
     "source_id": "deepstate-map"
   },
   {
-    "id": "settlement-deepstate-866803f0c61f5ac5",
-    "name": "Нового Шахового",
-    "name_uk": "Нового Шахового",
-    "name_ru": "Нового Шахового",
-    "name_en": "Нового Шахового",
+    "id": "settlement-deepstate-eff53d6fa12d032f",
+    "name": "Марковому",
+    "name_uk": "Марковому",
+    "name_ru": "Марковому",
+    "name_en": "Марковому",
     "aliases": [
-      "Нового Шахового"
+      "Марковому"
     ],
     "admin1": "Україна",
-    "lat": 48.4562458,
-    "lon": 37.2700882,
+    "lat": 48.6589305,
+    "lon": 37.8063581,
     "status": "unknown",
     "source_id": "deepstate-map"
   },
@@ -105,21 +105,6 @@
     "source_id": "deepstate-map"
   },
   {
-    "id": "settlement-deepstate-9e910c4be95ca758",
-    "name": "Устинівки",
-    "name_uk": "Устинівки",
-    "name_ru": "Устинівки",
-    "name_en": "Устинівки",
-    "aliases": [
-      "Устинівки"
-    ],
-    "admin1": "Україна",
-    "lat": 50.2329871,
-    "lon": 37.5701523,
-    "status": "unknown",
-    "source_id": "deepstate-map"
-  },
-  {
     "id": "settlement-deepstate-29cb33beeb52b198",
     "name": "Часовому Яру",
     "name_uk": "Часовому Яру",
@@ -131,21 +116,6 @@
     "admin1": "Україна",
     "lat": 48.5728874,
     "lon": 37.8309488,
-    "status": "unknown",
-    "source_id": "deepstate-map"
-  },
-  {
-    "id": "settlement-deepstate-09ef4a8fed6c4254",
-    "name": "Шахового",
-    "name_uk": "Шахового",
-    "name_ru": "Шахового",
-    "name_en": "Шахового",
-    "aliases": [
-      "Шахового"
-    ],
-    "admin1": "Україна",
-    "lat": 48.4669461,
-    "lon": 37.3363495,
     "status": "unknown",
     "source_id": "deepstate-map"
   }
