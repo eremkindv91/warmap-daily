@@ -15,6 +15,21 @@
     "source_id": "deepstate-map"
   },
   {
+    "id": "settlement-deepstate-727b4caa304c7b1b",
+    "name": "Білицького",
+    "name_uk": "Білицького",
+    "name_ru": "Білицького",
+    "name_en": "Білицького",
+    "aliases": [
+      "Білицького"
+    ],
+    "admin1": "Україна",
+    "lat": 48.3947046,
+    "lon": 37.2181522,
+    "status": "unknown",
+    "source_id": "deepstate-map"
+  },
+  {
     "id": "settlement-deepstate-ced94d3e180e3677",
     "name": "Калеників",
     "name_uk": "Калеників",

@@ -1,5 +1,31 @@
 [
   {
+    "id": "deepstate-727b4caa304c7b1b",
+    "title": "Геолокированное обновление: Білицького",
+    "title_uk": "Геолоковане оновлення: Білицького",
+    "title_en": "Geolocated map update: Білицького",
+    "summary": "По оценке DeepStateMAP, российские силы продвинулись в районе Білицького.",
+    "summary_uk": "Ворог просунувся поблизу Білицького",
+    "summary_en": "DeepStateMAP assesses that Russian forces advanced near Білицького.",
+    "event_date": "2026-08-14",
+    "published_at": "2026-08-14T14:17:01+00:00",
+    "verification_status": "probable",
+    "event_kind": "territorial_update",
+    "source_ids": [
+      "deepstate-map"
+    ],
+    "evidence_ids": [
+      "ev-deepstate-727b4caa304c7b1b"
+    ],
+    "location": {
+      "lat": 48.3947046,
+      "lon": 37.2181522
+    },
+    "location_label": "Білицького",
+    "settlement_id": "settlement-deepstate-727b4caa304c7b1b",
+    "publication_note": "Точка взята из прямой ссылки DeepStateMAP. Контур территории не публикуется и не выводится из точки."
+  },
+  {
     "id": "deepstate-eff53d6fa12d032f",
     "title": "Геолокированное обновление: Марковому",
     "title_uk": "Геолоковане оновлення: Марковому",
