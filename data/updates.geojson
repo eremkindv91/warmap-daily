@@ -3,6 +3,66 @@
   "features": [
     {
       "type": "Feature",
+      "id": "deepstate-d50ac3595c50182f",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.9024029,
+          48.8640387
+        ]
+      },
+      "properties": {
+        "id": "deepstate-d50ac3595c50182f",
+        "title": "Геолокированное обновление: Кривій Луці",
+        "title_uk": "Геолоковане оновлення: Кривій Луці",
+        "title_en": "Geolocated map update: Кривій Луці",
+        "summary": "По оценке DeepStateMAP, российские силы продвинулись в районе Кривій Луці.",
+        "summary_uk": "Ворог просунувся у Курилівці та Кривій Луці",
+        "summary_en": "DeepStateMAP assesses that Russian forces advanced near Кривій Луці.",
+        "event_date": "2026-08-15",
+        "published_at": "2026-08-15T19:30:35+00:00",
+        "verification_status": "probable",
+        "source_ids": [
+          "deepstate-map"
+        ],
+        "evidence_ids": [
+          "ev-deepstate-d50ac3595c50182f"
+        ],
+        "location_label": "Кривій Луці"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "deepstate-ba14c2b76f451308",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.7176107,
+          49.6609535
+        ]
+      },
+      "properties": {
+        "id": "deepstate-ba14c2b76f451308",
+        "title": "Геолокированное обновление: Курилівці",
+        "title_uk": "Геолоковане оновлення: Курилівці",
+        "title_en": "Geolocated map update: Курилівці",
+        "summary": "По оценке DeepStateMAP, российские силы продвинулись в районе Курилівці.",
+        "summary_uk": "Ворог просунувся у Курилівці та Кривій Луці",
+        "summary_en": "DeepStateMAP assesses that Russian forces advanced near Курилівці.",
+        "event_date": "2026-08-15",
+        "published_at": "2026-08-15T19:30:35+00:00",
+        "verification_status": "probable",
+        "source_ids": [
+          "deepstate-map"
+        ],
+        "evidence_ids": [
+          "ev-deepstate-ba14c2b76f451308"
+        ],
+        "location_label": "Курилівці"
+      }
+    },
+    {
+      "type": "Feature",
       "id": "deepstate-727b4caa304c7b1b",
       "geometry": {
         "type": "Point",

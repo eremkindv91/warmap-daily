@@ -60,6 +60,36 @@
     "source_id": "deepstate-map"
   },
   {
+    "id": "settlement-deepstate-d50ac3595c50182f",
+    "name": "Кривій Луці",
+    "name_uk": "Кривій Луці",
+    "name_ru": "Кривій Луці",
+    "name_en": "Кривій Луці",
+    "aliases": [
+      "Кривій Луці"
+    ],
+    "admin1": "Україна",
+    "lat": 48.8640387,
+    "lon": 37.9024029,
+    "status": "unknown",
+    "source_id": "deepstate-map"
+  },
+  {
+    "id": "settlement-deepstate-ba14c2b76f451308",
+    "name": "Курилівці",
+    "name_uk": "Курилівці",
+    "name_ru": "Курилівці",
+    "name_en": "Курилівці",
+    "aliases": [
+      "Курилівці"
+    ],
+    "admin1": "Україна",
+    "lat": 49.6609535,
+    "lon": 37.7176107,
+    "status": "unknown",
+    "source_id": "deepstate-map"
+  },
+  {
     "id": "settlement-deepstate-eff53d6fa12d032f",
     "name": "Марковому",
     "name_uk": "Марковому",

@@ -1,5 +1,57 @@
 [
   {
+    "id": "deepstate-d50ac3595c50182f",
+    "title": "Геолокированное обновление: Кривій Луці",
+    "title_uk": "Геолоковане оновлення: Кривій Луці",
+    "title_en": "Geolocated map update: Кривій Луці",
+    "summary": "По оценке DeepStateMAP, российские силы продвинулись в районе Кривій Луці.",
+    "summary_uk": "Ворог просунувся у Курилівці та Кривій Луці",
+    "summary_en": "DeepStateMAP assesses that Russian forces advanced near Кривій Луці.",
+    "event_date": "2026-08-15",
+    "published_at": "2026-08-15T19:30:35+00:00",
+    "verification_status": "probable",
+    "event_kind": "territorial_update",
+    "source_ids": [
+      "deepstate-map"
+    ],
+    "evidence_ids": [
+      "ev-deepstate-d50ac3595c50182f"
+    ],
+    "location": {
+      "lat": 48.8640387,
+      "lon": 37.9024029
+    },
+    "location_label": "Кривій Луці",
+    "settlement_id": "settlement-deepstate-d50ac3595c50182f",
+    "publication_note": "Точка взята из прямой ссылки DeepStateMAP. Контур территории не публикуется и не выводится из точки."
+  },
+  {
+    "id": "deepstate-ba14c2b76f451308",
+    "title": "Геолокированное обновление: Курилівці",
+    "title_uk": "Геолоковане оновлення: Курилівці",
+    "title_en": "Geolocated map update: Курилівці",
+    "summary": "По оценке DeepStateMAP, российские силы продвинулись в районе Курилівці.",
+    "summary_uk": "Ворог просунувся у Курилівці та Кривій Луці",
+    "summary_en": "DeepStateMAP assesses that Russian forces advanced near Курилівці.",
+    "event_date": "2026-08-15",
+    "published_at": "2026-08-15T19:30:35+00:00",
+    "verification_status": "probable",
+    "event_kind": "territorial_update",
+    "source_ids": [
+      "deepstate-map"
+    ],
+    "evidence_ids": [
+      "ev-deepstate-ba14c2b76f451308"
+    ],
+    "location": {
+      "lat": 49.6609535,
+      "lon": 37.7176107
+    },
+    "location_label": "Курилівці",
+    "settlement_id": "settlement-deepstate-ba14c2b76f451308",
+    "publication_note": "Точка взята из прямой ссылки DeepStateMAP. Контур территории не публикуется и не выводится из точки."
+  },
+  {
     "id": "deepstate-727b4caa304c7b1b",
     "title": "Геолокированное обновление: Білицького",
     "title_uk": "Геолоковане оновлення: Білицького",
