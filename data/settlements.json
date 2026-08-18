@@ -1,20 +1,5 @@
 [
   {
-    "id": "settlement-deepstate-1072fb4a44be37e9",
-    "name": "Іллінівки",
-    "name_uk": "Іллінівки",
-    "name_ru": "Іллінівки",
-    "name_en": "Іллінівки",
-    "aliases": [
-      "Іллінівки"
-    ],
-    "admin1": "Україна",
-    "lat": 48.4928336,
-    "lon": 37.6447392,
-    "status": "unknown",
-    "source_id": "deepstate-map"
-  },
-  {
     "id": "settlement-deepstate-727b4caa304c7b1b",
     "name": "Білицького",
     "name_uk": "Білицького",
@@ -26,36 +11,6 @@
     "admin1": "Україна",
     "lat": 48.3947046,
     "lon": 37.2181522,
-    "status": "unknown",
-    "source_id": "deepstate-map"
-  },
-  {
-    "id": "settlement-deepstate-ced94d3e180e3677",
-    "name": "Калеників",
-    "name_uk": "Калеників",
-    "name_ru": "Калеників",
-    "name_en": "Калеників",
-    "aliases": [
-      "Калеників"
-    ],
-    "admin1": "Україна",
-    "lat": 48.8275485,
-    "lon": 37.9399967,
-    "status": "unknown",
-    "source_id": "deepstate-map"
-  },
-  {
-    "id": "settlement-deepstate-b7ef2a041b49d07b",
-    "name": "Костянтинівки",
-    "name_uk": "Костянтинівки",
-    "name_ru": "Костянтинівки",
-    "name_en": "Костянтинівки",
-    "aliases": [
-      "Костянтинівки"
-    ],
-    "admin1": "Україна",
-    "lat": 48.4786113,
-    "lon": 37.7385521,
     "status": "unknown",
     "source_id": "deepstate-map"
   },
@@ -131,36 +86,6 @@
     "admin1": "Україна",
     "lat": 49.6565163,
     "lon": 37.7540016,
-    "status": "unknown",
-    "source_id": "deepstate-map"
-  },
-  {
-    "id": "settlement-deepstate-d46b5d3165ded14e",
-    "name": "Сухецького",
-    "name_uk": "Сухецького",
-    "name_ru": "Сухецького",
-    "name_en": "Сухецького",
-    "aliases": [
-      "Сухецького"
-    ],
-    "admin1": "Україна",
-    "lat": 48.3850432,
-    "lon": 37.2156715,
-    "status": "unknown",
-    "source_id": "deepstate-map"
-  },
-  {
-    "id": "settlement-deepstate-29cb33beeb52b198",
-    "name": "Часовому Яру",
-    "name_uk": "Часовому Яру",
-    "name_ru": "Часовому Яру",
-    "name_en": "Часовому Яру",
-    "aliases": [
-      "Часовому Яру"
-    ],
-    "admin1": "Україна",
-    "lat": 48.5728874,
-    "lon": 37.8309488,
     "status": "unknown",
     "source_id": "deepstate-map"
   }
