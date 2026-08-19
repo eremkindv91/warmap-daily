@@ -60,32 +60,47 @@
     "source_id": "deepstate-map"
   },
   {
-    "id": "settlement-deepstate-57734dc5302d1ad6",
-    "name": "Привілля",
-    "name_uk": "Привілля",
-    "name_ru": "Привілля",
-    "name_en": "Привілля",
+    "id": "settlement-deepstate-8f20cfe2b70d567b",
+    "name": "Нового Шахового",
+    "name_uk": "Нового Шахового",
+    "name_ru": "Нового Шахового",
+    "name_en": "Нового Шахового",
     "aliases": [
-      "Привілля"
+      "Нового Шахового"
     ],
     "admin1": "Україна",
-    "lat": 48.7360121,
-    "lon": 37.8662682,
+    "lat": 48.4477725,
+    "lon": 37.2416823,
     "status": "unknown",
     "source_id": "deepstate-map"
   },
   {
-    "id": "settlement-deepstate-63da9c7ccf69cfc4",
-    "name": "Піщаного",
-    "name_uk": "Піщаного",
-    "name_ru": "Піщаного",
-    "name_en": "Піщаного",
+    "id": "settlement-deepstate-446fd4384db46b8c",
+    "name": "Новоолександрівки",
+    "name_uk": "Новоолександрівки",
+    "name_ru": "Новоолександрівки",
+    "name_en": "Новоолександрівки",
     "aliases": [
-      "Піщаного"
+      "Новоолександрівки"
     ],
     "admin1": "Україна",
-    "lat": 49.6565163,
-    "lon": 37.7540016,
+    "lat": 48.3539425,
+    "lon": 37.1230612,
+    "status": "unknown",
+    "source_id": "deepstate-map"
+  },
+  {
+    "id": "settlement-deepstate-18cea98ba88d124b",
+    "name": "Новоолександрівки",
+    "name_uk": "Новоолександрівки",
+    "name_ru": "Новоолександрівки",
+    "name_en": "Новоолександрівки",
+    "aliases": [
+      "Новоолександрівки"
+    ],
+    "admin1": "Україна",
+    "lat": 48.3489796,
+    "lon": 37.0550848,
     "status": "unknown",
     "source_id": "deepstate-map"
   }
