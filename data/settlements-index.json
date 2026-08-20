@@ -103,5 +103,20 @@
     "lon": 37.0550848,
     "status": "unknown",
     "source_id": "deepstate-map"
+  },
+  {
+    "id": "settlement-deepstate-45ec41d8e10eb90c",
+    "name": "Святопетрівки",
+    "name_uk": "Святопетрівки",
+    "name_ru": "Святопетрівки",
+    "name_en": "Святопетрівки",
+    "aliases": [
+      "Святопетрівки"
+    ],
+    "admin1": "Україна",
+    "lat": 47.6866598,
+    "lon": 36.1761904,
+    "status": "unknown",
+    "source_id": "deepstate-map"
   }
 ]

@@ -1,5 +1,31 @@
 [
   {
+    "id": "deepstate-45ec41d8e10eb90c",
+    "title": "Геолокированное обновление: Святопетрівки",
+    "title_uk": "Геолоковане оновлення: Святопетрівки",
+    "title_en": "Geolocated map update: Святопетрівки",
+    "summary": "По оценке DeepStateMAP, российские силы продвинулись в районе Святопетрівки.",
+    "summary_uk": "Ворог просунувся поблизу Святопетрівки",
+    "summary_en": "DeepStateMAP assesses that Russian forces advanced near Святопетрівки.",
+    "event_date": "2026-08-18",
+    "published_at": "2026-08-18T13:46:02+00:00",
+    "verification_status": "probable",
+    "event_kind": "territorial_update",
+    "source_ids": [
+      "deepstate-map"
+    ],
+    "evidence_ids": [
+      "ev-deepstate-45ec41d8e10eb90c"
+    ],
+    "location": {
+      "lat": 47.6866598,
+      "lon": 36.1761904
+    },
+    "location_label": "Святопетрівки",
+    "settlement_id": "settlement-deepstate-45ec41d8e10eb90c",
+    "publication_note": "Точка взята из прямой ссылки DeepStateMAP. Контур территории не публикуется и не выводится из точки."
+  },
+  {
     "id": "deepstate-8f20cfe2b70d567b",
     "title": "Геолокированное обновление: Нового Шахового",
     "title_uk": "Геолоковане оновлення: Нового Шахового",

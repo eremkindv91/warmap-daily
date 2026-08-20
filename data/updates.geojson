@@ -3,6 +3,36 @@
   "features": [
     {
       "type": "Feature",
+      "id": "deepstate-45ec41d8e10eb90c",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          36.1761904,
+          47.6866598
+        ]
+      },
+      "properties": {
+        "id": "deepstate-45ec41d8e10eb90c",
+        "title": "Геолокированное обновление: Святопетрівки",
+        "title_uk": "Геолоковане оновлення: Святопетрівки",
+        "title_en": "Geolocated map update: Святопетрівки",
+        "summary": "По оценке DeepStateMAP, российские силы продвинулись в районе Святопетрівки.",
+        "summary_uk": "Ворог просунувся поблизу Святопетрівки",
+        "summary_en": "DeepStateMAP assesses that Russian forces advanced near Святопетрівки.",
+        "event_date": "2026-08-18",
+        "published_at": "2026-08-18T13:46:02+00:00",
+        "verification_status": "probable",
+        "source_ids": [
+          "deepstate-map"
+        ],
+        "evidence_ids": [
+          "ev-deepstate-45ec41d8e10eb90c"
+        ],
+        "location_label": "Святопетрівки"
+      }
+    },
+    {
+      "type": "Feature",
       "id": "deepstate-8f20cfe2b70d567b",
       "geometry": {
         "type": "Point",
