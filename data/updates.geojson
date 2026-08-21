@@ -3,6 +3,66 @@
   "features": [
     {
       "type": "Feature",
+      "id": "deepstate-a55451fc71c6bfec",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          36.1496518,
+          47.706929
+        ]
+      },
+      "properties": {
+        "id": "deepstate-a55451fc71c6bfec",
+        "title": "Геолокированное обновление: Цвіткового",
+        "title_uk": "Геолоковане оновлення: Цвіткового",
+        "title_en": "Geolocated map update: Цвіткового",
+        "summary": "По оценке DeepStateMAP, российские силы продвинулись в районе Цвіткового.",
+        "summary_uk": "Ворог просунувся поблизу Калеників та Цвіткового",
+        "summary_en": "DeepStateMAP assesses that Russian forces advanced near Цвіткового.",
+        "event_date": "2026-08-19",
+        "published_at": "2026-08-19T16:25:26+00:00",
+        "verification_status": "probable",
+        "source_ids": [
+          "deepstate-map"
+        ],
+        "evidence_ids": [
+          "ev-deepstate-a55451fc71c6bfec"
+        ],
+        "location_label": "Цвіткового"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "deepstate-60178bfd3679e898",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.9368223,
+          48.7904093
+        ]
+      },
+      "properties": {
+        "id": "deepstate-60178bfd3679e898",
+        "title": "Геолокированное обновление: Калеників",
+        "title_uk": "Геолоковане оновлення: Калеників",
+        "title_en": "Geolocated map update: Калеників",
+        "summary": "По оценке DeepStateMAP, российские силы продвинулись в районе Калеників.",
+        "summary_uk": "Ворог просунувся поблизу Калеників та Цвіткового",
+        "summary_en": "DeepStateMAP assesses that Russian forces advanced near Калеників.",
+        "event_date": "2026-08-19",
+        "published_at": "2026-08-19T16:25:26+00:00",
+        "verification_status": "probable",
+        "source_ids": [
+          "deepstate-map"
+        ],
+        "evidence_ids": [
+          "ev-deepstate-60178bfd3679e898"
+        ],
+        "location_label": "Калеників"
+      }
+    },
+    {
+      "type": "Feature",
       "id": "deepstate-45ec41d8e10eb90c",
       "geometry": {
         "type": "Point",
@@ -209,36 +269,6 @@
           "ev-deepstate-727b4caa304c7b1b"
         ],
         "location_label": "Білицького"
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "deepstate-eff53d6fa12d032f",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          37.8063581,
-          48.6589305
-        ]
-      },
-      "properties": {
-        "id": "deepstate-eff53d6fa12d032f",
-        "title": "Геолокированное обновление: Марковому",
-        "title_uk": "Геолоковане оновлення: Марковому",
-        "title_en": "Geolocated map update: Марковому",
-        "summary": "По оценке DeepStateMAP, российские силы продвинулись в районе Марковому.",
-        "summary_uk": "Ворог просунувся у Марковому . ✈️ Підтримайте збір для хлопців з 46 ОАеМБр на оптичні кабелі до дронів — https://send.monobank.ua/jar/88pkrej9nt . Зібрано 9️⃣ 8️⃣ %",
-        "summary_en": "DeepStateMAP assesses that Russian forces advanced near Марковому.",
-        "event_date": "2026-08-13",
-        "published_at": "2026-08-13T13:42:24+00:00",
-        "verification_status": "probable",
-        "source_ids": [
-          "deepstate-map"
-        ],
-        "evidence_ids": [
-          "ev-deepstate-eff53d6fa12d032f"
-        ],
-        "location_label": "Марковому"
       }
     }
   ]

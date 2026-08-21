@@ -15,6 +15,21 @@
     "source_id": "deepstate-map"
   },
   {
+    "id": "settlement-deepstate-60178bfd3679e898",
+    "name": "Калеників",
+    "name_uk": "Калеників",
+    "name_ru": "Калеників",
+    "name_en": "Калеників",
+    "aliases": [
+      "Калеників"
+    ],
+    "admin1": "Україна",
+    "lat": 48.7904093,
+    "lon": 37.9368223,
+    "status": "unknown",
+    "source_id": "deepstate-map"
+  },
+  {
     "id": "settlement-deepstate-d50ac3595c50182f",
     "name": "Кривій Луці",
     "name_uk": "Кривій Луці",
@@ -41,21 +56,6 @@
     "admin1": "Україна",
     "lat": 49.6609535,
     "lon": 37.7176107,
-    "status": "unknown",
-    "source_id": "deepstate-map"
-  },
-  {
-    "id": "settlement-deepstate-eff53d6fa12d032f",
-    "name": "Марковому",
-    "name_uk": "Марковому",
-    "name_ru": "Марковому",
-    "name_en": "Марковому",
-    "aliases": [
-      "Марковому"
-    ],
-    "admin1": "Україна",
-    "lat": 48.6589305,
-    "lon": 37.8063581,
     "status": "unknown",
     "source_id": "deepstate-map"
   },
@@ -116,6 +116,21 @@
     "admin1": "Україна",
     "lat": 47.6866598,
     "lon": 36.1761904,
+    "status": "unknown",
+    "source_id": "deepstate-map"
+  },
+  {
+    "id": "settlement-deepstate-a55451fc71c6bfec",
+    "name": "Цвіткового",
+    "name_uk": "Цвіткового",
+    "name_ru": "Цвіткового",
+    "name_en": "Цвіткового",
+    "aliases": [
+      "Цвіткового"
+    ],
+    "admin1": "Україна",
+    "lat": 47.706929,
+    "lon": 36.1496518,
     "status": "unknown",
     "source_id": "deepstate-map"
   }
