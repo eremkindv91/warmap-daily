@@ -3,6 +3,36 @@
   "features": [
     {
       "type": "Feature",
+      "id": "deepstate-4573303d49cc26cf",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.8056718,
+          48.7184607
+        ]
+      },
+      "properties": {
+        "id": "deepstate-4573303d49cc26cf",
+        "title": "Геолокированное обновление: Тихонівки",
+        "title_uk": "Геолоковане оновлення: Тихонівки",
+        "title_en": "Geolocated map update: Тихонівки",
+        "summary": "По оценке DeepStateMAP, российские силы продвинулись в районе Тихонівки.",
+        "summary_uk": "Ворог просунувся поблизу Тихонівки",
+        "summary_en": "DeepStateMAP assesses that Russian forces advanced near Тихонівки.",
+        "event_date": "2026-08-20",
+        "published_at": "2026-08-20T13:42:51+00:00",
+        "verification_status": "probable",
+        "source_ids": [
+          "deepstate-map"
+        ],
+        "evidence_ids": [
+          "ev-deepstate-4573303d49cc26cf"
+        ],
+        "location_label": "Тихонівки"
+      }
+    },
+    {
+      "type": "Feature",
       "id": "deepstate-a55451fc71c6bfec",
       "geometry": {
         "type": "Point",

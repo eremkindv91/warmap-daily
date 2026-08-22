@@ -120,6 +120,21 @@
     "source_id": "deepstate-map"
   },
   {
+    "id": "settlement-deepstate-4573303d49cc26cf",
+    "name": "Тихонівки",
+    "name_uk": "Тихонівки",
+    "name_ru": "Тихонівки",
+    "name_en": "Тихонівки",
+    "aliases": [
+      "Тихонівки"
+    ],
+    "admin1": "Україна",
+    "lat": 48.7184607,
+    "lon": 37.8056718,
+    "status": "unknown",
+    "source_id": "deepstate-map"
+  },
+  {
     "id": "settlement-deepstate-a55451fc71c6bfec",
     "name": "Цвіткового",
     "name_uk": "Цвіткового",
