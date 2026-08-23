@@ -1,5 +1,57 @@
 [
   {
+    "id": "deepstate-486e1089cd7a8906",
+    "title": "Геолокированное обновление: Привілля",
+    "title_uk": "Геолоковане оновлення: Привілля",
+    "title_en": "Geolocated map update: Привілля",
+    "summary": "По оценке DeepStateMAP, российские силы продвинулись в районе Привілля.",
+    "summary_uk": "Ворог просунувся поблизу Іллінівки та Привілля",
+    "summary_en": "DeepStateMAP assesses that Russian forces advanced near Привілля.",
+    "event_date": "2026-08-21",
+    "published_at": "2026-08-21T12:35:31+00:00",
+    "verification_status": "probable",
+    "event_kind": "territorial_update",
+    "source_ids": [
+      "deepstate-map"
+    ],
+    "evidence_ids": [
+      "ev-deepstate-486e1089cd7a8906"
+    ],
+    "location": {
+      "lat": 48.7429461,
+      "lon": 37.8362274
+    },
+    "location_label": "Привілля",
+    "settlement_id": "settlement-deepstate-486e1089cd7a8906",
+    "publication_note": "Точка взята из прямой ссылки DeepStateMAP. Контур территории не публикуется и не выводится из точки."
+  },
+  {
+    "id": "deepstate-357f8f65e31cc13a",
+    "title": "Геолокированное обновление: Іллінівки",
+    "title_uk": "Геолоковане оновлення: Іллінівки",
+    "title_en": "Geolocated map update: Іллінівки",
+    "summary": "По оценке DeepStateMAP, российские силы продвинулись в районе Іллінівки.",
+    "summary_uk": "Ворог просунувся поблизу Іллінівки та Привілля",
+    "summary_en": "DeepStateMAP assesses that Russian forces advanced near Іллінівки.",
+    "event_date": "2026-08-21",
+    "published_at": "2026-08-21T12:35:31+00:00",
+    "verification_status": "probable",
+    "event_kind": "territorial_update",
+    "source_ids": [
+      "deepstate-map"
+    ],
+    "evidence_ids": [
+      "ev-deepstate-357f8f65e31cc13a"
+    ],
+    "location": {
+      "lat": 48.4892514,
+      "lon": 37.6339254
+    },
+    "location_label": "Іллінівки",
+    "settlement_id": "settlement-deepstate-357f8f65e31cc13a",
+    "publication_note": "Точка взята из прямой ссылки DeepStateMAP. Контур территории не публикуется и не выводится из точки."
+  },
+  {
     "id": "deepstate-4573303d49cc26cf",
     "title": "Геолокированное обновление: Тихонівки",
     "title_uk": "Геолоковане оновлення: Тихонівки",
@@ -231,32 +283,6 @@
     },
     "location_label": "Курилівці",
     "settlement_id": "settlement-deepstate-ba14c2b76f451308",
-    "publication_note": "Точка взята из прямой ссылки DeepStateMAP. Контур территории не публикуется и не выводится из точки."
-  },
-  {
-    "id": "deepstate-727b4caa304c7b1b",
-    "title": "Геолокированное обновление: Білицького",
-    "title_uk": "Геолоковане оновлення: Білицького",
-    "title_en": "Geolocated map update: Білицького",
-    "summary": "По оценке DeepStateMAP, российские силы продвинулись в районе Білицького.",
-    "summary_uk": "Ворог просунувся поблизу Білицького",
-    "summary_en": "DeepStateMAP assesses that Russian forces advanced near Білицького.",
-    "event_date": "2026-08-14",
-    "published_at": "2026-08-14T14:17:01+00:00",
-    "verification_status": "probable",
-    "event_kind": "territorial_update",
-    "source_ids": [
-      "deepstate-map"
-    ],
-    "evidence_ids": [
-      "ev-deepstate-727b4caa304c7b1b"
-    ],
-    "location": {
-      "lat": 48.3947046,
-      "lon": 37.2181522
-    },
-    "location_label": "Білицького",
-    "settlement_id": "settlement-deepstate-727b4caa304c7b1b",
     "publication_note": "Точка взята из прямой ссылки DeepStateMAP. Контур территории не публикуется и не выводится из точки."
   }
 ]

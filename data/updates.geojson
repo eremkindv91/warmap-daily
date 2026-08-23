@@ -3,6 +3,66 @@
   "features": [
     {
       "type": "Feature",
+      "id": "deepstate-486e1089cd7a8906",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.8362274,
+          48.7429461
+        ]
+      },
+      "properties": {
+        "id": "deepstate-486e1089cd7a8906",
+        "title": "Геолокированное обновление: Привілля",
+        "title_uk": "Геолоковане оновлення: Привілля",
+        "title_en": "Geolocated map update: Привілля",
+        "summary": "По оценке DeepStateMAP, российские силы продвинулись в районе Привілля.",
+        "summary_uk": "Ворог просунувся поблизу Іллінівки та Привілля",
+        "summary_en": "DeepStateMAP assesses that Russian forces advanced near Привілля.",
+        "event_date": "2026-08-21",
+        "published_at": "2026-08-21T12:35:31+00:00",
+        "verification_status": "probable",
+        "source_ids": [
+          "deepstate-map"
+        ],
+        "evidence_ids": [
+          "ev-deepstate-486e1089cd7a8906"
+        ],
+        "location_label": "Привілля"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "deepstate-357f8f65e31cc13a",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.6339254,
+          48.4892514
+        ]
+      },
+      "properties": {
+        "id": "deepstate-357f8f65e31cc13a",
+        "title": "Геолокированное обновление: Іллінівки",
+        "title_uk": "Геолоковане оновлення: Іллінівки",
+        "title_en": "Geolocated map update: Іллінівки",
+        "summary": "По оценке DeepStateMAP, российские силы продвинулись в районе Іллінівки.",
+        "summary_uk": "Ворог просунувся поблизу Іллінівки та Привілля",
+        "summary_en": "DeepStateMAP assesses that Russian forces advanced near Іллінівки.",
+        "event_date": "2026-08-21",
+        "published_at": "2026-08-21T12:35:31+00:00",
+        "verification_status": "probable",
+        "source_ids": [
+          "deepstate-map"
+        ],
+        "evidence_ids": [
+          "ev-deepstate-357f8f65e31cc13a"
+        ],
+        "location_label": "Іллінівки"
+      }
+    },
+    {
+      "type": "Feature",
       "id": "deepstate-4573303d49cc26cf",
       "geometry": {
         "type": "Point",
@@ -269,36 +329,6 @@
           "ev-deepstate-ba14c2b76f451308"
         ],
         "location_label": "Курилівці"
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "deepstate-727b4caa304c7b1b",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          37.2181522,
-          48.3947046
-        ]
-      },
-      "properties": {
-        "id": "deepstate-727b4caa304c7b1b",
-        "title": "Геолокированное обновление: Білицького",
-        "title_uk": "Геолоковане оновлення: Білицького",
-        "title_en": "Geolocated map update: Білицького",
-        "summary": "По оценке DeepStateMAP, российские силы продвинулись в районе Білицького.",
-        "summary_uk": "Ворог просунувся поблизу Білицького",
-        "summary_en": "DeepStateMAP assesses that Russian forces advanced near Білицького.",
-        "event_date": "2026-08-14",
-        "published_at": "2026-08-14T14:17:01+00:00",
-        "verification_status": "probable",
-        "source_ids": [
-          "deepstate-map"
-        ],
-        "evidence_ids": [
-          "ev-deepstate-727b4caa304c7b1b"
-        ],
-        "location_label": "Білицького"
       }
     }
   ]

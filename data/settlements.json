@@ -1,16 +1,16 @@
 [
   {
-    "id": "settlement-deepstate-727b4caa304c7b1b",
-    "name": "Білицького",
-    "name_uk": "Білицького",
-    "name_ru": "Білицького",
-    "name_en": "Білицького",
+    "id": "settlement-deepstate-357f8f65e31cc13a",
+    "name": "Іллінівки",
+    "name_uk": "Іллінівки",
+    "name_ru": "Іллінівки",
+    "name_en": "Іллінівки",
     "aliases": [
-      "Білицького"
+      "Іллінівки"
     ],
     "admin1": "Україна",
-    "lat": 48.3947046,
-    "lon": 37.2181522,
+    "lat": 48.4892514,
+    "lon": 37.6339254,
     "status": "unknown",
     "source_id": "deepstate-map"
   },
@@ -101,6 +101,21 @@
     "admin1": "Україна",
     "lat": 48.3489796,
     "lon": 37.0550848,
+    "status": "unknown",
+    "source_id": "deepstate-map"
+  },
+  {
+    "id": "settlement-deepstate-486e1089cd7a8906",
+    "name": "Привілля",
+    "name_uk": "Привілля",
+    "name_ru": "Привілля",
+    "name_en": "Привілля",
+    "aliases": [
+      "Привілля"
+    ],
+    "admin1": "Україна",
+    "lat": 48.7429461,
+    "lon": 37.8362274,
     "status": "unknown",
     "source_id": "deepstate-map"
   },
