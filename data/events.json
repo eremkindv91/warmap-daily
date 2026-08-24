@@ -1,5 +1,31 @@
 [
   {
+    "id": "deepstate-c43cf8ab59b4e02d",
+    "title": "Геолокированное обновление: Артільного",
+    "title_uk": "Геолоковане оновлення: Артільного",
+    "title_en": "Geolocated map update: Артільного",
+    "summary": "По оценке DeepStateMAP, российские силы продвинулись в районе Артільного.",
+    "summary_uk": "Ворог окупував Родинське , а також просунувся поблизу Артільного",
+    "summary_en": "DeepStateMAP assesses that Russian forces advanced near Артільного.",
+    "event_date": "2026-08-22",
+    "published_at": "2026-08-22T11:53:01+00:00",
+    "verification_status": "probable",
+    "event_kind": "territorial_update",
+    "source_ids": [
+      "deepstate-map"
+    ],
+    "evidence_ids": [
+      "ev-deepstate-c43cf8ab59b4e02d"
+    ],
+    "location": {
+      "lat": 50.250501,
+      "lon": 37.6116028
+    },
+    "location_label": "Артільного",
+    "settlement_id": "settlement-deepstate-c43cf8ab59b4e02d",
+    "publication_note": "Точка взята из прямой ссылки DeepStateMAP. Контур территории не публикуется и не выводится из точки."
+  },
+  {
     "id": "deepstate-486e1089cd7a8906",
     "title": "Геолокированное обновление: Привілля",
     "title_uk": "Геолоковане оновлення: Привілля",
@@ -127,162 +153,6 @@
     },
     "location_label": "Калеників",
     "settlement_id": "settlement-deepstate-60178bfd3679e898",
-    "publication_note": "Точка взята из прямой ссылки DeepStateMAP. Контур территории не публикуется и не выводится из точки."
-  },
-  {
-    "id": "deepstate-45ec41d8e10eb90c",
-    "title": "Геолокированное обновление: Святопетрівки",
-    "title_uk": "Геолоковане оновлення: Святопетрівки",
-    "title_en": "Geolocated map update: Святопетрівки",
-    "summary": "По оценке DeepStateMAP, российские силы продвинулись в районе Святопетрівки.",
-    "summary_uk": "Ворог просунувся поблизу Святопетрівки",
-    "summary_en": "DeepStateMAP assesses that Russian forces advanced near Святопетрівки.",
-    "event_date": "2026-08-18",
-    "published_at": "2026-08-18T13:46:02+00:00",
-    "verification_status": "probable",
-    "event_kind": "territorial_update",
-    "source_ids": [
-      "deepstate-map"
-    ],
-    "evidence_ids": [
-      "ev-deepstate-45ec41d8e10eb90c"
-    ],
-    "location": {
-      "lat": 47.6866598,
-      "lon": 36.1761904
-    },
-    "location_label": "Святопетрівки",
-    "settlement_id": "settlement-deepstate-45ec41d8e10eb90c",
-    "publication_note": "Точка взята из прямой ссылки DeepStateMAP. Контур территории не публикуется и не выводится из точки."
-  },
-  {
-    "id": "deepstate-8f20cfe2b70d567b",
-    "title": "Геолокированное обновление: Нового Шахового",
-    "title_uk": "Геолоковане оновлення: Нового Шахового",
-    "title_en": "Geolocated map update: Нового Шахового",
-    "summary": "По оценке DeepStateMAP, российские силы продвинулись в районе Нового Шахового.",
-    "summary_uk": "Ворог просунувся поблизу Новоолександрівки та Нового Шахового",
-    "summary_en": "DeepStateMAP assesses that Russian forces advanced near Нового Шахового.",
-    "event_date": "2026-08-17",
-    "published_at": "2026-08-17T15:33:21+00:00",
-    "verification_status": "probable",
-    "event_kind": "territorial_update",
-    "source_ids": [
-      "deepstate-map"
-    ],
-    "evidence_ids": [
-      "ev-deepstate-8f20cfe2b70d567b"
-    ],
-    "location": {
-      "lat": 48.4477725,
-      "lon": 37.2416823
-    },
-    "location_label": "Нового Шахового",
-    "settlement_id": "settlement-deepstate-8f20cfe2b70d567b",
-    "publication_note": "Точка взята из прямой ссылки DeepStateMAP. Контур территории не публикуется и не выводится из точки."
-  },
-  {
-    "id": "deepstate-446fd4384db46b8c",
-    "title": "Геолокированное обновление: Новоолександрівки",
-    "title_uk": "Геолоковане оновлення: Новоолександрівки",
-    "title_en": "Geolocated map update: Новоолександрівки",
-    "summary": "По оценке DeepStateMAP, российские силы продвинулись в районе Новоолександрівки.",
-    "summary_uk": "Ворог просунувся поблизу Новоолександрівки та Нового Шахового",
-    "summary_en": "DeepStateMAP assesses that Russian forces advanced near Новоолександрівки.",
-    "event_date": "2026-08-17",
-    "published_at": "2026-08-17T15:33:21+00:00",
-    "verification_status": "probable",
-    "event_kind": "territorial_update",
-    "source_ids": [
-      "deepstate-map"
-    ],
-    "evidence_ids": [
-      "ev-deepstate-446fd4384db46b8c"
-    ],
-    "location": {
-      "lat": 48.3539425,
-      "lon": 37.1230612
-    },
-    "location_label": "Новоолександрівки",
-    "settlement_id": "settlement-deepstate-446fd4384db46b8c",
-    "publication_note": "Точка взята из прямой ссылки DeepStateMAP. Контур территории не публикуется и не выводится из точки."
-  },
-  {
-    "id": "deepstate-18cea98ba88d124b",
-    "title": "Геолокированное обновление: Новоолександрівки",
-    "title_uk": "Геолоковане оновлення: Новоолександрівки",
-    "title_en": "Geolocated map update: Новоолександрівки",
-    "summary": "По оценке DeepStateMAP, российские силы продвинулись в районе Новоолександрівки.",
-    "summary_uk": "Ворог просунувся поблизу Новоолександрівки",
-    "summary_en": "DeepStateMAP assesses that Russian forces advanced near Новоолександрівки.",
-    "event_date": "2026-08-17",
-    "published_at": "2026-08-17T08:11:01+00:00",
-    "verification_status": "probable",
-    "event_kind": "territorial_update",
-    "source_ids": [
-      "deepstate-map"
-    ],
-    "evidence_ids": [
-      "ev-deepstate-18cea98ba88d124b"
-    ],
-    "location": {
-      "lat": 48.3489796,
-      "lon": 37.0550848
-    },
-    "location_label": "Новоолександрівки",
-    "settlement_id": "settlement-deepstate-18cea98ba88d124b",
-    "publication_note": "Точка взята из прямой ссылки DeepStateMAP. Контур территории не публикуется и не выводится из точки."
-  },
-  {
-    "id": "deepstate-d50ac3595c50182f",
-    "title": "Геолокированное обновление: Кривій Луці",
-    "title_uk": "Геолоковане оновлення: Кривій Луці",
-    "title_en": "Geolocated map update: Кривій Луці",
-    "summary": "По оценке DeepStateMAP, российские силы продвинулись в районе Кривій Луці.",
-    "summary_uk": "Ворог просунувся у Курилівці та Кривій Луці",
-    "summary_en": "DeepStateMAP assesses that Russian forces advanced near Кривій Луці.",
-    "event_date": "2026-08-15",
-    "published_at": "2026-08-15T19:30:35+00:00",
-    "verification_status": "probable",
-    "event_kind": "territorial_update",
-    "source_ids": [
-      "deepstate-map"
-    ],
-    "evidence_ids": [
-      "ev-deepstate-d50ac3595c50182f"
-    ],
-    "location": {
-      "lat": 48.8640387,
-      "lon": 37.9024029
-    },
-    "location_label": "Кривій Луці",
-    "settlement_id": "settlement-deepstate-d50ac3595c50182f",
-    "publication_note": "Точка взята из прямой ссылки DeepStateMAP. Контур территории не публикуется и не выводится из точки."
-  },
-  {
-    "id": "deepstate-ba14c2b76f451308",
-    "title": "Геолокированное обновление: Курилівці",
-    "title_uk": "Геолоковане оновлення: Курилівці",
-    "title_en": "Geolocated map update: Курилівці",
-    "summary": "По оценке DeepStateMAP, российские силы продвинулись в районе Курилівці.",
-    "summary_uk": "Ворог просунувся у Курилівці та Кривій Луці",
-    "summary_en": "DeepStateMAP assesses that Russian forces advanced near Курилівці.",
-    "event_date": "2026-08-15",
-    "published_at": "2026-08-15T19:30:35+00:00",
-    "verification_status": "probable",
-    "event_kind": "territorial_update",
-    "source_ids": [
-      "deepstate-map"
-    ],
-    "evidence_ids": [
-      "ev-deepstate-ba14c2b76f451308"
-    ],
-    "location": {
-      "lat": 49.6609535,
-      "lon": 37.7176107
-    },
-    "location_label": "Курилівці",
-    "settlement_id": "settlement-deepstate-ba14c2b76f451308",
     "publication_note": "Точка взята из прямой ссылки DeepStateMAP. Контур территории не публикуется и не выводится из точки."
   }
 ]
