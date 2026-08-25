@@ -1,5 +1,14 @@
 [
   {
+    "id": "ev-deepstate-0de04a7e22f6a7f5",
+    "source_id": "deepstate-map",
+    "published_at": "2026-08-23T18:49:19+00:00",
+    "url": "https://t.me/DeepStateUA/23774",
+    "evidence_type": "licensed_map",
+    "independence_group": "deepstate",
+    "verification_note": "Публичный пост DeepStateUA содержит прямую ссылку на DeepStateMAP с координатами. Опубликована только точка сообщения, без копирования полигонов или API-данных."
+  },
+  {
     "id": "ev-deepstate-c43cf8ab59b4e02d",
     "source_id": "deepstate-map",
     "published_at": "2026-08-22T11:53:01+00:00",

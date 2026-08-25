@@ -3,6 +3,36 @@
   "features": [
     {
       "type": "Feature",
+      "id": "deepstate-0de04a7e22f6a7f5",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.6237966,
+          48.4916965
+        ]
+      },
+      "properties": {
+        "id": "deepstate-0de04a7e22f6a7f5",
+        "title": "Геолокированное обновление: Довгої Балки",
+        "title_uk": "Геолоковане оновлення: Довгої Балки",
+        "title_en": "Geolocated map update: Довгої Балки",
+        "summary": "По оценке DeepStateMAP, российские силы продвинулись в районе Довгої Балки.",
+        "summary_uk": "Ворог просунувся поблизу Довгої Балки",
+        "summary_en": "DeepStateMAP assesses that Russian forces advanced near Довгої Балки.",
+        "event_date": "2026-08-23",
+        "published_at": "2026-08-23T18:49:19+00:00",
+        "verification_status": "probable",
+        "source_ids": [
+          "deepstate-map"
+        ],
+        "evidence_ids": [
+          "ev-deepstate-0de04a7e22f6a7f5"
+        ],
+        "location_label": "Довгої Балки"
+      }
+    },
+    {
+      "type": "Feature",
       "id": "deepstate-c43cf8ab59b4e02d",
       "geometry": {
         "type": "Point",

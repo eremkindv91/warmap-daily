@@ -30,6 +30,21 @@
     "source_id": "deepstate-map"
   },
   {
+    "id": "settlement-deepstate-0de04a7e22f6a7f5",
+    "name": "Довгої Балки",
+    "name_uk": "Довгої Балки",
+    "name_ru": "Довгої Балки",
+    "name_en": "Довгої Балки",
+    "aliases": [
+      "Довгої Балки"
+    ],
+    "admin1": "Україна",
+    "lat": 48.4916965,
+    "lon": 37.6237966,
+    "status": "unknown",
+    "source_id": "deepstate-map"
+  },
+  {
     "id": "settlement-deepstate-60178bfd3679e898",
     "name": "Калеників",
     "name_uk": "Калеників",
