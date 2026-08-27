@@ -1,35 +1,5 @@
 [
   {
-    "id": "settlement-deepstate-357f8f65e31cc13a",
-    "name": "Іллінівки",
-    "name_uk": "Іллінівки",
-    "name_ru": "Іллінівки",
-    "name_en": "Іллінівки",
-    "aliases": [
-      "Іллінівки"
-    ],
-    "admin1": "Україна",
-    "lat": 48.4892514,
-    "lon": 37.6339254,
-    "status": "unknown",
-    "source_id": "deepstate-map"
-  },
-  {
-    "id": "settlement-deepstate-c43cf8ab59b4e02d",
-    "name": "Артільного",
-    "name_uk": "Артільного",
-    "name_ru": "Артільного",
-    "name_en": "Артільного",
-    "aliases": [
-      "Артільного"
-    ],
-    "admin1": "Україна",
-    "lat": 50.250501,
-    "lon": 37.6116028,
-    "status": "unknown",
-    "source_id": "deepstate-map"
-  },
-  {
     "id": "settlement-deepstate-0de04a7e22f6a7f5",
     "name": "Довгої Балки",
     "name_uk": "Довгої Балки",
@@ -45,17 +15,47 @@
     "source_id": "deepstate-map"
   },
   {
-    "id": "settlement-deepstate-486e1089cd7a8906",
-    "name": "Привілля",
-    "name_uk": "Привілля",
-    "name_ru": "Привілля",
-    "name_en": "Привілля",
+    "id": "settlement-deepstate-b87cde802295b267",
+    "name": "Дорожнього",
+    "name_uk": "Дорожнього",
+    "name_ru": "Дорожнього",
+    "name_en": "Дорожнього",
     "aliases": [
-      "Привілля"
+      "Дорожнього"
     ],
     "admin1": "Україна",
-    "lat": 48.7429461,
-    "lon": 37.8362274,
+    "lat": 48.4351558,
+    "lon": 37.2304382,
+    "status": "unknown",
+    "source_id": "deepstate-map"
+  },
+  {
+    "id": "settlement-deepstate-e10d66610db61be0",
+    "name": "Западного",
+    "name_uk": "Западного",
+    "name_ru": "Западного",
+    "name_en": "Западного",
+    "aliases": [
+      "Западного"
+    ],
+    "admin1": "Україна",
+    "lat": 49.8436906,
+    "lon": 37.6359016,
+    "status": "unknown",
+    "source_id": "deepstate-map"
+  },
+  {
+    "id": "settlement-deepstate-5a3d406396abaa25",
+    "name": "Софіївки",
+    "name_uk": "Софіївки",
+    "name_ru": "Софіївки",
+    "name_en": "Софіївки",
+    "aliases": [
+      "Софіївки"
+    ],
+    "admin1": "Україна",
+    "lat": 48.4890865,
+    "lon": 37.408114,
     "status": "unknown",
     "source_id": "deepstate-map"
   }
