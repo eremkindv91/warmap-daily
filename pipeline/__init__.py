@@ -1,1 +1,0 @@
-"""WarMap Daily publication pipeline."""

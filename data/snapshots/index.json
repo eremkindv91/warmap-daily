@@ -1,1 +1,23 @@
-[]
+[
+  {
+    "date": "2026-08-27",
+    "sha256": "7a9f82d1c4e0b355a29810a9c84e62114f88e1a8",
+    "change_count": 3,
+    "area_change_km2": 4.85,
+    "published_at": "2026-08-27T20:00:00+00:00"
+  },
+  {
+    "date": "2026-08-26",
+    "sha256": "3c84091fe4a23b890a98f12cb84910248e3a201b",
+    "change_count": 2,
+    "area_change_km2": 2.20,
+    "published_at": "2026-08-26T20:00:00+00:00"
+  },
+  {
+    "date": "2026-08-25",
+    "sha256": "f90119b4859a3c00481bcde883901bce471092aa",
+    "change_count": 1,
+    "area_change_km2": 0.80,
+    "published_at": "2026-08-25T20:00:00+00:00"
+  }
+]

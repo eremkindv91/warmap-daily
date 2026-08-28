@@ -1,1 +1,50 @@
-[]
+[
+  {
+    "id": "claim-ru-mod-pokrovsk",
+    "side": "russian",
+    "side_label": "Минобороны РФ",
+    "summary": "Заявлено об установлении полного контроля над населенным пунктом Новогродовка и продвижении вглубь обороны ВСУ.",
+    "event_date": "2026-08-27",
+    "published_at": "2026-08-27T12:00:00+00:00",
+    "verification_status": "claim",
+    "source_ids": ["mod-russia"],
+    "settlement_id": "settlement-novohrodivka",
+    "location": { "lat": 48.2047, "lon": 37.3375 }
+  },
+  {
+    "id": "claim-ua-genshtab-pokrovsk",
+    "side": "ukrainian",
+    "side_label": "Генштаб ВСУ",
+    "summary": "На Покровском направлении отражено 48 атак в районах Гродовки, Воздвиженки, Новогродовки и Михайловки. Силы обороны сдерживают натиск.",
+    "event_date": "2026-08-27",
+    "published_at": "2026-08-27T19:00:00+00:00",
+    "verification_status": "claim",
+    "source_ids": ["general-staff-ua"],
+    "settlement_id": "settlement-pokrovsk",
+    "location": { "lat": 48.2822, "lon": 37.1824 }
+  },
+  {
+    "id": "claim-ru-mod-toretsk",
+    "side": "russian",
+    "side_label": "Минобороны РФ",
+    "summary": "Подразделения группировки 'Центр' заняли ключевой опорный пункт в микрорайоне Северный и ведут бои в черте Торецка.",
+    "event_date": "2026-08-26",
+    "published_at": "2026-08-26T13:30:00+00:00",
+    "verification_status": "claim",
+    "source_ids": ["mod-russia"],
+    "settlement_id": "settlement-toretsk",
+    "location": { "lat": 48.4003, "lon": 37.8544 }
+  },
+  {
+    "id": "claim-ua-genshtab-toretsk",
+    "side": "ukrainian",
+    "side_label": "Генштаб ВСУ",
+    "summary": "На Торецком направлении украинские подразделения проводят контратакующие действия в районе Нью-Йорка и удерживают позиции в городе.",
+    "event_date": "2026-08-26",
+    "published_at": "2026-08-26T18:45:00+00:00",
+    "verification_status": "claim",
+    "source_ids": ["general-staff-ua"],
+    "settlement_id": "settlement-niu-york",
+    "location": { "lat": 48.3333, "lon": 37.8389 }
+  }
+]

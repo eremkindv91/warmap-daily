@@ -1,62 +1,23 @@
 [
-  {
-    "id": "settlement-deepstate-0de04a7e22f6a7f5",
-    "name": "Довгої Балки",
-    "name_uk": "Довгої Балки",
-    "name_ru": "Довгої Балки",
-    "name_en": "Довгої Балки",
-    "aliases": [
-      "Довгої Балки"
-    ],
-    "admin1": "Україна",
-    "lat": 48.4916965,
-    "lon": 37.6237966,
-    "status": "unknown",
-    "source_id": "deepstate-map"
-  },
-  {
-    "id": "settlement-deepstate-b87cde802295b267",
-    "name": "Дорожнього",
-    "name_uk": "Дорожнього",
-    "name_ru": "Дорожнього",
-    "name_en": "Дорожнього",
-    "aliases": [
-      "Дорожнього"
-    ],
-    "admin1": "Україна",
-    "lat": 48.4351558,
-    "lon": 37.2304382,
-    "status": "unknown",
-    "source_id": "deepstate-map"
-  },
-  {
-    "id": "settlement-deepstate-e10d66610db61be0",
-    "name": "Западного",
-    "name_uk": "Западного",
-    "name_ru": "Западного",
-    "name_en": "Западного",
-    "aliases": [
-      "Западного"
-    ],
-    "admin1": "Україна",
-    "lat": 49.8436906,
-    "lon": 37.6359016,
-    "status": "unknown",
-    "source_id": "deepstate-map"
-  },
-  {
-    "id": "settlement-deepstate-5a3d406396abaa25",
-    "name": "Софіївки",
-    "name_uk": "Софіївки",
-    "name_ru": "Софіївки",
-    "name_en": "Софіївки",
-    "aliases": [
-      "Софіївки"
-    ],
-    "admin1": "Україна",
-    "lat": 48.4890865,
-    "lon": 37.408114,
-    "status": "unknown",
-    "source_id": "deepstate-map"
-  }
+  {"id":"settlement-pokrovsk","name":"Покровск","name_uk":"Покровськ","name_ru":"Покровск","name_en":"Pokrovsk","admin1":"Донецкая область","sector_id":"pokrovsk","lat":48.2822,"lon":37.1824,"status":"control_ua"},
+  {"id":"settlement-myrnohrad","name":"Мирноград","name_uk":"Мирноград","name_ru":"Мирноград","name_en":"Myrnohrad","admin1":"Донецкая область","sector_id":"pokrovsk","lat":48.3078,"lon":37.2656,"status":"control_ua"},
+  {"id":"settlement-selydove","name":"Селидово","name_uk":"Селидове","name_ru":"Селидово","name_en":"Selydove","admin1":"Донецкая область","sector_id":"pokrovsk","lat":48.1508,"lon":37.3039,"status":"contested"},
+  {"id":"settlement-novohrodivka","name":"Новогродовка","name_uk":"Новогродівка","name_ru":"Новогродовка","name_en":"Novohrodivka","admin1":"Донецкая область","sector_id":"pokrovsk","lat":48.2047,"lon":37.3375,"status":"control_ru"},
+  {"id":"settlement-hrodivka","name":"Гродовка","name_uk":"Гродівка","name_ru":"Гродовка","name_en":"Hrodivka","admin1":"Донецкая область","sector_id":"pokrovsk","lat":48.2611,"lon":37.3822,"status":"contested"},
+  {"id":"settlement-toretsk","name":"Торецк","name_uk":"Торецьк","name_ru":"Торецк","name_en":"Toretsk","admin1":"Донецкая область","sector_id":"toretsk","lat":48.4003,"lon":37.8544,"status":"contested"},
+  {"id":"settlement-niu-york","name":"Нью-Йорк","name_uk":"Нью-Йорк","name_ru":"Нью-Йорк","name_en":"Niu-York","admin1":"Донецкая область","sector_id":"toretsk","lat":48.3333,"lon":37.8389,"status":"control_ru"},
+  {"id":"settlement-pivnichne","name":"Северное","name_uk":"Північне","name_ru":"Северное","name_en":"Pivnichne","admin1":"Донецкая область","sector_id":"toretsk","lat":48.3894,"lon":37.9081,"status":"control_ru"},
+  {"id":"settlement-chasiv-yar","name":"Часов Яр","name_uk":"Часів Яр","name_ru":"Часов Яр","name_en":"Chasiv Yar","admin1":"Донецкая область","sector_id":"chasiv_yar","lat":48.5900,"lon":37.8300,"status":"contested"},
+  {"id":"settlement-klishchiivka","name":"Клещеевка","name_uk":"Кліщіївка","name_ru":"Клещеевка","name_en":"Klishchiivka","admin1":"Донецкая область","sector_id":"chasiv_yar","lat":48.5303,"lon":37.9575,"status":"control_ru"},
+  {"id":"settlement-kupyansk","name":"Купянск","name_uk":"Куп’янськ","name_ru":"Купянск","name_en":"Kupyansk","admin1":"Харьковская область","sector_id":"kupyansk_lyman","lat":49.7139,"lon":37.6169,"status":"control_ua"},
+  {"id":"settlement-synkivka","name":"Синьковка","name_uk":"Синьківка","name_ru":"Синьковка","name_en":"Synkivka","admin1":"Харьковская область","sector_id":"kupyansk_lyman","lat":49.7719,"lon":37.7028,"status":"control_ru"},
+  {"id":"settlement-lyman","name":"Лиман","name_uk":"Лиман","name_ru":"Лиман","name_en":"Lyman","admin1":"Донецкая область","sector_id":"kupyansk_lyman","lat":48.9856,"lon":37.8089,"status":"control_ua"},
+  {"id":"settlement-kreminna","name":"Кременная","name_uk":"Кремінна","name_ru":"Кременная","name_en":"Kreminna","admin1":"Луганская область","sector_id":"kupyansk_lyman","lat":49.0500,"lon":38.2167,"status":"control_ru"},
+  {"id":"settlement-kurakhove","name":"Курахово","name_uk":"Курахове","name_ru":"Курахово","name_en":"Kurakhove","admin1":"Донецкая область","sector_id":"kurakhove_vuhledar","lat":47.9850,"lon":37.2750,"status":"control_ua"},
+  {"id":"settlement-krasnohorivka","name":"Красногоровка","name_uk":"Красногорівка","name_ru":"Красногоровка","name_en":"Krasnohorivka","admin1":"Донецкая область","sector_id":"kurakhove_vuhledar","lat":48.0019,"lon":37.5119,"status":"control_ru"},
+  {"id":"settlement-vuhledar","name":"Угледар","name_uk":"Вугледар","name_ru":"Угледар","name_en":"Vuhledar","admin1":"Донецкая область","sector_id":"kurakhove_vuhledar","lat":47.7814,"lon":37.2481,"status":"control_ru"},
+  {"id":"settlement-orikhiv","name":"Орехов","name_uk":"Оріхів","name_ru":"Орехов","name_en":"Orikhiv","admin1":"Запорожская область","sector_id":"zaporizhzhia","lat":47.5683,"lon":35.7867,"status":"control_ua"},
+  {"id":"settlement-robotyne","name":"Работино","name_uk":"Роботине","name_ru":"Работино","name_en":"Robotyne","admin1":"Запорожская область","sector_id":"zaporizhzhia","lat":47.4447,"lon":35.8358,"status":"contested"},
+  {"id":"settlement-kherson","name":"Херсон","name_uk":"Херсон","name_ru":"Херсон","name_en":"Kherson","admin1":"Херсонская область","sector_id":"kherson_dnipro","lat":46.6354,"lon":32.6169,"status":"control_ua"},
+  {"id":"settlement-krynky","name":"Крынки","name_uk":"Кринки","name_ru":"Крынки","name_en":"Krynky","admin1":"Херсонская область","sector_id":"kherson_dnipro","lat":46.7333,"lon":33.0833,"status":"contested"}
 ]

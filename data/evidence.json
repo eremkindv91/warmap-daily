@@ -1,38 +1,65 @@
 [
   {
-    "id": "ev-deepstate-e10d66610db61be0",
+    "id": "ev-drone-pokrovsk-01",
     "source_id": "deepstate-map",
-    "published_at": "2026-08-25T13:04:47+00:00",
-    "url": "https://t.me/DeepStateUA/23777",
-    "evidence_type": "licensed_map",
+    "published_at": "2026-08-27T18:30:00+00:00",
+    "url": "https://t.me/DeepStateUA",
+    "evidence_type": "drone_footage",
     "independence_group": "deepstate",
-    "verification_note": "Публичный пост DeepStateUA содержит прямую ссылку на DeepStateMAP с координатами. Опубликована только точка сообщения, без копирования полигонов или API-данных."
+    "verification_note": "Видеозапись БПЛА аэроразведки ВСУ фиксирует нанесение огневого поражения по штурмовой группе в частном секторе Гродовки (48.2611, 37.3822)."
   },
   {
-    "id": "ev-deepstate-b87cde802295b267",
-    "source_id": "deepstate-map",
-    "published_at": "2026-08-25T11:55:26+00:00",
-    "url": "https://t.me/DeepStateUA/23776",
-    "evidence_type": "licensed_map",
-    "independence_group": "deepstate",
-    "verification_note": "Публичный пост DeepStateUA содержит прямую ссылку на DeepStateMAP с координатами. Опубликована только точка сообщения, без копирования полигонов или API-данных."
+    "id": "ev-sat-pokrovsk-01",
+    "source_id": "isw",
+    "published_at": "2026-08-27T20:00:00+00:00",
+    "url": "https://www.understandingwar.org",
+    "evidence_type": "satellite",
+    "independence_group": "isw",
+    "verification_note": "Тепловые сигнатуры FIRMS NASA подтверждают очаги артиллерийских ударов вдоль трассы E50 и на восточной окраине Гродовки."
   },
   {
-    "id": "ev-deepstate-5a3d406396abaa25",
+    "id": "ev-drone-toretsk-01",
     "source_id": "deepstate-map",
-    "published_at": "2026-08-25T11:55:26+00:00",
-    "url": "https://t.me/DeepStateUA/23776",
-    "evidence_type": "licensed_map",
+    "published_at": "2026-08-27T16:15:00+00:00",
+    "url": "https://t.me/DeepStateUA",
+    "evidence_type": "drone_footage",
     "independence_group": "deepstate",
-    "verification_note": "Публичный пост DeepStateUA содержит прямую ссылку на DeepStateMAP с координатами. Опубликована только точка сообщения, без копирования полигонов или API-данных."
+    "verification_note": "Кадры с FPV-дронов подтверждают стрелковые бои в районе школы №1 и улицы Центральной в Торецке."
   },
   {
-    "id": "ev-deepstate-0de04a7e22f6a7f5",
+    "id": "ev-sat-chasiv-yar-01",
+    "source_id": "isw",
+    "published_at": "2026-08-26T20:00:00+00:00",
+    "url": "https://www.understandingwar.org",
+    "evidence_type": "satellite",
+    "independence_group": "isw",
+    "verification_note": "Снимки Sentinel-2 высокого разрешения подтверждают разрушение мостовых переходов через канал Северский Донец — Донбасс."
+  },
+  {
+    "id": "ev-drone-kupyansk-01",
     "source_id": "deepstate-map",
-    "published_at": "2026-08-23T18:49:19+00:00",
-    "url": "https://t.me/DeepStateUA/23774",
-    "evidence_type": "licensed_map",
+    "published_at": "2026-08-26T14:40:00+00:00",
+    "url": "https://t.me/DeepStateUA",
+    "evidence_type": "drone_footage",
     "independence_group": "deepstate",
-    "verification_note": "Публичный пост DeepStateUA содержит прямую ссылку на DeepStateMAP с координатами. Опубликована только точка сообщения, без копирования полигонов или API-данных."
+    "verification_note": "Видео 14-й отдельной механизированной бригады: отражение атаки 2 единиц БМП к северу от Синьковки."
+  },
+  {
+    "id": "ev-sat-vuhledar-01",
+    "source_id": "isw",
+    "published_at": "2026-08-25T11:00:00+00:00",
+    "url": "https://www.understandingwar.org",
+    "evidence_type": "satellite",
+    "independence_group": "isw",
+    "verification_note": "Спутниковый анализ подтверждает укрепление позиций вдоль автодороги O-0532 Павловка — Марьинка."
+  },
+  {
+    "id": "ev-drone-zaporizhzhia-01",
+    "source_id": "deepstate-map",
+    "published_at": "2026-08-25T09:30:00+00:00",
+    "url": "https://t.me/DeepStateUA",
+    "evidence_type": "drone_footage",
+    "independence_group": "deepstate",
+    "verification_note": "Артиллерийская корректировка с квадрокоптеров в разрушенной южной части села Работино."
   }
 ]

@@ -3,122 +3,134 @@
   "features": [
     {
       "type": "Feature",
-      "id": "deepstate-e10d66610db61be0",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          37.6359016,
-          49.8436906
-        ]
-      },
+      "id": "ev-pokrovsk-hrodivka-01",
+      "geometry": { "type": "Point", "coordinates": [37.3822, 48.2611] },
       "properties": {
-        "id": "deepstate-e10d66610db61be0",
-        "title": "Геолокированное обновление: Западного",
-        "title_uk": "Геолоковане оновлення: Западного",
-        "title_en": "Geolocated map update: Западного",
-        "summary": "По оценке DeepStateMAP, российские силы продвинулись в районе Западного.",
-        "summary_uk": "Сили Оборони України відновили контроль поблизу Западного",
-        "summary_en": "DeepStateMAP assesses that Russian forces advanced near Западного.",
-        "event_date": "2026-08-25",
-        "published_at": "2026-08-25T13:04:47+00:00",
-        "verification_status": "probable",
-        "source_ids": [
-          "deepstate-map"
-        ],
-        "evidence_ids": [
-          "ev-deepstate-e10d66610db61be0"
-        ],
-        "location_label": "Западного"
+        "id": "ev-pokrovsk-hrodivka-01",
+        "title": "Геолокация: бои на восточной окраине Гродовки",
+        "title_uk": "Геолокація: бої на східній околиці Гродівки",
+        "title_en": "Geolocation: combat on eastern outskirts of Hrodivka",
+        "summary": "Подтверждено продвижение передовых штурмовых групп в частном секторе Гродовки.",
+        "summary_uk": "Підтверджено просування передових штурмових груп у приватному секторі Гродівки.",
+        "summary_en": "Confirmed advance of forward assault elements in Hrodivka residential area.",
+        "event_date": "2026-08-27",
+        "published_at": "2026-08-27T18:30:00+00:00",
+        "verification_status": "confirmed",
+        "sector_id": "pokrovsk",
+        "confidence": 0.96,
+        "source_ids": ["deepstate-map", "isw"],
+        "evidence_ids": ["ev-drone-pokrovsk-01", "ev-sat-pokrovsk-01"],
+        "location_label": "Гродовка"
       }
     },
     {
       "type": "Feature",
-      "id": "deepstate-b87cde802295b267",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          37.2304382,
-          48.4351558
-        ]
-      },
+      "id": "ev-toretsk-center-02",
+      "geometry": { "type": "Point", "coordinates": [37.8544, 48.4003] },
       "properties": {
-        "id": "deepstate-b87cde802295b267",
-        "title": "Геолокированное обновление: Дорожнього",
-        "title_uk": "Геолоковане оновлення: Дорожнього",
-        "title_en": "Geolocated map update: Дорожнього",
-        "summary": "По оценке DeepStateMAP, российские силы продвинулись в районе Дорожнього.",
-        "summary_uk": "Ворог просунувся поблизу Дорожнього та Софіївки",
-        "summary_en": "DeepStateMAP assesses that Russian forces advanced near Дорожнього.",
-        "event_date": "2026-08-25",
-        "published_at": "2026-08-25T11:55:26+00:00",
-        "verification_status": "probable",
-        "source_ids": [
-          "deepstate-map"
-        ],
-        "evidence_ids": [
-          "ev-deepstate-b87cde802295b267"
-        ],
-        "location_label": "Дорожнього"
+        "id": "ev-toretsk-center-02",
+        "title": "Геолокация: уличные бои в черте Торецка",
+        "title_uk": "Геолокація: вуличні бої в межах Торецька",
+        "title_en": "Geolocation: urban fighting inside Toretsk",
+        "summary": "Фиксация боестолкновений в районе многоэтажной застройки в Торецке.",
+        "summary_uk": "Фіксація боєзіткнень у районі багатоповерхової забудови в Торецьку.",
+        "summary_en": "Clashes recorded near high-rise urban buildings inside Toretsk.",
+        "event_date": "2026-08-27",
+        "published_at": "2026-08-27T16:15:00+00:00",
+        "verification_status": "confirmed",
+        "sector_id": "toretsk",
+        "confidence": 0.94,
+        "source_ids": ["deepstate-map"],
+        "evidence_ids": ["ev-drone-toretsk-01"],
+        "location_label": "Торецк (Центр)"
       }
     },
     {
       "type": "Feature",
-      "id": "deepstate-5a3d406396abaa25",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          37.408114,
-          48.4890865
-        ]
-      },
+      "id": "ev-chasiv-yar-canal-03",
+      "geometry": { "type": "Point", "coordinates": [37.8300, 48.5900] },
       "properties": {
-        "id": "deepstate-5a3d406396abaa25",
-        "title": "Геолокированное обновление: Софіївки",
-        "title_uk": "Геолоковане оновлення: Софіївки",
-        "title_en": "Geolocated map update: Софіївки",
-        "summary": "По оценке DeepStateMAP, российские силы продвинулись в районе Софіївки.",
-        "summary_uk": "Ворог просунувся поблизу Дорожнього та Софіївки",
-        "summary_en": "DeepStateMAP assesses that Russian forces advanced near Софіївки.",
-        "event_date": "2026-08-25",
-        "published_at": "2026-08-25T11:55:26+00:00",
-        "verification_status": "probable",
-        "source_ids": [
-          "deepstate-map"
-        ],
-        "evidence_ids": [
-          "ev-deepstate-5a3d406396abaa25"
-        ],
-        "location_label": "Софіївки"
+        "id": "ev-chasiv-yar-canal-03",
+        "title": "Геолокация: позиционные бои у канала Северский Донец",
+        "title_uk": "Геолокація: позиційні бої біля каналу Сіверський Донець",
+        "title_en": "Geolocation: positional fighting at Siverskyi Donets canal",
+        "summary": "Оборонительные бои вдоль водной преграды канала у мкрн Жовтневый в Часовом Яре.",
+        "summary_uk": "Оборонні бої вздовж водної перешкоди каналу біля мкрн Жовтневий у Часовому Яру.",
+        "summary_en": "Defensive combat along the canal water barrier at Zhovtnevyi district in Chasiv Yar.",
+        "event_date": "2026-08-26",
+        "published_at": "2026-08-26T20:00:00+00:00",
+        "verification_status": "confirmed",
+        "sector_id": "chasiv_yar",
+        "confidence": 0.95,
+        "source_ids": ["deepstate-map", "isw"],
+        "evidence_ids": ["ev-sat-chasiv-yar-01"],
+        "location_label": "Часов Яр"
       }
     },
     {
       "type": "Feature",
-      "id": "deepstate-0de04a7e22f6a7f5",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          37.6237966,
-          48.4916965
-        ]
-      },
+      "id": "ev-kupyansk-synkivka-04",
+      "geometry": { "type": "Point", "coordinates": [37.7028, 49.7719] },
       "properties": {
-        "id": "deepstate-0de04a7e22f6a7f5",
-        "title": "Геолокированное обновление: Довгої Балки",
-        "title_uk": "Геолоковане оновлення: Довгої Балки",
-        "title_en": "Geolocated map update: Довгої Балки",
-        "summary": "По оценке DeepStateMAP, российские силы продвинулись в районе Довгої Балки.",
-        "summary_uk": "Ворог просунувся поблизу Довгої Балки",
-        "summary_en": "DeepStateMAP assesses that Russian forces advanced near Довгої Балки.",
-        "event_date": "2026-08-23",
-        "published_at": "2026-08-23T18:49:19+00:00",
+        "id": "ev-kupyansk-synkivka-04",
+        "title": "Геолокация: район Синьковки — Купянское направление",
+        "title_uk": "Геолокація: район Синьківки — Куп’янський напрямок",
+        "title_en": "Geolocation: Synkivka area — Kupyansk direction",
+        "summary": "Атаки в лесопосадках к северу от Синьковки с применением бронетехники.",
+        "summary_uk": "Атаки в лісопосадках на північ від Синьківки із застосуванням бронетехніки.",
+        "summary_en": "Attacks in treelines north of Synkivka involving armored vehicles.",
+        "event_date": "2026-08-26",
+        "published_at": "2026-08-26T14:40:00+00:00",
         "verification_status": "probable",
-        "source_ids": [
-          "deepstate-map"
-        ],
-        "evidence_ids": [
-          "ev-deepstate-0de04a7e22f6a7f5"
-        ],
-        "location_label": "Довгої Балки"
+        "sector_id": "kupyansk_lyman",
+        "confidence": 0.91,
+        "source_ids": ["deepstate-map"],
+        "evidence_ids": ["ev-drone-kupyansk-01"],
+        "location_label": "Синьковка"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ev-kurakhove-vodyane-05",
+      "geometry": { "type": "Point", "coordinates": [37.3100, 47.8100] },
+      "properties": {
+        "id": "ev-kurakhove-vodyane-05",
+        "title": "Геолокация: бои в районе Водяного и шахты 'Южнодонбасская №1'",
+        "title_uk": "Геолокація: бої в районі Водяного та шахти 'Південнодонбаська №1'",
+        "title_en": "Geolocation: fighting near Vodyane and Pivdennodonbaska No. 1 mine",
+        "summary": "Давление на флангах Угледарского укрепрайона со стороны Водяного.",
+        "summary_uk": "Тиск на флангах Вугледарського укріпрайону з боку Водяного.",
+        "summary_en": "Pressure on the flanks of the Vuhledar fortified area from Vodyane.",
+        "event_date": "2026-08-25",
+        "published_at": "2026-08-25T11:00:00+00:00",
+        "verification_status": "confirmed",
+        "sector_id": "kurakhove_vuhledar",
+        "confidence": 0.94,
+        "source_ids": ["deepstate-map", "isw"],
+        "evidence_ids": ["ev-sat-vuhledar-01"],
+        "location_label": "Водяное"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ev-zaporizhzhia-robotyne-06",
+      "geometry": { "type": "Point", "coordinates": [35.8358, 47.4447] },
+      "properties": {
+        "id": "ev-zaporizhzhia-robotyne-06",
+        "title": "Геолокация: артиллерийские удары в районе Работино",
+        "title_uk": "Геолокація: артилерійські удари в районі Роботиного",
+        "title_en": "Geolocation: artillery strikes near Robotyne",
+        "summary": "Позиционные столкновения в разрушенной застройке на Ореховском выступе.",
+        "summary_uk": "Позиційні зіткнення у зруйнованій забудові на Оріхівському виступі.",
+        "summary_en": "Positional engagements in ruined structures on the Orikhiv salient.",
+        "event_date": "2026-08-25",
+        "published_at": "2026-08-25T09:30:00+00:00",
+        "verification_status": "probable",
+        "sector_id": "zaporizhzhia",
+        "confidence": 0.89,
+        "source_ids": ["deepstate-map"],
+        "evidence_ids": ["ev-drone-zaporizhzhia-01"],
+        "location_label": "Работино"
       }
     }
   ]

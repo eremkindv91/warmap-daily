@@ -1,0 +1,8 @@
+{
+  "name": "WarMap Daily",
+  "description": "Daily control-line and OSINT territorial change map based on verifiable open sources.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
