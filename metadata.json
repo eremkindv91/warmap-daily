@@ -1,6 +1,6 @@
 {
   "name": "WarMap Daily",
-  "description": "Daily control-line and OSINT territorial change map based on verifiable open sources.",
+  "description": "WarMap Daily 2.0 — OSINT compact 24h dashboard and interactive tactical control map with source lineage, video verification and daily analytical digest.",
   "requestFramePermissions": [],
   "majorCapabilities": [
     "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"

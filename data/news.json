@@ -1,0 +1,253 @@
+[
+  {
+    "id": "news-pokrovsk-hrodivka-advance",
+    "title": "Гродовка — бои в восточной части поселка",
+    "title_uk": "Гродівка — бої у східній частині селища",
+    "title_en": "Hrodivka — combat in eastern settlement sector",
+    "sector_id": "pokrovsk",
+    "settlement_name": "Гродовка",
+    "timestamp": "2026-09-03T08:40:00+03:00",
+    "time_formatted": "3 сентября 2026, 08:40 МСК",
+    "importance": "critical",
+    "verification_status": "CONFIRMED",
+    "confidence": 0.96,
+    "what_happened": "Штурмовые группы продвинулись в частном секторе на востоке Гродовки вдоль балок на глубину до 800 метров.",
+    "what_happened_uk": "Штурмові групи просунулися у приватному секторі на сході Гродівки вздовж балок на глибину до 800 метрів.",
+    "what_happened_en": "Assault elements advanced into eastern residential sector of Hrodivka along ravines up to 800m deep.",
+    "what_is_confirmed": "Кадры с БПЛА фиксируют присутствие передовых групп в домах по ул. Заводская; спутниковые термоточки Sentinel-2 подтверждают артиллерийские удары по линии застройки (+2.65 км²).",
+    "what_is_not_confirmed": "Заявления отдельных каналов о полном контроле центра посёлка и здания поселкового совета НЕ подтверждены видеофиксацией.",
+    "independent_sources_count": 3,
+    "raw_publications_compressed": 24,
+    "sources_lineage": [
+      {
+        "name": "OSINT-видео 47 ОМБр",
+        "type": "video",
+        "independent": true,
+        "confirms": "Контроль восточных домов",
+        "timestamp": "07:15"
+      },
+      {
+        "name": "Sentinel-2 / FIRMS NASA",
+        "type": "satellite",
+        "independent": true,
+        "confirms": "Термоточки и арт-обстрелы",
+        "timestamp": "07:45"
+      },
+      {
+        "name": "DeepStateUA",
+        "type": "osint",
+        "independent": true,
+        "confirms": "Продвижение к востоку от центра",
+        "timestamp": "08:10"
+      },
+      {
+        "name": "Сводка Минобороны РФ",
+        "type": "official",
+        "independent": false,
+        "confirms": "Заявление о продвижении",
+        "timestamp": "12:00"
+      }
+    ]
+  },
+  {
+    "id": "news-toretsk-pivnichne-heights",
+    "title": "Торецк (Северное) — бои за район терриконов",
+    "title_uk": "Торецьк (Північне) — бої за район териконів",
+    "title_en": "Toretsk (Pivnichne) — battles for spoil heap heights",
+    "sector_id": "toretsk",
+    "settlement_name": "Торецк / Северное",
+    "timestamp": "2026-09-03T07:20:00+03:00",
+    "time_formatted": "3 сентября 2026, 07:20 МСК",
+    "importance": "critical",
+    "verification_status": "CONFIRMED",
+    "confidence": 0.94,
+    "what_happened": "Зафиксировано расширение зоны контроля в районе терриконов шахты «Северная» на восточной окраине городской агломерации (+1.40 км²).",
+    "what_happened_uk": "Зафіксовано розширення зони контролю в районі териконів шахти «Північна» на східній околиці міської агломерації (+1.40 км²).",
+    "what_happened_en": "Zone of control expanded around the Pivnichna mine spoil heaps on eastern urban outskirts (+1.40 km²).",
+    "what_is_confirmed": "Видеозаписи сбросов с FPV-дронов подтверждают занятие позиций у подножия отвалов шахты.",
+    "what_is_not_confirmed": "Сообщения о полном контроле центрального террикона не подтверждены; высота остаётся в серой зоне под постоянным огневым контролем обеих сторон.",
+    "independent_sources_count": 2,
+    "raw_publications_compressed": 19,
+    "sources_lineage": [
+      {
+        "name": "Геолокация дронов (OSINT)",
+        "type": "geolocation",
+        "independent": true,
+        "confirms": "Позиции у подножия террикона",
+        "timestamp": "06:30"
+      },
+      {
+        "name": "ISW Assessment",
+        "type": "osint",
+        "independent": true,
+        "confirms": "Оспариваемый статус высот",
+        "timestamp": "06:50"
+      },
+      {
+        "name": "Генштаб ВСУ",
+        "type": "official",
+        "independent": false,
+        "confirms": "Отражение штурмов в Северном",
+        "timestamp": "08:00"
+      }
+    ]
+  },
+  {
+    "id": "news-chasiv-yar-canal-line",
+    "title": "Часов Яр — позиционные бои вдоль водной преграды",
+    "title_uk": "Часів Яр — позиційні бої вздовж водної перешкоди",
+    "title_en": "Chasiv Yar — positional clashes along canal water barrier",
+    "sector_id": "chasiv_yar",
+    "settlement_name": "Часов Яр",
+    "timestamp": "2026-09-03T06:10:00+03:00",
+    "time_formatted": "3 сентября 2026, 06:10 МСК",
+    "importance": "important",
+    "verification_status": "CONFIRMED",
+    "confidence": 0.95,
+    "what_happened": "Оборонительный рубеж по каналу Северский Донец — Донбасс удерживается. Попытки создания плацдармов на западном берегу пресекаются.",
+    "what_happened_uk": "Оборонний рубіж по каналу Сіверський Донець — Донбас утримується.",
+    "what_happened_en": "Defensive line along Siverskyi Donets canal holds firmly against crossing attempts.",
+    "what_is_confirmed": "Артиллерийские удары по руслу канала и микрорайону Октябрьский/Новый подтверждены видеозаписями 24 ОМБр.",
+    "what_is_not_confirmed": "Утверждения о переходе микрорайона Новый под устойчивый контроль опровергнуты свежими кадрами с дронов.",
+    "independent_sources_count": 3,
+    "raw_publications_compressed": 15,
+    "sources_lineage": [
+      {
+        "name": "Видео 24 ОМБр",
+        "type": "video",
+        "independent": true,
+        "confirms": "Удержание рубежа канала",
+        "timestamp": "05:40"
+      },
+      {
+        "name": "Sentinel-2 SAR",
+        "type": "satellite",
+        "independent": true,
+        "confirms": "Целостность мостовых переходов",
+        "timestamp": "06:00"
+      },
+      {
+        "name": "DeepStateUA",
+        "type": "osint",
+        "independent": true,
+        "confirms": "Канал как разделительная линия",
+        "timestamp": "06:10"
+      }
+    ]
+  },
+  {
+    "id": "news-kupyansk-synkivka-assaults",
+    "title": "Купянское направление — штурмы в районе Синьковки",
+    "title_uk": "Куп'янський напрямок — штурми в районі Синьківки",
+    "title_en": "Kupyansk direction — assaults in Synkivka sector",
+    "sector_id": "kupyansk_lyman",
+    "settlement_name": "Синьковка",
+    "timestamp": "2026-09-02T21:40:00+03:00",
+    "time_formatted": "2 сентября 2026, 21:40 МСК",
+    "importance": "important",
+    "verification_status": "PROBABLE",
+    "confidence": 0.88,
+    "what_happened": "Атаки бронегрупп в лесных массивах к северу от Синьковки. Линия фронта остаётся без значительных изменений.",
+    "what_happened_uk": "Атаки бронегруп у лісових масивах на північ від Синьківки. Лінія фронту без суттєвих змін.",
+    "what_happened_en": "Armored assaults in forest tracts north of Synkivka. Frontline remains stable without major shifts.",
+    "what_is_confirmed": "Удары дронов-камикадзе по бронетехнике в посадках подтверждены видеозаписями 14 ОМБр.",
+    "what_is_not_confirmed": "Заявления о заходе в черту села Синьковка не находят фото/видео подтверждений (село остаётся в серой зоне разрушенной застройки).",
+    "independent_sources_count": 2,
+    "raw_publications_compressed": 12,
+    "sources_lineage": [
+      {
+        "name": "Видео 14 ОМБр",
+        "type": "video",
+        "independent": true,
+        "confirms": "Отражение бронегруппы в посадке",
+        "timestamp": "20:30"
+      },
+      {
+        "name": "DeepStateUA",
+        "type": "osint",
+        "independent": true,
+        "confirms": "Серая зона севернее села",
+        "timestamp": "21:15"
+      }
+    ]
+  },
+  {
+    "id": "news-vuhledar-flank-pressure",
+    "title": "Курахово — Угледар — бои за шахту «Южнодонбасская №1»",
+    "title_uk": "Курахове — Вугледар — бої за шахту «Південнодонбаська №1»",
+    "title_en": "Kurakhove — Vuhledar — clashes for Pivdennodonbaska No. 1 mine",
+    "sector_id": "kurakhove_vuhledar",
+    "settlement_name": "Водяное / Угледар",
+    "timestamp": "2026-09-02T19:15:00+03:00",
+    "time_formatted": "2 сентября 2026, 19:15 МСК",
+    "importance": "critical",
+    "verification_status": "CONFIRMED",
+    "confidence": 0.94,
+    "what_happened": "Продолжаются ожесточённые бои за вентиляционный ствол и вспомогательные постройки шахты у Водяного.",
+    "what_happened_uk": "Тривають запеклі бої за вентиляційний ствол та споруди шахти біля Водяного.",
+    "what_happened_en": "Fierce fighting continues over ventilation shaft and auxiliary structures of the mine near Vodyane.",
+    "what_is_confirmed": "Артиллерийские удары и сбросы с FPV-дронов по территории промзоны шахты подтверждены спутником и видео.",
+    "what_is_not_confirmed": "Сообщения о перерезании основной трассы снабжения на Богоявленку не соответствуют действительности; дорога простреливается, но остаётся под контролем логистики ВСУ.",
+    "independent_sources_count": 3,
+    "raw_publications_compressed": 16,
+    "sources_lineage": [
+      {
+        "name": "Видео 72 ОМБр",
+        "type": "video",
+        "independent": true,
+        "confirms": "Оборона района шахты",
+        "timestamp": "18:00"
+      },
+      {
+        "name": "NASA FIRMS Thermal",
+        "type": "satellite",
+        "independent": true,
+        "confirms": "Очаги пожаров в промзоне",
+        "timestamp": "18:40"
+      },
+      {
+        "name": "ISW Daily Update",
+        "type": "osint",
+        "independent": true,
+        "confirms": "Давление на фланги Угледара",
+        "timestamp": "19:00"
+      }
+    ]
+  },
+  {
+    "id": "news-zaporizhzhia-robotyne-skirmishes",
+    "title": "Запорожский сектор — позиционные перестрелки у Работино",
+    "title_uk": "Запорізький сектор — позиційні перестрілки біля Роботиного",
+    "title_en": "Zaporizhzhia sector — positional skirmishes near Robotyne",
+    "sector_id": "zaporizhzhia",
+    "settlement_name": "Работино / Вербовое",
+    "timestamp": "2026-09-02T15:30:00+03:00",
+    "time_formatted": "2 сентября 2026, 15:30 МСК",
+    "importance": "context",
+    "verification_status": "CONFIRMED",
+    "confidence": 0.92,
+    "what_happened": "Артиллерийские дуэли и взаимные налёты беспилотников в районе разрушенного выступа Работино. Геометрия позиций стабильна.",
+    "what_happened_uk": "Артилерійські дуелі та взаємні нальоти безпілотників у районі Роботиного.",
+    "what_happened_en": "Artillery exchanges and mutual drone strikes in Robotyne salient area. Frontline geometry is unchanged.",
+    "what_is_confirmed": "Позиционный характер боевых действий без изменения конфигурации окопных линий.",
+    "what_is_not_confirmed": "Слухи о подготовке крупномасштабного прорыва на данном участке не подтверждаются разведывательными данными.",
+    "independent_sources_count": 1,
+    "raw_publications_compressed": 8,
+    "sources_lineage": [
+      {
+        "name": "OSINT Data Feed",
+        "type": "osint",
+        "independent": true,
+        "confirms": "Отсутствие перемещения бронетехники",
+        "timestamp": "14:00"
+      },
+      {
+        "name": "Сводки сторон",
+        "type": "official",
+        "independent": false,
+        "confirms": "Взаимные артобстрелы",
+        "timestamp": "15:00"
+      }
+    ]
+  }
+]

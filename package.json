@@ -8,5 +8,8 @@
     "build": "node -e \"console.log('Build complete')\"",
     "start": "node server.js",
     "lint": "node --check assets/app.js && node --check server.js"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
   }
 }

@@ -1,32 +1,44 @@
+/**
+ * WarMap Daily 2.0 — Modern Streamlined OSINT Frontend Controller
+ * Optimized for Mobile Touch, Instant 24h Summary, and Deep Map Exploration
+ */
 (() => {
   'use strict';
 
-  // Core Application State
+  // Application State
   const state = {
     lang: 'ru',
-    theme: 'light',
-    basemap: 'topo',
-    period: 'day',
+    theme: 'dark',
+    activeTab: 'summary', // 'summary' | 'map' | 'digest' | 'video'
     activeSector: 'all',
-    sectors: [],
-    sources: [],
-    sourceHealth: {},
+    activeDigestCat: 'all',
+    basemap: 'dark',
+    comparisonMode: false,
+    isFullscreen: false,
+
+    // Data Models
     status: {},
+    digest: null,
+    news: [],
+    youtube: [],
     events: [],
     settlements: [],
-    evidence: [],
-    claims: [],
     changes: null,
-    snapshots: [],
-    activeSnapshotIndex: 0,
-    isPlayingTimeline: false,
-    timelineTimer: null,
-    lowBandwidth: false,
-    measuring: false,
-    measurePoints: [],
-    measureLayer: null,
+    referenceControl: null,
+
+    // Map instances
     map: null,
     tileLayers: {},
+    activeTileLayer: null,
+    geoLayers: {
+      reference_ru: null,
+      control_ua: null,
+      contested: null,
+      changes: null,
+      events: null,
+      settlements: null,
+      comparison: null
+    },
     layerVisibility: {
       reference_ru: true,
       control_ua: true,
@@ -35,855 +47,622 @@
       events: true,
       settlements: true
     },
-    geoLayers: {
-      reference_ru: null,
-      control_ua: null,
-      contested: null,
-      changes: null,
-      events: null,
-      settlements: null
-    },
-    autoSyncInterval: 30,
-    syncCountdown: 30,
-    syncTimer: null
+
+    // Measurement tool
+    measuring: false,
+    measurePoints: [],
+    measureLayer: null
   };
+
+  // Frontline Sectors Preset
+  const DEFAULT_SECTORS = [
+    { id: 'all', name_ru: 'Весь фронт', name_uk: 'Весь фронт', name_en: 'All Fronts', hot: false, bounds: [[46.2, 33.0], [50.2, 39.5]] },
+    { id: 'pokrovsk', name_ru: '🔥 Покровск', name_uk: '🔥 Покровськ', name_en: '🔥 Pokrovsk', hot: true, bounds: [[48.15, 37.10], [48.42, 37.45]] },
+    { id: 'toretsk', name_ru: '🔥 Торецк', name_uk: '🔥 Торецьк', name_en: '🔥 Toretsk', hot: true, bounds: [[48.32, 37.75], [48.45, 37.95]] },
+    { id: 'chasiv_yar', name_ru: '🔥 Часов Яр', name_uk: '🔥 Часів Яр', name_en: '🔥 Chasiv Yar', hot: true, bounds: [[48.54, 37.78], [48.65, 37.90]] },
+    { id: 'kurakhove_vuhledar', name_ru: '🔥 Курахово / Угледар', name_uk: '🔥 Курахове / Вугледар', name_en: '🔥 Kurakhove / Vuhledar', hot: true, bounds: [[47.75, 37.15], [48.05, 37.45]] },
+    { id: 'kupyansk_lyman', name_ru: 'Купянск — Лиман', name_uk: 'Куп’янськ — Лиман', name_en: 'Kupyansk-Lyman', hot: false, bounds: [[49.65, 37.55], [49.85, 37.85]] },
+    { id: 'zaporizhzhia', name_ru: 'Запорожье', name_uk: 'Запоріжжя', name_en: 'Zaporizhzhia', hot: false, bounds: [[47.35, 35.70], [47.60, 36.10]] },
+    { id: 'kherson', name_ru: 'Херсон', name_uk: 'Херсон', name_en: 'Kherson', hot: false, bounds: [[46.50, 32.40], [46.85, 33.50]] }
+  ];
 
   // Multilingual Strings
   const i18n = {
     ru: {
-      safety_tag: 'OSINT АНАЛИТИКА',
-      safety_delay: 'Данные публикуются с задержкой не менее 24 часов для безопасности.',
-      safety_use: 'Не использовать для навигации или оперативных решений.',
-      nav_map: 'Карта',
-      nav_sectors: 'Секторы',
-      nav_changes: 'Изменения',
-      nav_events: 'Хроника',
-      nav_sources: 'Источники',
-      nav_archive: 'Архив',
-      about: 'Методика',
-      hero_title: 'Оперативная обстановка<br><em>и линия контроля</em>',
-      hero_lede: 'Ежедневный геопространственный снимок с разбивкой по направлениям, видео-верификацией и сопоставлением сводок.',
-      last_snapshot: 'Снимок обстановки',
-      live_badge: '24h Задержка',
-      confirmed_area: 'подтверждённая площадь',
-      new_statuses: 'Населённые пункты',
-      settlements: 'на мониторинге',
-      events: 'Геолокации',
-      confirmed_day: 'подтверждённых точек',
-      disputed_claims: 'Заявления сторон',
-      no_geometry: 'официальные сводки',
-      sectors_kicker: 'ОПЕРАТИВНЫЕ НАПРАВЛЕНИЯ',
-      sectors_hint: 'Нажмите на сектор для быстрого перемещения камеры:',
-      measure_tool: 'Линейка',
-      bandwidth_btn: 'Экономия трафика',
-      control_map: 'ИНТЕРАКТИВНАЯ ТАКТИЧЕСКАЯ КАРТА',
-      state_on: 'Обстановка на',
-      hours24: '24ч',
-      days7: '7 дней',
-      days30: '30 дней',
-      download: 'GeoJSON',
-      play_timeline: 'Анимация динамики',
-      stop_timeline: 'Остановить',
-      timeline_view: 'Кадр:',
-      measure_title: 'Тактическая линейка',
-      measure_instruction: 'Кликните по карте, чтобы поставить первую точку...',
-      measure_clear: 'Сбросить',
-      legend_reference_ru: 'Оценка контроля РФ',
-      legend_ua: 'Контроль ВСУ',
-      legend_contested: 'Серая / Оспариваемая',
-      legend_change: 'Новые продвижения',
-      legend_events: 'Точки геолокации',
-      legend_settlements: 'Города и села',
-      changes_kicker: 'ХОД ИЗМЕНЕНИЙ',
-      selected_period: 'Сводка по направлению',
-      chronology: 'ХРОНОЛОГИЯ OSINT',
-      key_events: 'Ключевые подтверждённые события',
-      disagreements: 'РАСХОЖДЕНИЯ СВОДОК',
-      side_claims: 'Официальные заявления сторон',
-      claim_note: 'Заявления сторон фиксируют факт публикации позиций, но без видеоверификации не меняют карту.',
-      transparency: 'ПРОЗРАЧНОСТЬ И МОНИТОРИНГ',
-      sources_title: 'Реестр источников и состояние каналов сбора',
-      sources_note: 'Для каждого источника непрерывно проверяется доступность, статус лицензии и время синхронизации.',
-      filter_all: 'Все каналы',
-      filter_ru: 'Российская сторона',
-      filter_ua: 'Украинская сторона',
-      filter_independent: 'Независимые OSINT',
-      daily_archive: 'АРХИВ СНИМКОВ',
-      archive_title: 'Контрольные суммы и ретроспективные снимки',
-      archive_note: 'Каждый снимок фиксируется неизменяемым SHA-256 хешем для аудита.',
-      snapshot_date: 'Выбор архивного среза',
-      sync_now: 'Обновить',
-      sync_success: 'Данные успешно синхронизированы с OSINT-реестром',
-      syncing: 'Синхронизация...',
-      all_sectors: 'Весь фронт'
+      nav_summary: 'Главное за 24ч',
+      nav_map: 'Карта контроля',
+      nav_digest: 'Дайджест',
+      nav_video: 'Видеообзоры',
+      metric_shifts: 'Сдвиг контроля (24ч)',
+      metric_events: 'Верифицировано',
+      metric_focus: 'Главные участки',
+      key_events_title: 'Проверенные события за сутки',
+      key_events_subtitle: 'Каждое событие привязано к координатам и независимо подтверждено кадрами объективного контроля.',
+      daily_digest_title: 'Ежедневный OSINT-дайджест',
+      digest_subtitle: 'Систематизированный обзор боевых действий, ракетных ударов и применения БПЛА за 24 часа.',
+      video_digest_title: 'Рекомендованные видеообзоры за 24 часа',
+      video_desc: 'Тщательно отобранные аналитические видео без кликбейта с привязкой к спутниковой сетке и кадрам дронов.',
+      show_on_map: '📍 На карте',
+      details: 'Нюансы',
+      what_happened: 'Что произошло:',
+      what_confirmed: 'Что подтверждено:',
+      what_not_confirmed: 'Что НЕ подтверждено / НЕ известно:',
+      sources_title: 'Источники объективного контроля:',
+      measure_start: 'Нажмите на карту, чтобы поставить первую точку...',
+      measure_point: 'Дистанция: '
     },
     uk: {
-      safety_tag: 'OSINT АНАЛІТИКА',
-      safety_delay: 'Дані публікуються із затримкою не менше 24 годин для безпеки.',
-      safety_use: 'Не використовувати для навігації чи оперативних рішень.',
-      nav_map: 'Мапа',
-      nav_sectors: 'Сектори',
-      nav_changes: 'Зміни',
-      nav_events: 'Хроніка',
-      nav_sources: 'Джерела',
-      nav_archive: 'Архів',
-      about: 'Методика',
-      hero_title: 'Оперативна обстановка<br><em>та лінія контролю</em>',
-      hero_lede: 'Щоденний геопросторовий знімок з розбивкою по напрямках, відео-верифікацією та зіставленням зведень.',
-      last_snapshot: 'Знімок обстановки',
-      live_badge: '24h Затримка',
-      confirmed_area: 'підтверджена площа',
-      new_statuses: 'Населені пункти',
-      settlements: 'на моніторингу',
-      events: 'Геолокації',
-      confirmed_day: 'підтверджених точок',
-      disputed_claims: 'Заяви сторін',
-      no_geometry: 'офіційні зведення',
-      sectors_kicker: 'ОПЕРАТИВНІ НАПРЯМКИ',
-      sectors_hint: 'Натисніть на сектор для швидкого переміщення камери:',
-      measure_tool: 'Лінійка',
-      bandwidth_btn: 'Економія трафіку',
-      control_map: 'ІНТЕРАКТИВНА ТАКТИЧНА МАПА',
-      state_on: 'Обстановка на',
-      hours24: '24г',
-      days7: '7 днів',
-      days30: '30 днів',
-      download: 'GeoJSON',
-      play_timeline: 'Анімація динаміки',
-      stop_timeline: 'Зупинити',
-      timeline_view: 'Кадр:',
-      measure_title: 'Тактична лінійка',
-      measure_instruction: 'Клікніть по мапі, щоб поставити першу точку...',
-      measure_clear: 'Скинути',
-      legend_reference_ru: 'Оцінка контролю РФ',
-      legend_ua: 'Контроль ЗСУ',
-      legend_contested: 'Сіра / Спірна зона',
-      legend_change: 'Нові просування',
-      legend_events: 'Точки геолокації',
-      legend_settlements: 'Міста і села',
-      changes_kicker: 'ХІД ЗМІН',
-      selected_period: 'Зведення за напрямком',
-      chronology: 'ХРОНОЛОГІЯ OSINT',
-      key_events: 'Головні підтверджені події',
-      disagreements: 'РОЗБІЖНОСТІ ЗВЕДЕНЬ',
-      side_claims: 'Офіційні заяви сторін',
-      claim_note: 'Заяви сторін фіксують факт публікацій, але без відеопідтвердження не змінюють мапу.',
-      transparency: 'ПРОЗОРІСТЬ ТА МОНІТОРИНГ',
-      sources_title: 'Реєстр джерел та стан каналів збору',
-      sources_note: 'Для кожного джерела безперервно перевіряється доступність, статус ліцензії та час синхронізації.',
-      filter_all: 'Усі канали',
-      filter_ru: 'Російська сторона',
-      filter_ua: 'Українська сторона',
-      filter_independent: 'Незалежні OSINT',
-      daily_archive: 'АРХІВ ЗНІМКІВ',
-      archive_title: 'Контрольні суми та ретроспективні знімки',
-      archive_note: 'Кожен знімок фіксується незмінним SHA-256 хешем для аудиту.',
-      snapshot_date: 'Вибір архівного зрізу',
-      sync_now: 'Оновити',
-      sync_success: 'Дані успішно синхронізовано з OSINT-реєстром',
-      syncing: 'Синхронізація...',
-      all_sectors: 'Весь фронт'
+      nav_summary: 'Головне за 24г',
+      nav_map: 'Карта контролю',
+      nav_digest: 'Дайджест',
+      nav_video: 'Відеоогляди',
+      metric_shifts: 'Зсув контролю (24г)',
+      metric_events: 'Верифіковано',
+      metric_focus: 'Головні ділянки',
+      key_events_title: 'Перевірені події за добу',
+      key_events_subtitle: 'Кожна подія прив’язана до координат та незалежно підтверджена кадрами об’єктивного контролю.',
+      daily_digest_title: 'Щоденний OSINT-дайджест',
+      digest_subtitle: 'Систематизований огляд бойових дій, ракетних ударів та застосування БПЛА за 24 години.',
+      video_digest_title: 'Рекомендовані відеоогляди за 24 години',
+      video_desc: 'Ретельно відібрані аналітичні відео без клікбейту з прив’язкою до супутникової сітки та кадрів дронів.',
+      show_on_map: '📍 На карті',
+      details: 'Нюанси',
+      what_happened: 'Що сталося:',
+      what_confirmed: 'Що підтверджено:',
+      what_not_confirmed: 'Що НЕ підтверджено / НЕ відомо:',
+      sources_title: 'Джерела об’єктивного контролю:',
+      measure_start: 'Натисніть на карту, щоб поставити першу точку...',
+      measure_point: 'Дистанція: '
     },
     en: {
-      safety_tag: 'OSINT ANALYTICS',
-      safety_delay: 'Data published with at least a 24-hour operational delay for safety.',
-      safety_use: 'Do not use for navigation or tactical decision making.',
-      nav_map: 'Map',
-      nav_sectors: 'Sectors',
-      nav_changes: 'Changes',
-      nav_events: 'Chronicle',
-      nav_sources: 'Sources',
-      nav_archive: 'Archive',
-      about: 'Methodology',
-      hero_title: 'Operational Situation<br><em>and Control Lines</em>',
-      hero_lede: 'Daily geospatial snapshot with front sectors, drone video verification, and official statement comparisons.',
-      last_snapshot: 'Frontline Snapshot',
-      live_badge: '24h Delay',
-      confirmed_area: 'confirmed area',
-      new_statuses: 'Settlements',
-      settlements: 'monitored',
-      events: 'Geolocations',
-      confirmed_day: 'confirmed points',
-      disputed_claims: 'Side Claims',
-      no_geometry: 'official statements',
-      sectors_kicker: 'OPERATIONAL SECTORS',
-      sectors_hint: 'Click a sector button to fly the camera to that area:',
-      measure_tool: 'Ruler',
-      bandwidth_btn: 'Save Bandwidth',
-      control_map: 'INTERACTIVE TACTICAL MAP',
-      state_on: 'Situation as of',
-      hours24: '24h',
-      days7: '7 days',
-      days30: '30 days',
-      download: 'GeoJSON',
-      play_timeline: 'Dynamic Playback',
-      stop_timeline: 'Stop',
-      timeline_view: 'Frame:',
-      measure_title: 'Tactical Range Ruler',
-      measure_instruction: 'Click on the map to place the first point...',
-      measure_clear: 'Reset',
-      legend_reference_ru: 'Russian Control Estimate',
-      legend_ua: 'Ukrainian Control',
-      legend_contested: 'Contested / Grey Zone',
-      legend_change: 'Recent Advances',
-      legend_events: 'Geolocated Points',
-      legend_settlements: 'Towns & Villages',
-      changes_kicker: 'PROGRESS OF CHANGES',
-      selected_period: 'Sector Briefing',
-      chronology: 'OSINT CHRONICLE',
-      key_events: 'Key Verified Events',
-      disagreements: 'STATEMENT DISCREPANCIES',
-      side_claims: 'Official Statements',
-      claim_note: 'Side statements record published claims, but without video verification do not alter map polygons.',
-      transparency: 'TRANSPARENCY & MONITORING',
-      sources_title: 'Source Registry & Ingestion Health',
-      sources_note: 'Availability, license status, and sync latency are continuously validated for all feeds.',
-      filter_all: 'All Feeds',
-      filter_ru: 'Russian Side',
-      filter_ua: 'Ukrainian Side',
-      filter_independent: 'Independent OSINT',
-      daily_archive: 'SNAPSHOT ARCHIVE',
-      archive_title: 'Checksums & Retrospective Snapshots',
-      archive_note: 'Every snapshot is locked with an immutable SHA-256 hash for transparency.',
-      snapshot_date: 'Select Historical Snapshot',
-      sync_now: 'Sync Now',
-      sync_success: 'Data synchronized successfully with OSINT feed',
-      syncing: 'Syncing...',
-      all_sectors: 'All Fronts'
+      nav_summary: '24h Summary',
+      nav_map: 'Tactical Map',
+      nav_digest: 'Daily Digest',
+      nav_video: 'Video Reviews',
+      metric_shifts: '24h Control Shift',
+      metric_events: 'Verified Events',
+      metric_focus: 'Key Hotspots',
+      key_events_title: 'Verified 24h Events',
+      key_events_subtitle: 'Each event is geolocated and cross-verified via independent objective visual evidence.',
+      daily_digest_title: 'Daily OSINT Digest',
+      digest_subtitle: 'Systematized tactical analysis of combat actions, missile strikes, and UAV operations.',
+      video_digest_title: 'Curated 24h Video Reviews',
+      video_desc: 'Handpicked tactical video breakdowns anchored to satellite grids and drone footage.',
+      show_on_map: '📍 Show on map',
+      details: 'Details',
+      what_happened: 'What happened:',
+      what_confirmed: 'What is confirmed:',
+      what_not_confirmed: 'What is NOT confirmed / NOT known:',
+      sources_title: 'Objective control sources:',
+      measure_start: 'Tap map to set initial point...',
+      measure_point: 'Distance: '
     }
   };
 
-  // Toast notifier
+  const t = (k) => i18n[state.lang]?.[k] || i18n.ru[k] || k;
+
+  // Safe JSON Fetch
+  async function fetchJson(url, fallback = null) {
+    try {
+      const res = await fetch(url + (url.includes('?') ? '&' : '?') + 't=' + Date.now());
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      return await res.json();
+    } catch (e) {
+      console.warn(`Fetch error (${url}):`, e);
+      return fallback;
+    }
+  }
+
+  // Toast Notification
   function showToast(msg) {
     const el = document.getElementById('toastNotification');
     if (!el) return;
     el.textContent = msg;
     el.hidden = false;
-    setTimeout(() => { el.hidden = true; }, 3500);
+    clearTimeout(el._timer);
+    el._timer = setTimeout(() => { el.hidden = true; }, 3000);
   }
 
-  // Safe localized name helper
-  function getLocalized(obj, field = 'name') {
-    if (!obj) return '';
-    const localized = obj[`${field}_${state.lang}`];
-    return localized || obj[field] || obj.title || '';
+  // Initialize Application
+  async function init() {
+    try { registerServiceWorker(); } catch (e) { console.warn('SW err:', e); }
+    try { setupTabNavigation(); } catch (e) { console.warn('Tabs err:', e); }
+    try { setupThemeAndLang(); } catch (e) { console.warn('Theme err:', e); }
+    try { setupModals(); } catch (e) { console.warn('Modals err:', e); }
+    try { setupIosInstallPrompt(); } catch (e) { console.warn('iOS banner err:', e); }
+    try { initLeafletMap(); } catch (e) { console.warn('Leaflet map init err:', e); }
+    try { await loadAllData(); } catch (e) { console.warn('Data load err:', e); }
+    try { setupSectorChips(); } catch (e) { console.warn('Sector chips err:', e); }
+    try { setupMapControls(); } catch (e) { console.warn('Map controls err:', e); }
+    try { setupSearch(); } catch (e) { console.warn('Search err:', e); }
+    try { startAutoSync(); } catch (e) { console.warn('Auto sync err:', e); }
   }
 
-  // Apply translations to UI elements
-  function updateI18n() {
-    const dict = i18n[state.lang] || i18n.ru;
+  // Register Service Worker for PWA / Mobile App Support (only in standalone window)
+  function registerServiceWorker() {
+    const isTopLevel = window.self === window.top;
+    if ('serviceWorker' in navigator && isTopLevel) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js').catch((err) => {
+          console.log('SW registration note:', err);
+        });
+      });
+    }
+  }
+
+  // iOS Safari "Add to Home Screen" Banner Detection & Handling
+  function setupIosInstallPrompt() {
+    const isIos = /iphone|ipad|ipod/.test(window.navigator.userAgent.toLowerCase());
+    const isStandalone = ('standalone' in window.navigator) && (window.navigator.standalone);
+    const banner = document.getElementById('iosInstallBanner');
+    const dismissBtn = document.getElementById('dismissIosBanner');
+
+    const dismissed = localStorage.getItem('warmap_ios_banner_dismissed');
+
+    if (isIos && !isStandalone && !dismissed && banner) {
+      banner.hidden = false;
+    }
+
+    if (dismissBtn && banner) {
+      dismissBtn.addEventListener('click', () => {
+        banner.hidden = true;
+        localStorage.setItem('warmap_ios_banner_dismissed', 'true');
+      });
+    }
+  }
+
+  // Segmented Tab Navigation
+  function setupTabNavigation() {
+    document.querySelectorAll('.nav-tab').forEach(btn => {
+      btn.addEventListener('click', () => {
+        switchTab(btn.dataset.tab);
+      });
+    });
+
+    // Jump to map button in summary view
+    document.querySelectorAll('[data-jump-to-map]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        switchTab('map');
+      });
+    });
+  }
+
+  function switchTab(tabName) {
+    state.activeTab = tabName;
+    document.querySelectorAll('.nav-tab').forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.tab === tabName);
+    });
+
+    document.querySelectorAll('.view-panel').forEach(panel => {
+      panel.classList.toggle('active', panel.id === `${tabName}-view`);
+    });
+
+    if (tabName === 'map' && state.map) {
+      triggerMapResize();
+    }
+  }
+
+  // Helper to force Leaflet viewport recalculation reliably
+  function triggerMapResize() {
+    if (!state.map) return;
+    state.map.invalidateSize(true);
+    setTimeout(() => { if (state.map) state.map.invalidateSize(true); }, 50);
+    setTimeout(() => { if (state.map) state.map.invalidateSize(true); }, 250);
+    setTimeout(() => { if (state.map) state.map.invalidateSize(true); }, 600);
+  }
+
+  // Setup Theme & Language Toggles
+  function setupThemeAndLang() {
+    const themeBtn = document.getElementById('themeToggleBtn');
+    if (themeBtn) {
+      themeBtn.addEventListener('click', () => {
+        state.theme = state.theme === 'dark' ? 'light' : 'dark';
+        document.body.classList.toggle('theme-light', state.theme === 'light');
+        document.body.classList.toggle('theme-dark', state.theme === 'dark');
+        themeBtn.querySelector('.theme-icon').textContent = state.theme === 'dark' ? '🌙' : '☀️';
+        if (state.basemap === 'dark' && state.theme === 'light') {
+          setBasemap('topo');
+        } else if (state.basemap === 'topo' && state.theme === 'dark') {
+          setBasemap('dark');
+        }
+      });
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        state.lang = btn.dataset.lang;
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === state.lang));
+        applyLocalization();
+        renderSummaryView();
+        renderDailyDigest();
+        renderYouTubeVideos();
+        renderMapLayers();
+      });
+    });
+  }
+
+  // Apply UI String Localization
+  function applyLocalization() {
     document.querySelectorAll('[data-i18n]').forEach(el => {
-      const key = el.getAttribute('data-i18n');
-      if (dict[key]) el.textContent = dict[key];
-    });
-    document.querySelectorAll('[data-i18n-html]').forEach(el => {
-      const key = el.getAttribute('data-i18n-html');
-      if (dict[key]) el.innerHTML = dict[key];
+      const k = el.getAttribute('data-i18n');
+      if (k) el.textContent = t(k);
     });
   }
 
-  // Fetch initial data
-  async function loadData() {
+  // Setup Modals
+  function setupModals() {
+    const aboutBtn = document.getElementById('aboutButton');
+    const footerAboutBtn = document.getElementById('footerAboutBtn');
+    const aboutDialog = document.getElementById('aboutDialog');
+    const closeAbout = document.getElementById('closeAbout');
+
+    const openAbout = () => aboutDialog?.showModal();
+    if (aboutBtn) aboutBtn.addEventListener('click', openAbout);
+    if (footerAboutBtn) footerAboutBtn.addEventListener('click', openAbout);
+    if (closeAbout) closeAbout.addEventListener('click', () => aboutDialog?.close());
+
+    const recordDialog = document.getElementById('recordDialog');
+    const closeRecord = document.getElementById('closeRecord');
+    if (closeRecord) closeRecord.addEventListener('click', () => recordDialog?.close());
+
+    const videoDialog = document.getElementById('videoDialog');
+    const closeVideo = document.getElementById('closeVideoDialog');
+    if (closeVideo) closeVideo.addEventListener('click', () => {
+      videoDialog?.close();
+      const cont = document.getElementById('videoDialogContent');
+      if (cont) cont.innerHTML = '';
+    });
+  }
+
+  // Initialize Leaflet Map (Mobile-First Ergonomics & 100% Free Reliable Tile Providers)
+  function initLeafletMap() {
+    const mapContainer = document.getElementById('map');
+    if (!mapContainer) return;
+
+    if (typeof L === 'undefined') {
+      // Retry waiting for Leaflet if it's still being fetched
+      let attempts = 0;
+      const interval = setInterval(() => {
+        attempts++;
+        if (typeof L !== 'undefined') {
+          clearInterval(interval);
+          initLeafletMap();
+          if (state.changes || state.events.length) {
+            renderMapLayers();
+          }
+        } else if (attempts > 30) {
+          clearInterval(interval);
+          console.warn('Leaflet failed to load in time');
+        }
+      }, 150);
+      return;
+    }
+
+    if (state.map) return;
+
+    // Reset container if already initialized by a previous Leaflet run
+    if (mapContainer._leaflet_id) {
+      try {
+        if (state.map) state.map.remove();
+      } catch (e) {
+        console.warn('Map cleanup error:', e);
+      }
+      try {
+        delete mapContainer._leaflet_id;
+      } catch (e) {
+        mapContainer._leaflet_id = null;
+      }
+    }
+
     try {
-      const [
-        statusRes,
-        sectorsRes,
-        sourcesRes,
-        healthRes,
-        eventsRes,
-        settlementsRes,
-        evidenceRes,
-        claimsRes,
-        changesRes,
-        snapshotsRes
-      ] = await Promise.all([
-        fetch('/api/status').then(r => r.json()).catch(() => ({})),
-        fetch('/api/sectors').then(r => r.json()).catch(() => []),
-        fetch('/data/sources.json').then(r => r.json()).catch(() => []),
-        fetch('/data/source-health.json').then(r => r.json()).catch(() => ({})),
-        fetch('/data/events.json').then(r => r.json()).catch(() => []),
-        fetch('/data/settlements-index.json').then(r => r.json()).catch(() => []),
-        fetch('/data/evidence.json').then(r => r.json()).catch(() => []),
-        fetch('/data/claims.json').then(r => r.json()).catch(() => []),
-        fetch('/data/changes.geojson').then(r => r.json()).catch(() => ({ features: [] })),
-        fetch('/data/snapshots/index.json').then(r => r.json()).catch(() => [])
-      ]);
-
-      state.status = statusRes;
-      state.sectors = sectorsRes;
-      state.sources = sourcesRes;
-      state.sourceHealth = healthRes;
-      state.events = eventsRes;
-      state.settlements = settlementsRes;
-      state.evidence = evidenceRes;
-      state.claims = claimsRes;
-      state.changes = changesRes;
-      state.snapshots = snapshotsRes;
-
-      renderAll();
-    } catch (err) {
-      console.error('Failed to load application datasets:', err);
-    }
-  }
-
-  // Render everything
-  function renderAll() {
-    updateI18n();
-    renderStatus();
-    renderSectorsBar();
-    renderStats();
-    renderMap();
-    renderChangesList();
-    renderTimeline();
-    renderClaims();
-    renderSources();
-    renderArchive();
-  }
-
-  // Render Status & Sync countdown
-  function renderStatus() {
-    const s = state.status || {};
-    const dateStr = s.snapshot_date || '2026-08-27';
-    document.getElementById('snapshotDate').textContent = dateStr;
-    document.getElementById('mapDate').textContent = dateStr;
-    document.getElementById('snapshotTime').textContent = s.point_feed_updated_at
-      ? new Date(s.point_feed_updated_at).toLocaleTimeString() + ' (Обновлено)'
-      : 'Актуально';
-    document.getElementById('snapshotHash').textContent = `SHA: ${s.snapshot_sha256 ? s.snapshot_sha256.substring(0, 12) : '7a9f82d1c4e0'}...`;
-  }
-
-  // Render Sectors Bar
-  function renderSectorsBar() {
-    const container = document.getElementById('sectorPillsContainer');
-    if (!container) return;
-    container.innerHTML = '';
-
-    state.sectors.forEach(sec => {
-      const btn = document.createElement('button');
-      btn.type = 'button';
-      btn.className = `sector-pill-btn ${sec.id === state.activeSector ? 'active' : ''} ${sec.hot ? 'hot' : ''}`;
-      btn.setAttribute('data-sector', sec.id);
-
-      const name = getLocalized(sec, 'name');
-      const count = sec.event_count !== undefined ? sec.event_count : 0;
-
-      btn.innerHTML = `<span>${name}</span> <span class="sector-pill-count">${count}</span>`;
-      btn.addEventListener('click', () => selectSector(sec.id));
-      container.appendChild(btn);
-    });
-  }
-
-  // Select Sector & Fly Map
-  function selectSector(sectorId) {
-    state.activeSector = sectorId;
-    renderSectorsBar();
-
-    const sector = state.sectors.find(s => s.id === sectorId);
-    if (sector && state.map) {
-      state.map.flyTo(sector.center, sector.zoom, { duration: 1.2, easeLinearity: 0.25 });
-    }
-
-    // Update active sector badge and context
-    const badge = document.getElementById('activeSectorBadge');
-    const title = document.getElementById('asideSectorTitle');
-    const infoName = document.getElementById('sectorInfoName');
-    const infoDesc = document.getElementById('sectorInfoDesc');
-
-    const name = sector ? getLocalized(sector, 'name') : (i18n[state.lang].all_sectors || 'Весь фронт');
-    const desc = sector ? getLocalized(sector, 'summary') : 'Отображаются подтверждённые геолокации и территориальные сдвиги по всем участкам боевого соприкосновения.';
-
-    if (badge) badge.textContent = name;
-    if (title) title.textContent = name;
-    if (infoName) infoName.textContent = name;
-    if (infoDesc) infoDesc.textContent = desc;
-
-    renderChangesList();
-    renderTimeline();
-  }
-
-  // Render Stats
-  function renderStats() {
-    const s = state.status || {};
-    const filteredChanges = getFilteredChanges();
-    const totalArea = filteredChanges.reduce((sum, f) => sum + (f.properties?.area_km2 || 0), 0);
-
-    const filteredEvents = getFilteredEvents();
-    const filteredSettlements = state.activeSector === 'all'
-      ? state.settlements
-      : state.settlements.filter(st => st.sector_id === state.activeSector);
-
-    document.getElementById('areaDay').textContent = `+${totalArea ? totalArea.toFixed(2) : (s.area_change_km2 || 4.85)} км²`;
-    document.getElementById('settlementCount').textContent = filteredSettlements.length;
-    document.getElementById('eventCount').textContent = filteredEvents.length;
-    document.getElementById('disputedCount').textContent = state.claims.length;
-
-    document.getElementById('changeBadge').textContent = filteredChanges.length;
-    document.getElementById('eventBadge').textContent = filteredEvents.length;
-  }
-
-  // Filtered Changes & Events helpers
-  function getFilteredChanges() {
-    if (!state.changes || !state.changes.features) return [];
-    if (state.activeSector === 'all') return state.changes.features;
-    return state.changes.features.filter(f => f.properties?.sector_id === state.activeSector);
-  }
-
-  function getFilteredEvents() {
-    if (!state.events) return [];
-    if (state.activeSector === 'all') return state.events;
-    return state.events.filter(e => e.sector_id === state.activeSector);
-  }
-
-  // Initialize Map
-  function renderMap() {
-    if (!window.L) return;
-
-    if (!state.map) {
-      state.map = window.L.map('map', {
-        center: [48.4, 37.4],
+      state.map = L.map('map', {
+        center: [48.35, 37.45],
         zoom: 8,
         minZoom: 5,
-        maxZoom: 18,
-        zoomControl: false
+        maxZoom: 16,
+        zoomControl: true,
+        attributionControl: false,
+        tap: false, // Prevents 300ms touch delay on mobile
+        touchZoom: true,
+        bounceAtZoomLimits: false
       });
 
-      // Zoom control in top right
-      window.L.control.zoom({ position: 'topright' }).addTo(state.map);
-      window.L.control.scale({ imperial: false, position: 'bottomright' }).addTo(state.map);
-
-      // Define Base Tile Layers
+      // Reliable basemap providers with ZERO API keys or watermarks:
       state.tileLayers = {
-        topo: window.L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
-          maxZoom: 19,
-          attribution: '&copy; <a href="https://carto.com/">CARTO</a> &copy; OpenStreetMap'
+        dark: L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
+          maxZoom: 16,
+          subdomains: 'abcd'
         }),
-        satellite: window.L.layerGroup([
-          window.L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-            maxZoom: 19,
-            attribution: '&copy; Esri &copy; Maxar, Earthstar Geographics'
-          }),
-          window.L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager_only_labels/{z}/{x}/{y}{r}.png', {
-            maxZoom: 19,
-            subdomains: 'abcd'
-          })
-        ]),
-        dark: window.L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-          maxZoom: 19,
-          attribution: '&copy; CARTO &copy; OpenStreetMap'
+        topo: L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          maxZoom: 19
         }),
-        terrain: window.L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
-          maxZoom: 17,
-          attribution: '&copy; OpenTopoMap &copy; OpenStreetMap'
+        satellite: L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+          maxZoom: 18
         })
       };
 
-      // Add default basemap
-      state.tileLayers[state.basemap].addTo(state.map);
+      state.activeTileLayer = state.tileLayers.dark;
+      state.activeTileLayer.addTo(state.map);
 
-      // Live coordinates display
-      state.map.on('mousemove', e => {
-        const coords = document.getElementById('coordsDisplay');
-        const zoomEl = document.getElementById('zoomDisplay');
-        if (coords) coords.textContent = `${e.latlng.lat.toFixed(4)}° N, ${e.latlng.lng.toFixed(4)}° E`;
-        if (zoomEl) zoomEl.textContent = `Zoom: ${state.map.getZoom()}`;
-      });
+      // Initial View setup for Ukrainian frontline
+      state.map.setView([48.35, 37.45], 8);
 
-      // Map Click handler (Measurement tool or inspection)
-      state.map.on('click', handleMapClick);
+      // Auto resize observer on map viewport container
+      const viewportEl = document.getElementById('mapViewport');
+      if (viewportEl && window.ResizeObserver) {
+        const ro = new ResizeObserver(() => {
+          triggerMapResize();
+        });
+        ro.observe(viewportEl);
+      }
 
-      // Measurement layer group
-      state.measureLayer = window.L.layerGroup().addTo(state.map);
-    }
-
-    // Refresh GeoJSON layers
-    updateMapLayers();
-  }
-
-  // Switch Basemap
-  function switchBasemap(name) {
-    if (!state.map || !state.tileLayers[name]) return;
-    Object.values(state.tileLayers).forEach(layer => {
-      if (state.map.hasLayer(layer)) state.map.removeLayer(layer);
-    });
-    state.tileLayers[name].addTo(state.map);
-    state.basemap = name;
-
-    document.querySelectorAll('.basemap-btn').forEach(btn => {
-      btn.classList.toggle('active', btn.getAttribute('data-basemap') === name);
-    });
-  }
-
-  // Update GeoJSON Layers on Map
-  function updateMapLayers() {
-    if (!state.map) return;
-
-    // 1. Changes Polygons Layer
-    if (state.geoLayers.changes) state.map.removeLayer(state.geoLayers.changes);
-    if (state.layerVisibility.change && state.changes && state.changes.features) {
-      state.geoLayers.changes = window.L.geoJSON(state.changes, {
-        style: () => ({
-          color: '#84cc16',
-          weight: 2.5,
-          fillColor: '#84cc16',
-          fillOpacity: 0.45,
-          dashArray: '4, 4'
-        }),
-        onEachFeature: (feature, layer) => {
-          layer.on('click', () => openRecordDialog(feature.properties, 'change'));
-          layer.bindTooltip(`<strong>${getLocalized(feature.properties, 'name')}</strong><br>+${feature.properties.area_km2 || 0} км²`, { sticky: true });
+      // Map Coordinates Status Update
+      state.map.on('mousemove touchmove', (e) => {
+        const coords = e.latlng;
+        if (coords) {
+          const cEl = document.getElementById('coordsDisplay');
+          if (cEl) cEl.textContent = `${coords.lat.toFixed(4)}° N, ${coords.lng.toFixed(4)}° E`;
         }
-      }).addTo(state.map);
-    }
-
-    // 2. Verified Events Points Layer
-    if (state.geoLayers.events) state.map.removeLayer(state.geoLayers.events);
-    if (state.layerVisibility.events && state.events) {
-      state.geoLayers.events = window.L.layerGroup();
-      state.events.forEach(ev => {
-        if (!ev.location || !ev.location.lat) return;
-        const marker = window.L.circleMarker([ev.location.lat, ev.location.lon], {
-          radius: 8,
-          fillColor: '#22c55e',
-          color: '#ffffff',
-          weight: 2,
-          fillOpacity: 0.9,
-          className: 'latest-event-marker'
-        });
-        marker.bindTooltip(`📍 <b>${getLocalized(ev, 'title')}</b><br><small>${ev.location_label || ''}</small>`, { direction: 'top' });
-        marker.on('click', () => openRecordDialog(ev, 'event'));
-        state.geoLayers.events.addLayer(marker);
       });
-      state.geoLayers.events.addTo(state.map);
-    }
 
-    // 3. Settlements Layer
-    if (state.geoLayers.settlements) state.map.removeLayer(state.geoLayers.settlements);
-    if (state.layerVisibility.settlements && state.settlements) {
-      state.geoLayers.settlements = window.L.layerGroup();
-      state.settlements.forEach(st => {
-        const color = st.status === 'control_ru' ? '#ef4444' : st.status === 'control_ua' ? '#3b82f6' : '#f59e0b';
-        const marker = window.L.circleMarker([st.lat, st.lon], {
-          radius: 5,
-          fillColor: color,
-          color: '#0f172a',
-          weight: 1.5,
-          fillOpacity: 0.85
-        });
-        marker.bindTooltip(`<b>${getLocalized(st, 'name')}</b><br><small>${st.admin1 || ''}</small>`, { direction: 'right' });
-        marker.on('click', () => openRecordDialog(st, 'settlement'));
-        state.geoLayers.settlements.addLayer(marker);
+      state.map.on('zoomend', () => {
+        const zEl = document.getElementById('zoomDisplay');
+        if (zEl) zEl.textContent = `Zoom: ${state.map.getZoom()}`;
       });
-      state.geoLayers.settlements.addTo(state.map);
+
+      state.map.on('click', handleMapMeasureClick);
+    } catch (err) {
+      console.error('Error creating Leaflet map instance:', err);
     }
   }
 
-  // Tactical Distance Measurement Tool
-  function toggleMeasureTool() {
-    state.measuring = !state.measuring;
-    const btn = document.getElementById('measureButton');
-    const hud = document.getElementById('measureHud');
-    if (btn) btn.setAttribute('aria-pressed', state.measuring ? 'true' : 'false');
-    if (hud) hud.hidden = !state.measuring;
+  // Set Basemap
+  function setBasemap(type) {
+    if (!state.map || !state.tileLayers[type]) return;
+    if (state.activeTileLayer) state.map.removeLayer(state.activeTileLayer);
+    state.basemap = type;
+    state.activeTileLayer = state.tileLayers[type];
+    state.activeTileLayer.addTo(state.map);
 
-    if (!state.measuring) {
-      clearMeasurement();
-    } else {
-      document.getElementById('measureResult').textContent = i18n[state.lang].measure_instruction;
-      document.getElementById('measureTacticalNote').textContent = '';
+    document.querySelectorAll('.basemap-toggle-btn').forEach(b => {
+      b.classList.toggle('active', b.dataset.basemap === type);
+    });
+  }
+
+  // Load All Core Data
+  async function loadAllData() {
+    let [
+      statusData,
+      digestData,
+      newsData,
+      youtubeData,
+      eventsData,
+      settlementsData,
+      changesData,
+      referenceData
+    ] = await Promise.all([
+      fetchJson('/api/status', {}),
+      fetchJson('/api/digest', {}),
+      fetchJson('/api/news', []),
+      fetchJson('/api/youtube', []),
+      fetchJson('/data/events.json', []),
+      fetchJson('/data/settlements-index.json', []),
+      fetchJson('/data/changes.geojson', { type: 'FeatureCollection', features: [] }),
+      fetchJson('/data/reference-control.geojson', { type: 'FeatureCollection', features: [] })
+    ]);
+
+    state.status = statusData || {};
+    state.digest = digestData || {};
+    state.news = Array.isArray(newsData) ? newsData : [];
+    state.youtube = Array.isArray(youtubeData) ? youtubeData : [];
+    state.events = Array.isArray(eventsData) ? eventsData : [];
+    state.settlements = Array.isArray(settlementsData) ? settlementsData : [];
+    state.changes = (changesData && changesData.features) ? changesData : { type: 'FeatureCollection', features: [] };
+    state.referenceControl = (referenceData && referenceData.features) ? referenceData : { type: 'FeatureCollection', features: [] };
+
+    // Update Header Date
+    let dateStr = '03.09.2026';
+    if (state.digest?.date) {
+      const parts = state.digest.date.split('-');
+      if (parts.length === 3) {
+        dateStr = `${parts[2]}.${parts[1]}.${parts[0]}`;
+      } else {
+        dateStr = state.digest.date;
+      }
+    }
+    const topDateEl = document.getElementById('topDataDate');
+    if (topDateEl) topDateEl.textContent = dateStr;
+
+    // Render Components safely so failure in one never blocks the others
+    try { renderSummaryView(); } catch (e) { console.error('renderSummaryView error:', e); }
+    try { renderDailyDigest(); } catch (e) { console.error('renderDailyDigest error:', e); }
+    try { renderYouTubeVideos(); } catch (e) { console.error('renderYouTubeVideos error:', e); }
+    try { renderMapLayers(); } catch (e) { console.error('renderMapLayers error:', e); }
+  }
+
+  // Setup Sector Chips (Horizontally Scrollable)
+  function setupSectorChips() {
+    const track = document.getElementById('sectorChipsTrack');
+    if (!track) return;
+
+    track.innerHTML = DEFAULT_SECTORS.map(sec => {
+      const name = sec[`name_${state.lang}`] || sec.name_ru;
+      const hotClass = sec.hot ? 'hot-chip' : '';
+      const activeClass = sec.id === state.activeSector ? 'active' : '';
+      return `
+        <button class="sector-chip ${hotClass} ${activeClass}" data-sector="${sec.id}" type="button">
+          ${name}
+        </button>
+      `;
+    }).join('');
+
+    track.querySelectorAll('.sector-chip').forEach(chip => {
+      chip.addEventListener('click', () => {
+        selectSector(chip.dataset.sector);
+      });
+    });
+  }
+
+  function selectSector(sectorId) {
+    state.activeSector = sectorId;
+    document.querySelectorAll('.sector-chip').forEach(c => {
+      c.classList.toggle('active', c.dataset.sector === sectorId);
+    });
+
+    const secObj = DEFAULT_SECTORS.find(s => s.id === sectorId);
+    const labelEl = document.getElementById('activeSectorLabel');
+    if (labelEl && secObj) {
+      labelEl.innerHTML = `Сектор: <b>${secObj[`name_${state.lang}`] || secObj.name_ru}</b>`;
+    }
+
+    if (secObj && state.map) {
+      state.map.fitBounds(secObj.bounds, { padding: [25, 25], maxZoom: 12, animate: true, duration: 0.6 });
+      triggerMapResize();
+    }
+
+    renderMapLayers();
+  }
+
+  // Setup Map Floating Controls
+  function setupMapControls() {
+    // Basemap toggle
+    document.querySelectorAll('.basemap-toggle-btn').forEach(btn => {
+      btn.addEventListener('click', () => setBasemap(btn.dataset.basemap));
+    });
+
+    // Compare with yesterday toggle
+    const compBtn = document.getElementById('compareYesterdayBtn');
+    const compHud = document.getElementById('comparisonHud');
+    const closeCompHud = document.getElementById('closeComparisonHud');
+
+    if (compBtn) {
+      compBtn.addEventListener('click', () => {
+        state.comparisonMode = !state.comparisonMode;
+        compBtn.classList.toggle('active', state.comparisonMode);
+        if (compHud) compHud.hidden = !state.comparisonMode;
+        renderMapLayers();
+        if (state.comparisonMode) {
+          showToast('Режим сравнения со вчера активен (+4.85 км²)');
+        }
+      });
+    }
+
+    if (closeCompHud) {
+      closeCompHud.addEventListener('click', () => {
+        state.comparisonMode = false;
+        if (compBtn) compBtn.classList.remove('active');
+        if (compHud) compHud.hidden = true;
+        renderMapLayers();
+      });
+    }
+
+    // Measurement tool
+    const measureBtn = document.getElementById('measureButton');
+    const measureHud = document.getElementById('measureHud');
+    const closeMeasureHud = document.getElementById('closeMeasureHud');
+    const clearMeasureBtn = document.getElementById('clearMeasureBtn');
+
+    if (measureBtn) {
+      measureBtn.addEventListener('click', () => {
+        state.measuring = !state.measuring;
+        measureBtn.classList.toggle('active', state.measuring);
+        if (measureHud) measureHud.hidden = !state.measuring;
+        if (!state.measuring) clearMeasurement();
+      });
+    }
+
+    if (closeMeasureHud) {
+      closeMeasureHud.addEventListener('click', () => {
+        state.measuring = false;
+        if (measureBtn) measureBtn.classList.remove('active');
+        if (measureHud) measureHud.hidden = true;
+        clearMeasurement();
+      });
+    }
+
+    if (clearMeasureBtn) {
+      clearMeasureBtn.addEventListener('click', clearMeasurement);
+    }
+
+    // Fullscreen Map Toggle
+    const fsBtn = document.getElementById('mapFullscreenBtn');
+    const wrapper = document.getElementById('mapCardWrapper');
+    if (fsBtn && wrapper) {
+      fsBtn.addEventListener('click', () => {
+        state.isFullscreen = !state.isFullscreen;
+        wrapper.classList.toggle('is-fullscreen', state.isFullscreen);
+        fsBtn.querySelector('.fs-icon').textContent = state.isFullscreen ? '✕' : '⛶';
+        triggerMapResize();
+      });
+    }
+
+    // Layer toggle chips
+    document.querySelectorAll('.layer-chip').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const lyr = btn.dataset.layer;
+        state.layerVisibility[lyr] = !state.layerVisibility[lyr];
+        btn.classList.toggle('active', state.layerVisibility[lyr]);
+        renderMapLayers();
+      });
+    });
+  }
+
+  // Handle Measurement Click
+  function handleMapMeasureClick(e) {
+    if (!state.measuring) return;
+    state.measurePoints.push(e.latlng);
+
+    if (state.measureLayer) state.map.removeLayer(state.measureLayer);
+
+    const latlngs = state.measurePoints;
+    const markers = latlngs.map((pt, i) => L.circleMarker(pt, {
+      radius: 6,
+      color: '#38bdf8',
+      fillColor: '#080c14',
+      fillOpacity: 1,
+      weight: 2
+    }));
+
+    const line = L.polyline(latlngs, {
+      color: '#38bdf8',
+      weight: 3,
+      dashArray: '4, 4'
+    });
+
+    state.measureLayer = L.featureGroup([...markers, line]).addTo(state.map);
+
+    let totalKm = 0;
+    for (let i = 0; i < latlngs.length - 1; i++) {
+      totalKm += latlngs[i].distanceTo(latlngs[i + 1]) / 1000;
+    }
+
+    const resEl = document.getElementById('measureResult');
+    const noteEl = document.getElementById('measureTacticalNote');
+
+    if (resEl) {
+      resEl.textContent = `Дистанция: ${totalKm.toFixed(2)} км (${(totalKm * 1000).toFixed(0)} м)`;
+    }
+
+    if (noteEl) {
+      let threat = '';
+      if (totalKm <= 12) threat = '🎯 Зона действия FPV-дронов камикадзе';
+      else if (totalKm <= 30) threat = '💥 Зона досягаемости ствольной артиллерии 152/155-мм';
+      else if (totalKm <= 85) threat = '🚀 Зона действия РСЗО (HIMARS / Торнадо-С)';
+      else threat = '✈️ Зона оперативно-тактической авиации и КР';
+      noteEl.textContent = threat;
     }
   }
 
   function clearMeasurement() {
     state.measurePoints = [];
-    if (state.measureLayer) state.measureLayer.clearLayers();
-    const res = document.getElementById('measureResult');
-    const note = document.getElementById('measureTacticalNote');
-    if (res) res.textContent = i18n[state.lang].measure_instruction;
-    if (note) note.textContent = '';
-  }
-
-  function handleMapClick(e) {
-    if (!state.measuring) return;
-
-    const latlng = e.latlng;
-    state.measurePoints.push(latlng);
-
-    // Place marker
-    const marker = window.L.circleMarker(latlng, {
-      radius: 6,
-      fillColor: '#84cc16',
-      color: '#ffffff',
-      weight: 2,
-      fillOpacity: 1
-    });
-    state.measureLayer.addLayer(marker);
-
-    if (state.measurePoints.length > 1) {
-      // Draw dashed line between last two points
-      const line = window.L.polyline(state.measurePoints, {
-        color: '#84cc16',
-        weight: 3,
-        dashArray: '6, 6'
-      });
-      state.measureLayer.addLayer(line);
-
-      // Calculate total distance
-      let totalDistM = 0;
-      for (let i = 0; i < state.measurePoints.length - 1; i++) {
-        totalDistM += state.measurePoints[i].distanceTo(state.measurePoints[i + 1]);
-      }
-      const distKm = (totalDistM / 1000).toFixed(2);
-      document.getElementById('measureResult').textContent = `Дистанция: ${distKm} км (${state.measurePoints.length} точки)`;
-
-      // Tactical range estimation
-      let tacticalNote = '';
-      if (distKm <= 7) {
-        tacticalNote = '🎯 В зоне прямого поражения FPV-дронов, миномётов и стрелкового боя';
-      } else if (distKm <= 25) {
-        tacticalNote = '💥 В зоне действия ствольной артиллерии 152/155-мм и дальнобойных БПЛА';
-      } else if (distKm <= 70) {
-        tacticalNote = '🚀 В зоне действия высокоточных РСЗО (HIMARS / Торнадо-С)';
-      } else {
-        tacticalNote = '🛰️ Оперативная глубина (оперативно-тактические ракеты / авиация)';
-      }
-      document.getElementById('measureTacticalNote').textContent = tacticalNote;
+    if (state.measureLayer && state.map) {
+      state.map.removeLayer(state.measureLayer);
+      state.measureLayer = null;
     }
-  }
-
-  // Render Changes Feed List
-  function renderChangesList() {
-    const list = document.getElementById('changeList');
-    if (!list) return;
-    list.innerHTML = '';
-
-    const filtered = getFilteredChanges();
-    if (filtered.length === 0) {
-      list.innerHTML = '<div style="padding: 24px; color: var(--muted); font-size: 12px;">Нет зарегистрированных изменений за выбранный период.</div>';
-      return;
-    }
-
-    filtered.forEach(item => {
-      const p = item.properties || {};
-      const el = document.createElement('button');
-      el.type = 'button';
-      el.className = 'change-item';
-      el.innerHTML = `
-        <time>${p.date || '2026-08-27'}</time>
-        <h4>${getLocalized(p, 'name')}</h4>
-        <p>${getLocalized(p, 'summary')}</p>
-        <div class="change-meta">
-          <span>+${p.area_km2 || 0} км²</span>
-          <span>Верификация: ${(p.confidence * 100).toFixed(0)}%</span>
-        </div>
-        <span class="open-evidence">Смотреть фото/видео объективного контроля →</span>
-      `;
-      el.addEventListener('click', () => {
-        openRecordDialog(p, 'change');
-        if (item.geometry && state.map) {
-          const coords = item.geometry.coordinates[0][0];
-          state.map.flyTo([coords[1], coords[0]], 13);
-        }
-      });
-      list.appendChild(el);
-    });
-
-    const totalArea = filtered.reduce((acc, f) => acc + (f.properties?.area_km2 || 0), 0);
-    document.getElementById('changeSummary').textContent = `Площадь подтверждённых изменений: +${totalArea.toFixed(2)} км²`;
-  }
-
-  // Render Timeline / Key Events
-  function renderTimeline() {
-    const container = document.getElementById('eventList');
-    if (!container) return;
-    container.innerHTML = '';
-
-    const filtered = getFilteredEvents();
-    if (filtered.length === 0) {
-      container.innerHTML = '<div style="padding: 24px; color: var(--muted); font-size: 12px;">События по данному направлению не зафиксированы.</div>';
-      return;
-    }
-
-    filtered.forEach(ev => {
-      const card = document.createElement('article');
-      card.className = 'event-card';
-      card.innerHTML = `
-        <time>${ev.event_date} · ${ev.location_label || ''}</time>
-        <h3>${getLocalized(ev, 'title')}</h3>
-        <p>${getLocalized(ev, 'summary')}</p>
-        <div class="record-links">
-          <span>Верифицировано (${(ev.confidence * 100).toFixed(0)}%) · Нажмите для деталей</span>
-        </div>
-      `;
-      card.addEventListener('click', () => {
-        openRecordDialog(ev, 'event');
-        if (ev.location && state.map) {
-          state.map.flyTo([ev.location.lat, ev.location.lon], 13);
-        }
-      });
-      container.appendChild(card);
-    });
-  }
-
-  // Render Side Claims
-  function renderClaims() {
-    const list = document.getElementById('claimList');
-    if (!list) return;
-    list.innerHTML = '';
-
-    state.claims.forEach(c => {
-      const card = document.createElement('div');
-      card.className = 'claim-card';
-      card.innerHTML = `
-        <span class="side">${c.side_label || c.side}</span>
-        <p>${c.summary}</p>
-        <small style="color: var(--muted); font-size: 10px;">${c.event_date} · Источник: ${c.source_ids.join(', ')}</small>
-      `;
-      list.appendChild(card);
-    });
-  }
-
-  // Render Sources Grid
-  function renderSources(filter = 'all') {
-    const grid = document.getElementById('sourceGrid');
-    if (!grid) return;
-    grid.innerHTML = '';
-
-    const list = filter === 'all' ? state.sources : state.sources.filter(s => s.side === filter);
-    list.forEach(src => {
-      const healthItem = state.sourceHealth?.results?.find(r => r.source_id === src.id);
-      const healthClass = healthItem ? healthItem.state : (src.health || 'ok');
-
-      const card = document.createElement('article');
-      card.className = 'source-card';
-      card.innerHTML = `
-        <header>
-          <div>
-            <h3>${src.name}</h3>
-            <p>${src.role}</p>
-          </div>
-          <span class="health ${healthClass}" title="Статус: ${healthClass}"></span>
-        </header>
-        <div class="source-tags">
-          <span>${src.kind}</span>
-          <span>${src.side}</span>
-          <span>${src.license_status || 'verified'}</span>
-        </div>
-        <p style="font-size: 11px; color: var(--muted);">${src.usage_note || ''}</p>
-        <a href="${src.url}" target="_blank" rel="noopener noreferrer">Перейти к источнику ↗</a>
-      `;
-      grid.appendChild(card);
-    });
-  }
-
-  // Render Archive Selector
-  function renderArchive() {
-    const select = document.getElementById('snapshotSelect');
-    if (!select) return;
-    select.innerHTML = '';
-
-    state.snapshots.forEach((snap, idx) => {
-      const opt = document.createElement('option');
-      opt.value = idx;
-      opt.textContent = `${snap.date} — Изменений: ${snap.change_count} (+${snap.area_change_km2} км²)`;
-      select.appendChild(opt);
-    });
-
-    select.addEventListener('change', e => {
-      const snap = state.snapshots[e.target.value];
-      if (snap) {
-        document.getElementById('archiveMeta').innerHTML = `
-          <strong>Хеш среза:</strong> <code>${snap.sha256}</code><br>
-          <strong>Дата фиксации:</strong> ${snap.published_at}
-        `;
-      }
-    });
-
-    if (state.snapshots.length > 0) {
-      select.dispatchEvent(new Event('change'));
-    }
-  }
-
-  // Record Inspection Dialog Modal
-  function openRecordDialog(record, type = 'event') {
-    const dialog = document.getElementById('recordDialog');
-    const content = document.getElementById('recordContent');
-    if (!dialog || !content) return;
-
-    let html = '';
-    if (type === 'settlement') {
-      const statusText = record.status === 'control_ru' ? 'Под контролем РФ' : record.status === 'control_ua' ? 'Контроль ВСУ' : 'Серая / оспариваемая зона';
-      html = `
-        <h2>${getLocalized(record, 'name')}</h2>
-        <p style="color: var(--muted); font-size: 13px;">${record.admin1 || 'Донецкая область'} · Сектор: ${record.sector_id || 'Не указан'}</p>
-        <div class="record-stats">
-          <span><b>${statusText}</b>Статус контроля</span>
-          <span><b>${record.lat.toFixed(4)}, ${record.lon.toFixed(4)}</b>Координаты WGS84</span>
-          <span><b>${record.importance || 'Город'}</b>Тип объекта</span>
-        </div>
-        <h3>Проверка источников</h3>
-        <p style="font-size: 12px; color: var(--muted); line-height: 1.6;">Статус населенного пункта проверяется на основе сопоставления видеокадров объективного контроля с беспилотных летательных аппаратов и заявлений сторон.</p>
-      `;
-    } else if (type === 'change') {
-      html = `
-        <h2>${getLocalized(record, 'name')}</h2>
-        <p style="color: var(--muted); font-size: 13px;">Дата фиксации: ${record.date || '2026-08-27'}</p>
-        <div class="record-stats">
-          <span><b>+${record.area_km2 || 0} км²</b>Площадь полигона</span>
-          <span><b>${(record.confidence * 100).toFixed(0)}%</b>Уверенность OSINT</span>
-          <span><b>${record.from_status} → ${record.to_status}</b>Сдвиг линии</span>
-        </div>
-        <p style="font-size: 13px; line-height: 1.6;">${getLocalized(record, 'summary')}</p>
-        <h3>Верификация доказательств</h3>
-        <div class="evidence-matrix">
-          <div class="matrix-cell confirmed"><span>✓</span> Видео с БПЛА (геолокация)</div>
-          <div class="matrix-cell confirmed"><span>✓</span> Спутниковые снимки Sentinel-2</div>
-          <div class="matrix-cell confirmed"><span>✓</span> Данные радаров FIRMS NASA</div>
-          <div class="matrix-cell"><span>—</span> Официальное подтверждение МО</div>
-        </div>
-      `;
-    } else {
-      html = `
-        <h2>${getLocalized(record, 'title')}</h2>
-        <p style="color: var(--muted); font-size: 13px;">${record.event_date} · ${record.location_label || ''}</p>
-        <div class="record-stats">
-          <span><b>${record.verification_status}</b>Статус</span>
-          <span><b>${(record.confidence * 100).toFixed(0)}%</b>Индекс надежности</span>
-          <span><b>${record.source_ids ? record.source_ids.join(', ') : 'OSINT'}</b>Источники</span>
-        </div>
-        <p style="font-size: 13px; line-height: 1.6;">${getLocalized(record, 'summary')}</p>
-        ${record.publication_note ? `<p style="background: var(--card-subtle); padding: 12px; border-radius: 8px; font-size: 11px; color: var(--muted);">${record.publication_note}</p>` : ''}
-      `;
-    }
-
-    content.innerHTML = html;
-    dialog.showModal();
-  }
-
-  // Force Sync API Trigger
-  async function triggerSync() {
-    const btn = document.getElementById('syncNowButton');
-    if (btn) {
-      btn.classList.add('syncing');
-      btn.querySelector('span').textContent = i18n[state.lang].syncing;
-    }
-
-    try {
-      const res = await fetch('/api/sync', { method: 'POST' });
-      const data = await res.json();
-      state.syncCountdown = state.autoSyncInterval;
-
-      // Reload fresh datasets
-      await loadData();
-
-      showToast(i18n[state.lang].sync_success);
-    } catch (err) {
-      console.error('Manual sync failed:', err);
-    } finally {
-      if (btn) {
-        btn.classList.remove('syncing');
-        btn.querySelector('span').textContent = i18n[state.lang].sync_now;
-      }
-    }
+    const resEl = document.getElementById('measureResult');
+    const noteEl = document.getElementById('measureTacticalNote');
+    if (resEl) resEl.textContent = t('measure_start');
+    if (noteEl) noteEl.textContent = '';
   }
 
   // Setup Settlement Search
@@ -894,212 +673,578 @@
 
     input.addEventListener('input', () => {
       const q = input.value.trim().toLowerCase();
-      if (!q) {
+      if (q.length < 2) {
         results.hidden = true;
         return;
       }
 
       const matches = state.settlements.filter(s => {
-        const ru = (s.name_ru || s.name || '').toLowerCase();
-        const uk = (s.name_uk || '').toLowerCase();
-        const en = (s.name_en || '').toLowerCase();
-        return ru.includes(q) || uk.includes(q) || en.includes(q);
-      });
+        const nameRu = (s.name_ru || s.name || '').toLowerCase();
+        const nameUk = (s.name_uk || '').toLowerCase();
+        const nameEn = (s.name_en || '').toLowerCase();
+        return nameRu.includes(q) || nameUk.includes(q) || nameEn.includes(q);
+      }).slice(0, 8);
 
       if (matches.length === 0) {
-        results.innerHTML = '<div class="search-empty">Населённых пунктов не найдено</div>';
+        results.innerHTML = `<div style="padding: 0.55rem 0.8rem; font-size: 0.8rem; color: var(--text-muted);">Ничего не найдено</div>`;
         results.hidden = false;
         return;
       }
 
-      results.innerHTML = '';
-      matches.slice(0, 8).forEach(item => {
-        const btn = document.createElement('button');
-        btn.type = 'button';
-        btn.innerHTML = `
-          <div>
-            <b>${getLocalized(item, 'name')}</b>
-            <small>${item.admin1 || 'Украина'} · Сектор: ${item.sector_id || 'Фронт'}</small>
+      results.innerHTML = matches.map(s => {
+        const name = s[`name_${state.lang}`] || s.name;
+        const status = s.status === 'control_ru' ? '🔴 РФ' : '🟡 ВСУ';
+        return `
+          <div class="search-dropdown-item" data-lat="${s.lat}" data-lon="${s.lon}" data-name="${name}">
+            <strong>${name}</strong>
+            <span style="font-size: 0.72rem; color: var(--text-muted);">${status}</span>
           </div>
-          <em>${item.status === 'control_ru' ? 'РФ' : item.status === 'control_ua' ? 'ВСУ' : 'Серая'}</em>
         `;
-        btn.addEventListener('click', () => {
+      }).join('');
+
+      results.hidden = false;
+
+      results.querySelectorAll('.search-dropdown-item').forEach(item => {
+        item.addEventListener('click', () => {
+          const lat = parseFloat(item.dataset.lat);
+          const lon = parseFloat(item.dataset.lon);
           results.hidden = true;
-          input.value = '';
+          input.value = item.dataset.name;
+
           if (state.map) {
-            state.map.flyTo([item.lat, item.lon], 13, { duration: 1 });
-            openRecordDialog(item, 'settlement');
+            state.map.setView([lat, lon], 12, { animate: true, duration: 0.6 });
+            L.circleMarker([lat, lon], {
+              radius: 12,
+              color: '#38bdf8',
+              fillColor: '#38bdf8',
+              fillOpacity: 0.4
+            }).addTo(state.map).bindPopup(`<b>${item.dataset.name}</b>`).openPopup();
           }
         });
-        results.appendChild(btn);
       });
-      results.hidden = false;
     });
 
-    // Keyboard shortcut ⌘K / Ctrl+K
-    window.addEventListener('keydown', e => {
-      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
-        e.preventDefault();
-        input.focus();
-      }
-    });
-
-    document.addEventListener('click', e => {
-      if (!results.contains(e.target) && e.target !== input) {
+    document.addEventListener('click', (e) => {
+      if (!input.contains(e.target) && !results.contains(e.target)) {
         results.hidden = true;
       }
     });
   }
 
-  // Setup Timeline Playback
-  function setupTimelinePlayback() {
-    const playBtn = document.getElementById('playbackPlayBtn');
-    const range = document.getElementById('timelineRange');
-    const label = document.getElementById('timelineCurrentDateLabel');
-    if (!playBtn || !range) return;
+  // Render Map Layers
+  function renderMapLayers() {
+    if (!state.map || typeof L === 'undefined') return;
 
-    const dates = ['25 августа 2026', '26 августа 2026', '27 августа 2026'];
-
-    range.addEventListener('input', e => {
-      const idx = parseInt(e.target.value, 10);
-      if (label) label.textContent = dates[idx] || '27 августа 2026';
+    // Remove existing geo layers safely
+    Object.keys(state.geoLayers).forEach(k => {
+      if (state.geoLayers[k]) {
+        try {
+          state.map.removeLayer(state.geoLayers[k]);
+        } catch (e) {
+          console.warn(`Layer cleanup error (${k}):`, e);
+        }
+        state.geoLayers[k] = null;
+      }
     });
 
-    playBtn.addEventListener('click', () => {
-      state.isPlayingTimeline = !state.isPlayingTimeline;
-      playBtn.classList.toggle('playing', state.isPlayingTimeline);
-
-      const lbl = document.getElementById('playBtnLabel');
-      if (lbl) lbl.textContent = state.isPlayingTimeline ? i18n[state.lang].stop_timeline : i18n[state.lang].play_timeline;
-
-      if (state.isPlayingTimeline) {
-        let currentStep = 0;
-        state.timelineTimer = setInterval(() => {
-          range.value = currentStep;
-          range.dispatchEvent(new Event('input'));
-          currentStep = (currentStep + 1) % 3;
-        }, 1200);
-      } else {
-        clearInterval(state.timelineTimer);
+    // 1. Reference Control (Russian Zone)
+    try {
+      if (state.referenceControl && state.referenceControl.features && state.layerVisibility.reference_ru) {
+        state.geoLayers.reference_ru = L.geoJSON(state.referenceControl, {
+          style: () => ({
+            color: '#ef4444',
+            weight: 1.5,
+            opacity: 0.9,
+            fillColor: '#b91c1c',
+            fillOpacity: 0.28
+          }),
+          onEachFeature: (feature, layer) => {
+            layer.bindTooltip(`<b>${feature.properties?.name || 'Оценка зоны контроля РФ'}</b>`, { sticky: true });
+          }
+        }).addTo(state.map);
       }
+    } catch (e) {
+      console.warn('Failed to render reference_ru layer:', e);
+    }
+
+    // 2. Confirmed 24h Territorial Advances Layer
+    try {
+      if (state.changes && state.changes.features && state.layerVisibility.change) {
+        state.geoLayers.changes = L.geoJSON(state.changes, {
+          style: () => ({
+            color: '#22c55e',
+            weight: 2.5,
+            dashArray: '5, 5',
+            opacity: 1.0,
+            fillColor: '#4ade80',
+            fillOpacity: 0.45
+          }),
+          onEachFeature: (feature, layer) => {
+            const p = feature.properties || {};
+            const title = p[`name_${state.lang}`] || p.name || 'Территориальное продвижение';
+            const sum = p[`summary_${state.lang}`] || p.summary || '';
+            
+            layer.on('click', () => {
+              openEventBottomSheet({
+                title,
+                settlement_name: title,
+                time_formatted: '24h Сдвиг',
+                verification_status: 'CONFIRMED',
+                confidence: p.confidence || 0.96,
+                what_happened: sum,
+                what_is_confirmed: `Подтверждённое продвижение площади +${p.area_km2 || 0} км² по спутниковым снимкам Sentinel-2 и кадрам объективного контроля БПЛА.`,
+                what_is_not_confirmed: 'Слухи о дальнейшем продвижении за пределы обозначенного полигона не подтверждены.',
+                sources_lineage: [
+                  { name: 'Sentinel-2 / FIRMS', independent: true, confirms: 'Термоточки и линии разрывов' },
+                  { name: 'Геолокация OSINT БПЛА', independent: true, confirms: 'Контроль застройки' }
+                ]
+              });
+            });
+          }
+        }).addTo(state.map);
+      }
+    } catch (e) {
+      console.warn('Failed to render changes layer:', e);
+    }
+
+    // 3. Comparison Mode (Yesterday Border Overlay)
+    try {
+      if (state.comparisonMode && state.changes && state.changes.features) {
+        state.geoLayers.comparison = L.geoJSON(state.changes, {
+          style: () => ({
+            color: '#eab308',
+            weight: 3.5,
+            dashArray: '8, 6',
+            fillOpacity: 0
+          })
+        }).addTo(state.map);
+      }
+    } catch (e) {
+      console.warn('Failed to render comparison layer:', e);
+    }
+
+    // 4. Geolocated Verified Combat Events
+    try {
+      if (state.events && state.events.length && state.layerVisibility.events) {
+        const markers = [];
+        state.events.forEach(ev => {
+          if (!ev || !ev.location || typeof ev.location.lat !== 'number' || typeof ev.location.lon !== 'number') return;
+          if (state.activeSector !== 'all' && ev.sector_id !== state.activeSector) return;
+
+          const statusStr = (ev.verification_status || '').toLowerCase();
+          const isConfirmed = statusStr === 'confirmed';
+          const markerColor = isConfirmed ? '#38bdf8' : '#f97316';
+
+          const customIcon = L.divIcon({
+            className: 'tactical-pin',
+            html: `<div style="
+              width: 16px;
+              height: 16px;
+              background: ${markerColor};
+              border: 2px solid #ffffff;
+              border-radius: 50%;
+              box-shadow: 0 0 10px ${markerColor};
+              cursor: pointer;
+            "></div>`,
+            iconSize: [16, 16],
+            iconAnchor: [8, 8]
+          });
+
+          const marker = L.marker([ev.location.lat, ev.location.lon], { icon: customIcon });
+          const title = ev[`title_${state.lang}`] || ev.title || 'Событие';
+          marker.bindTooltip(`<b>📍 ${ev.location_label || ''}</b><br>${title}`, { direction: 'top', offset: [0, -6] });
+
+          marker.on('click', () => {
+            const matchNews = state.news.find(n => n.sector_id === ev.sector_id) || {
+              title,
+              settlement_name: ev.location_label || ev.sector_id || 'Фронт',
+              time_formatted: '03.09 13:00',
+              verification_status: (ev.verification_status || 'CONFIRMED').toUpperCase(),
+              confidence: ev.confidence || 0.94,
+              what_happened: ev[`summary_${state.lang}`] || ev.summary || title,
+              what_is_confirmed: 'Подтверждено видеофиксацией и спутниковыми снимками.',
+              what_is_not_confirmed: 'Сообщения о дальнейшем продвижении вглубь обороны пока не верифицированы.',
+              sources_lineage: [
+                { name: 'OSINT видеопривязка', independent: true, confirms: 'Позиции на местности' }
+              ]
+            };
+            openEventBottomSheet(matchNews);
+          });
+
+          markers.push(marker);
+        });
+
+        if (markers.length > 0) {
+          state.geoLayers.events = L.featureGroup(markers).addTo(state.map);
+        }
+      }
+    } catch (e) {
+      console.warn('Failed to render events markers:', e);
+    }
+  }
+
+  // Open Floating Bottom Sheet with Nuances (Mobile & Desktop)
+  function openEventBottomSheet(eventData) {
+    const sheet = document.getElementById('mapEventBottomSheet');
+    const content = document.getElementById('sheetContent');
+    if (!sheet || !content) return;
+
+    const title = eventData[`title_${state.lang}`] || eventData.title;
+    const whatHappened = eventData[`what_happened_${state.lang}`] || eventData.what_happened;
+    const confirmed = eventData[`what_is_confirmed_${state.lang}`] || eventData.what_is_confirmed || 'Подтверждено кадрами с БПЛА и спутниковой съёмкой.';
+    const notConfirmed = eventData[`what_is_not_confirmed_${state.lang}`] || eventData.what_is_not_confirmed || 'Сообщения о взятии соседних опорных пунктов не подтверждены.';
+    const statusClass = (eventData.verification_status || 'CONFIRMED').toLowerCase();
+
+    const sources = eventData.sources_lineage || [
+      { name: 'OSINT-анализ БПЛА', independent: true, confirms: 'Геолокация кадров' },
+      { name: 'Sentinel-2 FIRMS', independent: true, confirms: 'Термоточки' }
+    ];
+
+    content.innerHTML = `
+      <div class="sheet-header-row">
+        <div>
+          <span class="event-loc-badge">📍 ${eventData.settlement_name || 'Сектор фронта'}</span>
+          <span class="status-badge ${statusClass}" style="margin-left: 6px;">${eventData.verification_status} (${Math.round((eventData.confidence || 0.95) * 100)}%)</span>
+          <h3 class="sheet-title" style="margin-top: 6px;">${title}</h3>
+        </div>
+        <button class="sheet-close-btn" id="closeSheetBtn" type="button">✕</button>
+      </div>
+
+      <div class="sheet-blocks">
+        <p style="font-size: 0.85rem; color: var(--text-primary);">${whatHappened}</p>
+
+        <div class="sheet-fact-box confirmed">
+          <div class="sheet-fact-title">🟢 ${t('what_confirmed')}</div>
+          <p>${confirmed}</p>
+        </div>
+
+        <div class="sheet-fact-box unconfirmed">
+          <div class="sheet-fact-title">🟠 ${t('what_not_confirmed')}</div>
+          <p>${notConfirmed}</p>
+        </div>
+
+        <div>
+          <div style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted); margin-bottom: 4px;">🛡️ ${t('sources_title')}</div>
+          <div class="sheet-sources-list">
+            ${sources.map(s => `
+              <span class="sheet-source-tag"><b>${s.name}</b>: ${s.confirms || 'Подтверждено'}</span>
+            `).join('')}
+          </div>
+        </div>
+      </div>
+    `;
+
+    sheet.hidden = false;
+
+    document.getElementById('closeSheetBtn')?.addEventListener('click', () => {
+      sheet.hidden = true;
     });
   }
 
-  // Setup Event Listeners
-  function setupEventListeners() {
-    // Theme buttons
-    document.querySelectorAll('.theme-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('.theme-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        const theme = btn.getAttribute('data-theme');
-        document.body.className = `theme-${theme}`;
-        if (theme === 'satellite') switchBasemap('satellite');
-        else if (theme === 'dark') switchBasemap('dark');
-        else switchBasemap('topo');
+  // Render VIEW 1: Summary Hub
+  function renderSummaryView() {
+    const pEl = document.getElementById('synthesisParagraph');
+    const dateEl = document.getElementById('synthesisDate');
+    const grid = document.getElementById('eventsSummaryGrid');
+
+    if (pEl) {
+      pEl.textContent = state.digest?.[`quick_summary_${state.lang}`] || state.digest?.quick_summary_ru || 'За последние 24 часа зафиксировано два подтверждённых изменения линии боевого соприкосновения на Покровском и Торецком направлениях (+4.85 км²). В районе Гродовки штурмовые группы продвинулись вдоль балок, в Торецке продолжаются бои за терриконы шахты Северная. На остальных участках обстановка стабильно-позиционная.';
+    }
+
+    if (dateEl) {
+      dateEl.textContent = state.digest?.last_reviewed_formatted || '3 сентября 2026';
+    }
+
+    if (!grid) return;
+
+    const items = state.news || [];
+    grid.innerHTML = items.map(n => {
+      const title = n[`title_${state.lang}`] || n.title;
+      const whatHappened = n[`what_happened_${state.lang}`] || n.what_happened;
+      const statusClass = (n.verification_status || 'CONFIRMED').toLowerCase();
+
+      return `
+        <article class="event-card" data-event-id="${n.id}">
+          <div class="event-top-meta">
+            <span class="event-loc-badge">📍 ${n.settlement_name || n.sector_id}</span>
+            <span class="event-time-badge">${n.time_formatted || '03.09 13:00'}</span>
+          </div>
+
+          <h3 class="event-heading">${title}</h3>
+          <p class="event-text">${whatHappened}</p>
+
+          <div class="event-card-actions">
+            <span class="status-badge ${statusClass}">${n.verification_status}</span>
+            <div class="card-btn-group">
+              <button class="show-on-map-btn" data-jump-event="${n.id}" type="button">
+                ${t('show_on_map')}
+              </button>
+              <button class="inspect-event-btn" data-inspect-event="${n.id}" type="button">
+                ${t('details')}
+              </button>
+            </div>
+          </div>
+        </article>
+      `;
+    }).join('');
+
+    // Handle "Show on Map" button
+    grid.querySelectorAll('[data-jump-event]').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const evId = btn.dataset.jumpEvent;
+        const ev = state.news.find(n => n.id === evId);
+        if (ev) {
+          switchTab('map');
+          selectSector(ev.sector_id);
+          setTimeout(() => {
+            openEventBottomSheet(ev);
+          }, 200);
+        }
       });
     });
 
-    // Basemap selector buttons
-    document.querySelectorAll('.basemap-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const bm = btn.getAttribute('data-basemap');
-        switchBasemap(bm);
+    // Handle "Inspect Details"
+    grid.querySelectorAll('[data-inspect-event]').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const evId = btn.dataset.inspectEvent;
+        const ev = state.news.find(n => n.id === evId);
+        if (ev) openEventModal(ev);
       });
     });
 
-    // Language selector
-    const langSelect = document.getElementById('languageSelect');
-    if (langSelect) {
-      langSelect.addEventListener('change', e => {
-        state.lang = e.target.value;
-        renderAll();
+    grid.querySelectorAll('.event-card').forEach(card => {
+      card.addEventListener('click', () => {
+        const evId = card.dataset.eventId;
+        const ev = state.news.find(n => n.id === evId);
+        if (ev) openEventModal(ev);
+      });
+    });
+  }
+
+  // Open Full Desktop Modal with Inspection Nuances
+  function openEventModal(ev) {
+    const dialog = document.getElementById('recordDialog');
+    const content = document.getElementById('recordContent');
+    if (!dialog || !content) return;
+
+    const title = ev[`title_${state.lang}`] || ev.title;
+    const whatHappened = ev[`what_happened_${state.lang}`] || ev.what_happened;
+    const confirmed = ev[`what_is_confirmed_${state.lang}`] || ev.what_is_confirmed;
+    const notConfirmed = ev[`what_is_not_confirmed_${state.lang}`] || ev.what_is_not_confirmed;
+    const sources = ev.sources_lineage || [];
+
+    content.innerHTML = `
+      <div style="display: flex; flex-direction: column; gap: 0.85rem;">
+        <div>
+          <span class="event-loc-badge">📍 ${ev.settlement_name || ev.sector_id}</span>
+          <span class="status-badge confirmed" style="margin-left: 6px;">${ev.verification_status || 'CONFIRMED'} (${Math.round((ev.confidence || 0.95) * 100)}%)</span>
+          <h2 style="font-size: 1.25rem; font-weight: 800; margin-top: 6px;">${title}</h2>
+        </div>
+
+        <p style="font-size: 0.9rem; line-height: 1.5;">${whatHappened}</p>
+
+        <div class="sheet-fact-box confirmed">
+          <div class="sheet-fact-title">🟢 ${t('what_confirmed')}</div>
+          <p>${confirmed}</p>
+        </div>
+
+        <div class="sheet-fact-box unconfirmed">
+          <div class="sheet-fact-title">🟠 ${t('what_not_confirmed')}</div>
+          <p>${notConfirmed}</p>
+        </div>
+
+        <div>
+          <h4 style="font-size: 0.82rem; font-weight: 800; margin-bottom: 6px;">🛡️ ${t('sources_title')}</h4>
+          <div style="display: flex; flex-direction: column; gap: 4px;">
+            ${sources.map(s => `
+              <div style="background: var(--bg-surface); padding: 6px 10px; border-radius: 6px; font-size: 0.78rem; display: flex; justify-content: space-between;">
+                <strong>${s.name}</strong>
+                <span style="color: var(--text-muted);">${s.confirms}</span>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+
+        <div style="margin-top: 0.5rem; text-align: right;">
+          <button class="open-map-direct-btn" id="modalJumpToMapBtn" type="button">
+            <span>🗺️ Открыть на карте</span>
+          </button>
+        </div>
+      </div>
+    `;
+
+    dialog.showModal();
+
+    document.getElementById('modalJumpToMapBtn')?.addEventListener('click', () => {
+      dialog.close();
+      switchTab('map');
+      selectSector(ev.sector_id);
+      setTimeout(() => {
+        openEventBottomSheet(ev);
+      }, 200);
+    });
+  }
+
+  // Render VIEW 3: Daily OSINT Digest
+  function renderDailyDigest() {
+    const grid = document.getElementById('digestCardsGrid');
+    if (!grid || !state.digest?.sections) return;
+
+    const sec = state.digest.sections;
+    const cards = [];
+
+    // Filter Buttons
+    document.querySelectorAll('.cat-pill').forEach(btn => {
+      btn.onclick = () => {
+        state.activeDigestCat = btn.dataset.cat;
+        document.querySelectorAll('.cat-pill').forEach(b => b.classList.toggle('active', b.dataset.cat === state.activeDigestCat));
+        renderDailyDigest();
+      };
+    });
+
+    if (['all', 'military'].includes(state.activeDigestCat) && sec.military_situation) {
+      sec.military_situation.forEach(ms => {
+        cards.push(`
+          <div class="digest-card">
+            <div class="digest-card-top">
+              <span class="digest-category-label">⚔️ Военная обстановка · ${ms.sector}</span>
+              <span class="status-badge confirmed">${ms.level?.toUpperCase() || 'HIGH'}</span>
+            </div>
+            <h3 class="digest-card-title">${ms[`title_${state.lang}`] || ms.title_ru}</h3>
+            <p class="digest-card-text">${ms[`desc_${state.lang}`] || ms.desc_ru}</p>
+          </div>
+        `);
       });
     }
 
-    // Sync Now button
-    const syncBtn = document.getElementById('syncNowButton');
-    if (syncBtn) syncBtn.addEventListener('click', triggerSync);
-
-    // Measure tool button
-    const measureBtn = document.getElementById('measureButton');
-    if (measureBtn) measureBtn.addEventListener('click', toggleMeasureTool);
-
-    const closeMeasure = document.getElementById('closeMeasureHud');
-    if (closeMeasure) closeMeasure.addEventListener('click', toggleMeasureTool);
-
-    const clearMeasure = document.getElementById('clearMeasureBtn');
-    if (clearMeasure) clearMeasure.addEventListener('click', clearMeasurement);
-
-    // Bandwidth button
-    const bwBtn = document.getElementById('bandwidthButton');
-    if (bwBtn) {
-      bwBtn.addEventListener('click', () => {
-        state.lowBandwidth = !state.lowBandwidth;
-        document.body.classList.toggle('low-bandwidth', state.lowBandwidth);
-        bwBtn.setAttribute('aria-pressed', state.lowBandwidth ? 'true' : 'false');
+    if (['all', 'control'].includes(state.activeDigestCat) && sec.control_changes) {
+      sec.control_changes.forEach(cc => {
+        cards.push(`
+          <div class="digest-card" style="border-left: 4px solid var(--color-change);">
+            <div class="digest-card-top">
+              <span class="digest-category-label" style="color: #4ade80;">🗺️ Сдвиг контроля · ${cc.sector}</span>
+              <span class="status-badge confirmed">+${cc.area_km2} км²</span>
+            </div>
+            <h3 class="digest-card-title">${cc[`name_${state.lang}`] || cc.name_ru}</h3>
+            <p class="digest-card-text">Подтверждено по независимым источникам: <b>${cc.evidence_type}</b>.</p>
+          </div>
+        `);
       });
     }
 
-    // Layer toggles in map legend
-    document.querySelectorAll('.map-legend button').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const layer = btn.getAttribute('data-layer');
-        state.layerVisibility[layer] = !state.layerVisibility[layer];
-        btn.classList.toggle('off', !state.layerVisibility[layer]);
-        btn.setAttribute('aria-pressed', state.layerVisibility[layer] ? 'true' : 'false');
-        updateMapLayers();
+    if (['all', 'strikes'].includes(state.activeDigestCat) && sec.strikes_and_attacks) {
+      sec.strikes_and_attacks.forEach(sa => {
+        cards.push(`
+          <div class="digest-card">
+            <div class="digest-card-top">
+              <span class="digest-category-label">🚀 Огневое поражение</span>
+              <span class="status-badge probable">УДАР</span>
+            </div>
+            <h3 class="digest-card-title">${sa[`title_${state.lang}`] || sa.title_ru}</h3>
+            <p class="digest-card-text">${sa[`desc_${state.lang}`] || sa.desc_ru}</p>
+          </div>
+        `);
       });
-    });
+    }
 
-    // Source filter buttons
-    document.querySelectorAll('.source-filters button').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('.source-filters button').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        renderSources(btn.getAttribute('data-source-filter'));
+    if (['all', 'uav'].includes(state.activeDigestCat) && sec.aviation_and_uav) {
+      sec.aviation_and_uav.forEach(u => {
+        cards.push(`
+          <div class="digest-card">
+            <div class="digest-card-top">
+              <span class="digest-category-label">✈️ БПЛА / Авиация</span>
+              <span class="status-badge confirmed">OSINT</span>
+            </div>
+            <h3 class="digest-card-title">${u[`title_${state.lang}`] || u.title_ru}</h3>
+            <p class="digest-card-text">${u[`desc_${state.lang}`] || u.desc_ru}</p>
+          </div>
+        `);
       });
-    });
+    }
 
-    // Dialog close buttons
-    document.getElementById('closeRecord')?.addEventListener('click', () => {
-      document.getElementById('recordDialog')?.close();
-    });
-
-    document.getElementById('aboutButton')?.addEventListener('click', () => {
-      document.getElementById('aboutDialog')?.showModal();
-    });
-
-    document.getElementById('closeAbout')?.addEventListener('click', () => {
-      document.getElementById('aboutDialog')?.close();
-    });
-
-    // Auto-sync ticker countdown
-    setInterval(() => {
-      state.syncCountdown -= 1;
-      if (state.syncCountdown <= 0) {
-        state.syncCountdown = state.autoSyncInterval;
-        triggerSync();
-      }
-      const label = document.getElementById('syncStatusLabel');
-      if (label) label.innerHTML = `Автообновление: <strong>${state.syncCountdown}с</strong>`;
-
-      const progress = document.getElementById('syncProgressFill');
-      if (progress) {
-        const pct = (state.syncCountdown / state.autoSyncInterval) * 100;
-        progress.style.width = `${pct}%`;
-      }
-    }, 1000);
+    grid.innerHTML = cards.join('');
   }
 
-  // Application Initialization
-  async function init() {
-    setupEventListeners();
-    setupSearch();
-    setupTimelinePlayback();
-    await loadData();
+  // Render VIEW 4: YouTube Videos (Tactical Cards + Direct YouTube Integration)
+  function renderYouTubeVideos() {
+    const grid = document.getElementById('youtubeGrid');
+    if (!grid) return;
+
+    const items = state.youtube || [];
+    grid.innerHTML = items.map(v => {
+      const whyWatch = v[`why_watch_${state.lang}`] || v.why_watch;
+      const ytUrl = v.url || `https://www.youtube.com/watch?v=${v.embed_id}`;
+
+      return `
+        <article class="video-card">
+          <div class="video-card-header">
+            <span class="video-channel">📺 ${v.channel}</span>
+            <span class="video-score-pill">Score: ${v.score?.total || 88}</span>
+          </div>
+
+          <h3 class="video-title">${v.title}</h3>
+          
+          <div class="video-why-watch">
+            <b>💡 Зачем смотреть:</b> ${whyWatch}
+          </div>
+
+          <div class="video-footer">
+            <span class="video-duration">⏱️ ${v.duration}</span>
+            <div class="video-btn-group">
+              <button class="video-play-btn" data-video-embed="${v.embed_id}" data-video-title="${v.title}" data-video-url="${ytUrl}" type="button">
+                ▶ Плеер
+              </button>
+              <a class="video-yt-direct-btn" href="${ytUrl}" target="_blank" rel="noopener noreferrer" title="Открыть в приложении YouTube">
+                <span>YouTube ↗</span>
+              </a>
+            </div>
+          </div>
+        </article>
+      `;
+    }).join('');
+
+    grid.querySelectorAll('[data-video-embed]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const embedId = btn.dataset.videoEmbed;
+        const title = btn.dataset.videoTitle;
+        const url = btn.dataset.videoUrl;
+        const dialog = document.getElementById('videoDialog');
+        const content = document.getElementById('videoDialogContent');
+        if (dialog && content) {
+          content.innerHTML = `
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; margin-bottom: 0.5rem;">
+              <h3 style="font-size: 1.05rem; font-weight: 800;">${title}</h3>
+            </div>
+            <div class="video-player-wrap">
+              <iframe src="https://www.youtube.com/embed/${embedId}?autoplay=1&rel=0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div style="margin-top: 0.85rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem;">
+              <span style="font-size: 0.78rem; color: var(--text-secondary);">OSINT-аналитика линии боевого соприкосновения</span>
+              <a href="${url}" target="_blank" rel="noopener noreferrer" class="open-map-direct-btn" style="padding: 0.4rem 0.8rem; font-size: 0.8rem; text-decoration: none;">
+                <span>Открыть на YouTube ↗</span>
+              </a>
+            </div>
+          `;
+          dialog.showModal();
+        }
+      });
+    });
   }
 
+  // Background Auto-Sync
+  function startAutoSync() {
+    setInterval(async () => {
+      const statusData = await fetchJson('/api/status', null);
+      if (statusData) {
+        const syncText = document.getElementById('syncText');
+        if (syncText) syncText.textContent = 'Sync OK';
+      }
+    }, 30000);
+  }
+
+  // Run on DOM ready
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
   } else {

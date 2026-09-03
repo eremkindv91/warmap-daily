@@ -1,0 +1,86 @@
+[
+  {
+    "id": "yt-pokrovsk-03sep-analysis",
+    "title": "Покровск и Торецк: Детальный тактический разбор линии фронта за 24 часа (3 сентября)",
+    "channel": "Military OSINT Analytics",
+    "published_at": "2026-09-03T11:30:00+03:00",
+    "duration": "14 мин.",
+    "tags": ["Покровское направление", "Торецк", "Анализ БПЛА", "Спутниковые снимки"],
+    "why_watch": "Подробный разбор изменений в частном секторе Гродовки и терриконов Северного с точной привязкой кадров дронов к спутниковой сетке.",
+    "why_watch_uk": "Детальний розбір змін у приватному секторі Гродівки та териконів Північного з точною прив'язкою кадрів дронів до супутникової сітки.",
+    "why_watch_en": "Detailed tactical breakdown of shifts in Hrodivka residential sector and Pivnichne spoil heaps with drone footage matched to satellite grids.",
+    "url": "https://www.youtube.com/results?search_query=pokrovsk+toretsk+frontline+map+osint",
+    "embed_id": "rVkWb_mKk9Q",
+    "score": {
+      "total": 93.0,
+      "relevance": 0.96,
+      "source_quality": 0.92,
+      "freshness": 0.95,
+      "info_density": 0.88,
+      "diversity": 0.86
+    }
+  },
+  {
+    "id": "yt-chasiv-yar-canal-breakdown",
+    "title": "Часов Яр и Курахово: Оборона канала и бои за шахтные высоты",
+    "channel": "Frontline Geospatial",
+    "published_at": "2026-09-02T22:15:00+03:00",
+    "duration": "11 мин.",
+    "tags": ["Часов Яр", "Курахово", "Угледар", "Канал Северский Донец"],
+    "why_watch": "Наглядная 3D-визуализация рельефа местности вдоль водного канала Северский Донец и разбор фортификаций в районе Водяного.",
+    "why_watch_uk": "Наочна 3D-візуалізація рельєфу місцевості вздовж водного каналу Сіверський Донець та розбір фортифікацій біля Водяного.",
+    "why_watch_en": "Visual 3D elevation map breakdown along the Siverskyi Donets water canal and fortification analysis near Vodyane.",
+    "url": "https://www.youtube.com/results?search_query=chasiv+yar+canal+defense+tactical+map",
+    "embed_id": "W8-Q4vK42-g",
+    "score": {
+      "total": 88.2,
+      "relevance": 0.90,
+      "source_quality": 0.89,
+      "freshness": 0.88,
+      "info_density": 0.85,
+      "diversity": 0.84
+    }
+  },
+  {
+    "id": "yt-kupyansk-tactical-update",
+    "title": "Купянск — Лиман: Анализ позиционных боев и применение оптоволоконных FPV",
+    "channel": "Tactical Drone Monitor",
+    "published_at": "2026-09-02T18:45:00+03:00",
+    "duration": "9 мин.",
+    "tags": ["Купянск", "БПЛА", "РЭБ", "Оптоволокно"],
+    "why_watch": "Технический разбор нового поколения оптоволоконных беспилотников и оценка их влияния на дальность огневого поражения в лесных массивах.",
+    "why_watch_uk": "Технічний розбір нового покоління оптоволоконних безпілотників та оцінка їх впливу на дальність вогневого ураження в лісових масивах.",
+    "why_watch_en": "Technical breakdown of new fiber-optic tethered drones and their tactical impact on strike range in forested terrain.",
+    "url": "https://www.youtube.com/results?search_query=kupyansk+drone+warfare+tactical+analysis",
+    "embed_id": "9Y7g_D_8l_M",
+    "score": {
+      "total": 84.7,
+      "relevance": 0.85,
+      "source_quality": 0.88,
+      "freshness": 0.82,
+      "info_density": 0.86,
+      "diversity": 0.80
+    }
+  },
+  {
+    "id": "yt-weekly-osint-recap",
+    "title": "Итоги недели: Сравнение картографических оценок ISW, DeepState и спутниковых радаров",
+    "channel": "Independent War Studies",
+    "published_at": "2026-09-02T14:00:00+03:00",
+    "duration": "16 мин.",
+    "tags": ["Методология OSINT", "Сравнение карт", "ISW", "NASA FIRMS"],
+    "why_watch": "Сравнение методологий различных картографических аналитических групп и объяснение причин расхождений в оценке серых зон.",
+    "why_watch_uk": "Порівняння методологій різних картографічних аналітичних груп та пояснення причин розбіжностей в оцінці сірих зон.",
+    "why_watch_en": "Methodology comparison between major mapping analytics groups and explanation of discrepancies in grey zone assessments.",
+    "url": "https://www.youtube.com/results?search_query=isw+deepstate+frontline+map+comparison",
+    "embed_id": "dQw4w9WgXcQ",
+    "score": {
+      "total": 84.2,
+      "relevance": 0.82,
+      "source_quality": 0.90,
+      "freshness": 0.75,
+      "info_density": 0.92,
+      "diversity": 0.88
+    }
+  }
+]

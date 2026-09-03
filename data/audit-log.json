@@ -1,1 +1,29 @@
-[]
+[
+  {
+    "timestamp": "2026-09-03T13:00:00+03:00",
+    "action": "snapshot_reviewed",
+    "reviewer": "osint_geo_moderator_04",
+    "snapshot_sha256": "8b0e93f2c5f1c466b30921b0d95f73225e99",
+    "changes_verified": 2,
+    "confidence_avg": 0.95,
+    "note": "Покровск (Гродовка) и Торецк (Северное) верифицированы по объективному контролю БПЛА."
+  },
+  {
+    "timestamp": "2026-09-02T20:00:00+03:00",
+    "action": "snapshot_published",
+    "reviewer": "osint_geo_moderator_01",
+    "snapshot_sha256": "3c84091fe4a23b890a98f12cb84910248e3a201b",
+    "changes_verified": 2,
+    "confidence_avg": 0.94,
+    "note": "Уточнение позиций у терриконов шахты Северная."
+  },
+  {
+    "timestamp": "2026-09-01T20:00:00+03:00",
+    "action": "snapshot_published",
+    "reviewer": "osint_geo_moderator_02",
+    "snapshot_sha256": "f90119b4859a3c00481bcde883901bce471092aa",
+    "changes_verified": 1,
+    "confidence_avg": 0.95,
+    "note": "Фиксация позиций по рубежу канала Северский Донец — Донбасс."
+  }
+]

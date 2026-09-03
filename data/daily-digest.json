@@ -1,0 +1,176 @@
+{
+  "date": "2026-09-03",
+  "last_reviewed": "2026-09-03T13:00:00+03:00",
+  "last_reviewed_formatted": "3 сентября 2026, 13:00 МСК",
+  "geometry_date": "2026-09-03",
+  "quick_summary_ru": "За прошедшие 24 часа ключевые подтверждённые изменения зафиксированы на Покровском и Торецком направлениях (+4.85 км² суммарно). На Покровском участке штурмовые группы продвинулись в частном секторе Гродовки (+2.65 км²). В районе Торецка зафиксировано уточнение контроля возле терриконов шахты «Северная» (+1.40 км²). На Купянском, Часов-Ярском, Запорожском и Херсонском направлениях обстановка остаётся стабильно-позиционной без подтверждённых сдвигов полигонов.",
+  "quick_summary_uk": "За минулі 24 години ключові підтверджені зміни зафіксовано на Покровському та Торецькому напрямках (+4.85 км² сумарно). На Покровській ділянці штурмові групи просунулися у приватному секторі Гродівки (+2.65 км²). У районі Торецька зафіксовано уточнення контролю біля териконів шахти «Північна» (+1.40 км²). На Куп'янському, Часів-Ярському, Запорізькому та Херсонському напрямках ситуація залишається стабільно-позиційною без підтверджених зрушень полігонів.",
+  "quick_summary_en": "Over the past 24 hours, confirmed territorial adjustments were registered in the Pokrovsk and Toretsk sectors (+4.85 km² total). In Pokrovsk direction, assault elements advanced within the residential sector of Hrodivka (+2.65 km²). In Toretsk, control clarification occurred around Pivnichna mine spoil heaps (+1.40 km²). Kupyansk, Chasiv Yar, Zaporizhzhia and Kherson sectors maintain positional stability with no confirmed polygon shifts.",
+  "what_changed_24h": {
+    "control_changes_count": 2,
+    "area_change_km2": 4.85,
+    "confirmed_events_count": 7,
+    "pending_events_count": 3,
+    "unchanged_sectors_count": 4,
+    "summary_items": [
+      {
+        "id": "c1",
+        "tag": "control",
+        "icon": "🔴",
+        "importance": "critical",
+        "text_ru": "+2 подтверждённых изменения линии контроля: Покровское и Торецкое направления (+4.85 км²)",
+        "text_uk": "+2 підтверджені зміни лінії контролю: Покровський та Торецький напрямки (+4.85 км²)",
+        "text_en": "+2 confirmed control changes: Pokrovsk and Toretsk directions (+4.85 km²)"
+      },
+      {
+        "id": "c2",
+        "tag": "events",
+        "icon": "📍",
+        "importance": "critical",
+        "text_ru": "+7 проверенных геолокаций боестолкновений с видеопривязкой БПЛА",
+        "text_uk": "+7 перевірених геолокацій боєзіткнень з відеоприв'язкою БПЛА",
+        "text_en": "+7 verified combat geolocations with drone video confirmation"
+      },
+      {
+        "id": "c3",
+        "tag": "disputed",
+        "icon": "🟠",
+        "importance": "important",
+        "text_ru": "3 заявления сторон находятся на проверке OSINT и не изменяют карту контроля",
+        "text_uk": "3 заяви сторін проходять перевірку OSINT та не змінюють мапу контролю",
+        "text_en": "3 official side claims under OSINT review without affecting map polygons"
+      },
+      {
+        "id": "c4",
+        "tag": "stable",
+        "icon": "⚪",
+        "importance": "context",
+        "text_ru": "Купянск, Часов Яр, Запорожье, Херсон — позиционные бои без изменения линии",
+        "text_uk": "Куп’янськ, Часів Яр, Запоріжжя, Херсон — позиційні бої без зміни лінії",
+        "text_en": "Kupyansk, Chasiv Yar, Zaporizhzhia, Kherson — positional fighting without line shifts"
+      }
+    ]
+  },
+  "sections": {
+    "military_situation": [
+      {
+        "id": "ms-1",
+        "level": "critical",
+        "sector": "pokrovsk",
+        "title_ru": "Покровское направление — давление в районе Гродовки и Новогродовки",
+        "title_uk": "Покровський напрямок — тиск у районі Гродівки та Новогродівки",
+        "title_en": "Pokrovsk direction — assault pressure near Hrodivka and Novohrodivka",
+        "desc_ru": "Продолжаются интенсивные штурмовые действия малыми группами пехоты при поддержке артиллерии и FPV-дронов. Фиксируются очаги боев в восточной части Гродовки.",
+        "desc_uk": "Тривають інтенсивні штурмові дії малими піхотними групами за підтримки артилерії та FPV-дронів.",
+        "desc_en": "Intense small-unit infantry assaults continue supported by artillery and FPV drones."
+      },
+      {
+        "id": "ms-2",
+        "level": "critical",
+        "sector": "toretsk",
+        "title_ru": "Торецкий сектор — городские бои и бои за господствующие высоты",
+        "title_uk": "Торецький сектор — міські бої та бої за панівні висоти",
+        "title_en": "Toretsk sector — urban combat and clashes over dominating terrain",
+        "desc_ru": "Сложная оперативная обстановка в застройке Северного и на подступах к центру Торецка. Зоны контроля динамично меняются в пределах кварталов.",
+        "desc_uk": "Складна оперативна обстановка в забудові Північного та на підступах до центру Торецька.",
+        "desc_en": "Complex tactical situation in Pivnichne urban sector and approaches to Toretsk center."
+      },
+      {
+        "id": "ms-3",
+        "level": "important",
+        "sector": "chasiv_yar",
+        "title_ru": "Часов Яр — удержание рубежа по каналу Северский Донец — Донбасс",
+        "title_uk": "Часів Яр — утримання рубежу по каналу Сіверський Донець — Донбас",
+        "title_en": "Chasiv Yar — defensive line held along Siverskyi Donets canal",
+        "desc_ru": "Подразделения ВСУ удерживают позиции на западном берегу канала, пресекая попытки форсирования водной преграды.",
+        "desc_uk": "Підрозділи ЗСУ утримують позиції на західному березі каналу, припиняючи спроби форсування.",
+        "desc_en": "Ukrainian forces maintain defensive line on the western bank of the canal."
+      }
+    ],
+    "control_changes": [
+      {
+        "id": "cc-1",
+        "sector": "pokrovsk",
+        "area_km2": 2.65,
+        "name_ru": "Восточная окраина Гродовки",
+        "name_uk": "Східна околиця Гродівки",
+        "name_en": "Eastern outskirts of Hrodivka",
+        "evidence_type": "БПЛА геолокация + Sentinel-2"
+      },
+      {
+        "id": "cc-2",
+        "sector": "toretsk",
+        "area_km2": 1.40,
+        "name_ru": "Район терриконов ш. Северная (Пивничне)",
+        "name_uk": "Район териконів ш. Північна (Північне)",
+        "name_en": "Pivnichna mine spoil heap area",
+        "evidence_type": "Видео 47 ОМБр + OSINT"
+      }
+    ],
+    "strikes_and_attacks": [
+      {
+        "id": "sa-1",
+        "status": "CONFIRMED",
+        "title_ru": "Удары БПЛА по логистическим хабам и складам ГСМ в тылу",
+        "title_uk": "Удари БПЛА по логістичних хабах та складах ПММ у тилу",
+        "title_en": "UAV strikes on rear logistics hubs and POL storage",
+        "detail_ru": "Подтверждены попадания беспилотников дальнего действия по объектам топливной инфраструктуры с подтверждением спутниковых термоточек NASA FIRMS.",
+        "sources_count": 4
+      },
+      {
+        "id": "sa-2",
+        "status": "PROBABLE",
+        "title_ru": "Работа высокоточных РСЗО по районам сосредоточения резервов",
+        "title_uk": "Робота високоточних РСЗВ по районах зосередження резервів",
+        "title_en": "Precision MLRS strikes on reserve concentration zones",
+        "detail_ru": "Сообщения о ракетных ударах на оперативно-тактическую глубину до 60 км.",
+        "sources_count": 2
+      }
+    ],
+    "aviation_uav": [
+      {
+        "id": "au-1",
+        "status": "CONFIRMED",
+        "title_ru": "Массированное применение корректируемых авиабомб (КАБ/УМПК)",
+        "title_uk": "Масоване застосування корегованих авіабомб (КАБ/УМПК)",
+        "title_en": "Extensive use of guided glide bombs (KAB/UMPK)",
+        "detail_ru": "Свыше 80 сбросов КАБ за сутки на Торецком, Покровском и Купянском направлениях.",
+        "sources_count": 3
+      },
+      {
+        "id": "au-2",
+        "status": "CONFIRMED",
+        "title_ru": "Активизация ночных оптоволоконных FPV-дронов",
+        "title_uk": "Активізація нічних оптоволоконних FPV-дронів",
+        "title_en": "Deployment of night-vision and fiber-optic tethered FPV drones",
+        "detail_ru": "Фиксация нового типа беспилотников, невосприимчивых к средствам РЭБ, на дальностях до 10-15 км.",
+        "sources_count": 3
+      }
+    ],
+    "politics_diplomacy": [
+      {
+        "id": "pd-1",
+        "status": "CONFIRMED",
+        "title_ru": "Согласование новых пакетов военной помощи и артиллерийских боеприпасов",
+        "title_uk": "Погодження нових пакетів військової допомоги та артилерійських боєприпасів",
+        "title_en": "Approval of new military assistance packages and 155mm ammunition",
+        "detail_ru": "Объявлены графики поставок 155-мм снарядов и систем ПВО малой дальности.",
+        "sources_count": 3
+      }
+    ],
+    "vs_yesterday": [
+      {
+        "id": "vy-1",
+        "text_ru": "Темп продвижения на Покровском направлении стабилизировался на уровне 2.5–3 км² в сутки (вдвое ниже пиковых значений начала недели).",
+        "text_uk": "Темп просування на Покровському напрямку стабілізувався на рівні 2.5–3 км² на добу.",
+        "text_en": "Rate of advance on Pokrovsk axis stabilized at 2.5–3 km² daily."
+      },
+      {
+        "id": "vy-2",
+        "text_ru": "Количество официально заявленных, но не верифицированных населенных пунктов снизилось с 5 до 3.",
+        "text_uk": "Кількість офіційно заявлених, але не верифікованих населених пунктів знизилася з 5 до 3.",
+        "text_en": "Count of officially claimed unverified settlements decreased from 5 to 3."
+      }
+    ]
+  }
+}

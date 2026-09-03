@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "WarMap Daily Digest Schema",
+  "type": "object",
+  "required": ["date", "last_reviewed", "what_changed_24h", "sections"],
+  "properties": {
+    "date": { "type": "string", "format": "date" },
+    "last_reviewed": { "type": "string" },
+    "quick_summary_ru": { "type": "string" },
+    "quick_summary_uk": { "type": "string" },
+    "quick_summary_en": { "type": "string" },
+    "what_changed_24h": {
+      "type": "object",
+      "required": ["control_changes_count", "area_change_km2", "confirmed_events_count", "pending_events_count"],
+      "properties": {
+        "control_changes_count": { "type": "integer" },
+        "area_change_km2": { "type": "number" },
+        "confirmed_events_count": { "type": "integer" },
+        "pending_events_count": { "type": "integer" },
+        "unchanged_sectors_count": { "type": "integer" },
+        "summary_items": { "type": "array" }
+      }
+    },
+    "sections": {
+      "type": "object",
+      "properties": {
+        "military_situation": { "type": "array" },
+        "control_changes": { "type": "array" },
+        "strikes_and_attacks": { "type": "array" },
+        "aviation_uav": { "type": "array" },
+        "politics_diplomacy": { "type": "array" },
+        "vs_yesterday": { "type": "array" }
+      }
+    }
+  }
+}

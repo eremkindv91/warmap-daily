@@ -1,8 +1,8 @@
 {
   "type": "FeatureCollection",
   "metadata": {
-    "from": "2026-08-26",
-    "to": "2026-08-27",
+    "from": "2026-09-02",
+    "to": "2026-09-03",
     "area_change_km2": 4.85
   },
   "features": [
@@ -17,7 +17,7 @@
         "summary": "Штурмовые группы продвинулись вдоль лесополос и частного сектора на востоке поселка.",
         "summary_uk": "Штурмові групи просунулися вздовж лісосмуг та приватного сектору на сході селища.",
         "summary_en": "Assault elements advanced along treelines and residential sector east of settlement.",
-        "date": "2026-08-27",
+        "date": "2026-09-03",
         "area_km2": 2.65,
         "confidence": 0.95,
         "from_status": "contested",
@@ -51,7 +51,7 @@
         "summary": "Фиксация расширения зоны контроля в районе терриконов шахты 'Северная'.",
         "summary_uk": "Фіксація розширення зони контролю в районі териконів шахти 'Північна'.",
         "summary_en": "Zone of control expanded around the Pivnichna mine spoil heaps.",
-        "date": "2026-08-26",
+        "date": "2026-09-02",
         "area_km2": 1.40,
         "confidence": 0.92,
         "from_status": "contested",
@@ -85,7 +85,7 @@
         "summary": "Продвижение вдоль балки и перекрестка дорог к северо-востоку от Угледара.",
         "summary_uk": "Просування вздовж балки та перехрестя доріг на північний схід від Вугледара.",
         "summary_en": "Advance along the gully and road junction northeast of Vuhledar.",
-        "date": "2026-08-25",
+        "date": "2026-09-01",
         "area_km2": 0.80,
         "confidence": 0.91,
         "from_status": "contested",

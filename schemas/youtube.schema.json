@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "WarMap Daily YouTube Digest Schema",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": [
+      "id",
+      "title",
+      "channel",
+      "published_at",
+      "duration",
+      "tags",
+      "why_watch",
+      "url",
+      "score"
+    ],
+    "properties": {
+      "id": { "type": "string" },
+      "title": { "type": "string" },
+      "channel": { "type": "string" },
+      "published_at": { "type": "string" },
+      "duration": { "type": "string" },
+      "tags": { "type": "array", "items": { "type": "string" } },
+      "why_watch": { "type": "string" },
+      "why_watch_uk": { "type": "string" },
+      "why_watch_en": { "type": "string" },
+      "url": { "type": "string" },
+      "embed_id": { "type": "string" },
+      "score": {
+        "type": "object",
+        "required": ["total", "relevance", "source_quality", "freshness", "info_density", "diversity"],
+        "properties": {
+          "total": { "type": "number" },
+          "relevance": { "type": "number" },
+          "source_quality": { "type": "number" },
+          "freshness": { "type": "number" },
+          "info_density": { "type": "number" },
+          "diversity": { "type": "number" }
+        }
+      }
+    }
+  }
+}

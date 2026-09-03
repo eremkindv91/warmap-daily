@@ -12,6 +12,20 @@ const HOST = '0.0.0.0';
 
 app.use(express.json());
 
+// Enable CORS and disable cache on API to ensure instant updates
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  if (req.path.startsWith('/api/') || req.path.startsWith('/data/')) {
+    res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+  }
+  if (req.method === 'OPTIONS') {
+    return res.sendStatus(200);
+  }
+  next();
+});
+
 // Background auto-update sync state
 const autoSyncState = {
   lastSync: new Date().toISOString(),
@@ -186,6 +200,87 @@ app.get('/api/sectors', (req, res) => {
     return { ...sector, event_count: count };
   });
   res.json(enrichedSectors);
+});
+
+app.get('/api/digest', (req, res) => {
+  const digest = readJson('data/daily-digest.json', {});
+  res.json(digest);
+});
+
+app.get('/api/news', (req, res) => {
+  const news = readJson('data/news.json', []);
+  res.json(news);
+});
+
+// Endpoint to append or update news items programmatically
+app.post('/api/news', (req, res) => {
+  const newsItem = req.body;
+  if (!newsItem || (!newsItem.title && !newsItem.title_ru)) {
+    return res.status(400).json({ error: 'Title is required' });
+  }
+
+  const news = readJson('data/news.json', []);
+  const now = new Date();
+  const newItem = {
+    id: newsItem.id || `news-${Date.now()}`,
+    title: newsItem.title || newsItem.title_ru,
+    title_ru: newsItem.title_ru || newsItem.title,
+    title_uk: newsItem.title_uk || newsItem.title_ru || newsItem.title,
+    title_en: newsItem.title_en || newsItem.title_ru || newsItem.title,
+    sector_id: newsItem.sector_id || 'general',
+    settlement_name: newsItem.settlement_name || 'Фронт',
+    timestamp: newsItem.timestamp || now.toISOString(),
+    time_formatted: newsItem.time_formatted || `${String(now.getDate()).padStart(2, '0')}.${String(now.getMonth() + 1).padStart(2, '0')} ${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`,
+    importance: newsItem.importance || 'important',
+    verification_status: newsItem.verification_status || 'CONFIRMED',
+    confidence: newsItem.confidence || 0.95,
+    what_happened: newsItem.what_happened || '',
+    what_happened_uk: newsItem.what_happened_uk || newsItem.what_happened || '',
+    what_happened_en: newsItem.what_happened_en || newsItem.what_happened || '',
+    source_org: newsItem.source_org || 'OSINT Monitor',
+    source_url: newsItem.source_url || 'https://t.me/DeepStateUA',
+    evidence_type: newsItem.evidence_type || 'drone_footage'
+  };
+
+  news.unshift(newItem);
+  if (news.length > 50) news.pop();
+  writeJson('data/news.json', news);
+
+  res.json({ success: true, item: newItem, total: news.length });
+});
+
+app.post('/api/digest', (req, res) => {
+  const { date, last_reviewed_formatted, quick_summary_ru, quick_summary_uk, quick_summary_en, key_events } = req.body || {};
+  const digest = readJson('data/daily-digest.json', {});
+  if (date) digest.date = date;
+  if (last_reviewed_formatted) digest.last_reviewed_formatted = last_reviewed_formatted;
+  if (quick_summary_ru) digest.quick_summary_ru = quick_summary_ru;
+  if (quick_summary_uk) digest.quick_summary_uk = quick_summary_uk;
+  if (quick_summary_en) digest.quick_summary_en = quick_summary_en;
+  if (key_events) digest.key_events = key_events;
+  digest.last_reviewed = new Date().toISOString();
+
+  writeJson('data/daily-digest.json', digest);
+
+  // Keep status.json in sync
+  const status = readJson('data/status.json', {});
+  if (date) {
+    status.snapshot_date = date;
+    status.geometry_date = date;
+    status.point_feed_date = date;
+  }
+  if (last_reviewed_formatted) {
+    status.last_reviewed_formatted = last_reviewed_formatted;
+  }
+  status.server_sync_timestamp = new Date().toISOString();
+  writeJson('data/status.json', status);
+
+  res.json({ success: true, digest });
+});
+
+app.get('/api/youtube', (req, res) => {
+  const youtube = readJson('data/youtube.json', []);
+  res.json(youtube);
 });
 
 // Force sync / update feeds endpoint
