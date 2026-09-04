@@ -1,8 +1,8 @@
 {
   "type": "FeatureCollection",
   "metadata": {
-    "from": "2026-09-02",
-    "to": "2026-09-03",
+    "from": "2026-09-03",
+    "to": "2026-09-04",
     "area_change_km2": 4.85
   },
   "features": [
@@ -17,25 +17,49 @@
         "summary": "Штурмовые группы продвинулись вдоль лесополос и частного сектора на востоке поселка.",
         "summary_uk": "Штурмові групи просунулися вздовж лісосмуг та приватного сектору на сході селища.",
         "summary_en": "Assault elements advanced along treelines and residential sector east of settlement.",
-        "date": "2026-09-03",
+        "date": "2026-09-04",
         "area_km2": 2.65,
         "confidence": 0.95,
         "from_status": "contested",
         "to_status": "control_ru",
-        "source_ids": ["deepstate-map", "isw"],
-        "evidence_ids": ["ev-drone-pokrovsk-01", "ev-sat-pokrovsk-01"],
+        "source_ids": [
+          "deepstate-map",
+          "isw"
+        ],
+        "evidence_ids": [
+          "ev-drone-pokrovsk-01",
+          "ev-sat-pokrovsk-01"
+        ],
         "sector_id": "pokrovsk"
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
-            [37.3750, 48.2580],
-            [37.3910, 48.2590],
-            [37.3960, 48.2670],
-            [37.3820, 48.2690],
-            [37.3730, 48.2630],
-            [37.3750, 48.2580]
+            [
+              37.375,
+              48.258
+            ],
+            [
+              37.391,
+              48.259
+            ],
+            [
+              37.396,
+              48.267
+            ],
+            [
+              37.382,
+              48.269
+            ],
+            [
+              37.373,
+              48.263
+            ],
+            [
+              37.375,
+              48.258
+            ]
           ]
         ]
       }
@@ -52,24 +76,46 @@
         "summary_uk": "Фіксація розширення зони контролю в районі териконів шахти 'Північна'.",
         "summary_en": "Zone of control expanded around the Pivnichna mine spoil heaps.",
         "date": "2026-09-02",
-        "area_km2": 1.40,
+        "area_km2": 1.4,
         "confidence": 0.92,
         "from_status": "contested",
         "to_status": "control_ru",
-        "source_ids": ["deepstate-map"],
-        "evidence_ids": ["ev-drone-toretsk-01"],
+        "source_ids": [
+          "deepstate-map"
+        ],
+        "evidence_ids": [
+          "ev-drone-toretsk-01"
+        ],
         "sector_id": "toretsk"
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
-            [37.8980, 48.3840],
-            [37.9150, 48.3860],
-            [37.9190, 48.3960],
-            [37.9040, 48.3970],
-            [37.8950, 48.3900],
-            [37.8980, 48.3840]
+            [
+              37.898,
+              48.384
+            ],
+            [
+              37.915,
+              48.386
+            ],
+            [
+              37.919,
+              48.396
+            ],
+            [
+              37.904,
+              48.397
+            ],
+            [
+              37.895,
+              48.39
+            ],
+            [
+              37.898,
+              48.384
+            ]
           ]
         ]
       }
@@ -86,24 +132,47 @@
         "summary_uk": "Просування вздовж балки та перехрестя доріг на північний схід від Вугледара.",
         "summary_en": "Advance along the gully and road junction northeast of Vuhledar.",
         "date": "2026-09-01",
-        "area_km2": 0.80,
+        "area_km2": 0.8,
         "confidence": 0.91,
         "from_status": "contested",
         "to_status": "control_ru",
-        "source_ids": ["deepstate-map", "isw"],
-        "evidence_ids": ["ev-sat-vuhledar-01"],
+        "source_ids": [
+          "deepstate-map",
+          "isw"
+        ],
+        "evidence_ids": [
+          "ev-sat-vuhledar-01"
+        ],
         "sector_id": "kurakhove_vuhledar"
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
-            [37.2950, 47.8050],
-            [37.3180, 47.8080],
-            [37.3220, 47.8180],
-            [37.3020, 47.8170],
-            [37.2920, 47.8110],
-            [37.2950, 47.8050]
+            [
+              37.295,
+              47.805
+            ],
+            [
+              37.318,
+              47.808
+            ],
+            [
+              37.322,
+              47.818
+            ],
+            [
+              37.302,
+              47.817
+            ],
+            [
+              37.292,
+              47.811
+            ],
+            [
+              37.295,
+              47.805
+            ]
           ]
         ]
       }

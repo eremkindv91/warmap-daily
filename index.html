@@ -51,7 +51,7 @@
           <span class="brand-title">WarMap <span class="brand-accent">Daily</span></span>
         </a>
         <div class="date-badge-wrap">
-          <span class="date-badge" id="topDataDate">03.09.2026</span>
+          <span class="date-badge" id="topDataDate">04.09.2026</span>
           <span class="delay-tag" title="Данные верифицируются с обязательной 24-часовой задержкой OSINT">24h OSINT</span>
         </div>
       </div>
@@ -98,9 +98,9 @@
         <span class="nav-tab-icon">📰</span>
         <span class="nav-tab-label" data-i18n="nav_digest">Дайджест</span>
       </button>
-      <button class="nav-tab" data-tab="video" type="button">
-        <span class="nav-tab-icon">📺</span>
-        <span class="nav-tab-label" data-i18n="nav_video">Видеообзоры</span>
+      <button class="nav-tab" data-tab="monitoring" type="button">
+        <span class="nav-tab-icon">🛰️</span>
+        <span class="nav-tab-label" data-i18n="nav_monitoring">OSINT-мониторинг</span>
       </button>
     </div>
   </nav>
@@ -148,7 +148,7 @@
       <div class="quick-synthesis-box">
         <div class="synthesis-header">
           <span class="synthesis-badge">⚡ ВЫЖИМКА ЗА 60 СЕКУНД</span>
-          <span class="synthesis-date" id="synthesisDate">3 сентября 2026</span>
+          <span class="synthesis-date" id="synthesisDate">4 сентября 2026</span>
         </div>
         <p id="synthesisParagraph" class="synthesis-text">Загрузка краткой сводки...</p>
         <div class="synthesis-action-row">
@@ -170,6 +170,20 @@
 
       <div class="events-summary-grid" id="eventsSummaryGrid">
         <!-- Rendered dynamically by app.js -->
+      </div>
+
+      <!-- Curated Daily YouTube OSINT Review -->
+      <div class="summary-youtube-section" id="summaryYoutubeSection">
+        <div class="section-title-bar" style="margin-top: 1.6rem;">
+          <div>
+            <h2 data-i18n="top_video_review_title">Рекомендуемый видеообзор за сутки</h2>
+            <p class="section-subtitle" data-i18n="top_video_review_subtitle">Рейтинговый разбор ключевых участков фронта по формуле качества OSINT.</p>
+          </div>
+          <button class="cat-pill" id="viewAllYoutubeBtn" type="button">📺 Все видеообзоры в Дайджесте ➔</button>
+        </div>
+        <div id="summaryYoutubeCardContainer">
+          <!-- Rendered dynamically by app.js -->
+        </div>
       </div>
     </section>
 
@@ -252,25 +266,29 @@
 
           <!-- Floating Layer Legend Pills (Tap to Toggle Layers) -->
           <div class="map-layers-floating-bar" id="mapLayersBar">
-            <button type="button" data-layer="reference_ru" class="layer-chip active">
+            <button type="button" data-layer="reference_ru" class="layer-chip active" title="Территория под контролем РФ">
               <span class="swatch ru"></span>
               <span>РФ</span>
             </button>
-            <button type="button" data-layer="control_ua" class="layer-chip active">
+            <button type="button" data-layer="control_ua" class="layer-chip active" title="Рубежи обороны и позиции ВСУ">
               <span class="swatch ua"></span>
               <span>Украина</span>
             </button>
-            <button type="button" data-layer="contested" class="layer-chip active">
+            <button type="button" data-layer="contested" class="layer-chip active" title="Серая зона активных боёв">
               <span class="swatch contested"></span>
               <span>Серая зона</span>
             </button>
-            <button type="button" data-layer="change" class="layer-chip active">
+            <button type="button" data-layer="change" class="layer-chip active" title="Подтверждённые сдвиги за 24ч">
               <span class="swatch change"></span>
               <span>+24ч Сдвиг</span>
             </button>
-            <button type="button" data-layer="events" class="layer-chip active">
+            <button type="button" data-layer="events" class="layer-chip active" title="Геолокации боевых событий">
               <span class="swatch events"></span>
               <span>Геолокации</span>
+            </button>
+            <button type="button" data-layer="settlements" class="layer-chip active" title="Населённые пункты и статусы">
+              <span class="swatch settlements"></span>
+              <span>Н.П.</span>
             </button>
           </div>
 
@@ -307,6 +325,7 @@
           <button class="cat-pill" data-cat="control" type="button">🗺️ Сдвиги контроля</button>
           <button class="cat-pill" data-cat="strikes" type="button">🚀 Удары и атаки</button>
           <button class="cat-pill" data-cat="uav" type="button">✈️ Авиация / БПЛА</button>
+          <button class="cat-pill" data-cat="youtube" type="button">📺 Видеообзоры YouTube</button>
         </div>
       </div>
 
@@ -316,17 +335,24 @@
     </section>
 
     <!-- =========================================================================
-         VIEW 4: РЕКОМЕНДОВАННЫЕ ВИДЕООБЗОРЫ (Curated 24h Videos)
+         VIEW 4: OSINT-МОНИТОРИНГ И ВЕРИФИКАЦИЯ (Real OSINT Sources & Evidence)
          ========================================================================= -->
-    <section id="video-view" class="view-panel">
+    <section id="monitoring-view" class="view-panel">
       <div class="section-title-bar">
         <div>
-          <h2 data-i18n="video_digest_title">Рекомендованные видеообзоры за 24 часа</h2>
-          <p class="section-subtitle" data-i18n="video_desc">Тщательно отобранные аналитические видео без кликбейта с привязкой к спутниковой сетке и кадрам дронов.</p>
+          <h2 data-i18n="monitoring_title">OSINT-мониторинг и верификация</h2>
+          <p class="section-subtitle" data-i18n="monitoring_desc">Первичные источники объективного контроля, объективная фиксация БПЛА, спутниковые радары (NASA FIRMS / Sentinel-2) и фактчекинг официальных заявлений.</p>
         </div>
       </div>
 
-      <div class="youtube-grid" id="youtubeGrid">
+      <div class="monitoring-filter-bar" id="monitoringFilterBar">
+        <button class="cat-pill active" data-mon-tab="sources" type="button">📡 Первичные источники и статус</button>
+        <button class="cat-pill" data-mon-tab="evidence" type="button">🛸 Объективный контроль БПЛА и спутников</button>
+        <button class="cat-pill" data-mon-tab="claims" type="button">⚖️ Фактчекинг официальных заявлений</button>
+        <button class="cat-pill" data-mon-tab="youtube" type="button">📺 Видеообзоры YouTube (Рейтинг)</button>
+      </div>
+
+      <div class="monitoring-grid" id="monitoringGrid">
         <!-- Rendered dynamically by app.js -->
       </div>
     </section>
@@ -351,12 +377,6 @@
   <dialog id="recordDialog" class="record-dialog" aria-modal="true">
     <button id="closeRecord" class="dialog-close" type="button" aria-label="Закрыть">✕</button>
     <div id="recordContent"></div>
-  </dialog>
-
-  <!-- Video Player Modal Dialog -->
-  <dialog id="videoDialog" class="video-dialog" aria-modal="true">
-    <button id="closeVideoDialog" class="dialog-close" type="button" aria-label="Закрыть видео">✕</button>
-    <div id="videoDialogContent"></div>
   </dialog>
 
   <!-- Methodology & Transparency Modal Dialog -->

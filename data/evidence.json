@@ -1,5 +1,23 @@
 [
   {
+    "id": "ev-drone-pokrovsk-04sep-01",
+    "source_id": "deepstate-map",
+    "published_at": "2026-09-04T05:30:00+00:00",
+    "url": "https://t.me/DeepStateUA",
+    "evidence_type": "drone_footage",
+    "independence_group": "deepstate",
+    "verification_note": "Утренние кадры аэроразведки с БПЛА фиксируют закрепление позиций по ул. Заводская в восточной Гродовке (48.2611, 37.3822)."
+  },
+  {
+    "id": "ev-sat-firms-04sep-01",
+    "source_id": "copernicus-sentinel",
+    "published_at": "2026-09-04T04:45:00+00:00",
+    "url": "https://browser.dataspace.copernicus.eu",
+    "evidence_type": "satellite",
+    "independence_group": "sentinel",
+    "verification_note": "Свежие тепловые сигнатуры NASA FIRMS и оптический проход Copernicus Sentinel-2 фиксируют артиллерийские дуэли по рубежу балки Журавка на утро 4 сентября."
+  },
+  {
     "id": "ev-drone-pokrovsk-01",
     "source_id": "deepstate-map",
     "published_at": "2026-09-03T08:30:00+00:00",

@@ -1,0 +1,304 @@
+{
+  "type": "FeatureCollection",
+  "metadata": {
+    "title": "Зоны боестолкновений и серая зона (Contested Area)",
+    "date": "2026-09-04",
+    "source": "OSINT Cross-Verification (DeepState / ISW / NASA FIRMS)"
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "contested-pokrovsk",
+        "sector_id": "pokrovsk",
+        "name": "Серая зона: Покровское направление",
+        "name_uk": "Сіра зона: Покровський напрямок",
+        "name_en": "Grey zone: Pokrovsk sector",
+        "status": "contested",
+        "intensity": "high",
+        "summary": "Полоса активных боёв в частном секторе Гродовки, на подступах к Селидово и Михайловке.",
+        "summary_uk": "Смуга активних боїв у приватному секторі Гродівки, на підступах до Селидового та Михайлівки.",
+        "summary_en": "Active combat belt in Hrodivka residential sector and outskirts of Selydove.",
+        "date": "2026-09-04"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.28,
+              48.14
+            ],
+            [
+              37.33,
+              48.17
+            ],
+            [
+              37.36,
+              48.23
+            ],
+            [
+              37.41,
+              48.27
+            ],
+            [
+              37.39,
+              48.29
+            ],
+            [
+              37.34,
+              48.26
+            ],
+            [
+              37.29,
+              48.2
+            ],
+            [
+              37.28,
+              48.14
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "contested-toretsk",
+        "sector_id": "toretsk",
+        "name": "Серая зона: Торецкая агломерация",
+        "name_uk": "Сіра зона: Торецька агломерація",
+        "name_en": "Grey zone: Toretsk urban area",
+        "status": "contested",
+        "intensity": "high",
+        "summary": "Оспариваемая зона боёв в высотной застройке Торецка, районе терриконов и шахты Северная.",
+        "summary_uk": "Оспорювана зона боїв у висотній забудові Торецька, районі териконів та шахти Північна.",
+        "summary_en": "Contested urban battles in Toretsk high-rises, spoil heaps, and Pivnichna mine.",
+        "date": "2026-09-04"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.83,
+              48.33
+            ],
+            [
+              37.88,
+              48.36
+            ],
+            [
+              37.91,
+              48.4
+            ],
+            [
+              37.87,
+              48.42
+            ],
+            [
+              37.84,
+              48.39
+            ],
+            [
+              37.81,
+              48.35
+            ],
+            [
+              37.83,
+              48.33
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "contested-chasiv-yar",
+        "sector_id": "chasiv_yar",
+        "name": "Серая зона: Канал Северский Донец (Часов Яр)",
+        "name_uk": "Сіра зона: Канал Сіверський Донець (Часів Яр)",
+        "name_en": "Grey zone: Siverskyi Donets Canal (Chasiv Yar)",
+        "status": "contested",
+        "intensity": "high",
+        "summary": "Боевые действия вдоль русла канала Северский Донец — Донбасс и мкрн Жовтневый.",
+        "summary_uk": "Бойові дії вздовж русла каналу Сіверський Донець — Донбас та мкрн Жовтневий.",
+        "summary_en": "Combat along the Siverskyi Donets - Donbas canal channel and Zhovtnevyi district.",
+        "date": "2026-09-04"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.84,
+              48.56
+            ],
+            [
+              37.88,
+              48.58
+            ],
+            [
+              37.89,
+              48.61
+            ],
+            [
+              37.85,
+              48.62
+            ],
+            [
+              37.82,
+              48.59
+            ],
+            [
+              37.84,
+              48.56
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "contested-kupyansk",
+        "sector_id": "kupyansk_lyman",
+        "name": "Серая зона: Синьковка — Ольшана (Купянск)",
+        "name_uk": "Сіра зона: Синьківка — Вільшана (Купянськ)",
+        "name_en": "Grey zone: Synkivka - Vilshana (Kupyansk)",
+        "status": "contested",
+        "intensity": "medium",
+        "summary": "Позиционные столкновения в лесополосах к северу от Синьковки вдоль ж/д ветки.",
+        "summary_uk": "Позиційні зіткнення в лісосмугах на північ від Синьківки вздовж залізниці.",
+        "summary_en": "Positional clashes in treelines north of Synkivka along the railway.",
+        "date": "2026-09-04"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.68,
+              49.75
+            ],
+            [
+              37.74,
+              49.77
+            ],
+            [
+              37.76,
+              49.8
+            ],
+            [
+              37.7,
+              49.81
+            ],
+            [
+              37.66,
+              49.78
+            ],
+            [
+              37.68,
+              49.75
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "contested-kurakhove-vuhledar",
+        "sector_id": "kurakhove_vuhledar",
+        "name": "Серая зона: Водяное — шахта Южнодонбасская №1",
+        "name_uk": "Сіра зона: Водяне — шахта Південнодонбаська №1",
+        "name_en": "Grey zone: Vodyane - Pivdennodonbaska No. 1 mine",
+        "status": "contested",
+        "intensity": "high",
+        "summary": "Давление штурмовых групп с флангов Угледарского оборонительного района.",
+        "summary_uk": "Тиск штурмових груп із флангів Вугледарського оборонного району.",
+        "summary_en": "Pressure of assault groups on the flanks of Vuhledar defensive area.",
+        "date": "2026-09-04"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.26,
+              47.78
+            ],
+            [
+              37.33,
+              47.81
+            ],
+            [
+              37.35,
+              47.85
+            ],
+            [
+              37.29,
+              47.85
+            ],
+            [
+              37.24,
+              47.81
+            ],
+            [
+              37.26,
+              47.78
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "contested-zaporizhzhia",
+        "sector_id": "zaporizhzhia",
+        "name": "Серая зона: Ореховский выступ (Работино)",
+        "name_uk": "Сіра зона: Оріхівський виступ (Роботине)",
+        "name_en": "Grey zone: Orikhiv salient (Robotyne)",
+        "status": "contested",
+        "intensity": "medium",
+        "summary": "Позиционные бои в разрушенной застройке на Ореховском выступе.",
+        "summary_uk": "Позиційні бої у зруйнованій забудові на Оріхівському виступі.",
+        "summary_en": "Positional combat in ruined structures on the Orikhiv salient.",
+        "date": "2026-09-04"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              35.8,
+              47.42
+            ],
+            [
+              35.88,
+              47.43
+            ],
+            [
+              35.91,
+              47.47
+            ],
+            [
+              35.84,
+              47.48
+            ],
+            [
+              35.79,
+              47.45
+            ],
+            [
+              35.8,
+              47.42
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

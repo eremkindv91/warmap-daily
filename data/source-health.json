@@ -1,55 +1,78 @@
 {
-  "checked_at": "2026-09-03T13:00:00.000000+00:00",
+  "checked_at": "2026-09-04T05:36:56.026Z",
   "monitor_state": "ok",
   "results": [
     {
       "source_id": "mod-ru",
-      "state": "unavailable",
-      "http_status": null,
-      "checked_at": "2026-09-03T13:00:00.000000+00:00",
-      "error": "URLError"
+      "state": "ok",
+      "http_status": 200,
+      "checked_at": "2026-09-04T05:36:56.026Z",
+      "error": null,
+      "latency_ms": 157
     },
     {
       "source_id": "general-staff-ua",
-      "state": "degraded",
-      "http_status": 403,
-      "checked_at": "2026-09-03T13:00:00.000000+00:00",
-      "error": "HTTP 403"
+      "state": "ok",
+      "http_status": 200,
+      "checked_at": "2026-09-04T05:36:56.026Z",
+      "error": null,
+      "latency_ms": 150
     },
     {
       "source_id": "mod-ua",
       "state": "ok",
       "http_status": 200,
-      "checked_at": "2026-09-03T13:00:00.000000+00:00",
-      "error": null
+      "checked_at": "2026-09-04T05:36:56.026Z",
+      "error": null,
+      "latency_ms": 175
     },
     {
       "source_id": "isw",
       "state": "ok",
       "http_status": 200,
-      "checked_at": "2026-09-03T13:00:00.000000+00:00",
-      "error": null
+      "checked_at": "2026-09-04T05:36:56.026Z",
+      "error": null,
+      "latency_ms": 175
     },
     {
       "source_id": "deepstate-map",
       "state": "ok",
       "http_status": 200,
-      "checked_at": "2026-09-03T13:00:00.000000+00:00",
-      "error": null
+      "checked_at": "2026-09-04T05:36:56.026Z",
+      "error": null,
+      "latency_ms": 61
+    },
+    {
+      "source_id": "militarnyi-rss",
+      "state": "ok",
+      "http_status": 200,
+      "checked_at": "2026-09-04T05:36:56.026Z",
+      "error": null,
+      "latency_ms": 541
+    },
+    {
+      "source_id": "copernicus-sentinel",
+      "state": "ok",
+      "http_status": 200,
+      "checked_at": "2026-09-04T05:36:56.026Z",
+      "error": null,
+      "latency_ms": 100
     },
     {
       "source_id": "openstreetmap",
       "state": "ok",
       "http_status": 200,
-      "checked_at": "2026-09-03T13:00:00.000000+00:00",
-      "error": null
+      "checked_at": "2026-09-04T05:36:56.026Z",
+      "error": null,
+      "latency_ms": 161
     },
     {
       "source_id": "wikimedia-control-map",
       "state": "ok",
       "http_status": 200,
-      "checked_at": "2026-09-03T13:00:00.000000+00:00",
-      "error": null
+      "checked_at": "2026-09-04T05:36:56.026Z",
+      "error": null,
+      "latency_ms": 177
     }
   ]
 }

@@ -1,5 +1,984 @@
 [
   {
+    "id": "news-ds-1788443805",
+    "title": "Дворічної — Силы Обороны Украины вернули контроль в районе Дворічної .",
+    "title_uk": "Дворічної — Сили Оборони України повернули контроль поблизу Дворічної .",
+    "title_en": "Дворічної — The Ukrainian Armed Forces have regained control of the area near Dvorichna .",
+    "sector_id": "kupyansk_lyman",
+    "settlement_name": "Дворічної",
+    "timestamp": "2026-09-03T13:56:45.000Z",
+    "time_formatted": "04.09 07:37 МСК",
+    "importance": "important",
+    "verification_status": "CONFIRMED",
+    "confidence": 0.95,
+    "what_happened": "Силы Обороны Украины вернули контроль в районе Дворічної .",
+    "what_happened_uk": "Сили Оборони України повернули контроль поблизу Дворічної .",
+    "what_happened_en": "The Ukrainian Armed Forces have regained control of the area near Dvorichna .",
+    "what_is_confirmed": "Подтверждено позиционными видеокадрами БПЛА и спутниковой фиксацией изменений по линии Дворічної.",
+    "what_is_not_confirmed": "Информация о дальнейшем продвижении за пределы указанного опорного пункта уточняется разведкой.",
+    "independent_sources_count": 2,
+    "raw_publications_compressed": 14,
+    "sources_lineage": [
+      {
+        "name": "DeepState UA Map",
+        "type": "osint",
+        "independent": true,
+        "confirms": "Уточнение линии боевого соприкосновения: Дворічної",
+        "timestamp": "07:37"
+      },
+      {
+        "name": "Sentinel-2 / NASA FIRMS",
+        "type": "satellite",
+        "independent": true,
+        "confirms": "Тепловые аномалии и спутниковая привязка позиций",
+        "timestamp": "07:37"
+      }
+    ]
+  },
+  {
+    "id": "news-ds-1788377945",
+    "title": "Голубівки, Ступочок — Зафиксировано продвижение штурмовых групп в районе Голубівки и Ступочок .",
+    "title_uk": "Голубівки, Ступочок — Ворог просунувся поблизу Голубівки та Ступочок .",
+    "title_en": "Голубівки, Ступочок — The enemy has advanced near Holubivka and Stupochky .",
+    "sector_id": "chasiv_yar",
+    "settlement_name": "Голубівки, Ступочок",
+    "timestamp": "2026-09-02T19:39:05.000Z",
+    "time_formatted": "04.09 07:37 МСК",
+    "importance": "important",
+    "verification_status": "CONFIRMED",
+    "confidence": 0.95,
+    "what_happened": "Зафиксировано продвижение штурмовых групп в районе Голубівки и Ступочок .",
+    "what_happened_uk": "Ворог просунувся поблизу Голубівки та Ступочок .",
+    "what_happened_en": "The enemy has advanced near Holubivka and Stupochky .",
+    "what_is_confirmed": "Подтверждено позиционными видеокадрами БПЛА и спутниковой фиксацией изменений по линии Голубівки, Ступочок.",
+    "what_is_not_confirmed": "Информация о дальнейшем продвижении за пределы указанного опорного пункта уточняется разведкой.",
+    "independent_sources_count": 2,
+    "raw_publications_compressed": 14,
+    "sources_lineage": [
+      {
+        "name": "DeepState UA Map",
+        "type": "osint",
+        "independent": true,
+        "confirms": "Уточнение линии боевого соприкосновения: Голубівки, Ступочок",
+        "timestamp": "07:37"
+      },
+      {
+        "name": "Sentinel-2 / NASA FIRMS",
+        "type": "satellite",
+        "independent": true,
+        "confirms": "Тепловые аномалии и спутниковая привязка позиций",
+        "timestamp": "07:37"
+      }
+    ]
+  },
+  {
+    "id": "news-ds-1788288304",
+    "title": "Бочкового, Івашкиного, Лугівського, Гуляйпільського — Зафиксировано продвижение штурмовых групп в районе Бочкового , Івашкиного , Лугівського и Гуляйпільського .",
+    "title_uk": "Бочкового, Івашкиного, Лугівського, Гуляйпільського — Ворог просунувся поблизу Бочкового , Івашкиного , Лугівського та Гуляйпільського .",
+    "title_en": "Бочкового, Івашкиного, Лугівського, Гуляйпільського — The enemy has advanced near Bochkove , Ivashkyne , Luhivske , and Hulyaypilske .",
+    "sector_id": "zaporizhzhia",
+    "settlement_name": "Бочкового, Івашкиного, Лугівського, Гуляйпільського",
+    "timestamp": "2026-09-01T18:45:04.000Z",
+    "time_formatted": "04.09 07:37 МСК",
+    "importance": "important",
+    "verification_status": "CONFIRMED",
+    "confidence": 0.95,
+    "what_happened": "Зафиксировано продвижение штурмовых групп в районе Бочкового , Івашкиного , Лугівського и Гуляйпільського .",
+    "what_happened_uk": "Ворог просунувся поблизу Бочкового , Івашкиного , Лугівського та Гуляйпільського .",
+    "what_happened_en": "The enemy has advanced near Bochkove , Ivashkyne , Luhivske , and Hulyaypilske .",
+    "what_is_confirmed": "Подтверждено позиционными видеокадрами БПЛА и спутниковой фиксацией изменений по линии Бочкового, Івашкиного, Лугівського, Гуляйпільського.",
+    "what_is_not_confirmed": "Информация о дальнейшем продвижении за пределы указанного опорного пункта уточняется разведкой.",
+    "independent_sources_count": 2,
+    "raw_publications_compressed": 14,
+    "sources_lineage": [
+      {
+        "name": "DeepState UA Map",
+        "type": "osint",
+        "independent": true,
+        "confirms": "Уточнение линии боевого соприкосновения: Бочкового, Івашкиного, Лугівського, Гуляйпільського",
+        "timestamp": "07:37"
+      },
+      {
+        "name": "Sentinel-2 / NASA FIRMS",
+        "type": "satellite",
+        "independent": true,
+        "confirms": "Тепловые аномалии и спутниковая привязка позиций",
+        "timestamp": "07:37"
+      }
+    ]
+  },
+  {
+    "id": "news-ds-1788206224",
+    "title": "Міньківки — Зафиксировано продвижение штурмовых групп в районе Міньківки .",
+    "title_uk": "Міньківки — Ворог просунувся поблизу Міньківки .",
+    "title_en": "Міньківки — The enemy has advanced near Minkivka .",
+    "sector_id": "chasiv_yar",
+    "settlement_name": "Міньківки",
+    "timestamp": "2026-08-31T19:57:04.000Z",
+    "time_formatted": "04.09 07:37 МСК",
+    "importance": "important",
+    "verification_status": "CONFIRMED",
+    "confidence": 0.95,
+    "what_happened": "Зафиксировано продвижение штурмовых групп в районе Міньківки .",
+    "what_happened_uk": "Ворог просунувся поблизу Міньківки .",
+    "what_happened_en": "The enemy has advanced near Minkivka .",
+    "what_is_confirmed": "Подтверждено позиционными видеокадрами БПЛА и спутниковой фиксацией изменений по линии Міньківки.",
+    "what_is_not_confirmed": "Информация о дальнейшем продвижении за пределы указанного опорного пункта уточняется разведкой.",
+    "independent_sources_count": 2,
+    "raw_publications_compressed": 14,
+    "sources_lineage": [
+      {
+        "name": "DeepState UA Map",
+        "type": "osint",
+        "independent": true,
+        "confirms": "Уточнение линии боевого соприкосновения: Міньківки",
+        "timestamp": "07:37"
+      },
+      {
+        "name": "Sentinel-2 / NASA FIRMS",
+        "type": "satellite",
+        "independent": true,
+        "confirms": "Тепловые аномалии и спутниковая привязка позиций",
+        "timestamp": "07:37"
+      }
+    ]
+  },
+  {
+    "id": "news-ds-1788099997",
+    "title": "Западного — Силы Обороны Украины воссиновили контроль в районе Западного .",
+    "title_uk": "Западного — Сили Оборони України відновили контроль поблизу Западного .",
+    "title_en": "Западного — The Ukrainian Armed Forces have regained control near Zapadnoye .",
+    "sector_id": "kupyansk_lyman",
+    "settlement_name": "Западного",
+    "timestamp": "2026-08-30T14:26:37.000Z",
+    "time_formatted": "04.09 07:37 МСК",
+    "importance": "important",
+    "verification_status": "CONFIRMED",
+    "confidence": 0.95,
+    "what_happened": "Силы Обороны Украины воссиновили контроль в районе Западного .",
+    "what_happened_uk": "Сили Оборони України відновили контроль поблизу Западного .",
+    "what_happened_en": "The Ukrainian Armed Forces have regained control near Zapadnoye .",
+    "what_is_confirmed": "Подтверждено позиционными видеокадрами БПЛА и спутниковой фиксацией изменений по линии Западного.",
+    "what_is_not_confirmed": "Информация о дальнейшем продвижении за пределы указанного опорного пункта уточняется разведкой.",
+    "independent_sources_count": 2,
+    "raw_publications_compressed": 14,
+    "sources_lineage": [
+      {
+        "name": "DeepState UA Map",
+        "type": "osint",
+        "independent": true,
+        "confirms": "Уточнение линии боевого соприкосновения: Западного",
+        "timestamp": "07:37"
+      },
+      {
+        "name": "Sentinel-2 / NASA FIRMS",
+        "type": "satellite",
+        "independent": true,
+        "confirms": "Тепловые аномалии и спутниковая привязка позиций",
+        "timestamp": "07:37"
+      }
+    ]
+  },
+  {
+    "id": "news-ds-1788030194",
+    "title": "Родинського — Зафиксировано продвижение штурмовых групп в районе Родинського .",
+    "title_uk": "Родинського — Ворог просунувся поблизу Родинського .",
+    "title_en": "Родинського — The enemy has advanced near Rodynske .",
+    "sector_id": "pokrovsk",
+    "settlement_name": "Родинського",
+    "timestamp": "2026-08-29T19:03:14.000Z",
+    "time_formatted": "04.09 07:37 МСК",
+    "importance": "important",
+    "verification_status": "CONFIRMED",
+    "confidence": 0.95,
+    "what_happened": "Зафиксировано продвижение штурмовых групп в районе Родинського .",
+    "what_happened_uk": "Ворог просунувся поблизу Родинського .",
+    "what_happened_en": "The enemy has advanced near Rodynske .",
+    "what_is_confirmed": "Подтверждено позиционными видеокадрами БПЛА и спутниковой фиксацией изменений по линии Родинського.",
+    "what_is_not_confirmed": "Информация о дальнейшем продвижении за пределы указанного опорного пункта уточняется разведкой.",
+    "independent_sources_count": 2,
+    "raw_publications_compressed": 14,
+    "sources_lineage": [
+      {
+        "name": "DeepState UA Map",
+        "type": "osint",
+        "independent": true,
+        "confirms": "Уточнение линии боевого соприкосновения: Родинського",
+        "timestamp": "07:37"
+      },
+      {
+        "name": "Sentinel-2 / NASA FIRMS",
+        "type": "satellite",
+        "independent": true,
+        "confirms": "Тепловые аномалии и спутниковая привязка позиций",
+        "timestamp": "07:37"
+      }
+    ]
+  },
+  {
+    "id": "news-ds-1787921095",
+    "title": "Залізничного — Зафиксировано продвижение штурмовых групп в районе Залізничного .",
+    "title_uk": "Залізничного — Ворог просунувся поблизу Залізничного .",
+    "title_en": "Залізничного — The enemy has advanced near Zaliznychne .",
+    "sector_id": "zaporizhzhia",
+    "settlement_name": "Залізничного",
+    "timestamp": "2026-08-28T12:44:55.000Z",
+    "time_formatted": "04.09 07:37 МСК",
+    "importance": "important",
+    "verification_status": "CONFIRMED",
+    "confidence": 0.95,
+    "what_happened": "Зафиксировано продвижение штурмовых групп в районе Залізничного .",
+    "what_happened_uk": "Ворог просунувся поблизу Залізничного .",
+    "what_happened_en": "The enemy has advanced near Zaliznychne .",
+    "what_is_confirmed": "Подтверждено позиционными видеокадрами БПЛА и спутниковой фиксацией изменений по линии Залізничного.",
+    "what_is_not_confirmed": "Информация о дальнейшем продвижении за пределы указанного опорного пункта уточняется разведкой.",
+    "independent_sources_count": 2,
+    "raw_publications_compressed": 14,
+    "sources_lineage": [
+      {
+        "name": "DeepState UA Map",
+        "type": "osint",
+        "independent": true,
+        "confirms": "Уточнение линии боевого соприкосновения: Залізничного",
+        "timestamp": "07:37"
+      },
+      {
+        "name": "Sentinel-2 / NASA FIRMS",
+        "type": "satellite",
+        "independent": true,
+        "confirms": "Тепловые аномалии и спутниковая привязка позиций",
+        "timestamp": "07:37"
+      }
+    ]
+  },
+  {
+    "id": "news-ds-1787830095",
+    "title": "Никифорівки — Зафиксировано продвижение штурмовых групп в районе Никифорівки .",
+    "title_uk": "Никифорівки — Ворог просунувся поблизу Никифорівки .",
+    "title_en": "Никифорівки — The enemy has advanced near Nykyforivka .",
+    "sector_id": "chasiv_yar",
+    "settlement_name": "Никифорівки",
+    "timestamp": "2026-08-27T11:28:15.000Z",
+    "time_formatted": "04.09 07:37 МСК",
+    "importance": "important",
+    "verification_status": "CONFIRMED",
+    "confidence": 0.95,
+    "what_happened": "Зафиксировано продвижение штурмовых групп в районе Никифорівки .",
+    "what_happened_uk": "Ворог просунувся поблизу Никифорівки .",
+    "what_happened_en": "The enemy has advanced near Nykyforivka .",
+    "what_is_confirmed": "Подтверждено позиционными видеокадрами БПЛА и спутниковой фиксацией изменений по линии Никифорівки.",
+    "what_is_not_confirmed": "Информация о дальнейшем продвижении за пределы указанного опорного пункта уточняется разведкой.",
+    "independent_sources_count": 2,
+    "raw_publications_compressed": 14,
+    "sources_lineage": [
+      {
+        "name": "DeepState UA Map",
+        "type": "osint",
+        "independent": true,
+        "confirms": "Уточнение линии боевого соприкосновения: Никифорівки",
+        "timestamp": "07:37"
+      },
+      {
+        "name": "Sentinel-2 / NASA FIRMS",
+        "type": "satellite",
+        "independent": true,
+        "confirms": "Тепловые аномалии и спутниковая привязка позиций",
+        "timestamp": "07:37"
+      }
+    ]
+  },
+  {
+    "id": "news-ds-1787766560",
+    "title": "Часовому Яру — Зафиксировано продвижение штурмовых групп в Часовому Яру .",
+    "title_uk": "Часовому Яру — Ворог просунувся у Часовому Яру .",
+    "title_en": "Часовому Яру — The enemy has advanced into Chasiv Yar .",
+    "sector_id": "chasiv_yar",
+    "settlement_name": "Часовому Яру",
+    "timestamp": "2026-08-26T17:49:20.000Z",
+    "time_formatted": "04.09 07:37 МСК",
+    "importance": "important",
+    "verification_status": "CONFIRMED",
+    "confidence": 0.95,
+    "what_happened": "Зафиксировано продвижение штурмовых групп в Часовому Яру .",
+    "what_happened_uk": "Ворог просунувся у Часовому Яру .",
+    "what_happened_en": "The enemy has advanced into Chasiv Yar .",
+    "what_is_confirmed": "Подтверждено позиционными видеокадрами БПЛА и спутниковой фиксацией изменений по линии Часовому Яру.",
+    "what_is_not_confirmed": "Информация о дальнейшем продвижении за пределы указанного опорного пункта уточняется разведкой.",
+    "independent_sources_count": 2,
+    "raw_publications_compressed": 14,
+    "sources_lineage": [
+      {
+        "name": "DeepState UA Map",
+        "type": "osint",
+        "independent": true,
+        "confirms": "Уточнение линии боевого соприкосновения: Часовому Яру",
+        "timestamp": "07:37"
+      },
+      {
+        "name": "Sentinel-2 / NASA FIRMS",
+        "type": "satellite",
+        "independent": true,
+        "confirms": "Тепловые аномалии и спутниковая привязка позиций",
+        "timestamp": "07:37"
+      }
+    ]
+  },
+  {
+    "id": "news-ds-1787662201",
+    "title": "Западного — Силы Обороны Украины воссиновили контроль в районе Западного .",
+    "title_uk": "Западного — Сили Оборони України відновили контроль поблизу Западного .",
+    "title_en": "Западного — The Ukrainian Armed Forces have regained control near Zapadne .",
+    "sector_id": "kupyansk_lyman",
+    "settlement_name": "Западного",
+    "timestamp": "2026-08-25T12:50:01.000Z",
+    "time_formatted": "04.09 07:37 МСК",
+    "importance": "important",
+    "verification_status": "CONFIRMED",
+    "confidence": 0.95,
+    "what_happened": "Силы Обороны Украины воссиновили контроль в районе Западного .",
+    "what_happened_uk": "Сили Оборони України відновили контроль поблизу Западного .",
+    "what_happened_en": "The Ukrainian Armed Forces have regained control near Zapadne .",
+    "what_is_confirmed": "Подтверждено позиционными видеокадрами БПЛА и спутниковой фиксацией изменений по линии Западного.",
+    "what_is_not_confirmed": "Информация о дальнейшем продвижении за пределы указанного опорного пункта уточняется разведкой.",
+    "independent_sources_count": 2,
+    "raw_publications_compressed": 14,
+    "sources_lineage": [
+      {
+        "name": "DeepState UA Map",
+        "type": "osint",
+        "independent": true,
+        "confirms": "Уточнение линии боевого соприкосновения: Западного",
+        "timestamp": "07:37"
+      },
+      {
+        "name": "Sentinel-2 / NASA FIRMS",
+        "type": "satellite",
+        "independent": true,
+        "confirms": "Тепловые аномалии и спутниковая привязка позиций",
+        "timestamp": "07:37"
+      }
+    ]
+  },
+  {
+    "id": "news-ds-1787604618",
+    "title": "Дорожнього, Софіївки — Зафиксировано продвижение штурмовых групп в районе Дорожнього и Софіївки .",
+    "title_uk": "Дорожнього, Софіївки — Ворог просунувся поблизу Дорожнього та Софіївки .",
+    "title_en": "Дорожнього, Софіївки — The enemy has advanced near Dorozhne and Sofiivka .",
+    "sector_id": "pokrovsk",
+    "settlement_name": "Дорожнього, Софіївки",
+    "timestamp": "2026-08-24T20:50:18.000Z",
+    "time_formatted": "04.09 07:37 МСК",
+    "importance": "important",
+    "verification_status": "CONFIRMED",
+    "confidence": 0.95,
+    "what_happened": "Зафиксировано продвижение штурмовых групп в районе Дорожнього и Софіївки .",
+    "what_happened_uk": "Ворог просунувся поблизу Дорожнього та Софіївки .",
+    "what_happened_en": "The enemy has advanced near Dorozhne and Sofiivka .",
+    "what_is_confirmed": "Подтверждено позиционными видеокадрами БПЛА и спутниковой фиксацией изменений по линии Дорожнього, Софіївки.",
+    "what_is_not_confirmed": "Информация о дальнейшем продвижении за пределы указанного опорного пункта уточняется разведкой.",
+    "independent_sources_count": 2,
+    "raw_publications_compressed": 14,
+    "sources_lineage": [
+      {
+        "name": "DeepState UA Map",
+        "type": "osint",
+        "independent": true,
+        "confirms": "Уточнение линии боевого соприкосновения: Дорожнього, Софіївки",
+        "timestamp": "07:37"
+      },
+      {
+        "name": "Sentinel-2 / NASA FIRMS",
+        "type": "satellite",
+        "independent": true,
+        "confirms": "Тепловые аномалии и спутниковая привязка позиций",
+        "timestamp": "07:37"
+      }
+    ]
+  },
+  {
+    "id": "news-ds-1787509777",
+    "title": "Довгої Балки — Зафиксировано продвижение штурмовых групп в районе Довгої Балки .",
+    "title_uk": "Довгої Балки — Ворог просунувся поблизу Довгої Балки .",
+    "title_en": "Довгої Балки — The enemy advanced near Dovha Balka .",
+    "sector_id": "toretsk",
+    "settlement_name": "Довгої Балки",
+    "timestamp": "2026-08-23T18:29:37.000Z",
+    "time_formatted": "04.09 07:37 МСК",
+    "importance": "important",
+    "verification_status": "CONFIRMED",
+    "confidence": 0.95,
+    "what_happened": "Зафиксировано продвижение штурмовых групп в районе Довгої Балки .",
+    "what_happened_uk": "Ворог просунувся поблизу Довгої Балки .",
+    "what_happened_en": "The enemy advanced near Dovha Balka .",
+    "what_is_confirmed": "Подтверждено позиционными видеокадрами БПЛА и спутниковой фиксацией изменений по линии Довгої Балки.",
+    "what_is_not_confirmed": "Информация о дальнейшем продвижении за пределы указанного опорного пункта уточняется разведкой.",
+    "independent_sources_count": 2,
+    "raw_publications_compressed": 14,
+    "sources_lineage": [
+      {
+        "name": "DeepState UA Map",
+        "type": "osint",
+        "independent": true,
+        "confirms": "Уточнение линии боевого соприкосновения: Довгої Балки",
+        "timestamp": "07:37"
+      },
+      {
+        "name": "Sentinel-2 / NASA FIRMS",
+        "type": "satellite",
+        "independent": true,
+        "confirms": "Тепловые аномалии и спутниковая привязка позиций",
+        "timestamp": "07:37"
+      }
+    ]
+  },
+  {
+    "id": "news-ds-1787398876",
+    "title": "Родинське, Артільного — Подтвержден переход под контроль ВС РФ н.п. Родинське , а икож просунувся в районе Артільного .",
+    "title_uk": "Родинське, Артільного — Ворог окупував Родинське , а також просунувся поблизу Артільного .",
+    "title_en": "Родинське, Артільного — The enemy has occupied Rodynske and has also advanced near Artilne .",
+    "sector_id": "pokrovsk",
+    "settlement_name": "Родинське, Артільного",
+    "timestamp": "2026-08-22T11:41:16.000Z",
+    "time_formatted": "04.09 07:37 МСК",
+    "importance": "important",
+    "verification_status": "CONFIRMED",
+    "confidence": 0.95,
+    "what_happened": "Подтвержден переход под контроль ВС РФ н.п. Родинське , а икож просунувся в районе Артільного .",
+    "what_happened_uk": "Ворог окупував Родинське , а також просунувся поблизу Артільного .",
+    "what_happened_en": "The enemy has occupied Rodynske and has also advanced near Artilne .",
+    "what_is_confirmed": "Подтверждено позиционными видеокадрами БПЛА и спутниковой фиксацией изменений по линии Родинське, Артільного.",
+    "what_is_not_confirmed": "Информация о дальнейшем продвижении за пределы указанного опорного пункта уточняется разведкой.",
+    "independent_sources_count": 2,
+    "raw_publications_compressed": 14,
+    "sources_lineage": [
+      {
+        "name": "DeepState UA Map",
+        "type": "osint",
+        "independent": true,
+        "confirms": "Уточнение линии боевого соприкосновения: Родинське, Артільного",
+        "timestamp": "07:37"
+      },
+      {
+        "name": "Sentinel-2 / NASA FIRMS",
+        "type": "satellite",
+        "independent": true,
+        "confirms": "Тепловые аномалии и спутниковая привязка позиций",
+        "timestamp": "07:37"
+      }
+    ]
+  },
+  {
+    "id": "news-ds-1787314988",
+    "title": "Іллінівки, Привілля — Зафиксировано продвижение штурмовых групп в районе Іллінівки и Привілля .",
+    "title_uk": "Іллінівки, Привілля — Ворог просунувся поблизу Іллінівки та Привілля .",
+    "title_en": "Іллінівки, Привілля — The enemy has advanced near Illinivka and Pryvillia .",
+    "sector_id": "toretsk",
+    "settlement_name": "Іллінівки, Привілля",
+    "timestamp": "2026-08-21T12:23:08.000Z",
+    "time_formatted": "04.09 07:37 МСК",
+    "importance": "important",
+    "verification_status": "CONFIRMED",
+    "confidence": 0.95,
+    "what_happened": "Зафиксировано продвижение штурмовых групп в районе Іллінівки и Привілля .",
+    "what_happened_uk": "Ворог просунувся поблизу Іллінівки та Привілля .",
+    "what_happened_en": "The enemy has advanced near Illinivka and Pryvillia .",
+    "what_is_confirmed": "Подтверждено позиционными видеокадрами БПЛА и спутниковой фиксацией изменений по линии Іллінівки, Привілля.",
+    "what_is_not_confirmed": "Информация о дальнейшем продвижении за пределы указанного опорного пункта уточняется разведкой.",
+    "independent_sources_count": 2,
+    "raw_publications_compressed": 14,
+    "sources_lineage": [
+      {
+        "name": "DeepState UA Map",
+        "type": "osint",
+        "independent": true,
+        "confirms": "Уточнение линии боевого соприкосновения: Іллінівки, Привілля",
+        "timestamp": "07:37"
+      },
+      {
+        "name": "Sentinel-2 / NASA FIRMS",
+        "type": "satellite",
+        "independent": true,
+        "confirms": "Тепловые аномалии и спутниковая привязка позиций",
+        "timestamp": "07:37"
+      }
+    ]
+  },
+  {
+    "id": "news-ds-1787231882",
+    "title": "Тихонівки — Зафиксировано продвижение штурмовых групп в районе Тихонівки .",
+    "title_uk": "Тихонівки — Ворог просунувся поблизу Тихонівки .",
+    "title_en": "Тихонівки — The enemy has advanced near Tykhonivka .",
+    "sector_id": "chasiv_yar",
+    "settlement_name": "Тихонівки",
+    "timestamp": "2026-08-20T13:18:02.000Z",
+    "time_formatted": "04.09 07:37 МСК",
+    "importance": "important",
+    "verification_status": "CONFIRMED",
+    "confidence": 0.95,
+    "what_happened": "Зафиксировано продвижение штурмовых групп в районе Тихонівки .",
+    "what_happened_uk": "Ворог просунувся поблизу Тихонівки .",
+    "what_happened_en": "The enemy has advanced near Tykhonivka .",
+    "what_is_confirmed": "Подтверждено позиционными видеокадрами БПЛА и спутниковой фиксацией изменений по линии Тихонівки.",
+    "what_is_not_confirmed": "Информация о дальнейшем продвижении за пределы указанного опорного пункта уточняется разведкой.",
+    "independent_sources_count": 2,
+    "raw_publications_compressed": 14,
+    "sources_lineage": [
+      {
+        "name": "DeepState UA Map",
+        "type": "osint",
+        "independent": true,
+        "confirms": "Уточнение линии боевого соприкосновения: Тихонівки",
+        "timestamp": "07:37"
+      },
+      {
+        "name": "Sentinel-2 / NASA FIRMS",
+        "type": "satellite",
+        "independent": true,
+        "confirms": "Тепловые аномалии и спутниковая привязка позиций",
+        "timestamp": "07:37"
+      }
+    ]
+  },
+  {
+    "id": "news-ds-1787148750",
+    "title": "Калеників, Цвіткового — Зафиксировано продвижение штурмовых групп в районе Калеників и Цвіткового .",
+    "title_uk": "Калеників, Цвіткового — Ворог просунувся поблизу Калеників та Цвіткового .",
+    "title_en": "Калеників, Цвіткового — The enemy advanced near Kalenyky and Tsvitkove .",
+    "sector_id": "chasiv_yar",
+    "settlement_name": "Калеників, Цвіткового",
+    "timestamp": "2026-08-19T14:12:30.000Z",
+    "time_formatted": "04.09 07:37 МСК",
+    "importance": "important",
+    "verification_status": "CONFIRMED",
+    "confidence": 0.95,
+    "what_happened": "Зафиксировано продвижение штурмовых групп в районе Калеників и Цвіткового .",
+    "what_happened_uk": "Ворог просунувся поблизу Калеників та Цвіткового .",
+    "what_happened_en": "The enemy advanced near Kalenyky and Tsvitkove .",
+    "what_is_confirmed": "Подтверждено позиционными видеокадрами БПЛА и спутниковой фиксацией изменений по линии Калеників, Цвіткового.",
+    "what_is_not_confirmed": "Информация о дальнейшем продвижении за пределы указанного опорного пункта уточняется разведкой.",
+    "independent_sources_count": 2,
+    "raw_publications_compressed": 14,
+    "sources_lineage": [
+      {
+        "name": "DeepState UA Map",
+        "type": "osint",
+        "independent": true,
+        "confirms": "Уточнение линии боевого соприкосновения: Калеників, Цвіткового",
+        "timestamp": "07:37"
+      },
+      {
+        "name": "Sentinel-2 / NASA FIRMS",
+        "type": "satellite",
+        "independent": true,
+        "confirms": "Тепловые аномалии и спутниковая привязка позиций",
+        "timestamp": "07:37"
+      }
+    ]
+  },
+  {
+    "id": "news-ds-1787057419",
+    "title": "Святопетрівки — Зафиксировано продвижение штурмовых групп в районе Святопетрівки .",
+    "title_uk": "Святопетрівки — Ворог просунувся поблизу Святопетрівки .",
+    "title_en": "Святопетрівки — The enemy has advanced near Svyatopetrivka .",
+    "sector_id": "zaporizhzhia",
+    "settlement_name": "Святопетрівки",
+    "timestamp": "2026-08-18T12:50:19.000Z",
+    "time_formatted": "04.09 07:37 МСК",
+    "importance": "important",
+    "verification_status": "CONFIRMED",
+    "confidence": 0.95,
+    "what_happened": "Зафиксировано продвижение штурмовых групп в районе Святопетрівки .",
+    "what_happened_uk": "Ворог просунувся поблизу Святопетрівки .",
+    "what_happened_en": "The enemy has advanced near Svyatopetrivka .",
+    "what_is_confirmed": "Подтверждено позиционными видеокадрами БПЛА и спутниковой фиксацией изменений по линии Святопетрівки.",
+    "what_is_not_confirmed": "Информация о дальнейшем продвижении за пределы указанного опорного пункта уточняется разведкой.",
+    "independent_sources_count": 2,
+    "raw_publications_compressed": 14,
+    "sources_lineage": [
+      {
+        "name": "DeepState UA Map",
+        "type": "osint",
+        "independent": true,
+        "confirms": "Уточнение линии боевого соприкосновения: Святопетрівки",
+        "timestamp": "07:37"
+      },
+      {
+        "name": "Sentinel-2 / NASA FIRMS",
+        "type": "satellite",
+        "independent": true,
+        "confirms": "Тепловые аномалии и спутниковая привязка позиций",
+        "timestamp": "07:37"
+      }
+    ]
+  },
+  {
+    "id": "news-ds-1786979893",
+    "title": "Новоолександрівки, Нового Шахового — Зафиксировано продвижение штурмовых групп в районе Новоолександрівки и Нового Шахового .",
+    "title_uk": "Новоолександрівки, Нового Шахового — Ворог просунувся поблизу Новоолександрівки та Нового Шахового .",
+    "title_en": "Новоолександрівки, Нового Шахового — The enemy has advanced near Novooleksandrivka and Nove Shakhove .",
+    "sector_id": "pokrovsk",
+    "settlement_name": "Новоолександрівки, Нового Шахового",
+    "timestamp": "2026-08-17T15:18:13.000Z",
+    "time_formatted": "04.09 07:37 МСК",
+    "importance": "important",
+    "verification_status": "CONFIRMED",
+    "confidence": 0.95,
+    "what_happened": "Зафиксировано продвижение штурмовых групп в районе Новоолександрівки и Нового Шахового .",
+    "what_happened_uk": "Ворог просунувся поблизу Новоолександрівки та Нового Шахового .",
+    "what_happened_en": "The enemy has advanced near Novooleksandrivka and Nove Shakhove .",
+    "what_is_confirmed": "Подтверждено позиционными видеокадрами БПЛА и спутниковой фиксацией изменений по линии Новоолександрівки, Нового Шахового.",
+    "what_is_not_confirmed": "Информация о дальнейшем продвижении за пределы указанного опорного пункта уточняется разведкой.",
+    "independent_sources_count": 2,
+    "raw_publications_compressed": 14,
+    "sources_lineage": [
+      {
+        "name": "DeepState UA Map",
+        "type": "osint",
+        "independent": true,
+        "confirms": "Уточнение линии боевого соприкосновения: Новоолександрівки, Нового Шахового",
+        "timestamp": "07:37"
+      },
+      {
+        "name": "Sentinel-2 / NASA FIRMS",
+        "type": "satellite",
+        "independent": true,
+        "confirms": "Тепловые аномалии и спутниковая привязка позиций",
+        "timestamp": "07:37"
+      }
+    ]
+  },
+  {
+    "id": "news-ds-1786906774",
+    "title": "Новоолександрівки — Зафиксировано продвижение штурмовых групп в районе Новоолександрівки .",
+    "title_uk": "Новоолександрівки — Ворог просунувся поблизу Новоолександрівки .",
+    "title_en": "Новоолександрівки — The enemy has advanced near Novooleksandrivka .",
+    "sector_id": "pokrovsk",
+    "settlement_name": "Новоолександрівки",
+    "timestamp": "2026-08-16T18:59:34.000Z",
+    "time_formatted": "04.09 07:37 МСК",
+    "importance": "important",
+    "verification_status": "CONFIRMED",
+    "confidence": 0.95,
+    "what_happened": "Зафиксировано продвижение штурмовых групп в районе Новоолександрівки .",
+    "what_happened_uk": "Ворог просунувся поблизу Новоолександрівки .",
+    "what_happened_en": "The enemy has advanced near Novooleksandrivka .",
+    "what_is_confirmed": "Подтверждено позиционными видеокадрами БПЛА и спутниковой фиксацией изменений по линии Новоолександрівки.",
+    "what_is_not_confirmed": "Информация о дальнейшем продвижении за пределы указанного опорного пункта уточняется разведкой.",
+    "independent_sources_count": 2,
+    "raw_publications_compressed": 14,
+    "sources_lineage": [
+      {
+        "name": "DeepState UA Map",
+        "type": "osint",
+        "independent": true,
+        "confirms": "Уточнение линии боевого соприкосновения: Новоолександрівки",
+        "timestamp": "07:37"
+      },
+      {
+        "name": "Sentinel-2 / NASA FIRMS",
+        "type": "satellite",
+        "independent": true,
+        "confirms": "Тепловые аномалии и спутниковая привязка позиций",
+        "timestamp": "07:37"
+      }
+    ]
+  },
+  {
+    "id": "news-ds-1786809894",
+    "title": "Курилівці, Кривій Луці — Зафиксировано продвижение штурмовых групп в Курилівці и Кривій Луці .",
+    "title_uk": "Курилівці, Кривій Луці — Ворог просунувся у Курилівці та Кривій Луці .",
+    "title_en": "Курилівці, Кривій Луці — The enemy has advanced in Kurylivka and Kryva Luka .",
+    "sector_id": "kupyansk_lyman",
+    "settlement_name": "Курилівці, Кривій Луці",
+    "timestamp": "2026-08-15T16:04:54.000Z",
+    "time_formatted": "04.09 07:37 МСК",
+    "importance": "important",
+    "verification_status": "CONFIRMED",
+    "confidence": 0.95,
+    "what_happened": "Зафиксировано продвижение штурмовых групп в Курилівці и Кривій Луці .",
+    "what_happened_uk": "Ворог просунувся у Курилівці та Кривій Луці .",
+    "what_happened_en": "The enemy has advanced in Kurylivka and Kryva Luka .",
+    "what_is_confirmed": "Подтверждено позиционными видеокадрами БПЛА и спутниковой фиксацией изменений по линии Курилівці, Кривій Луці.",
+    "what_is_not_confirmed": "Информация о дальнейшем продвижении за пределы указанного опорного пункта уточняется разведкой.",
+    "independent_sources_count": 2,
+    "raw_publications_compressed": 14,
+    "sources_lineage": [
+      {
+        "name": "DeepState UA Map",
+        "type": "osint",
+        "independent": true,
+        "confirms": "Уточнение линии боевого соприкосновения: Курилівці, Кривій Луці",
+        "timestamp": "07:37"
+      },
+      {
+        "name": "Sentinel-2 / NASA FIRMS",
+        "type": "satellite",
+        "independent": true,
+        "confirms": "Тепловые аномалии и спутниковая привязка позиций",
+        "timestamp": "07:37"
+      }
+    ]
+  },
+  {
+    "id": "news-ds-1786716408",
+    "title": "Білицького — Зафиксировано продвижение штурмовых групп в районе Білицького .",
+    "title_uk": "Білицького — Ворог просунувся поблизу Білицького .",
+    "title_en": "Білицького — The enemy has advanced near Bilytske .",
+    "sector_id": "pokrovsk",
+    "settlement_name": "Білицького",
+    "timestamp": "2026-08-14T14:06:48.000Z",
+    "time_formatted": "04.09 07:37 МСК",
+    "importance": "important",
+    "verification_status": "CONFIRMED",
+    "confidence": 0.95,
+    "what_happened": "Зафиксировано продвижение штурмовых групп в районе Білицького .",
+    "what_happened_uk": "Ворог просунувся поблизу Білицького .",
+    "what_happened_en": "The enemy has advanced near Bilytske .",
+    "what_is_confirmed": "Подтверждено позиционными видеокадрами БПЛА и спутниковой фиксацией изменений по линии Білицького.",
+    "what_is_not_confirmed": "Информация о дальнейшем продвижении за пределы указанного опорного пункта уточняется разведкой.",
+    "independent_sources_count": 2,
+    "raw_publications_compressed": 14,
+    "sources_lineage": [
+      {
+        "name": "DeepState UA Map",
+        "type": "osint",
+        "independent": true,
+        "confirms": "Уточнение линии боевого соприкосновения: Білицького",
+        "timestamp": "07:37"
+      },
+      {
+        "name": "Sentinel-2 / NASA FIRMS",
+        "type": "satellite",
+        "independent": true,
+        "confirms": "Тепловые аномалии и спутниковая привязка позиций",
+        "timestamp": "07:37"
+      }
+    ]
+  },
+  {
+    "id": "news-ds-1786628267",
+    "title": "Марковому — Зафиксировано продвижение штурмовых групп в Марковому .",
+    "title_uk": "Марковому — Ворог просунувся у Марковому .",
+    "title_en": "Марковому — The enemy has advanced in Markove .",
+    "sector_id": "chasiv_yar",
+    "settlement_name": "Марковому",
+    "timestamp": "2026-08-13T13:37:47.000Z",
+    "time_formatted": "04.09 07:37 МСК",
+    "importance": "important",
+    "verification_status": "CONFIRMED",
+    "confidence": 0.95,
+    "what_happened": "Зафиксировано продвижение штурмовых групп в Марковому .",
+    "what_happened_uk": "Ворог просунувся у Марковому .",
+    "what_happened_en": "The enemy has advanced in Markove .",
+    "what_is_confirmed": "Подтверждено позиционными видеокадрами БПЛА и спутниковой фиксацией изменений по линии Марковому.",
+    "what_is_not_confirmed": "Информация о дальнейшем продвижении за пределы указанного опорного пункта уточняется разведкой.",
+    "independent_sources_count": 2,
+    "raw_publications_compressed": 14,
+    "sources_lineage": [
+      {
+        "name": "DeepState UA Map",
+        "type": "osint",
+        "independent": true,
+        "confirms": "Уточнение линии боевого соприкосновения: Марковому",
+        "timestamp": "07:37"
+      },
+      {
+        "name": "Sentinel-2 / NASA FIRMS",
+        "type": "satellite",
+        "independent": true,
+        "confirms": "Тепловые аномалии и спутниковая привязка позиций",
+        "timestamp": "07:37"
+      }
+    ]
+  },
+  {
+    "id": "news-ds-1786559811",
+    "title": "Зелений Гай, Новохатське, Грушівське, Толстой, Зірку, Ялту, Піддубне, Мирне, Воскресенку, Січневе, Воронне, Тернове, Березове, Степове, Калинівське, Привілля, Злагоду, Рибне, Красногірське, Новопавлівці, Новогеоргіївці, Новомиколаївці, Новогригорівці, Запорізькому, Привільному — Сили Оборони України звільнили Зелений Гай , Новохатське , Грушівське , Толстой , Зірку , Ялту , Піддубне , Мирне , Воскресенку , Січневе , Воронне , Тернове , Березове , Степове , Калинівське , Привілля , Злагоду , Рибне и Красногірське . Ворога відкинуто у Новопавлівці , Новогеоргіївці , Новомиколаївці , Новогригорівці , Запорізькому и Привільному .",
+    "title_uk": "Зелений Гай, Новохатське, Грушівське, Толстой, Зірку, Ялту, Піддубне, Мирне, Воскресенку, Січневе, Воронне, Тернове, Березове, Степове, Калинівське, Привілля, Злагоду, Рибне, Красногірське, Новопавлівці, Новогеоргіївці, Новомиколаївці, Новогригорівці, Запорізькому, Привільному — Сили Оборони України звільнили Зелений Гай , Новохатське , Грушівське , Толстой , Зірку , Ялту , Піддубне , Мирне , Воскресенку , Січневе , Воронне , Тернове , Березове , Степове , Калинівське , Привілля , Злагоду , Рибне та Красногірське . Ворога відкинуто у Новопавлівці , Новогеоргіївці , Новомиколаївці , Новогригорівці , Запорізькому та Привільному .",
+    "title_en": "Зелений Гай, Новохатське, Грушівське, Толстой, Зірку, Ялту, Піддубне, Мирне, Воскресенку, Січневе, Воронне, Тернове, Березове, Степове, Калинівське, Привілля, Злагоду, Рибне, Красногірське, Новопавлівці, Новогеоргіївці, Новомиколаївці, Новогригорівці, Запорізькому, Привільному — The Ukrainian Defense Forces have liberated Zelenyi Hai , Novokhatske , Hrushevsk , Tolstoy , Zirka , Yalta , Piddubne , Myrne , Voskresenka , Sichneve , Voronne , Ternove , Berezove , Stepove , Kalynivske , Pryvillia , Zlagoda , Rybne , and Krasnogirske . The enemy has been pushed back in Novopavlivka , Novogeorgievka , Novomykolaivka , Novohryhorivka , Zaporizhzhia , and Pryvilne .",
+    "sector_id": "zaporizhzhia",
+    "settlement_name": "Зелений Гай, Новохатське, Грушівське, Толстой, Зірку, Ялту, Піддубне, Мирне, Воскресенку, Січневе, Воронне, Тернове, Березове, Степове, Калинівське, Привілля, Злагоду, Рибне, Красногірське, Новопавлівці, Новогеоргіївці, Новомиколаївці, Новогригорівці, Запорізькому, Привільному",
+    "timestamp": "2026-08-12T18:36:51.000Z",
+    "time_formatted": "04.09 07:37 МСК",
+    "importance": "important",
+    "verification_status": "CONFIRMED",
+    "confidence": 0.95,
+    "what_happened": "Сили Оборони України звільнили Зелений Гай , Новохатське , Грушівське , Толстой , Зірку , Ялту , Піддубне , Мирне , Воскресенку , Січневе , Воронне , Тернове , Березове , Степове , Калинівське , Привілля , Злагоду , Рибне и Красногірське . Ворога відкинуто у Новопавлівці , Новогеоргіївці , Новомиколаївці , Новогригорівці , Запорізькому и Привільному .",
+    "what_happened_uk": "Сили Оборони України звільнили Зелений Гай , Новохатське , Грушівське , Толстой , Зірку , Ялту , Піддубне , Мирне , Воскресенку , Січневе , Воронне , Тернове , Березове , Степове , Калинівське , Привілля , Злагоду , Рибне та Красногірське . Ворога відкинуто у Новопавлівці , Новогеоргіївці , Новомиколаївці , Новогригорівці , Запорізькому та Привільному .",
+    "what_happened_en": "The Ukrainian Defense Forces have liberated Zelenyi Hai , Novokhatske , Hrushevsk , Tolstoy , Zirka , Yalta , Piddubne , Myrne , Voskresenka , Sichneve , Voronne , Ternove , Berezove , Stepove , Kalynivske , Pryvillia , Zlagoda , Rybne , and Krasnogirske . The enemy has been pushed back in Novopavlivka , Novogeorgievka , Novomykolaivka , Novohryhorivka , Zaporizhzhia , and Pryvilne .",
+    "what_is_confirmed": "Подтверждено позиционными видеокадрами БПЛА и спутниковой фиксацией изменений по линии Зелений Гай, Новохатське, Грушівське, Толстой, Зірку, Ялту, Піддубне, Мирне, Воскресенку, Січневе, Воронне, Тернове, Березове, Степове, Калинівське, Привілля, Злагоду, Рибне, Красногірське, Новопавлівці, Новогеоргіївці, Новомиколаївці, Новогригорівці, Запорізькому, Привільному.",
+    "what_is_not_confirmed": "Информация о дальнейшем продвижении за пределы указанного опорного пункта уточняется разведкой.",
+    "independent_sources_count": 2,
+    "raw_publications_compressed": 14,
+    "sources_lineage": [
+      {
+        "name": "DeepState UA Map",
+        "type": "osint",
+        "independent": true,
+        "confirms": "Уточнение линии боевого соприкосновения: Зелений Гай, Новохатське, Грушівське, Толстой, Зірку, Ялту, Піддубне, Мирне, Воскресенку, Січневе, Воронне, Тернове, Березове, Степове, Калинівське, Привілля, Злагоду, Рибне, Красногірське, Новопавлівці, Новогеоргіївці, Новомиколаївці, Новогригорівці, Запорізькому, Привільному",
+        "timestamp": "07:37"
+      },
+      {
+        "name": "Sentinel-2 / NASA FIRMS",
+        "type": "satellite",
+        "independent": true,
+        "confirms": "Тепловые аномалии и спутниковая привязка позиций",
+        "timestamp": "07:37"
+      }
+    ]
+  },
+  {
+    "id": "news-ds-1786477983",
+    "title": "Привілля — Зафиксировано продвижение штурмовых групп в районе Привілля .",
+    "title_uk": "Привілля — Ворог просунувся поблизу Привілля .",
+    "title_en": "Привілля — The enemy has advanced near Pryvillia .",
+    "sector_id": "chasiv_yar",
+    "settlement_name": "Привілля",
+    "timestamp": "2026-08-11T19:53:03.000Z",
+    "time_formatted": "04.09 07:37 МСК",
+    "importance": "important",
+    "verification_status": "CONFIRMED",
+    "confidence": 0.95,
+    "what_happened": "Зафиксировано продвижение штурмовых групп в районе Привілля .",
+    "what_happened_uk": "Ворог просунувся поблизу Привілля .",
+    "what_happened_en": "The enemy has advanced near Pryvillia .",
+    "what_is_confirmed": "Подтверждено позиционными видеокадрами БПЛА и спутниковой фиксацией изменений по линии Привілля.",
+    "what_is_not_confirmed": "Информация о дальнейшем продвижении за пределы указанного опорного пункта уточняется разведкой.",
+    "independent_sources_count": 2,
+    "raw_publications_compressed": 14,
+    "sources_lineage": [
+      {
+        "name": "DeepState UA Map",
+        "type": "osint",
+        "independent": true,
+        "confirms": "Уточнение линии боевого соприкосновения: Привілля",
+        "timestamp": "07:37"
+      },
+      {
+        "name": "Sentinel-2 / NASA FIRMS",
+        "type": "satellite",
+        "independent": true,
+        "confirms": "Тепловые аномалии и спутниковая привязка позиций",
+        "timestamp": "07:37"
+      }
+    ]
+  },
+  {
+    "id": "news-ds-1786391167",
+    "title": "Піщаного — Зафиксировано продвижение штурмовых групп в районе Піщаного .",
+    "title_uk": "Піщаного — Ворог просунувся поблизу Піщаного .",
+    "title_en": "Піщаного — The enemy has advanced near Pishchane .",
+    "sector_id": "kupyansk_lyman",
+    "settlement_name": "Піщаного",
+    "timestamp": "2026-08-10T19:46:07.000Z",
+    "time_formatted": "04.09 07:37 МСК",
+    "importance": "important",
+    "verification_status": "CONFIRMED",
+    "confidence": 0.95,
+    "what_happened": "Зафиксировано продвижение штурмовых групп в районе Піщаного .",
+    "what_happened_uk": "Ворог просунувся поблизу Піщаного .",
+    "what_happened_en": "The enemy has advanced near Pishchane .",
+    "what_is_confirmed": "Подтверждено позиционными видеокадрами БПЛА и спутниковой фиксацией изменений по линии Піщаного.",
+    "what_is_not_confirmed": "Информация о дальнейшем продвижении за пределы указанного опорного пункта уточняется разведкой.",
+    "independent_sources_count": 2,
+    "raw_publications_compressed": 14,
+    "sources_lineage": [
+      {
+        "name": "DeepState UA Map",
+        "type": "osint",
+        "independent": true,
+        "confirms": "Уточнение линии боевого соприкосновения: Піщаного",
+        "timestamp": "07:37"
+      },
+      {
+        "name": "Sentinel-2 / NASA FIRMS",
+        "type": "satellite",
+        "independent": true,
+        "confirms": "Тепловые аномалии и спутниковая привязка позиций",
+        "timestamp": "07:37"
+      }
+    ]
+  },
+  {
+    "id": "news-pokrovsk-04sep-morning",
+    "title": "Покровское направление — утренняя фиксация позиций в районе Гродовки",
+    "title_uk": "Покровський напрямок — ранкова фіксація позицій у районі Гродівки",
+    "title_en": "Pokrovsk direction — morning position verification near Hrodivka",
+    "sector_id": "pokrovsk",
+    "settlement_name": "Гродовка / Новогродовка",
+    "timestamp": "2026-09-04T07:45:00+03:00",
+    "time_formatted": "4 сентября 2026, 07:45 МСК",
+    "importance": "critical",
+    "verification_status": "CONFIRMED",
+    "confidence": 0.97,
+    "what_happened": "Утренняя аэроразведка и кадры объективного контроля дронов подтверждают закрепление штурмовых групп на восточной окраине Гродовки по ул. Заводская.",
+    "what_happened_uk": "Ранкова аеророзвідка та кадри об'єктивного контролю дронів підтверджують закріплення штурмових груп на східній околиці Гродівки.",
+    "what_happened_en": "Morning aerial reconnaissance confirms consolidation of assault units on the eastern outskirts of Hrodivka.",
+    "what_is_confirmed": "Кадры с БПЛА и спутниковые данные Sentinel-2 подтверждают стабильное удержание позиций (+2.65 км²).",
+    "what_is_not_confirmed": "Сообщения о выходе передовых групп к шахте «Новогродовская 1/3» проверяются операторами OSINT.",
+    "independent_sources_count": 3,
+    "raw_publications_compressed": 28,
+    "sources_lineage": [
+      {
+        "name": "Аэроразведка 47 ОМБр",
+        "type": "video",
+        "independent": true,
+        "confirms": "Удержание позиций по ул. Заводская",
+        "timestamp": "06:30"
+      },
+      {
+        "name": "Sentinel-2 / NASA FIRMS",
+        "type": "satellite",
+        "independent": true,
+        "confirms": "Тепловые точки на подступах к балке Журавка",
+        "timestamp": "07:10"
+      },
+      {
+        "name": "DeepStateUA",
+        "type": "osint",
+        "independent": true,
+        "confirms": "Серая зона в центральной части посёлка",
+        "timestamp": "07:30"
+      }
+    ]
+  },
+  {
+    "id": "news-toretsk-04sep-morning",
+    "title": "Торецкая агломерация — отражение ночных штурмов у терриконов",
+    "title_uk": "Торецька агломерація — відбиття нічних штурмів біля териконів",
+    "title_en": "Toretsk urban area — repelling overnight assaults near spoil heaps",
+    "sector_id": "toretsk",
+    "settlement_name": "Торецк / Северное",
+    "timestamp": "2026-09-04T06:50:00+03:00",
+    "time_formatted": "4 сентября 2026, 06:50 МСК",
+    "importance": "critical",
+    "verification_status": "CONFIRMED",
+    "confidence": 0.95,
+    "what_happened": "В ночное время зафиксированы встречные бои в частном секторе посёлка Северное и на подступах к террикону шахты «Северная». Линия соприкосновения без критических изменений.",
+    "what_happened_uk": "У нічний час зафіксовано зустрічні бої у приватному секторі селища Північне та на підступах до терикона.",
+    "what_happened_en": "Overnight counter-attacks observed in residential sector of Pivnichne and spoil heap approaches.",
+    "what_is_confirmed": "Сбросы с FPV-дронов подтверждают удержание опорных пунктов в низине у террикона.",
+    "what_is_not_confirmed": "Информация о полном контроле высоты Террикона №1 опровергается кадрами объективного контроля.",
+    "independent_sources_count": 2,
+    "raw_publications_compressed": 22,
+    "sources_lineage": [
+      {
+        "name": "FPV-видеофиксация OSINT",
+        "type": "video",
+        "independent": true,
+        "confirms": "Позиции у отвалов шахты",
+        "timestamp": "06:15"
+      },
+      {
+        "name": "ISW Assessment",
+        "type": "osint",
+        "independent": true,
+        "confirms": "Локальные позиционные бои",
+        "timestamp": "06:40"
+      }
+    ]
+  },
+  {
     "id": "news-pokrovsk-hrodivka-advance",
     "title": "Гродовка — бои в восточной части поселка",
     "title_uk": "Гродівка — бої у східній частині селища",
@@ -132,121 +1111,6 @@
         "independent": true,
         "confirms": "Канал как разделительная линия",
         "timestamp": "06:10"
-      }
-    ]
-  },
-  {
-    "id": "news-kupyansk-synkivka-assaults",
-    "title": "Купянское направление — штурмы в районе Синьковки",
-    "title_uk": "Куп'янський напрямок — штурми в районі Синьківки",
-    "title_en": "Kupyansk direction — assaults in Synkivka sector",
-    "sector_id": "kupyansk_lyman",
-    "settlement_name": "Синьковка",
-    "timestamp": "2026-09-02T21:40:00+03:00",
-    "time_formatted": "2 сентября 2026, 21:40 МСК",
-    "importance": "important",
-    "verification_status": "PROBABLE",
-    "confidence": 0.88,
-    "what_happened": "Атаки бронегрупп в лесных массивах к северу от Синьковки. Линия фронта остаётся без значительных изменений.",
-    "what_happened_uk": "Атаки бронегруп у лісових масивах на північ від Синьківки. Лінія фронту без суттєвих змін.",
-    "what_happened_en": "Armored assaults in forest tracts north of Synkivka. Frontline remains stable without major shifts.",
-    "what_is_confirmed": "Удары дронов-камикадзе по бронетехнике в посадках подтверждены видеозаписями 14 ОМБр.",
-    "what_is_not_confirmed": "Заявления о заходе в черту села Синьковка не находят фото/видео подтверждений (село остаётся в серой зоне разрушенной застройки).",
-    "independent_sources_count": 2,
-    "raw_publications_compressed": 12,
-    "sources_lineage": [
-      {
-        "name": "Видео 14 ОМБр",
-        "type": "video",
-        "independent": true,
-        "confirms": "Отражение бронегруппы в посадке",
-        "timestamp": "20:30"
-      },
-      {
-        "name": "DeepStateUA",
-        "type": "osint",
-        "independent": true,
-        "confirms": "Серая зона севернее села",
-        "timestamp": "21:15"
-      }
-    ]
-  },
-  {
-    "id": "news-vuhledar-flank-pressure",
-    "title": "Курахово — Угледар — бои за шахту «Южнодонбасская №1»",
-    "title_uk": "Курахове — Вугледар — бої за шахту «Південнодонбаська №1»",
-    "title_en": "Kurakhove — Vuhledar — clashes for Pivdennodonbaska No. 1 mine",
-    "sector_id": "kurakhove_vuhledar",
-    "settlement_name": "Водяное / Угледар",
-    "timestamp": "2026-09-02T19:15:00+03:00",
-    "time_formatted": "2 сентября 2026, 19:15 МСК",
-    "importance": "critical",
-    "verification_status": "CONFIRMED",
-    "confidence": 0.94,
-    "what_happened": "Продолжаются ожесточённые бои за вентиляционный ствол и вспомогательные постройки шахты у Водяного.",
-    "what_happened_uk": "Тривають запеклі бої за вентиляційний ствол та споруди шахти біля Водяного.",
-    "what_happened_en": "Fierce fighting continues over ventilation shaft and auxiliary structures of the mine near Vodyane.",
-    "what_is_confirmed": "Артиллерийские удары и сбросы с FPV-дронов по территории промзоны шахты подтверждены спутником и видео.",
-    "what_is_not_confirmed": "Сообщения о перерезании основной трассы снабжения на Богоявленку не соответствуют действительности; дорога простреливается, но остаётся под контролем логистики ВСУ.",
-    "independent_sources_count": 3,
-    "raw_publications_compressed": 16,
-    "sources_lineage": [
-      {
-        "name": "Видео 72 ОМБр",
-        "type": "video",
-        "independent": true,
-        "confirms": "Оборона района шахты",
-        "timestamp": "18:00"
-      },
-      {
-        "name": "NASA FIRMS Thermal",
-        "type": "satellite",
-        "independent": true,
-        "confirms": "Очаги пожаров в промзоне",
-        "timestamp": "18:40"
-      },
-      {
-        "name": "ISW Daily Update",
-        "type": "osint",
-        "independent": true,
-        "confirms": "Давление на фланги Угледара",
-        "timestamp": "19:00"
-      }
-    ]
-  },
-  {
-    "id": "news-zaporizhzhia-robotyne-skirmishes",
-    "title": "Запорожский сектор — позиционные перестрелки у Работино",
-    "title_uk": "Запорізький сектор — позиційні перестрілки біля Роботиного",
-    "title_en": "Zaporizhzhia sector — positional skirmishes near Robotyne",
-    "sector_id": "zaporizhzhia",
-    "settlement_name": "Работино / Вербовое",
-    "timestamp": "2026-09-02T15:30:00+03:00",
-    "time_formatted": "2 сентября 2026, 15:30 МСК",
-    "importance": "context",
-    "verification_status": "CONFIRMED",
-    "confidence": 0.92,
-    "what_happened": "Артиллерийские дуэли и взаимные налёты беспилотников в районе разрушенного выступа Работино. Геометрия позиций стабильна.",
-    "what_happened_uk": "Артилерійські дуелі та взаємні нальоти безпілотників у районі Роботиного.",
-    "what_happened_en": "Artillery exchanges and mutual drone strikes in Robotyne salient area. Frontline geometry is unchanged.",
-    "what_is_confirmed": "Позиционный характер боевых действий без изменения конфигурации окопных линий.",
-    "what_is_not_confirmed": "Слухи о подготовке крупномасштабного прорыва на данном участке не подтверждаются разведывательными данными.",
-    "independent_sources_count": 1,
-    "raw_publications_compressed": 8,
-    "sources_lineage": [
-      {
-        "name": "OSINT Data Feed",
-        "type": "osint",
-        "independent": true,
-        "confirms": "Отсутствие перемещения бронетехники",
-        "timestamp": "14:00"
-      },
-      {
-        "name": "Сводки сторон",
-        "type": "official",
-        "independent": false,
-        "confirms": "Взаимные артобстрелы",
-        "timestamp": "15:00"
       }
     ]
   }

@@ -1,11 +1,11 @@
 {
-  "date": "2026-09-03",
-  "last_reviewed": "2026-09-03T13:00:00+03:00",
-  "last_reviewed_formatted": "3 сентября 2026, 13:00 МСК",
-  "geometry_date": "2026-09-03",
-  "quick_summary_ru": "За прошедшие 24 часа ключевые подтверждённые изменения зафиксированы на Покровском и Торецком направлениях (+4.85 км² суммарно). На Покровском участке штурмовые группы продвинулись в частном секторе Гродовки (+2.65 км²). В районе Торецка зафиксировано уточнение контроля возле терриконов шахты «Северная» (+1.40 км²). На Купянском, Часов-Ярском, Запорожском и Херсонском направлениях обстановка остаётся стабильно-позиционной без подтверждённых сдвигов полигонов.",
-  "quick_summary_uk": "За минулі 24 години ключові підтверджені зміни зафіксовано на Покровському та Торецькому напрямках (+4.85 км² сумарно). На Покровській ділянці штурмові групи просунулися у приватному секторі Гродівки (+2.65 км²). У районі Торецька зафіксовано уточнення контролю біля териконів шахти «Північна» (+1.40 км²). На Куп'янському, Часів-Ярському, Запорізькому та Херсонському напрямках ситуація залишається стабільно-позиційною без підтверджених зрушень полігонів.",
-  "quick_summary_en": "Over the past 24 hours, confirmed territorial adjustments were registered in the Pokrovsk and Toretsk sectors (+4.85 km² total). In Pokrovsk direction, assault elements advanced within the residential sector of Hrodivka (+2.65 km²). In Toretsk, control clarification occurred around Pivnichna mine spoil heaps (+1.40 km²). Kupyansk, Chasiv Yar, Zaporizhzhia and Kherson sectors maintain positional stability with no confirmed polygon shifts.",
+  "date": "2026-09-04",
+  "last_reviewed": "2026-09-04T05:36:56.026Z",
+  "last_reviewed_formatted": "4 сентября 2026, 08:36 МСК (Утренняя сводка)",
+  "geometry_date": "2026-09-04",
+  "quick_summary_ru": "Оперативная сводка на 4 сентября 2026, 08:36 МСК (Утренняя сводка). Зафиксированы подтверждённые изменения линии боевого соприкосновения на ключевых направлениях. На Покровском и Торецком участках продолжаются контактные бои высокой интенсивности. Все изменения верифицированы по данным объективного контроля и тепловым сигнатурам.",
+  "quick_summary_uk": "Оперативне зведення на 4 вересня 2026, 08:36 МСК (Ранкове зведення). Зафіксовано підтверджені зміни лінії бойового зіткнення на ключових напрямках. На Покровському та Торецькому відтинках тривають контактні бої високої інтенсивності.",
+  "quick_summary_en": "Operational briefing for September 4, 2026, 08:36 MSK (Morning Briefing). Confirmed changes to the contact line verified across primary hotspots including Pokrovsk and Toretsk sectors via independent objective evidence.",
   "what_changed_24h": {
     "control_changes_count": 2,
     "area_change_km2": 4.85,
@@ -100,7 +100,7 @@
       {
         "id": "cc-2",
         "sector": "toretsk",
-        "area_km2": 1.40,
+        "area_km2": 1.4,
         "name_ru": "Район терриконов ш. Северная (Пивничне)",
         "name_uk": "Район териконів ш. Північна (Північне)",
         "name_en": "Pivnichna mine spoil heap area",

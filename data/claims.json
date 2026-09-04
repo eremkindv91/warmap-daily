@@ -1,5 +1,17 @@
 [
   {
+    "id": "claim-ua-genshtab-04sep",
+    "side": "ukrainian",
+    "side_label": "Генштаб ВСУ (Утренняя сводка)",
+    "summary": "Утренняя сводка: на Покровском и Торецком направлениях за ночь отражено свыше 30 штурмовых действий противника, рубежи обороны удерживаются.",
+    "event_date": "2026-09-04",
+    "published_at": "2026-09-04T05:00:00+00:00",
+    "verification_status": "claim",
+    "source_ids": ["general-staff-ua"],
+    "settlement_id": "settlement-pokrovsk",
+    "location": { "lat": 48.2822, "lon": 37.1824 }
+  },
+  {
     "id": "claim-ru-mod-pokrovsk",
     "side": "russian",
     "side_label": "Минобороны РФ",
