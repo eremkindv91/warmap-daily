@@ -67,5 +67,32 @@ class TestWarMapScoringAndIntegrity(unittest.TestCase):
         self.assertGreaterEqual(self.status["public_delay_hours"], 24)
         self.assertTrue(len(self.status["last_reviewed_formatted"]) > 0)
 
+    def test_snapshots_index_chronological_and_hashes(self):
+        """Test that snapshots in index.json are chronological, have valid SHA-256 and existing GeoJSON."""
+        index_path = ROOT / "data" / "snapshots" / "index.json"
+        self.assertTrue(index_path.exists(), "snapshots/index.json must exist")
+        with open(index_path, "r", encoding="utf-8") as f:
+            snapshots = json.load(f)
+        
+        self.assertGreaterEqual(len(snapshots), 3, "Must have at least 3 historical snapshots")
+        dates = [s["date"] for s in snapshots]
+        self.assertEqual(dates, sorted(dates), "Snapshots in index.json must be chronologically sorted")
+
+        for snap in snapshots:
+            self.assertRegex(snap["date"], r"^\d{4}-\d{2}-\d{2}$")
+            self.assertEqual(len(snap["sha256"]), 64, "SHA-256 hash must be 64 characters")
+            geo_file = ROOT / "data" / "snapshots" / f"{snap['date']}.geojson"
+            self.assertTrue(geo_file.exists(), f"Snapshot file {geo_file.name} must exist")
+            with open(geo_file, "r", encoding="utf-8") as gf:
+                geo = json.load(gf)
+            self.assertEqual(geo.get("type"), "FeatureCollection")
+            self.assertIn("features", geo)
+
+    def test_daily_rollover_dry_run(self):
+        """Test that daily_rollover engine can run in dry-run mode without crashing."""
+        from pipeline.daily_rollover import run_daily_rollover
+        result = run_daily_rollover(target_date="2026-09-05", dry_run=True)
+        self.assertTrue(result)
+
 if __name__ == "__main__":
     unittest.main()

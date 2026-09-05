@@ -1096,8 +1096,126 @@ body.theme-dark .tactical-dark-tiles {
 .swatch.ua { background: #3b82f6; box-shadow: 0 0 6px rgba(59, 130, 246, 0.6); }
 .swatch.contested { background: #eab308; box-shadow: 0 0 6px rgba(234, 179, 8, 0.6); }
 .swatch.change { background: var(--color-change); box-shadow: 0 0 6px rgba(34, 197, 94, 0.6); }
-.swatch.events { background: var(--color-blue); }
+.swatch.events { background: #0284c7; box-shadow: 0 0 6px rgba(2, 132, 199, 0.6); }
 .swatch.settlements { background: #a855f7; box-shadow: 0 0 6px rgba(168, 85, 247, 0.6); }
+
+/* High-contrast, razor-sharp tactical frontline boundaries */
+.leaflet-pane svg path.crisp-frontline-ru {
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  filter: drop-shadow(0 0 3px rgba(185, 28, 28, 0.75));
+}
+
+.leaflet-pane svg path.crisp-frontline-ua {
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  filter: drop-shadow(0 0 3px rgba(29, 78, 216, 0.75));
+}
+
+.leaflet-pane svg path.crisp-frontline-contested {
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  filter: drop-shadow(0 0 4px rgba(217, 119, 6, 0.85));
+}
+
+.leaflet-pane svg path.crisp-frontline-change {
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  filter: drop-shadow(0 0 5px rgba(34, 197, 94, 0.95));
+}
+
+/* Tactical Event Pin (OSINT Video Geolocation) */
+.tactical-event-pin {
+  width: 24px;
+  height: 24px;
+  background: #0284c7;
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  box-shadow: 0 0 8px rgba(2, 132, 199, 0.9), 0 2px 5px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  transform: translate(-50%, -50%);
+  user-select: none;
+  transition: transform 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
+  font-size: 11px;
+}
+
+.tactical-event-pin:hover {
+  transform: translate(-50%, -50%) scale(1.22);
+  background: #0ea5e9;
+  box-shadow: 0 0 14px rgba(14, 165, 233, 0.95), 0 3px 8px rgba(0, 0, 0, 0.6);
+  z-index: 1000 !important;
+}
+
+.tactical-event-pin.status-unconfirmed {
+  background: #ea580c;
+  box-shadow: 0 0 8px rgba(234, 88, 12, 0.9), 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.tactical-event-pin .pin-icon {
+  font-size: 11px;
+  line-height: 1;
+}
+
+/* Legend Explainer Help Button & Content */
+.layer-chip.help-chip {
+  background: rgba(56, 189, 248, 0.12);
+  border-color: rgba(56, 189, 248, 0.35);
+  color: #38bdf8;
+}
+
+.layer-chip.help-chip:hover {
+  background: rgba(56, 189, 248, 0.22);
+  border-color: #38bdf8;
+  color: #ffffff;
+}
+
+.legend-help-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  margin-top: 0.5rem;
+}
+
+.legend-help-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 0.55rem 0.75rem;
+  font-size: 0.8rem;
+  line-height: 1.45;
+}
+
+.legend-help-item p {
+  margin: 0.2rem 0 0 0;
+  color: var(--text-secondary);
+  font-size: 0.76rem;
+}
+
+.swatch-large {
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+}
+
+.swatch-large.ru { background: #ef4444; border: 2px solid #b91c1c; }
+.swatch-large.ua { background: #3b82f6; border: 2px solid #1d4ed8; }
+.swatch-large.contested { background: #f59e0b; border: 2px solid #b45309; }
+.swatch-large.change { background: #22c55e; border: 2px solid #15803d; }
+.swatch-large.events { background: #0284c7; border: 2px solid #ffffff; color: #fff; }
+.swatch-large.settlements { background: #a855f7; border: 2px solid #7e22ce; color: #fff; }
 
 /* Tactical settlement pin */
 .tactical-settlement-pin {
@@ -1194,7 +1312,48 @@ body.theme-dark .tactical-dark-tiles {
   padding: 0.25rem 0.45rem;
   border-radius: var(--radius-sm);
   font-size: 0.78rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
+
+.hud-sectors-list {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  margin-top: 4px;
+}
+
+.hud-sector-item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+  background: rgba(255, 255, 255, 0.04);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.hud-settlements-list {
+  font-size: 0.7rem;
+  color: var(--color-blue);
+  line-height: 1.3;
+}
+
+/* Uncertainty and contested polygon styling */
+.uncertain-hatch-pattern {
+  stroke: #eab308;
+  stroke-dasharray: 4, 4;
+  fill: rgba(234, 179, 8, 0.22);
+}
+
+.yesterday-reference-border {
+  stroke: #fbbf24;
+  stroke-dasharray: 6, 6;
+  stroke-width: 2.5;
+  filter: drop-shadow(0 0 4px rgba(251, 191, 36, 0.5));
+}
+
 
 .hud-hint {
   font-size: 0.72rem;
@@ -2930,4 +3089,167 @@ dialog::backdrop {
 .summary-youtube-section {
   margin-top: 1.5rem;
 }
+
+/* ==========================================================================
+   WARMAP DAILY 2.0: TIMELINE & FRESHNESS & UNCERTAINTY STYLES
+   ========================================================================== */
+
+.freshness-dot {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  margin-right: 5px;
+  flex-shrink: 0;
+}
+.freshness-dot.green {
+  background: #10b981;
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.6);
+}
+.freshness-dot.yellow {
+  background: #f59e0b;
+  box-shadow: 0 0 8px rgba(245, 158, 11, 0.6);
+}
+.freshness-dot.red {
+  background: #ef4444;
+  box-shadow: 0 0 8px rgba(239, 68, 68, 0.6);
+}
+
+/* Timeline Control Strip */
+.timeline-control-strip {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.5rem 0.85rem;
+  background: var(--bg-surface-elevated, #161b22);
+  border-bottom: 1px solid var(--border-subtle, #30363d);
+  font-size: 0.85rem;
+  z-index: 500;
+  position: relative;
+  flex-wrap: wrap;
+}
+
+.timeline-play-group {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.timeline-btn {
+  background: var(--bg-surface, #21262d);
+  border: 1px solid var(--border-subtle, #30363d);
+  color: var(--text-primary, #f0f6fc);
+  border-radius: var(--radius-sm, 6px);
+  padding: 0.35rem 0.65rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.timeline-btn:hover {
+  background: var(--bg-surface-hover, #30363d);
+  border-color: var(--color-blue, #58a6ff);
+}
+
+.timeline-speed-badge {
+  background: var(--bg-surface, #21262d);
+  border: 1px solid var(--border-subtle, #30363d);
+  color: var(--text-secondary, #8b949e);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.35rem 0.55rem;
+  border-radius: var(--radius-sm, 6px);
+  cursor: pointer;
+}
+
+.timeline-speed-badge:hover {
+  color: var(--color-blue, #58a6ff);
+  border-color: var(--color-blue, #58a6ff);
+}
+
+.timeline-slider-track {
+  flex: 1;
+  min-width: 160px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.timeline-slider-track input[type="range"] {
+  width: 100%;
+  cursor: pointer;
+  accent-color: var(--color-blue, #58a6ff);
+  height: 6px;
+  background: var(--bg-surface, #21262d);
+  border-radius: 3px;
+}
+
+.timeline-ticks {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.68rem;
+  color: var(--text-muted, #8b949e);
+  padding: 0 2px;
+}
+
+.timeline-ticks span {
+  cursor: pointer;
+}
+
+.timeline-ticks span.active {
+  color: var(--color-blue, #58a6ff);
+  font-weight: 700;
+}
+
+.timeline-info-pill {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--bg-surface, #21262d);
+  border: 1px solid var(--border-subtle, #30363d);
+  padding: 0.3rem 0.65rem;
+  border-radius: var(--radius-sm, 6px);
+  font-size: 0.78rem;
+}
+
+.timeline-date-label {
+  font-weight: 700;
+  color: var(--text-primary, #f0f6fc);
+}
+
+.timeline-hash-badge {
+  font-family: monospace;
+  font-size: 0.72rem;
+  color: var(--text-muted, #8b949e);
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0.1rem 0.35rem;
+  border-radius: 4px;
+}
+
+.timeline-area-badge {
+  background: rgba(239, 68, 68, 0.15);
+  color: #f87171;
+  font-weight: 700;
+  font-size: 0.72rem;
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+/* Uncertainty SVG / Canvas Pattern classes */
+.leaflet-container svg pattern.uncertainty-hatch path {
+  stroke: #eab308;
+  stroke-width: 1.5;
+  stroke-opacity: 0.75;
+}
+
+/* Diff Mode UI */
+.diff-mode-active #mapViewport {
+  outline: 2px solid var(--color-yellow, #eab308);
+  outline-offset: -2px;
+}
+
 

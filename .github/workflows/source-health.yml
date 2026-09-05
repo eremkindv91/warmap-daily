@@ -1,8 +1,8 @@
-name: Daily source health
+name: Daily 05:00 UTC Rollover and Source Health
 
 on:
   schedule:
-    - cron: "17 3 * * *"
+    - cron: "0 5 * * *"
   workflow_dispatch:
 
 permissions:
@@ -30,19 +30,22 @@ jobs:
         run: python pipeline/fetch_deepstate_updates.py
       - name: Check public source homepages
         run: python pipeline/check_sources.py
+      - name: Execute 05:00 UTC Daily Rollover
+        run: python pipeline/daily_rollover.py
       - name: Validate refreshed public records
         run: |
           python pipeline/validate_data.py
+          python pipeline/validate_schemas.py
           python -m unittest discover -s pipeline/tests -v
-      - name: Publish health status
+      - name: Publish health status and snapshot index
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/source-health.json data/status.json data/events.json data/evidence.json data/updates.geojson data/settlements.json data/settlements-index.json
+          git add data/source-health.json data/status.json data/events.json data/evidence.json data/updates.geojson data/settlements.json data/settlements-index.json data/snapshots/ data/audit-log.json
           if git diff --cached --quiet; then
-            echo "Source health unchanged"
+            echo "Data and snapshots unchanged"
           else
-            git commit -m "Update source health"
+            git commit -m "Auto 05:00 UTC snapshot rollover and source health"
             git push
           fi
       - name: Upload refreshed site

@@ -51,8 +51,9 @@
           <span class="brand-title">WarMap <span class="brand-accent">Daily</span></span>
         </a>
         <div class="date-badge-wrap">
-          <span class="date-badge" id="topDataDate">04.09.2026</span>
-          <span class="delay-tag" title="Данные верифицируются с обязательной 24-часовой задержкой OSINT">24h OSINT</span>
+          <span class="freshness-dot green" id="topFreshnessDot" title="Срез актуален (<24ч), все источники проверены"></span>
+          <span class="date-badge" id="topDataDate">05.09.2026</span>
+          <span class="delay-tag" title="Оперативная задержка публикации: 24ч (защита безопасности ЛБС)">24h OSINT</span>
         </div>
       </div>
 
@@ -244,6 +245,30 @@
           </div>
         </div>
 
+        <!-- Interactive Chronological Timeline Control Bar -->
+        <div class="timeline-control-strip" id="mapTimelineBar" aria-label="Хронологический таймлайн фронта">
+          <div class="timeline-play-group">
+            <button id="timelinePrevBtn" class="timeline-btn" type="button" title="Предыдущий день (Ctrl+←)">⏮️</button>
+            <button id="timelinePlayBtn" class="timeline-btn play-active" type="button" title="Воспроизвести динамику фронта (Пробел)">▶️</button>
+            <button id="timelineNextBtn" class="timeline-btn" type="button" title="Следующий день (Ctrl+→)">⏭️</button>
+            <button id="timelineSpeedBtn" class="timeline-speed-badge" type="button" title="Скорость воспроизведения">1x</button>
+          </div>
+
+          <div class="timeline-slider-track">
+            <input type="range" id="timelineSlider" min="0" max="4" value="4" step="1" aria-label="Выбор даты снапшота">
+            <div class="timeline-ticks" id="timelineTicks">
+              <!-- Dynamically filled with dates -->
+            </div>
+          </div>
+
+          <div class="timeline-info-pill">
+            <span class="freshness-dot green" id="timelineFreshnessDot" title="Срез верифицирован, лаг <24h"></span>
+            <span class="timeline-date-label" id="timelineDateLabel">5 сен 2026</span>
+            <span class="timeline-hash-badge" id="timelineHashBadge" title="Контрольный SHA-256 хэш снимка">#fefaf0</span>
+            <span class="timeline-area-badge" id="timelineAreaBadge">+4.85 км²</span>
+          </div>
+        </div>
+
         <!-- The Leaflet Map Canvas -->
         <div class="map-viewport" id="mapViewport">
           <div id="map" aria-label="Интерактивная карта контроля"></div>
@@ -275,29 +300,33 @@
 
           <!-- Floating Layer Legend Pills (Tap to Toggle Layers) -->
           <div class="map-layers-floating-bar" id="mapLayersBar">
-            <button type="button" data-layer="reference_ru" class="layer-chip active" title="Территория под контролем РФ">
+            <button type="button" data-layer="reference_ru" class="layer-chip active" title="Территория под контролем РФ (сплошная красная граница)">
               <span class="swatch ru"></span>
               <span>РФ</span>
             </button>
-            <button type="button" data-layer="control_ua" class="layer-chip active" title="Рубежи обороны и позиции ВСУ">
+            <button type="button" data-layer="control_ua" class="layer-chip active" title="Позиции и рубежи обороны ВСУ (сплошная синяя граница)">
               <span class="swatch ua"></span>
               <span>Украина</span>
             </button>
-            <button type="button" data-layer="contested" class="layer-chip active" title="Серая зона активных боёв">
+            <button type="button" data-layer="contested" class="layer-chip active" title="Серая зона встречных боёв (жёлтая полоса)">
               <span class="swatch contested"></span>
               <span>Серая зона</span>
             </button>
-            <button type="button" data-layer="change" class="layer-chip active" title="Подтверждённые сдвиги за 24ч">
+            <button type="button" data-layer="change" class="layer-chip active" title="Подтверждённые сдвиги за 24ч (зелёные участки)">
               <span class="swatch change"></span>
               <span>+24ч Сдвиг</span>
             </button>
-            <button type="button" data-layer="events" class="layer-chip active" title="Геолокации боевых событий">
-              <span class="swatch events"></span>
-              <span>Геолокации</span>
-            </button>
-            <button type="button" data-layer="settlements" class="layer-chip active" title="Населённые пункты и статусы">
+            <button type="button" data-layer="settlements" class="layer-chip active" title="Населённые пункты со статусами">
               <span class="swatch settlements"></span>
               <span>Н.П.</span>
+            </button>
+            <button type="button" data-layer="events" class="layer-chip" id="layerChipEvents" title="Точки видеофиксаций боевых действий с БПЛА (OSINT-геолокации)">
+              <span class="swatch events" style="background: #0284c7; color: #fff; font-size: 9px; line-height: 1; display: inline-flex; align-items: center; justify-content: center;">📹</span>
+              <span>Видео OSINT</span>
+            </button>
+            <button type="button" id="mapLegendHelpBtn" class="layer-chip help-chip" title="Что означают цвета и точки на карте?">
+              <span style="font-size: 11px;">ℹ️</span>
+              <span>Что на карте?</span>
             </button>
           </div>
 

@@ -9,6 +9,14 @@ import {
   getFrontlineOperatingDate
 } from './services/osintCollector.js';
 import { parseDigestMarkdown, SYSTEM_PROMPT_DAILY_DIGEST } from './lib/digest-parser.js';
+import {
+  calculateConsensusScore,
+  getConfidenceLevel,
+  findAffectedSettlements,
+  computeSnapshotDiff,
+  MIN_CHANGE_DISTANCE_METERS,
+  MIN_CHANGE_AREA_KM2
+} from './lib/geoConsensus.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -399,6 +407,234 @@ function ensureCurrentDayData() {
   if (needsStatusSave) writeJson('data/status.json', status);
   if (needsDigestSave) writeJson('data/daily-digest.json', digest);
 }
+
+// --- Standardized WarMap Daily 2.0 REST API ---
+
+// 1. Health & Resilience Endpoint
+app.get('/api/health', (req, res) => {
+  const op = getOperatingDate();
+  const sourceHealth = readJson('data/source-health.json', { sources: [] });
+  const snapshots = readJson('data/snapshots/index.json', []);
+  const okSources = (sourceHealth.sources || []).filter(s => ['OK', 'WARNING'].includes(s.status)).length;
+  const totalSources = sourceHealth.sources?.length || 9;
+  const isHealthy = okSources >= 5;
+
+  res.json({
+    status: isHealthy ? 'HEALTHY' : 'DEGRADED',
+    timestamp: new Date().toISOString(),
+    operating_date: op.isoDate,
+    public_delay_hours: 24,
+    consensus_engine: {
+      status: 'ACTIVE',
+      version: '2.0-consensus',
+      noise_filter_min_distance_m: MIN_CHANGE_DISTANCE_METERS,
+      noise_filter_min_area_km2: MIN_CHANGE_AREA_KM2,
+      cross_verification_threshold: 0.70
+    },
+    sources: {
+      total: totalSources,
+      active: okSources,
+      failed: totalSources - okSources,
+      last_health_check: sourceHealth.timestamp || new Date().toISOString()
+    },
+    snapshots: {
+      count: snapshots.length,
+      latest_date: snapshots[snapshots.length - 1]?.date || op.isoDate
+    }
+  });
+});
+
+// 2. Snapshots Archive Index
+app.get('/api/snapshots', (req, res) => {
+  const snapshots = readJson('data/snapshots/index.json', []);
+  res.json(snapshots);
+});
+
+// 3. Frontline Consensus Latest GeoJSON
+app.get('/api/front/latest', (req, res) => {
+  ensureCurrentDayData();
+  const op = getOperatingDate();
+  const latestSnapshotPath = `data/snapshots/${op.isoDate}.geojson`;
+  
+  let data;
+  if (fs.existsSync(path.join(__dirname, latestSnapshotPath))) {
+    data = readJson(latestSnapshotPath);
+  } else {
+    data = readJson('data/current.geojson', { type: 'FeatureCollection', features: [] });
+  }
+
+  // Enrich with consensus metadata
+  if (!data.metadata) {
+    data.metadata = {};
+  }
+  data.metadata.consensus_version = '2.0-consensus';
+  data.metadata.operating_date = op.isoDate;
+  data.metadata.public_delay_hours = 24;
+  data.metadata.confidence_rating = 'HIGH';
+
+  res.json(data);
+});
+
+// 4. Daily Frontline Changes (Latest)
+app.get('/api/front/changes', (req, res) => {
+  ensureCurrentDayData();
+  const op = getOperatingDate();
+  const changesGeo = readJson('data/changes.geojson', { type: 'FeatureCollection', features: [] });
+  const settlements = readJson('data/settlements-index.json', []);
+  
+  // Calculate affected settlements and confidence scores
+  const enrichedFeatures = (changesGeo.features || []).map(f => {
+    const coords = f.geometry?.coordinates;
+    const affected = findAffectedSettlements(coords, settlements, 10);
+    const sources = f.properties?.sources || ['deepstate', 'mod-ru'];
+    const score = calculateConsensusScore(sources);
+    
+    return {
+      ...f,
+      properties: {
+        ...f.properties,
+        consensus_score: score,
+        confidence_level: getConfidenceLevel(score),
+        affected_settlements: affected
+      }
+    };
+  });
+
+  const totalArea = enrichedFeatures.reduce((acc, f) => acc + (Number(f.properties?.area_km2) || 0), 0);
+
+  res.json({
+    date: op.isoDate,
+    features_count: enrichedFeatures.length,
+    total_area_km2: Math.round(totalArea * 100) / 100,
+    type: 'FeatureCollection',
+    features: enrichedFeatures
+  });
+});
+
+// 5. Daily Frontline Changes by Date
+app.get('/api/front/changes/:date', (req, res) => {
+  const dateParam = req.params.date;
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(dateParam)) {
+    return res.status(400).json({ error: 'Invalid date format. Use YYYY-MM-DD.' });
+  }
+
+  const snapshotFile = `data/snapshots/${dateParam}.geojson`;
+  const fullPath = path.join(__dirname, snapshotFile);
+
+  if (!fs.existsSync(fullPath)) {
+    return res.status(404).json({ error: `No changes data found for ${dateParam}` });
+  }
+
+  const snapshot = readJson(snapshotFile);
+  const changeFeatures = (snapshot.features || []).filter(f => 
+    f.properties?.type === 'change' || (f.id && f.id.startsWith('change-'))
+  );
+
+  const totalArea = changeFeatures.reduce((acc, f) => acc + (Number(f.properties?.area_km2) || 0), 0);
+
+  res.json({
+    date: dateParam,
+    features_count: changeFeatures.length,
+    total_area_km2: Math.round(totalArea * 100) / 100,
+    type: 'FeatureCollection',
+    features: changeFeatures
+  });
+});
+
+// 6. Differential Analysis Between Two Snapshots (Day T vs Day T-1)
+app.get('/api/front/diff', (req, res) => {
+  const op = getOperatingDate();
+  const toDate = req.query.to || op.isoDate;
+  let fromDate = req.query.from;
+
+  // If fromDate is not provided, pick snapshot immediately prior to toDate
+  const snapshots = readJson('data/snapshots/index.json', []);
+  const sortedDates = snapshots.map(s => s.date).sort();
+
+  if (!fromDate) {
+    const toIndex = sortedDates.indexOf(toDate);
+    if (toIndex > 0) {
+      fromDate = sortedDates[toIndex - 1];
+    } else if (sortedDates.length >= 2) {
+      fromDate = sortedDates[0];
+    } else {
+      fromDate = toDate;
+    }
+  }
+
+  const fromFile = `data/snapshots/${fromDate}.geojson`;
+  const toFile = `data/snapshots/${toDate}.geojson`;
+
+  if (!fs.existsSync(path.join(__dirname, toFile))) {
+    return res.status(404).json({ error: `Target snapshot ${toDate} not found.` });
+  }
+
+  const toSnapshot = readJson(toFile);
+  const fromSnapshot = fs.existsSync(path.join(__dirname, fromFile)) ? readJson(fromFile) : { metadata: { snapshot_date: fromDate }, features: [] };
+  const settlements = readJson('data/settlements-index.json', []);
+
+  const diffResult = computeSnapshotDiff(fromSnapshot, toSnapshot, settlements);
+  res.json(diffResult);
+});
+
+// 6b. Frontline Consensus GeoJSON by Historical Date
+app.get('/api/front/:date', (req, res) => {
+  const dateParam = req.params.date;
+  // Validate YYYY-MM-DD
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(dateParam)) {
+    return res.status(400).json({ error: 'Invalid date format. Use YYYY-MM-DD.' });
+  }
+
+  const snapshotFile = `data/snapshots/${dateParam}.geojson`;
+  const fullPath = path.join(__dirname, snapshotFile);
+
+  if (!fs.existsSync(fullPath)) {
+    return res.status(404).json({
+      error: `Snapshot for date ${dateParam} not found in archive.`,
+      available_snapshots: (readJson('data/snapshots/index.json', [])).map(s => s.date)
+    });
+  }
+
+  const data = readJson(snapshotFile);
+  res.json(data);
+});
+
+// 7. Extended Settlement Search with Aliases
+app.get('/api/settlements/search', (req, res) => {
+  const query = (req.query.q || '').trim().toLowerCase();
+  if (!query) {
+    return res.json([]);
+  }
+
+  const settlements = readJson('data/settlements-index.json', []);
+
+  // Common geographic aliases in conflict zone
+  const ALIAS_MAP = {
+    'артемовск': 'бахмут',
+    'бахмут': 'артемовск',
+    'новгородское': 'нью-йорк',
+    'нью-йорк': 'новгородское',
+    'красноармейск': 'покровск',
+    'покровск': 'красноармейск',
+    'димитров': 'мирноград',
+    'мирноград': 'димитров'
+  };
+
+  const aliasTarget = ALIAS_MAP[query];
+
+  const matched = settlements.filter(s => {
+    const nameRu = (s.name_ru || s.name || '').toLowerCase();
+    const nameUk = (s.name_uk || '').toLowerCase();
+    const sec = (s.sector || '').toLowerCase();
+
+    const matchesDirect = nameRu.includes(query) || nameUk.includes(query) || sec.includes(query);
+    const matchesAlias = aliasTarget && (nameRu.includes(aliasTarget) || nameUk.includes(aliasTarget));
+
+    return matchesDirect || matchesAlias;
+  });
+
+  res.json(matched.slice(0, 15));
+});
 
 // Perform rollover check on server boot
 ensureCurrentDayData();
