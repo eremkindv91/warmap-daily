@@ -469,14 +469,16 @@ export async function fetchAndNormalizeOsintData() {
     existingStatus.point_update_count = cappedEvents.length;
     writeJson('data/status.json', existingStatus);
 
-    // Update daily-digest.json
+    // Update daily-digest.json (preserving rich 60-second summary and assessment if present)
     existingDigest.date = opDate.isoDate;
     existingDigest.geometry_date = opDate.isoDate;
     existingDigest.last_reviewed = opDate.isoString;
     existingDigest.last_reviewed_formatted = opDate.formattedRu;
-    existingDigest.quick_summary_ru = `Оперативная сводка на ${opDate.formattedRu}. Зафиксированы подтверждённые изменения линии боевого соприкосновения на ключевых направлениях. На Покровском и Торецком участках продолжаются контактные бои высокой интенсивности. Все изменения верифицированы по данным объективного контроля и тепловым сигнатурам.`;
-    existingDigest.quick_summary_uk = `Оперативне зведення на ${opDate.formattedUk}. Зафіксовано підтверджені зміни лінії бойового зіткнення на ключових напрямках. На Покровському та Торецькому відтинках тривають контактні бої високої інтенсивності.`;
-    existingDigest.quick_summary_en = `Operational briefing for ${opDate.formattedEn}. Confirmed changes to the contact line verified across primary hotspots including Pokrovsk and Toretsk sectors via independent objective evidence.`;
+    if (!existingDigest.sixty_seconds || existingDigest.sixty_seconds.length === 0) {
+      existingDigest.quick_summary_ru = `Оперативная сводка на ${opDate.formattedRu}. Зафиксированы подтверждённые изменения линии боевого соприкосновения на ключевых направлениях. На Покровском и Торецком участках продолжаются контактные бои высокой интенсивности. Все изменения верифицированы по данным объективного контроля и тепловым сигнатурам.`;
+      existingDigest.quick_summary_uk = `Оперативне зведення на ${opDate.formattedUk}. Зафіксовано підтверджені зміни лінії бойового зіткнення на ключових напрямках. На Покровському та Торецькому відтинках тривають контактні бої високої інтенсивності.`;
+      existingDigest.quick_summary_en = `Operational briefing for ${opDate.formattedEn}. Confirmed changes to the contact line verified across primary hotspots including Pokrovsk and Toretsk sectors via independent objective evidence.`;
+    }
     writeJson('data/daily-digest.json', existingDigest);
 
     // Update changes.geojson metadata dates

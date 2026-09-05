@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
-  <meta name="description" content="WarMap Daily — OSINT-сводка за 24 часа и интерактивная тактическая карта контроля.">
+  <meta name="description" content="WarMap Daily 2.0 — OSINT compact 24h dashboard and interactive tactical control map with source lineage, video verification and daily analytical digest.">
   <meta property="og:title" content="WarMap Daily">
-  <meta property="og:description" content="WarMap Daily — OSINT-сводка за 24 часа и интерактивная тактическая карта контроля.">
+  <meta property="og:description" content="WarMap Daily 2.0 — OSINT compact 24h dashboard and interactive tactical control map with source lineage, video verification and daily analytical digest.">
   <title>WarMap Daily</title>
   
   <!-- Apple iOS Web App Meta Tags -->
@@ -121,8 +121,8 @@
             <span class="metric-icon">🔴</span>
             <span class="metric-label" data-i18n="metric_shifts">Сдвиг контроля (24ч)</span>
           </div>
-          <div class="metric-val">+4.85 км²</div>
-          <div class="metric-desc">Покровск (+2.65), Торецк (+1.40), Водяное (+0.80)</div>
+          <div class="metric-val" id="summaryAreaChangeVal">+4.85 км²</div>
+          <div class="metric-desc" id="summaryAreaChangeDesc">Покровск, Торецк, Купянск</div>
         </div>
 
         <div class="metric-card events-card">
@@ -131,7 +131,7 @@
             <span class="metric-label" data-i18n="metric_events">Верифицировано</span>
           </div>
           <div class="metric-val" id="summaryEventsCount">6 ключевых событий</div>
-          <div class="metric-desc">Сжато из 90+ публикаций без повторов</div>
+          <div class="metric-desc" id="summaryEventsDesc">Сжато из открытых источников и спутников</div>
         </div>
 
         <div class="metric-card focus-card">
@@ -139,22 +139,31 @@
             <span class="metric-icon">📍</span>
             <span class="metric-label" data-i18n="metric_focus">Главные участки</span>
           </div>
-          <div class="metric-val">Покровск · Торецк · Часов Яр</div>
-          <div class="metric-desc">Бои в жилой застройке и на терриконах</div>
+          <div class="metric-val" id="summaryHotSectorsVal">Покровск · Торецк · Часов Яр</div>
+          <div class="metric-desc" id="summaryHotSectorsDesc">Бои за логистику и городскую застройку</div>
         </div>
       </div>
 
       <!-- Express 60-second Synthesis Text Box -->
       <div class="quick-synthesis-box">
         <div class="synthesis-header">
-          <span class="synthesis-badge">⚡ ВЫЖИМКА ЗА 60 СЕКУНД</span>
-          <span class="synthesis-date" id="synthesisDate">4 сентября 2026</span>
+          <div class="synthesis-badges-wrap">
+            <span class="synthesis-badge">⚡ ВЫЖИМКА ЗА 60 СЕКУНД</span>
+            <span class="synthesis-balance-badge" id="synthesisBalanceBadge" style="display:none;"></span>
+          </div>
+          <span class="synthesis-date" id="synthesisDate">5 сентября 2026</span>
         </div>
+        
         <p id="synthesisParagraph" class="synthesis-text">Загрузка краткой сводки...</p>
+        <div id="synthesisListContainer" class="synthesis-points-container" style="display:none;"></div>
+
         <div class="synthesis-action-row">
           <button class="open-map-direct-btn" type="button" data-jump-to-map="all">
             <span>🗺️ Открыть интерактивную карту фронта</span>
             <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+          <button class="open-digest-direct-btn" id="openFullDigestBtn" type="button">
+            <span>📰 Читать полный аналитический дайджест (9 разделов) ➔</span>
           </button>
         </div>
       </div>
@@ -311,25 +320,65 @@
     </section>
 
     <!-- =========================================================================
-         VIEW 3: ЕЖЕДНЕВНЫЙ OSINT-ДАЙДЖЕСТ (Structured In-depth Review)
+         VIEW 3: ЕЖЕДНЕВНЫЙ ВОЕННО-ПОЛИТИЧЕСКИЙ OSINT-ОБЗОР
          ========================================================================= -->
     <section id="digest-view" class="view-panel">
-      <div class="section-title-bar">
-        <div>
-          <h2 data-i18n="daily_digest_title">Ежедневный OSINT-дайджест</h2>
-          <p class="section-subtitle" data-i18n="digest_subtitle">Систематизированный обзор боевых действий, ракетных ударов и применения БПЛА за 24 часа.</p>
+      <div class="digest-header-panel">
+        <div class="digest-header-left">
+          <div class="digest-badge-row">
+            <span class="digest-badge-pill primary">Ежедневный военно-политический обзор</span>
+            <span class="digest-badge-pill date" id="digestHeaderDateBadge">5 сентября 2026</span>
+            <span class="digest-badge-pill time">⏱️ 5–8 мин чтения</span>
+            <span class="digest-badge-pill verified">🛡️ OSINT-верификация</span>
+          </div>
+          <h2 id="digestHeaderTitle" data-i18n="daily_digest_title">Ежедневный военно-политический и OSINT-обзор</h2>
+          <p class="section-subtitle" id="digestHeaderSubtitle" data-i18n="digest_subtitle">Профессиональный суточный разбор: подтверждённые изменения линии фронта, ракетные удары, БПЛА и дипломатический трек без информационного шума.</p>
         </div>
-        <div class="digest-cat-filters" id="digestCategoryFilter">
-          <button class="cat-pill active" data-cat="all" type="button">Все разделы</button>
-          <button class="cat-pill" data-cat="military" type="button">⚔️ Военная обстановка</button>
-          <button class="cat-pill" data-cat="control" type="button">🗺️ Сдвиги контроля</button>
-          <button class="cat-pill" data-cat="strikes" type="button">🚀 Удары и атаки</button>
-          <button class="cat-pill" data-cat="uav" type="button">✈️ Авиация / БПЛА</button>
-          <button class="cat-pill" data-cat="youtube" type="button">📺 Видеообзоры YouTube</button>
+
+        <div class="digest-top-actions">
+          <div class="digest-date-picker-wrap">
+            <label for="digestDateSelect" class="sr-only">Выбрать дату обзора</label>
+            <select id="digestDateSelect" class="digest-date-dropdown" title="Выберите дату дайджеста">
+              <option value="2026-09-05" selected>5 сентября 2026 (Сегодня)</option>
+              <option value="2026-09-04">4 сентября 2026</option>
+            </select>
+          </div>
+
+          <button id="openDigestAIBtn" class="digest-action-btn accent" type="button" title="Сгенерировать дайджест за дату через ИИ">
+            <span>⚡ Сгенерировать ИИ</span>
+          </button>
+          <button id="openDigestPublishBtn" class="digest-action-btn" type="button" title="Вставить готовый дайджест из Kimi или другой нейросети">
+            <span>📝 Опубликовать свой</span>
+          </button>
+          <button id="copyDigestMarkdownBtn" class="digest-action-btn" type="button" title="Скопировать обзор в формате Markdown">
+            <span>📋 Копировать Markdown</span>
+          </button>
         </div>
       </div>
 
-      <div class="digest-cards-grid" id="digestCardsGrid">
+      <!-- View Selector (Analytical Report vs Cards vs YouTube) -->
+      <div class="digest-view-tabs" id="digestViewTabs">
+        <button class="cat-pill active" data-digest-mode="analytical" type="button">📖 Полный аналитический дайджест</button>
+        <button class="cat-pill" data-digest-mode="cards" type="button">🗂️ Карточки по рубрикам</button>
+        <button class="cat-pill" data-digest-mode="youtube" type="button">📺 Видеообзоры YouTube</button>
+      </div>
+
+      <!-- Category Filter Bar (shown in cards mode) -->
+      <div class="digest-cat-filters" id="digestCategoryFilter" style="display: none; margin-bottom: 1rem;">
+        <button class="cat-pill active" data-cat="all" type="button">Все категории</button>
+        <button class="cat-pill" data-cat="military" type="button">⚔️ Военная обстановка</button>
+        <button class="cat-pill" data-cat="control" type="button">🗺️ Сдвиги контроля</button>
+        <button class="cat-pill" data-cat="strikes" type="button">🚀 Удары и атаки</button>
+        <button class="cat-pill" data-cat="uav" type="button">✈️ Авиация / БПЛА</button>
+      </div>
+
+      <!-- Analytical Document Layout (Default) -->
+      <div class="digest-analytical-container" id="digestAnalyticalContainer">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+
+      <!-- Cards Grid Layout -->
+      <div class="digest-cards-grid" id="digestCardsGrid" style="display: none;">
         <!-- Rendered dynamically by app.js -->
       </div>
     </section>
@@ -410,6 +459,99 @@
           <h3>Неизменяемый аудит данных</h3>
           <p>Каждый снимок фронта верифицируется и сохраняется с контрольной суммой SHA-256 в открытом репозитории.</p>
         </div>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Daily Digest Generator & Publisher Dialog -->
+  <dialog id="digestModal" class="digest-modal" aria-modal="true">
+    <div class="digest-modal-header">
+      <div class="digest-modal-title-box">
+        <span class="digest-modal-tag">OSINT Pipeline</span>
+        <h3 id="digestModalTitle">Управление ежедневным обзором</h3>
+      </div>
+      <button id="closeDigestModal" class="dialog-close" type="button" aria-label="Закрыть">✕</button>
+    </div>
+
+    <div class="digest-modal-tabs">
+      <button class="modal-tab-btn active" data-tab="ai" type="button">⚡ Генерация через Gemini</button>
+      <button class="modal-tab-btn" data-tab="paste" type="button">📝 Вставить из Kimi / Markdown</button>
+      <button class="modal-tab-btn" data-tab="prompt" type="button">📋 Системный промпт</button>
+    </div>
+
+    <div class="digest-modal-body">
+      <!-- Tab 1: AI Generation -->
+      <div id="digestModalTabAI" class="modal-tab-pane active">
+        <p class="modal-tab-desc">Автоматический сбор всех верифицированных событий, новостей, фактчекинга и генерация структурированного обзора за 24 часа по вашей методике.</p>
+        
+        <div class="modal-form-group">
+          <label for="modalAiDateInput">Дата обзора (ГГГГ-ММ-ДД):</label>
+          <input type="date" id="modalAiDateInput" class="modal-input" value="2026-09-05" />
+        </div>
+
+        <div class="digest-ai-status-box" id="digestAiStatusBox">
+          <div class="status-indicator-dot online"></div>
+          <div>
+            <strong>Модель анализа:</strong> <span>Google Gemini 3.8 Flash (с поисковым заземлением Google Search)</span>
+            <div class="text-subtle" style="font-size: 0.8rem; margin-top: 0.2rem;">Использует точную структуру: Картина 60 сек, Фронт, Удары/БПЛА, Потери, Политика, 3 вывода, 24–72ч, Итог, Источники.</div>
+          </div>
+        </div>
+
+        <div id="digestAiKeyAlert" class="alert-box-info" style="margin-bottom: 1rem;">
+          ℹ️ Если в переменных окружения настроен <code>GEMINI_API_KEY</code>, обзор собирается в 1 клик. Также можно скопировать готовый промпт с актуальными данными в вкладке «Системный промпт» и вставить результат из Kimi.
+        </div>
+
+        <div class="modal-actions-bar">
+          <button id="runAiGenerateBtn" class="btn btn-primary" type="button">
+            <span>⚡ Запустить сбор и генерацию</span>
+          </button>
+          <span id="aiGenSpinner" class="spinner-inline" style="display: none;">⏳ ИИ анализирует суточные события...</span>
+        </div>
+        <div id="aiGenFeedback" class="feedback-msg" style="display: none; margin-top: 0.75rem;"></div>
+      </div>
+
+      <!-- Tab 2: Paste from Kimi or Markdown -->
+      <div id="digestModalTabPaste" class="modal-tab-pane">
+        <p class="modal-tab-desc">Вставьте готовый текст обзора (например, сгенерированный в Kimi, ChatGPT или Claude). Система автоматически распознает все 9 разделов, создаст структурированные карточки и опубликует дайджест на сайте.</p>
+
+        <div class="modal-form-row">
+          <div class="modal-form-group" style="flex: 1;">
+            <label for="pasteDateInput">Дата обзора:</label>
+            <input type="date" id="pasteDateInput" class="modal-input" value="2026-09-05" />
+          </div>
+          <div class="modal-form-group" style="flex: 2;">
+            <label for="pasteTitleInput">Заголовок обзора:</label>
+            <input type="text" id="pasteTitleInput" class="modal-input" value="Ежедневный военно-политический и OSINT-обзор" />
+          </div>
+        </div>
+
+        <div class="modal-form-group">
+          <label for="pasteMarkdownTextarea">Текст обзора (Markdown):</label>
+          <textarea id="pasteMarkdownTextarea" class="modal-textarea" rows="12" placeholder="Вставьте сюда текст начиная с:
+**5 сентября 2026, 00:00–23:59 МСК**
+
+## Картина дня за 60 секунд
+..."></textarea>
+        </div>
+
+        <div class="modal-actions-bar">
+          <button id="savePastedDigestBtn" class="btn btn-primary" type="button">
+            <span>🚀 Распознать и опубликовать на сайте</span>
+          </button>
+          <button id="fillSampleKimiBtn" class="btn btn-secondary" type="button">
+            <span>Пример дайджеста Kimi</span>
+          </button>
+        </div>
+        <div id="pasteFeedback" class="feedback-msg" style="display: none; margin-top: 0.75rem;"></div>
+      </div>
+
+      <!-- Tab 3: System Prompt Reference -->
+      <div id="digestModalTabPrompt" class="modal-tab-pane">
+        <div class="modal-tab-desc" style="display: flex; justify-content: space-between; align-items: center;">
+          <span>Полный системный промпт редактора ежедневного обзора. Скопируйте его для использования в Kimi:</span>
+          <button id="copyPromptBtn" class="btn btn-secondary btn-sm" type="button">📋 Скопировать весь промпт</button>
+        </div>
+        <pre id="systemPromptPre" class="prompt-code-block"></pre>
       </div>
     </div>
   </dialog>

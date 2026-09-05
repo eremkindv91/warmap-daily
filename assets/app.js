@@ -19,6 +19,10 @@
     // Data Models
     status: {},
     digest: null,
+    digestMode: 'analytical',
+    activeDigestDate: '2026-09-05',
+    availableDigests: [],
+    activeDigestCat: 'all',
     news: [],
     sources: [],
     sourceHealth: [],
@@ -218,6 +222,7 @@
     try { setupTabNavigation(); } catch (e) { console.warn('Tabs err:', e); }
     try { setupThemeAndLang(); } catch (e) { console.warn('Theme err:', e); }
     try { setupModals(); } catch (e) { console.warn('Modals err:', e); }
+    try { setupDigestInteractions(); } catch (e) { console.warn('Digest err:', e); }
     try { setupIosInstallPrompt(); } catch (e) { console.warn('iOS banner err:', e); }
     try { initLeafletMap(); } catch (e) { console.warn('Leaflet map init err:', e); }
     try { await loadAllData(); } catch (e) { console.warn('Data load err:', e); }
@@ -363,6 +368,379 @@
     if (closeRecord) closeRecord.addEventListener('click', () => recordDialog?.close());
   }
 
+  // Setup Daily Digest Controls, AI Generation & Publishing Interactions
+  function setupDigestInteractions() {
+    const digestModal = document.getElementById('digestModal');
+    const closeDigestModal = document.getElementById('closeDigestModal');
+    const openDigestAIBtn = document.getElementById('openDigestAIBtn');
+    const openDigestPublishBtn = document.getElementById('openDigestPublishBtn');
+    const copyDigestMarkdownBtn = document.getElementById('copyDigestMarkdownBtn');
+    const digestDateSelect = document.getElementById('digestDateSelect');
+    const digestViewTabs = document.querySelectorAll('#digestViewTabs .cat-pill');
+
+    // View Mode Switching
+    digestViewTabs.forEach(btn => {
+      btn.addEventListener('click', () => {
+        digestViewTabs.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        state.digestMode = btn.dataset.view || 'analytical';
+        renderDailyDigest();
+      });
+    });
+
+    // Date Switcher
+    if (digestDateSelect) {
+      digestDateSelect.addEventListener('change', async (e) => {
+        const selectedDate = e.target.value;
+        showToast(`Загрузка дайджеста за ${selectedDate}...`);
+        try {
+          const res = await fetchJson(`/api/digest?date=${encodeURIComponent(selectedDate)}`, null);
+          if (res && (res.sixty_seconds || res.raw_markdown || res.title)) {
+            state.digest = res;
+            state.activeDigestDate = selectedDate;
+            renderDailyDigest();
+            renderSummaryView();
+            showToast(`✅ Загружен дайджест за ${selectedDate}`);
+          } else {
+            showToast('⚠️ Дайджест за эту дату не найден');
+          }
+        } catch (err) {
+          showToast('Ошибка загрузки дайджеста');
+        }
+      });
+    }
+
+    // Copy formatted raw Markdown to clipboard
+    if (copyDigestMarkdownBtn) {
+      copyDigestMarkdownBtn.addEventListener('click', async () => {
+        const d = state.digest;
+        if (!d) return;
+
+        let textToCopy = d.raw_markdown;
+        if (!textToCopy && d.sixty_seconds) {
+          // Generate clean markdown representation if raw is absent
+          textToCopy = `# ${d.title || 'ЕЖЕДНЕВНЫЙ ВОЕННО-ПОЛИТИЧЕСКИЙ ДАЙДЖЕСТ'}\n**${d.period || d.date}**\n\n## Картина дня за 60 секунд\n` +
+            d.sixty_seconds.map(s => `${s.num}. **${s.headline}** ${s.text}`).join('\n') +
+            `\n\n### Оценка дня\n**${d.assessment?.balance || ''}** (Уровень: ${d.assessment?.level || ''})\n${d.assessment?.lead || ''}\n\n## Итог дня\n${d.day_conclusion || ''}`;
+        }
+
+        if (textToCopy) {
+          try {
+            await navigator.clipboard.writeText(textToCopy);
+            showToast('📋 Markdown дайджеста скопирован в буфер обмена');
+          } catch (e) {
+            showToast('Не удалось скопировать текст');
+          }
+        }
+      });
+    }
+
+    // Modal Opening & Tab Controls
+    const switchModalTab = (tabName) => {
+      document.querySelectorAll('.modal-tab-btn').forEach(b => {
+        b.classList.toggle('active', b.dataset.tab === tabName);
+      });
+      const tabMap = {
+        ai: 'digestModalTabAI',
+        paste: 'digestModalTabPaste',
+        prompt: 'digestModalTabPrompt'
+      };
+      document.querySelectorAll('.modal-tab-pane').forEach(p => {
+        p.classList.toggle('active', p.id === tabMap[tabName]);
+      });
+    };
+
+    // Load System Prompt into Code Block
+    const promptPre = document.getElementById('systemPromptPre');
+    if (promptPre && !promptPre.textContent) {
+      promptPre.textContent = `ТЫ — РЕДАКТОР ЕЖЕДНЕВНОГО ВОЕННО-ПОЛИТИЧЕСКОГО И OSINT-ДАЙДЖЕСТА ПО РОССИЙСКО-УКРАИНСКОМУ КОНФЛИКТУ.
+
+ТВОЯ ЗАДАЧА:
+На основе проверенной оперативной обстановки за указанные сутки сформировать строгий, беспристрастный аналитический отчёт по 9 обязательным блокам.
+
+СТРУКТУРА ОТЧЁТА (ОБЯЗАТЕЛЬНО СТРОГОЕ СОБЛЮДЕНИЕ ЗАГОЛОВКОВ):
+# ЕЖЕДНЕВНЫЙ ВОЕННО-ПОЛИТИЧЕСКИЙ ДАЙДЖЕСТ
+**[Дата, 00:00–23:59 МСК]**
+
+## Картина дня за 60 секунд
+1. **[Заголовок 1].** [Краткое описание ключевого события дня с фокусом на последствия].
+2. **[Заголовок 2].** [Второе ключевое событие: фронт или удары].
+3. **[Заголовок 3].** [Третье ключевое событие: дипломатия или переговоры].
+4. **[Заголовок 4].** [Четвёртое ключевое событие: БПЛА, порты или логистика].
+5. **[Заголовок 5].** [Пятое ключевое событие: международный контекст или помощь].
+
+### Оценка дня
+**[Баланс сил, например: без существенного изменения баланса на фронте / локальное тактическое продвижение]** (Уровень: [оперативно-политический / тактический / стратегический])
+[Анализ баланса сил: где инициатива, какие факторы сдерживания, реальный вес заявлений сторон].
+
+## Что изменилось на фронте
+- **[Направление 1, например: Покровско-Кураховское (Никаноровка и Грузское)]**:
+  - **Изменение:** [Где зафиксирован сдвиг или позиционные бои].
+  - **Подтверждение:** [Геолокация видео, спутниковые снимки Sentinel-2/FIRMS или отсутствие визуальных доказательств].
+  - **Значение:** [Тактическое или оперативное значение участка].
+- **[Направление 2, например: Запорожское / Ореховское]**:
+  - **Изменение:** [Данные обстановки].
+  - **Подтверждение:** [Источники и фиксация].
+  - **Значение:** [Значение].
+
+**Итог по фронту:** [Общая оценка темпа продвижения, интенсивности штурмов и расхода БК].
+
+## Удары, ракеты, авиация и БПЛА
+- **[Название удара 1]**: [Что атаковано, тип оружия (ОТРК, крылатые ракеты, реактивные БПЛА Geran-4), последствия].
+  - **Практическое значение:** [Какое влияние на логистику, ПВО или военное управление].
+- **[Название удара 2]**: [Атаки по портам, НПЗ или складам].
+
+## Потери и техника
+- **Заявления российской стороны:** [Оперативные данные группировок войск].
+- **Заявления украинской стороны:** [Сводка Генерального штаба ВСУ].
+*Оперативные данные сторон о потерях противника не имеют полного независимого подтверждения и могут учитывать одни и те же эпизоды по-разному.*
+
+## Военно-политические события
+- **[Событие 1, например: Визит спецпосланников и переговоры]**: [Суть переговоров и позиции].
+- **[Событие 2, например: Режим взаимной паузы ударов по столицам]**: [Условия и сроки].
+  - **Что меняется на практике:** [Реальные последствия для безопасности и фронта].
+
+## Что действительно важно (3 ключевых вывода)
+### Вывод 1: [Тема]
+1. **Факт:** [Главный подтверждённый факт дня].
+2. **Почему это важно:** [Анализ глубинной причины и веса события].
+3. **Что пока неясно:** [Слепые зоны, неподтверждённые детали].
+4. **Вероятное продолжение:** [Прогноз на ближайшие дни].
+
+### Вывод 2: [Тема]
+1. **Факт:** [...]
+2. **Почему это важно:** [...]
+3. **Что пока неясно:** [...]
+4. **Вероятное продолжение:** [...]
+
+### Вывод 3: [Тема]
+1. **Факт:** [...]
+2. **Почему это важно:** [...]
+3. **Что пока неясно:** [...]
+4. **Вероятное продолжение:** [...]
+
+## За чем следить в ближайшие 24–72 часа
+- [Индикатор 1: дипломатический трек и заявления]
+- [Индикатор 2: реакция на паузы или удары]
+- [Индикатор 3: критические участки фронта]
+- [Индикатор 4: логистика вооружений и поставки]
+- [Индикатор 5: спутниковые снимки последствий ударов]
+
+## Итог дня
+[Сжатый, ёмкий абзац (80-120 слов) с итоговым выводом о том, чем этот день войдёт в хронику конфликта].
+
+## Источники
+- [Название источника 1](https://example.com) — OSINT / официальный источник
+- [Название источника 2](https://example.com) — международное СМИ`;
+    }
+
+    if (openDigestAIBtn) {
+      openDigestAIBtn.addEventListener('click', () => {
+        switchModalTab('ai');
+        const modalDateInput = document.getElementById('modalAiDateInput');
+        if (modalDateInput && !modalDateInput.value) {
+          modalDateInput.value = state.digest?.date || new Date().toISOString().split('T')[0];
+        }
+        digestModal?.showModal();
+      });
+    }
+
+    if (openDigestPublishBtn) {
+      openDigestPublishBtn.addEventListener('click', () => {
+        switchModalTab('paste');
+        const pasteDateInput = document.getElementById('pasteDateInput');
+        if (pasteDateInput && !pasteDateInput.value) {
+          pasteDateInput.value = state.digest?.date || new Date().toISOString().split('T')[0];
+        }
+        digestModal?.showModal();
+      });
+    }
+
+    if (closeDigestModal) {
+      closeDigestModal.addEventListener('click', () => {
+        digestModal?.close();
+      });
+    }
+
+    document.querySelectorAll('.modal-tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        switchModalTab(btn.dataset.tab);
+      });
+    });
+
+    // Fill Sample Kimi Button
+    const fillSampleKimiBtn = document.getElementById('fillSampleKimiBtn');
+    if (fillSampleKimiBtn) {
+      fillSampleKimiBtn.addEventListener('click', async () => {
+        const textarea = document.getElementById('pasteMarkdownTextarea');
+        const dateInput = document.getElementById('pasteDateInput');
+        if (!textarea) return;
+
+        showToast('Загрузка эталонного дайджеста Kimi...');
+        try {
+          const res = await fetchJson('/api/digest?date=2026-09-05', null);
+          if (res && res.raw_markdown) {
+            textarea.value = res.raw_markdown;
+            if (dateInput) dateInput.value = '2026-09-05';
+            showToast('✅ Эталонный дайджест Kimi вставлен в поле!');
+          }
+        } catch (e) {
+          showToast('Не удалось загрузить пример');
+        }
+      });
+    }
+
+    // Copy Prompt Button
+    const copyPromptBtn = document.getElementById('copyPromptBtn');
+    if (copyPromptBtn) {
+      copyPromptBtn.addEventListener('click', async () => {
+        const promptBlock = document.getElementById('systemPromptPre');
+        if (promptBlock) {
+          try {
+            await navigator.clipboard.writeText(promptBlock.innerText);
+            showToast('📋 Системный промпт скопирован в буфер обмена!');
+          } catch (e) {
+            showToast('Не удалось скопировать промпт');
+          }
+        }
+      });
+    }
+
+    // Run AI Generation via Server API (Gemini 3.8 Flash)
+    const runAiGenerateBtn = document.getElementById('runAiGenerateBtn');
+    const aiFeedback = document.getElementById('aiGenFeedback');
+    const aiSpinner = document.getElementById('aiGenSpinner');
+    if (runAiGenerateBtn) {
+      runAiGenerateBtn.addEventListener('click', async () => {
+        const dateInput = document.getElementById('modalAiDateInput');
+        const date = dateInput?.value || new Date().toISOString().split('T')[0];
+
+        runAiGenerateBtn.disabled = true;
+        if (aiSpinner) aiSpinner.style.display = 'inline-block';
+        if (aiFeedback) {
+          aiFeedback.style.display = 'block';
+          aiFeedback.className = 'feedback-msg';
+          aiFeedback.innerHTML = 'Сбор свежих OSINT-данных и генерация аналитического отчёта через Gemini 3.8 Flash...';
+        }
+
+        try {
+          const resp = await fetch('/api/digest/generate', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ date })
+          });
+          const result = await resp.json();
+
+          if (resp.ok && (result.ok || result.success)) {
+            state.digest = result.digest;
+            state.activeDigestDate = date;
+            state.availableDigests = await fetchJson('/api/digests', []);
+            renderDailyDigest();
+            renderSummaryView();
+
+            if (aiFeedback) {
+              aiFeedback.className = 'feedback-msg success';
+              aiFeedback.innerHTML = '✅ Дайджест успешно сгенерирован и опубликован на сайте!';
+            }
+            showToast('✅ Новый дайджест успешно сгенерирован и опубликован!');
+            setTimeout(() => {
+              digestModal?.close();
+              if (aiFeedback) aiFeedback.style.display = 'none';
+            }, 1400);
+          } else {
+            if (aiFeedback) {
+              aiFeedback.className = 'feedback-msg error';
+              aiFeedback.innerHTML = `
+                ${escapeHtml(result.message || result.error || 'Ошибка при генерации дайджеста')}
+                <br><small style="margin-top: 4px; display: inline-block;">Вы можете вставить готовый текст во вкладке «Вставить из Kimi / Markdown» или добавить <code>GEMINI_API_KEY</code> в переменные окружения.</small>
+              `;
+            }
+          }
+        } catch (err) {
+          if (aiFeedback) {
+            aiFeedback.className = 'feedback-msg error';
+            aiFeedback.innerHTML = `Ошибка соединения с сервером: ${escapeHtml(err.message)}`;
+          }
+        } finally {
+          runAiGenerateBtn.disabled = false;
+          if (aiSpinner) aiSpinner.style.display = 'none';
+        }
+      });
+    }
+
+    // Save & Publish Pasted Markdown
+    const savePastedDigestBtn = document.getElementById('savePastedDigestBtn');
+    const pasteFeedback = document.getElementById('pasteFeedback');
+    if (savePastedDigestBtn) {
+      savePastedDigestBtn.addEventListener('click', async () => {
+        const dateInput = document.getElementById('pasteDateInput');
+        const textarea = document.getElementById('pasteMarkdownTextarea');
+        const titleInput = document.getElementById('pasteTitleInput');
+        const date = dateInput?.value || new Date().toISOString().split('T')[0];
+        const title = titleInput?.value || '';
+        const markdown = textarea?.value?.trim() || '';
+
+        if (!markdown) {
+          if (pasteFeedback) {
+            pasteFeedback.style.display = 'block';
+            pasteFeedback.className = 'feedback-msg error';
+            pasteFeedback.innerHTML = 'Пожалуйста, вставьте текст дайджеста в поле выше.';
+          }
+          return;
+        }
+
+        savePastedDigestBtn.disabled = true;
+        savePastedDigestBtn.innerHTML = '<span>⏳ Парсинг и публикация...</span>';
+        if (pasteFeedback) {
+          pasteFeedback.style.display = 'block';
+          pasteFeedback.className = 'feedback-msg';
+          pasteFeedback.innerHTML = 'Обработка структуры и сохранение дайджеста...';
+        }
+
+        try {
+          const resp = await fetch('/api/digest/publish', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ date, title, markdown })
+          });
+          const result = await resp.json();
+
+          if (resp.ok && (result.ok || result.success)) {
+            state.digest = result.digest;
+            state.activeDigestDate = date;
+            state.availableDigests = await fetchJson('/api/digests', []);
+            renderDailyDigest();
+            renderSummaryView();
+
+            if (pasteFeedback) {
+              pasteFeedback.className = 'feedback-msg success';
+              pasteFeedback.innerHTML = '✅ Дайджест успешно сохранён и опубликован на сайте!';
+            }
+            showToast(`✅ Дайджест за ${date} опубликован на сайте!`);
+            setTimeout(() => {
+              digestModal?.close();
+              if (pasteFeedback) pasteFeedback.style.display = 'none';
+            }, 1200);
+          } else {
+            if (pasteFeedback) {
+              pasteFeedback.className = 'feedback-msg error';
+              pasteFeedback.innerHTML = `Ошибка: ${escapeHtml(result.error || 'Не удалось обработать дайджест')}`;
+            }
+          }
+        } catch (err) {
+          if (pasteFeedback) {
+            pasteFeedback.className = 'feedback-msg error';
+            pasteFeedback.innerHTML = `Ошибка соединения: ${escapeHtml(err.message)}`;
+          }
+        } finally {
+          savePastedDigestBtn.disabled = false;
+          savePastedDigestBtn.innerHTML = '<span>🚀 Распознать и опубликовать на сайте</span>';
+        }
+      });
+    }
+  }
+
+
   // Initialize Leaflet Map (Mobile-First Ergonomics & 100% Free Reliable Tile Providers)
   function initLeafletMap() {
     const mapContainer = document.getElementById('map');
@@ -494,7 +872,8 @@
       changesData,
       referenceData,
       contestedData,
-      controlUaData
+      controlUaData,
+      availableDigestsData
     ] = await Promise.all([
       fetchJson('/api/status', {}),
       fetchJson('/api/digest', {}),
@@ -509,11 +888,13 @@
       fetchJson('/data/changes.geojson', { type: 'FeatureCollection', features: [] }),
       fetchJson('/data/reference-control.geojson', { type: 'FeatureCollection', features: [] }),
       fetchJson('/data/contested.geojson', { type: 'FeatureCollection', features: [] }),
-      fetchJson('/data/control-ua.geojson', { type: 'FeatureCollection', features: [] })
+      fetchJson('/data/control-ua.geojson', { type: 'FeatureCollection', features: [] }),
+      fetchJson('/api/digests', [])
     ]);
 
     state.status = statusData || {};
     state.digest = digestData || {};
+    state.availableDigests = Array.isArray(availableDigestsData) ? availableDigestsData : [];
     state.news = Array.isArray(newsData) ? newsData : [];
     state.sources = Array.isArray(sourcesData) ? sourcesData : [];
     state.sourceHealth = sourceHealthData?.results || [];
@@ -1106,18 +1487,81 @@
     });
   }
 
-  // Render VIEW 1: Summary Hub
+  // Render VIEW 1: Summary Hub (Synchronized with Daily Digest)
   function renderSummaryView() {
     const pEl = document.getElementById('synthesisParagraph');
     const dateEl = document.getElementById('synthesisDate');
+    const balanceEl = document.getElementById('synthesisBalanceBadge');
+    const listContainer = document.getElementById('synthesisListContainer');
     const grid = document.getElementById('eventsSummaryGrid');
 
-    if (pEl) {
-      pEl.textContent = state.digest?.[`quick_summary_${state.lang}`] || state.digest?.quick_summary_ru || 'За последние 24 часа зафиксировано два подтверждённых изменения линии боевого соприкосновения на Покровском и Торецком направлениях (+4.85 км²). В районе Гродовки штурмовые группы продвинулись вдоль балок, в Торецке продолжаются бои за терриконы шахты Северная. На остальных участках обстановка стабильно-позиционная.';
-    }
+    const d = state.digest;
 
     if (dateEl) {
-      dateEl.textContent = state.digest?.last_reviewed_formatted || getFormattedLongDate(state.lang);
+      dateEl.textContent = d?.period || d?.last_reviewed_formatted || getFormattedLongDate(state.lang);
+    }
+
+    if (balanceEl) {
+      if (d?.assessment?.balance) {
+        balanceEl.style.display = 'inline-flex';
+        balanceEl.textContent = `Баланс: ${d.assessment.balance}${d.assessment.level ? ` (${d.assessment.level})` : ''}`;
+      } else {
+        balanceEl.style.display = 'none';
+      }
+    }
+
+    // If active digest has 60-second key bullet points, render them directly in Summary Hub
+    if (listContainer && d?.sixty_seconds && Array.isArray(d.sixty_seconds) && d.sixty_seconds.length > 0) {
+      if (pEl) pEl.style.display = 'none';
+      listContainer.style.display = 'block';
+      listContainer.innerHTML = `
+        <ol class="synthesis-points-list">
+          ${d.sixty_seconds.slice(0, 5).map(item => `
+            <li class="synthesis-point-item">
+              <span class="synthesis-point-num">${item.num || '•'}</span>
+              <div class="synthesis-point-text">
+                <strong>${escapeHtml(item.headline || '')}</strong> ${escapeHtml(item.text || '')}
+              </div>
+            </li>
+          `).join('')}
+        </ol>
+      `;
+    } else {
+      if (listContainer) listContainer.style.display = 'none';
+      if (pEl) {
+        pEl.style.display = 'block';
+        pEl.textContent = d?.[`quick_summary_${state.lang}`] || d?.quick_summary_ru || 'За последние 24 часа зафиксированы подтверждённые изменения линии боевого соприкосновения. Все изменения верифицированы по данным объективного контроля.';
+      }
+    }
+
+    // Dynamic metrics strip synchronization
+    const areaVal = document.getElementById('summaryAreaChangeVal');
+    const areaDesc = document.getElementById('summaryAreaChangeDesc');
+    const eventsCountVal = document.getElementById('summaryEventsCount');
+    const hotSectorsVal = document.getElementById('summaryHotSectorsVal');
+
+    if (areaVal && state.status?.area_change_km2) {
+      areaVal.textContent = `+${state.status.area_change_km2} км²`;
+    }
+    if (areaDesc && d?.frontline_changes?.length) {
+      const topSectors = d.frontline_changes.slice(0, 3).map(f => f.sector.split(' ')[0]).join(', ');
+      if (topSectors) areaDesc.textContent = topSectors;
+    }
+    if (eventsCountVal) {
+      eventsCountVal.textContent = `${state.news?.length || 6} ключевых событий`;
+    }
+    if (hotSectorsVal && state.sectors?.length) {
+      const hot = state.sectors.filter(s => s.hot).slice(0, 3).map(s => s.name_ru).join(' · ');
+      if (hot) hotSectorsVal.textContent = hot;
+    }
+
+    // Connect button to jump directly to full Digest tab
+    const openDigestBtn = document.getElementById('openFullDigestBtn');
+    if (openDigestBtn) {
+      openDigestBtn.onclick = () => {
+        switchTab('digest');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      };
     }
 
     if (!grid) return;
@@ -1366,20 +1810,372 @@
     `;
   }
 
-  // Render VIEW 3: Daily OSINT Digest
+  // Render VIEW 3: Daily Military-Political & OSINT Digest
   function renderDailyDigest() {
-    const grid = document.getElementById('digestCardsGrid');
-    if (!grid || !state.digest?.sections) return;
+    const analyticalContainer = document.getElementById('digestAnalyticalContainer');
+    const cardsGrid = document.getElementById('digestCardsGrid');
+    const catFilters = document.getElementById('digestCategoryFilter');
+    const headerTitle = document.getElementById('digestHeaderTitle');
+    const headerSubtitle = document.getElementById('digestHeaderSubtitle');
+    const dateBadge = document.getElementById('digestHeaderDateBadge');
 
-    const sec = state.digest.sections;
+    if (!analyticalContainer || !cardsGrid) return;
+
+    const digest = state.digest || {};
+
+    // Update Header Badges
+    if (dateBadge) {
+      dateBadge.textContent = digest.period || digest.date || '5 сентября 2026';
+    }
+    if (headerTitle && digest.title) {
+      headerTitle.textContent = digest.title;
+    }
+
+    populateDigestDateDropdown();
+
+    // Mode handling
+    if (state.digestMode === 'cards') {
+      analyticalContainer.style.display = 'none';
+      cardsGrid.style.display = 'grid';
+      if (catFilters) catFilters.style.display = 'flex';
+      renderDigestCards(cardsGrid);
+    } else if (state.digestMode === 'youtube') {
+      analyticalContainer.style.display = 'none';
+      cardsGrid.style.display = 'grid';
+      if (catFilters) catFilters.style.display = 'none';
+      renderYoutubeDigestCards(cardsGrid);
+    } else {
+      // Default: Analytical Deep-Dive
+      analyticalContainer.style.display = 'flex';
+      cardsGrid.style.display = 'none';
+      if (catFilters) catFilters.style.display = 'none';
+      renderAnalyticalDigest(analyticalContainer, digest);
+    }
+  }
+
+  function populateDigestDateDropdown() {
+    const select = document.getElementById('digestDateSelect');
+    if (!select) return;
+
+    const currentDate = state.digest?.date || '2026-09-05';
+    const dates = (state.availableDigests && state.availableDigests.length > 0)
+      ? state.availableDigests
+      : [
+          { date: '2026-09-05', period: '5 сентября 2026 (Сегодня)' },
+          { date: '2026-09-04', period: '4 сентября 2026' }
+        ];
+
+    // Ensure currently viewed date is present
+    if (!dates.find(d => d.date === currentDate)) {
+      dates.unshift({ date: currentDate, period: state.digest?.period || currentDate });
+    }
+
+    select.innerHTML = dates.map(d => `
+      <option value="${d.date}" ${d.date === currentDate ? 'selected' : ''}>
+        ${d.period || d.date}
+      </option>
+    `).join('');
+  }
+
+  // Render Full Analytical Digest (9-Section OSINT Briefing)
+  function renderAnalyticalDigest(container, digest) {
+    if (!digest) {
+      container.innerHTML = '<div style="padding: 2rem; text-align: center; color: var(--text-secondary);">Загрузка аналитического дайджеста...</div>';
+      return;
+    }
+
+    const sixtySeconds = digest.sixty_seconds || [];
+    const frontlineChanges = digest.frontline_changes || [];
+    const strikes = digest.strikes_and_uav || [];
+    const losses = digest.losses_and_equipment || {};
+    const political = digest.political_events || [];
+    const whatMatters = digest.what_matters || [];
+    const watchNext = digest.watch_next || [];
+    const conclusion = digest.day_conclusion || '';
+    const sources = digest.sources || [];
+    const assessment = digest.assessment || {};
+
+    const html = `
+      <!-- Quick Navigation Anchors -->
+      <nav class="digest-toc-nav" aria-label="Разделы дайджеста">
+        <a href="#sec-60s" class="toc-chip">⏱️ 60 сек</a>
+        <a href="#sec-assessment" class="toc-chip">⚖️ Оценка дня</a>
+        <a href="#sec-front" class="toc-chip">🗺️ Фронт</a>
+        <a href="#sec-strikes" class="toc-chip">🚀 Удары / БПЛА</a>
+        <a href="#sec-losses" class="toc-chip">⚖️ Потери</a>
+        <a href="#sec-politics" class="toc-chip">🌐 Дипломатия</a>
+        <a href="#sec-matters" class="toc-chip">🎯 Что важно</a>
+        <a href="#sec-watch" class="toc-chip">🔮 24–72 часа</a>
+        <a href="#sec-conclusion" class="toc-chip">📌 Итог</a>
+        <a href="#sec-sources" class="toc-chip">📚 Источники (${sources.length})</a>
+      </nav>
+
+      <!-- Section 1: Картина дня за 60 секунд -->
+      <section id="sec-60s" class="analytical-card">
+        <div class="analytical-card-header">
+          <h3 class="analytical-card-title">⏱️ Картина дня за 60 секунд</h3>
+          <span class="analytical-card-tag">${digest.period || '24 часа'}</span>
+        </div>
+
+        <div class="sixty-seconds-container">
+          ${sixtySeconds.length > 0 ? sixtySeconds.map(item => `
+            <div class="sixty-seconds-item">
+              <div class="sixty-seconds-num">${item.num}</div>
+              <div class="sixty-seconds-body">
+                <strong>${escapeHtml(item.headline)}</strong>
+                <span>${escapeHtml(item.text)}</span>
+              </div>
+            </div>
+          `).join('') : '<p class="text-secondary">Нет данных за 60 секунд.</p>'}
+        </div>
+
+        <!-- Оценка дня Highlight Box -->
+        <div id="sec-assessment" class="assessment-box">
+          <div class="assessment-meta-row">
+            <span class="assessment-status-pill">
+              <span>⚖️</span>
+              <span>${escapeHtml(assessment.balance || 'без существенного изменения баланса на фронте')}</span>
+            </span>
+            <span class="assessment-level-pill">Уровень: ${escapeHtml(assessment.level || 'оперативно-политический')}</span>
+          </div>
+          <div class="assessment-text">
+            ${escapeHtml(assessment.lead || assessment.full_text || 'Локальное оперативно-политическое преимущество за счёт инициативы в переговорах остаётся на стороне посредников.')}
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 2: Что изменилось на фронте -->
+      <section id="sec-front" class="analytical-card">
+        <div class="analytical-card-header">
+          <h3 class="analytical-card-title">🗺️ Что изменилось на фронте</h3>
+          <span class="analytical-card-tag">Геолокация & OSINT</span>
+        </div>
+
+        <div class="frontline-grid">
+          ${frontlineChanges.length > 0 ? frontlineChanges.map(fc => `
+            <div class="frontline-sector-card">
+              <div class="frontline-sector-name">
+                <span>📍</span>
+                <span>${escapeHtml(fc.sector)}</span>
+              </div>
+
+              ${fc.change ? `
+                <div class="frontline-field-row">
+                  <span class="frontline-field-label">Изменение:</span>
+                  <span class="frontline-field-val">${escapeHtml(fc.change)}</span>
+                </div>
+              ` : ''}
+
+              ${fc.evidence ? `
+                <div class="frontline-field-row">
+                  <span class="frontline-field-label" style="color: #10b981;">Подтверждение:</span>
+                  <span class="frontline-field-val">${escapeHtml(fc.evidence)}</span>
+                </div>
+              ` : ''}
+
+              ${fc.significance ? `
+                <div class="frontline-field-row">
+                  <span class="frontline-field-label" style="color: #f59e0b;">Значение:</span>
+                  <span class="frontline-field-val">${escapeHtml(fc.significance)}</span>
+                </div>
+              ` : ''}
+            </div>
+          `).join('') : '<p class="text-secondary">Подтверждённых изменений линии фронта за сутки не зафиксировано.</p>'}
+
+          ${digest.frontline_summary ? `
+            <div class="frontline-summary-banner">
+              <strong>Итог по фронту:</strong> ${escapeHtml(digest.frontline_summary)}
+            </div>
+          ` : ''}
+        </div>
+      </section>
+
+      <!-- Section 3: Удары, ракеты, авиация и БПЛА -->
+      <section id="sec-strikes" class="analytical-card">
+        <div class="analytical-card-header">
+          <h3 class="analytical-card-title">🚀 Удары, ракеты, авиация и БПЛА</h3>
+          <span class="analytical-card-tag">Огневое поражение</span>
+        </div>
+
+        <div class="strikes-grid">
+          ${strikes.length > 0 ? strikes.map(st => `
+            <div class="strike-item-card">
+              <div class="strike-item-title">${escapeHtml(st.title)}</div>
+              <div class="strike-item-text">${escapeHtml(st.text)}</div>
+              ${st.practical_significance ? `
+                <div class="strike-significance-box">
+                  <strong>Практическое значение:</strong> ${escapeHtml(st.practical_significance)}
+                </div>
+              ` : ''}
+            </div>
+          `).join('') : '<p class="text-secondary">Нет данных об ударах.</p>'}
+        </div>
+      </section>
+
+      <!-- Section 4: Потери и техника -->
+      <section id="sec-losses" class="analytical-card">
+        <div class="analytical-card-header">
+          <h3 class="analytical-card-title">⚖️ Потери и техника</h3>
+          <span class="analytical-card-tag">Сравнение сторон</span>
+        </div>
+
+        <div class="losses-dual-grid">
+          <div class="losses-col">
+            <div class="losses-col-title" style="color: #60a5fa;">🇷🇺 Заявления российской стороны</div>
+            <div class="losses-col-content">
+              ${escapeHtml(losses.ru_claims || 'Оперативные данные группировок войск.')}
+            </div>
+          </div>
+
+          <div class="losses-col">
+            <div class="losses-col-title" style="color: #34d399;">🇺🇦 Заявления украинской стороны</div>
+            <div class="losses-col-content">
+              ${escapeHtml(losses.ua_claims || 'Сводка Генерального штаба ВСУ.')}
+            </div>
+          </div>
+        </div>
+
+        <div class="losses-disclaimer">
+          <strong>Оговорка OSINT:</strong> ${escapeHtml(losses.disclaimer || 'Оперативные данные сторон о потерях противника не имеют полного независимого подтверждения и могут учитывать одни и те же эпизоды по-разному.')}
+        </div>
+      </section>
+
+      <!-- Section 5: Военно-политические события -->
+      <section id="sec-politics" class="analytical-card">
+        <div class="analytical-card-header">
+          <h3 class="analytical-card-title">🌐 Военно-политические события</h3>
+          <span class="analytical-card-tag">Дипломатия и решения</span>
+        </div>
+
+        <div class="political-list">
+          ${political.length > 0 ? political.map(pe => `
+            <div class="political-item-card">
+              <div class="political-item-title">${escapeHtml(pe.title)}</div>
+              <div class="political-item-text">${escapeHtml(pe.text)}</div>
+              ${pe.practical_effect ? `
+                <div class="political-practical-box">
+                  <strong>Что меняется на практике:</strong> ${escapeHtml(pe.practical_effect)}
+                </div>
+              ` : ''}
+            </div>
+          `).join('') : '<p class="text-secondary">Нет данных о военно-политических событиях.</p>'}
+        </div>
+      </section>
+
+      <!-- Section 6: Что действительно важно -->
+      <section id="sec-matters" class="analytical-card">
+        <div class="analytical-card-header">
+          <h3 class="analytical-card-title">🎯 Что действительно важно (3 ключевых вывода)</h3>
+          <span class="analytical-card-tag">Анализ сущности</span>
+        </div>
+
+        <div class="what-matters-container">
+          ${whatMatters.length > 0 ? whatMatters.map(wm => `
+            <div class="wm-card">
+              <div class="wm-card-num">Вывод #${wm.num}</div>
+
+              <div class="wm-row">
+                <span class="wm-label fact">1. Факт:</span>
+                <span class="wm-val">${escapeHtml(wm.fact)}</span>
+              </div>
+
+              <div class="wm-row">
+                <span class="wm-label why">2. Почему это важно:</span>
+                <span class="wm-val">${escapeHtml(wm.why_important)}</span>
+              </div>
+
+              <div class="wm-row">
+                <span class="wm-label unclear">3. Что пока неясно:</span>
+                <span class="wm-val">${escapeHtml(wm.unclear)}</span>
+              </div>
+
+              <div class="wm-row">
+                <span class="wm-label continuation">4. Вероятное продолжение:</span>
+                <span class="wm-val">${escapeHtml(wm.continuation)}</span>
+              </div>
+            </div>
+          `).join('') : '<p class="text-secondary">Нет данных о ключевых выводах.</p>'}
+        </div>
+      </section>
+
+      <!-- Section 7: За чем следить в ближайшие 24–72 часа -->
+      <section id="sec-watch" class="analytical-card">
+        <div class="analytical-card-header">
+          <h3 class="analytical-card-title">🔮 За чем следить в ближайшие 24–72 часа</h3>
+          <span class="analytical-card-tag">Прогнозные индикаторы</span>
+        </div>
+
+        <div class="watch-list">
+          ${watchNext.length > 0 ? watchNext.map((item, idx) => `
+            <div class="watch-item">
+              <span class="watch-item-bullet">✦</span>
+              <div><strong>${idx + 1}.</strong> ${escapeHtml(item)}</div>
+            </div>
+          `).join('') : '<p class="text-secondary">Нет данных для отслеживания.</p>'}
+        </div>
+      </section>
+
+      <!-- Section 8: Итог дня -->
+      <section id="sec-conclusion" class="analytical-card">
+        <div class="analytical-card-header">
+          <h3 class="analytical-card-title">📌 Итог дня</h3>
+          <span class="analytical-card-tag">Главный вывод</span>
+        </div>
+
+        <div class="conclusion-quote-box">
+          ${escapeHtml(conclusion || 'День принёс оперативно-политический сдвиг при сохранении позиционного характера боевых действий на основных направлениях.')}
+        </div>
+      </section>
+
+      <!-- Section 9: Источники -->
+      <section id="sec-sources" class="analytical-card">
+        <div class="analytical-card-header">
+          <h3 class="analytical-card-title">📚 Источники и доказательная база</h3>
+          <span class="analytical-card-tag">${sources.length} верифицированных ссылок</span>
+        </div>
+
+        <div class="sources-list-grid">
+          ${sources.length > 0 ? sources.map(src => `
+            <a href="${escapeHtml(src.url)}" target="_blank" rel="noopener noreferrer" class="source-item-link">
+              <span class="source-item-cat">${escapeHtml(src.category || 'OSINT')}</span>
+              <span class="source-item-title">${escapeHtml(src.title)}</span>
+            </a>
+          `).join('') : '<p class="text-secondary">Источники не указаны.</p>'}
+        </div>
+      </section>
+    `;
+
+    container.innerHTML = html;
+
+    // Enable smooth scrolling for in-page anchors
+    container.querySelectorAll('.toc-chip').forEach(chip => {
+      chip.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = chip.getAttribute('href')?.replace('#', '');
+        const targetEl = document.getElementById(targetId);
+        if (targetEl) {
+          targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  }
+
+  // Render Categorized Cards (Cards Mode)
+  function renderDigestCards(grid) {
+    const sec = state.digest?.sections;
+    if (!sec) {
+      grid.innerHTML = '<div style="color: var(--text-muted); padding: 2rem; text-align: center; grid-column: 1 / -1;">В этом дайджесте доступен полный аналитический режим обзора.</div>';
+      return;
+    }
+
     const cards = [];
 
     // Filter Buttons
-    document.querySelectorAll('.cat-pill').forEach(btn => {
+    document.querySelectorAll('#digestCategoryFilter .cat-pill').forEach(btn => {
       btn.onclick = () => {
         state.activeDigestCat = btn.dataset.cat;
-        document.querySelectorAll('.cat-pill').forEach(b => b.classList.toggle('active', b.dataset.cat === state.activeDigestCat));
-        renderDailyDigest();
+        document.querySelectorAll('#digestCategoryFilter .cat-pill').forEach(b => b.classList.toggle('active', b.dataset.cat === state.activeDigestCat));
+        renderDigestCards(grid);
       };
     });
 
@@ -1443,18 +2239,32 @@
       });
     }
 
-    if (['all', 'youtube'].includes(state.activeDigestCat) && state.youtube && state.youtube.length > 0) {
-      state.youtube.forEach(v => {
-        cards.push(renderYoutubeCardHtml(v));
-      });
-    }
-
     if (cards.length === 0) {
-      grid.innerHTML = '<div style="color: var(--text-muted); padding: 2rem; text-align: center; grid-column: 1 / -1;">В выбранной категории пока нет опубликованных материалов за последние 24 часа.</div>';
+      grid.innerHTML = '<div style="color: var(--text-muted); padding: 2rem; text-align: center; grid-column: 1 / -1;">В выбранной категории нет материалов за эти сутки.</div>';
       return;
     }
 
     grid.innerHTML = cards.join('');
+  }
+
+  // Render YouTube Digest Cards
+  function renderYoutubeDigestCards(grid) {
+    if (!state.youtube || state.youtube.length === 0) {
+      grid.innerHTML = '<div style="color: var(--text-muted); padding: 2rem; text-align: center; grid-column: 1 / -1;">Нет доступных видеообзоров за сутки.</div>';
+      return;
+    }
+    grid.innerHTML = state.youtube.map(v => renderYoutubeCardHtml(v)).join('');
+  }
+
+  // HTML Escape Helper
+  function escapeHtml(str) {
+    if (!str || typeof str !== 'string') return '';
+    return str
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#039;');
   }
 
   // Render VIEW 4: OSINT-Мониторинг и верификация (Genuine OSINT Evidence, Sources, and Factchecking)
