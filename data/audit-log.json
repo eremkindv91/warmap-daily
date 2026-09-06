@@ -52,5 +52,26 @@
     "sha256": "e1ede12f094ba1592e332b75da11b2b4ebd33ac25c28b45c4b61584065d80e44",
     "changes_count": 3,
     "total_area_km2": 4.85
+  },
+  {
+    "timestamp": "2026-09-06T08:59:41.167577+00:00",
+    "action": "OSINT_UPDATES_FETCH",
+    "status": "SUCCESS",
+    "details": "Checked frontline geometry changes, active features: 3"
+  },
+  {
+    "timestamp": "2026-09-06T08:59:41.386651+00:00",
+    "action": "SOURCE_HEALTH_CHECK",
+    "summary": "8/9 sources active",
+    "status": "HEALTHY"
+  },
+  {
+    "timestamp": "2026-09-06T08:59:48.802295+00:00",
+    "action": "DAILY_ROLLOVER_0500_UTC",
+    "status": "SUCCESS",
+    "target_date": "2026-09-06",
+    "sha256": "64ffb6ce7e96aac355208ad7e3774344f2e2bc379626682a34f5c77ef1bcc2cc",
+    "changes_count": 3,
+    "total_area_km2": 4.85
   }
 ]
