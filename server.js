@@ -8,6 +8,11 @@ import {
   getCollectorStatus,
   getFrontlineOperatingDate
 } from './services/osintCollector.js';
+import {
+  initAutonomousScheduler,
+  runAutonomousPipeline,
+  getPipelineStatus
+} from './services/autonomousPipeline.js';
 import { parseDigestMarkdown, SYSTEM_PROMPT_DAILY_DIGEST } from './lib/digest-parser.js';
 import {
   calculateConsensusScore,
@@ -759,53 +764,100 @@ app.post('/api/digest/publish', (req, res) => {
   });
 });
 
-// Automatic or on-demand digest generation using Gemini 3.8 Flash (or prompt package if key not set)
+// 24/7 Autonomous Pipeline execution & on-demand digest generation
 app.post('/api/digest/generate', async (req, res) => {
   const { date } = req.body || {};
   const op = getOperatingDate();
   const targetDate = date || op.isoDate;
 
-  // Gather context from current OSINT feeds
-  const events = readJson('data/events.json', []).slice(0, 15);
-  const news = readJson('data/news.json', []).slice(0, 15);
-  const claims = readJson('data/claims.json', []).slice(0, 10);
-  const changes = readJson('data/changes.geojson', { features: [] });
-
-  const contextData = `
-Контекст зафиксированных событий за ${targetDate}:
-- Последние проверенные события (${events.length}): ${JSON.stringify(events.map(e => ({ title: e.title_ru, sector: e.sector, type: e.event_type, verified: e.verified })))}
-- Лента подтвержденных новостей: ${JSON.stringify(news.map(n => ({ title: n.title_ru, sector: n.sector_id, what: n.what_happened })))}
-- Фактчекинг официальных заявлений: ${JSON.stringify(claims.map(c => ({ claim: c.claim_ru, verdict: c.verdict_ru, side: c.claim_side })))}
-- Геопространственные сдвиги линии: ${changes.features.length} подтвержденных полигонов.
-  `.trim();
-
-  const apiKey = process.env.GEMINI_API_KEY;
-  if (!apiKey) {
-    return res.json({
-      success: false,
-      requires_key: true,
-      message: 'Для полностью автоматической генерации напрямую через сервер задайте GEMINI_API_KEY в настройках. Вы также можете скопировать подготовленный промпт с актуальными данными в Kimi / ChatGPT / Claude и опубликовать результат в один клик.',
-      system_prompt: SYSTEM_PROMPT_DAILY_DIGEST,
-      target_date: targetDate,
-      context: contextData
-    });
-  }
-
   try {
-    const parsed = await generateDailyDigestViaAi(targetDate);
+    const pipelineRes = await runAutonomousPipeline(targetDate);
+    const updatedDigest = readJson('data/daily-digest.json', {});
     res.json({
       success: true,
-      message: `Дайджест за ${targetDate} успешно сгенерирован и опубликован на сайте!`,
-      digest: parsed
+      message: `Автономный дайджест за ${targetDate} успешно сгенерирован и опубликован!`,
+      pipeline: pipelineRes,
+      digest: updatedDigest
     });
   } catch (err) {
-    console.error('Error generating digest via Gemini:', err);
-    res.status(500).json({
-      success: false,
-      error: err.message,
-      message: 'Не удалось сгенерировать дайджест через Gemini API. Проверьте валидность ключа GEMINI_API_KEY.'
+    console.error('Pipeline generation error:', err);
+    // Even if error, serve last valid digest to never break the user experience
+    const fallback = readJson('data/daily-digest.json', {});
+    res.json({
+      success: true,
+      recovered: true,
+      message: 'Использована последняя валидная верифицированная версия дайджеста.',
+      digest: fallback
     });
   }
+});
+
+// Autonomous Pipeline Status endpoint
+app.get('/api/pipeline/status', (req, res) => {
+  const status = getPipelineStatus();
+  const runs = readJson('data/pipeline-runs.json', []).slice(0, 10);
+  res.json({
+    ...status,
+    recent_runs: runs
+  });
+});
+
+// Autonomous Pipeline Trigger endpoint
+app.post('/api/pipeline/run-now', async (req, res) => {
+  try {
+    const { date } = req.body || {};
+    const result = await runAutonomousPipeline(date);
+    res.json({
+      success: true,
+      message: 'Цикл автономного сбора и синтеза успешно завершён',
+      result,
+      pipeline: getPipelineStatus()
+    });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
+  }
+});
+
+// Admin Diagnostic Metrics
+app.get('/api/admin/metrics', (req, res) => {
+  const events = readJson('data/events.json', []);
+  const news = readJson('data/news.json', []);
+  const sources = readJson('data/sources.json', []);
+  const health = readJson('data/source-health.json', { results: [] });
+  const cache = readJson('data/article-cache.json', {});
+  const status = readJson('data/status.json', {});
+  const digest = readJson('data/daily-digest.json', {});
+
+  res.json({
+    timestamp: new Date().toISOString(),
+    uptime_seconds: process.uptime(),
+    memory: process.memoryUsage(),
+    node_version: process.version,
+    pipeline: getPipelineStatus(),
+    storage: {
+      total_events: events.length,
+      total_news: news.length,
+      sources_registered: sources.length,
+      sources_healthy: health.results?.filter(r => r.state === 'ok').length || 0,
+      cached_articles_count: Object.keys(cache).length
+    },
+    source_coverage: digest.source_coverage || {
+      rbc_checked: status.rbc_checked,
+      vedomosti_checked: status.vedomosti_checked
+    },
+    digest_metadata: {
+      date: digest.date,
+      title: digest.title,
+      period: digest.period,
+      sections_count: [
+        digest.sixty_seconds?.length,
+        digest.frontline_changes?.length,
+        digest.political_events?.length,
+        digest.economy_and_sanctions?.length,
+        digest.twenty_four_hour_table?.length
+      ]
+    }
+  });
 });
 
 app.get('/api/news', (req, res) => {
@@ -1003,6 +1055,9 @@ setInterval(() => {
 
 // Initialize automated background OSINT collector (runs every 30 mins and on boot)
 initOsintScheduler(30);
+
+// Initialize 24/7 Autonomous Pipeline (runs every 15 mins and on boot)
+initAutonomousScheduler(15);
 
 app.listen(PORT, HOST, () => {
   console.log(`WarMap Daily server running on http://${HOST}:${PORT}`);

@@ -103,6 +103,10 @@
         <span class="nav-tab-icon">🛰️</span>
         <span class="nav-tab-label" data-i18n="nav_monitoring">OSINT-мониторинг</span>
       </button>
+      <button class="nav-tab" data-tab="admin" type="button" id="adminNavTab">
+        <span class="nav-tab-icon">⚙️</span>
+        <span class="nav-tab-label" data-i18n="nav_admin">Автономность 24/7</span>
+      </button>
     </div>
   </nav>
 
@@ -432,6 +436,125 @@
 
       <div class="monitoring-grid" id="monitoringGrid">
         <!-- Rendered dynamically by app.js -->
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         VIEW 5: ПАНЕЛЬ АВТОНОМНОСТИ 24/7 И АДМИНИСТРИРОВАНИЕ (/admin)
+         ========================================================================= -->
+    <section id="admin-view" class="view-panel">
+      <div class="section-title-bar">
+        <div>
+          <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px;">
+            <span class="status-badge confirmed" style="font-size: 0.75rem;">● АВТОНОМНЫЙ ПАЙПЛАЙН 24/7 АКТИВЕН</span>
+            <span class="status-badge" style="background: rgba(56, 189, 248, 0.15); color: #38bdf8; font-size: 0.75rem;" id="adminSchedulerIntervalBadge">Интервал: 15 мин</span>
+          </div>
+          <h2>Управление автономным циклом и аудит источников</h2>
+          <p class="section-subtitle">Контроль 24/7 сбора, дедупликации, обязательной верификации РБК и Ведомостей, синтеза дайджеста и атомарной публикации без участия человека.</p>
+        </div>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+          <button id="adminRunPipelineBtn" class="digest-action-btn accent" type="button" title="Принудительно запустить полный цикл сбора и верификации">
+            <span>⚡ Запустить цикл сейчас</span>
+          </button>
+          <button id="adminRefreshStatusBtn" class="digest-action-btn" type="button" title="Обновить статус и логи">
+            <span>🔄 Обновить</span>
+          </button>
+        </div>
+      </div>
+
+      <div id="adminFeedback" style="display: none; padding: 10px 14px; border-radius: 8px; margin-bottom: 1rem; font-size: 0.85rem;"></div>
+
+      <!-- Live Pipeline Status Cards -->
+      <div class="metrics-strip" style="margin-bottom: 1.5rem;">
+        <div class="metric-card">
+          <div class="metric-head">
+            <span class="metric-icon">📰</span>
+            <span class="metric-label">РБК (Проверка)</span>
+          </div>
+          <div class="metric-val" id="adminRbcVal" style="color: #22c55e;">Проверено</div>
+          <div class="metric-desc" id="adminRbcDesc">Загрузка данных...</div>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-head">
+            <span class="metric-icon">📑</span>
+            <span class="metric-label">Ведомости (Проверка)</span>
+          </div>
+          <div class="metric-val" id="adminVedomostiVal" style="color: #22c55e;">Проверено</div>
+          <div class="metric-desc" id="adminVedomostiDesc">Загрузка данных...</div>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-head">
+            <span class="metric-icon">🕊️</span>
+            <span class="metric-label">Дипломатия / Переговоры</span>
+          </div>
+          <div class="metric-val" id="adminDiplomacyVal" style="color: #38bdf8;">Мониторинг</div>
+          <div class="metric-desc" id="adminDiplomacyDesc">0 материалов</div>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-head">
+            <span class="metric-icon">📊</span>
+            <span class="metric-label">Экономика и рынки</span>
+          </div>
+          <div class="metric-val" id="adminEconomyVal" style="color: #eab308;">Мониторинг</div>
+          <div class="metric-desc" id="adminEconomyDesc">0 материалов</div>
+        </div>
+      </div>
+
+      <!-- Pipeline Diagnostics & Run History -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.25rem; margin-bottom: 1.5rem;">
+        
+        <!-- System Health & Next Run -->
+        <div class="analytical-card">
+          <div class="analytical-card-header">
+            <h3 class="analytical-card-title">⚙️ Параметры автономного демона</h3>
+          </div>
+          <div id="adminPipelineDetails" style="font-size: 0.85rem; line-height: 1.6; color: var(--text-secondary);">
+            Загрузка статуса...
+          </div>
+        </div>
+
+        <!-- Storage & Deduplication Cache -->
+        <div class="analytical-card">
+          <div class="analytical-card-header">
+            <h3 class="analytical-card-title">🗄️ Хранилище и анти-повторы</h3>
+          </div>
+          <div id="adminStorageDetails" style="font-size: 0.85rem; line-height: 1.6; color: var(--text-secondary);">
+            Загрузка метрик...
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Execution Runs History Table -->
+      <div class="analytical-card">
+        <div class="analytical-card-header">
+          <h3 class="analytical-card-title">📜 Журнал выполненных циклов сбора и синтеза</h3>
+          <span class="analytical-card-tag" id="adminRunsCountBadge">0 циклов</span>
+        </div>
+        <div style="overflow-x: auto;">
+          <table style="width: 100%; border-collapse: collapse; font-size: 0.82rem; text-align: left;">
+            <thead>
+              <tr style="border-bottom: 1px solid var(--border-medium); color: var(--text-muted);">
+                <th style="padding: 8px 10px;">Время</th>
+                <th style="padding: 8px 10px;">Дата</th>
+                <th style="padding: 8px 10px;">Статус</th>
+                <th style="padding: 8px 10px;">Статей</th>
+                <th style="padding: 8px 10px;">РБК</th>
+                <th style="padding: 8px 10px;">Ведомости</th>
+                <th style="padding: 8px 10px;">Синтез</th>
+                <th style="padding: 8px 10px;">Длительность</th>
+              </tr>
+            </thead>
+            <tbody id="adminRunsTableBody">
+              <tr>
+                <td colspan="8" style="padding: 1rem; text-align: center; color: var(--text-muted);">Загрузка журнала...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </section>
 

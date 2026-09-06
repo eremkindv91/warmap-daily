@@ -1,9 +1,12 @@
 {
   "type": "FeatureCollection",
   "metadata": {
-    "from": "2026-09-03",
-    "to": "2026-09-04",
-    "area_change_km2": 4.85
+    "from": "2026-09-05",
+    "to": "2026-09-06",
+    "area_change_km2": 4.85,
+    "last_updated": "2026-09-06T15:33:08.495Z",
+    "noise_filtered": true,
+    "verification_standard": "multi-source consensus"
   },
   "features": [
     {
@@ -19,7 +22,7 @@
         "summary_en": "Assault elements advanced along treelines and residential sector east of settlement.",
         "date": "2026-09-04",
         "area_km2": 2.65,
-        "confidence": 0.95,
+        "confidence": 0.88,
         "from_status": "contested",
         "to_status": "control_ru",
         "source_ids": [
@@ -30,7 +33,23 @@
           "ev-drone-pokrovsk-01",
           "ev-sat-pokrovsk-01"
         ],
-        "sector_id": "pokrovsk"
+        "sector_id": "pokrovsk",
+        "consensus_score": 88,
+        "confidence_level": "HIGH",
+        "confidence_label_ru": "Высокая (кросс-верификация)",
+        "cross_confirmed": true,
+        "verification_sources": [
+          {
+            "id": "deepstate-map",
+            "weight": 0.35,
+            "side": "ua"
+          },
+          {
+            "id": "isw",
+            "weight": 0.25,
+            "side": "independent"
+          }
+        ]
       },
       "geometry": {
         "type": "Polygon",
@@ -77,7 +96,7 @@
         "summary_en": "Zone of control expanded around the Pivnichna mine spoil heaps.",
         "date": "2026-09-02",
         "area_km2": 1.4,
-        "confidence": 0.92,
+        "confidence": 0.35,
         "from_status": "contested",
         "to_status": "control_ru",
         "source_ids": [
@@ -86,7 +105,18 @@
         "evidence_ids": [
           "ev-drone-toretsk-01"
         ],
-        "sector_id": "toretsk"
+        "sector_id": "toretsk",
+        "consensus_score": 35,
+        "confidence_level": "UNCONFIRMED",
+        "confidence_label_ru": "Не подтверждено (неверифицированные заявления)",
+        "cross_confirmed": false,
+        "verification_sources": [
+          {
+            "id": "deepstate-map",
+            "weight": 0.35,
+            "side": "ua"
+          }
+        ]
       },
       "geometry": {
         "type": "Polygon",
@@ -133,7 +163,7 @@
         "summary_en": "Advance along the gully and road junction northeast of Vuhledar.",
         "date": "2026-09-01",
         "area_km2": 0.8,
-        "confidence": 0.91,
+        "confidence": 0.88,
         "from_status": "contested",
         "to_status": "control_ru",
         "source_ids": [
@@ -143,7 +173,23 @@
         "evidence_ids": [
           "ev-sat-vuhledar-01"
         ],
-        "sector_id": "kurakhove_vuhledar"
+        "sector_id": "kurakhove_vuhledar",
+        "consensus_score": 88,
+        "confidence_level": "HIGH",
+        "confidence_label_ru": "Высокая (кросс-верификация)",
+        "cross_confirmed": true,
+        "verification_sources": [
+          {
+            "id": "deepstate-map",
+            "weight": 0.35,
+            "side": "ua"
+          },
+          {
+            "id": "isw",
+            "weight": 0.25,
+            "side": "independent"
+          }
+        ]
       },
       "geometry": {
         "type": "Polygon",
