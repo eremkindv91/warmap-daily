@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-09-06T15:33:08.495Z",
+  "checked_at": "2026-09-06T15:51:44.285Z",
   "monitor_state": "ok",
   "results": [
     {
@@ -7,80 +7,80 @@
       "name": "РБК",
       "state": "ok",
       "http_status": 200,
-      "latency_ms": 654,
+      "latency_ms": 632,
       "items_count": 30,
       "error": null,
-      "checked_at": "2026-09-06T15:33:08.495Z"
+      "checked_at": "2026-09-06T15:51:44.285Z"
     },
     {
       "source_id": "vedomosti",
       "name": "Ведомости",
       "state": "ok",
       "http_status": 200,
-      "latency_ms": 719,
+      "latency_ms": 1281,
       "items_count": 200,
       "error": null,
-      "checked_at": "2026-09-06T15:33:08.495Z"
+      "checked_at": "2026-09-06T15:51:44.285Z"
     },
     {
       "source_id": "kommersant",
       "name": "Коммерсантъ",
       "state": "ok",
       "http_status": 200,
-      "latency_ms": 2036,
-      "items_count": 334,
+      "latency_ms": 2184,
+      "items_count": 337,
       "error": null,
-      "checked_at": "2026-09-06T15:33:08.495Z"
+      "checked_at": "2026-09-06T15:51:44.285Z"
     },
     {
       "source_id": "tass",
       "name": "ТАСС",
       "state": "ok",
       "http_status": 200,
-      "latency_ms": 847,
+      "latency_ms": 821,
       "items_count": 100,
       "error": null,
-      "checked_at": "2026-09-06T15:33:08.495Z"
+      "checked_at": "2026-09-06T15:51:44.285Z"
     },
     {
       "source_id": "interfax",
       "name": "Интерфакс",
       "state": "ok",
       "http_status": 200,
-      "latency_ms": 556,
+      "latency_ms": 1003,
       "items_count": 25,
       "error": null,
-      "checked_at": "2026-09-06T15:33:08.495Z"
+      "checked_at": "2026-09-06T15:51:44.285Z"
     },
     {
       "source_id": "bbc-russian",
       "name": "Русская служба Би-би-си",
       "state": "ok",
       "http_status": 200,
-      "latency_ms": 399,
+      "latency_ms": 367,
       "items_count": 42,
       "error": null,
-      "checked_at": "2026-09-06T15:33:08.495Z"
+      "checked_at": "2026-09-06T15:51:44.285Z"
     },
     {
       "source_id": "reuters",
       "name": "Reuters",
       "state": "ok",
       "http_status": 200,
-      "latency_ms": 649,
+      "latency_ms": 606,
       "items_count": 77,
       "error": null,
-      "checked_at": "2026-09-06T15:33:08.495Z"
+      "checked_at": "2026-09-06T15:51:44.285Z"
     },
     {
       "source_id": "ap-news",
       "name": "Associated Press (AP)",
       "state": "ok",
       "http_status": 200,
-      "latency_ms": 496,
+      "latency_ms": 456,
       "items_count": 29,
       "error": null,
-      "checked_at": "2026-09-06T15:33:08.495Z"
+      "checked_at": "2026-09-06T15:51:44.285Z"
     },
     {
       "source_id": "mod-ru",
@@ -90,57 +90,57 @@
       "latency_ms": 842,
       "items_count": 100,
       "error": null,
-      "checked_at": "2026-09-06T15:33:08.495Z"
+      "checked_at": "2026-09-06T15:51:44.285Z"
     },
     {
       "source_id": "general-staff-ua",
       "name": "Генеральный штаб ВСУ",
       "state": "ok",
       "http_status": 200,
-      "latency_ms": 889,
+      "latency_ms": 1151,
       "items_count": 0,
       "error": null,
-      "checked_at": "2026-09-06T15:33:08.495Z"
+      "checked_at": "2026-09-06T15:51:44.285Z"
     },
     {
       "source_id": "isw",
       "name": "Institute for the Study of War (ISW)",
       "state": "degraded",
       "http_status": 403,
-      "latency_ms": 430,
+      "latency_ms": 444,
       "items_count": 0,
       "error": "HTTP 403",
-      "checked_at": "2026-09-06T15:33:08.495Z"
+      "checked_at": "2026-09-06T15:51:44.285Z"
     },
     {
       "source_id": "deepstate-map",
       "name": "DeepStateMAP / DeepStateUA",
       "state": "ok",
       "http_status": 200,
-      "latency_ms": 768,
+      "latency_ms": 777,
       "items_count": 12,
       "error": null,
-      "checked_at": "2026-09-06T15:33:08.495Z"
+      "checked_at": "2026-09-06T15:51:44.285Z"
     },
     {
       "source_id": "militarnyi-rss",
       "name": "Мілітарний (Mil.in.ua)",
       "state": "ok",
       "http_status": 200,
-      "latency_ms": 1011,
+      "latency_ms": 995,
       "items_count": 1,
       "error": null,
-      "checked_at": "2026-09-06T15:33:08.495Z"
+      "checked_at": "2026-09-06T15:51:44.285Z"
     },
     {
       "source_id": "copernicus-sentinel",
       "name": "NASA FIRMS & Copernicus Sentinel-2",
       "state": "ok",
       "http_status": 200,
-      "latency_ms": 382,
+      "latency_ms": 423,
       "items_count": 0,
       "error": null,
-      "checked_at": "2026-09-06T15:33:08.495Z"
+      "checked_at": "2026-09-06T15:51:44.285Z"
     },
     {
       "source_id": "openstreetmap",
@@ -150,7 +150,7 @@
       "latency_ms": 40,
       "items_count": 0,
       "error": null,
-      "checked_at": "2026-09-06T15:33:08.495Z"
+      "checked_at": "2026-09-06T15:51:44.285Z"
     },
     {
       "source_id": "wikimedia-control-map",
@@ -160,7 +160,7 @@
       "latency_ms": 40,
       "items_count": 0,
       "error": null,
-      "checked_at": "2026-09-06T15:33:08.495Z"
+      "checked_at": "2026-09-06T15:51:44.285Z"
     }
   ]
 }

@@ -44,11 +44,11 @@
   },
   {
     "date": "2026-09-06",
-    "sha256": "f55088b627db4170a82273f82803ef4812e2bf09c33e6393924f3c6d89c1cb5c",
+    "sha256": "46dea0f5ec55ab0874af9bbe5877211fb6264982c4b07169c09c894666f1a38c",
     "change_count": 3,
     "area_change_km2": 4.85,
     "summary": "Подтверждённый суточный срез за 2026-09-06: 3 изменений ЛБС (+4.85 км²). Срезы: 2026-09-05 ➔ 2026-09-06.",
-    "published_at": "2026-09-06T15:33:08.495Z",
+    "published_at": "2026-09-06T15:51:44.285Z",
     "file": "data/snapshots/2026-09-06.geojson",
     "diff_metrics": {
       "ru_advance_km2": 4.85,

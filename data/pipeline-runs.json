@@ -1,5 +1,57 @@
 [
   {
+    "timestamp": "2026-09-06T15:51:44.285Z",
+    "operating_date": "2026-09-06",
+    "duration_ms": 13195,
+    "sources_polled": 16,
+    "items_ingested": 10,
+    "deduplicated_count": 943,
+    "synthesis_method": "deterministic_verified_sources",
+    "rbc_included": true,
+    "vedomosti_included": false,
+    "negotiations_count": 5,
+    "status": "success"
+  },
+  {
+    "timestamp": "2026-09-06T15:42:38.685Z",
+    "operating_date": "2026-09-06",
+    "duration_ms": 22296,
+    "sources_polled": 16,
+    "items_ingested": 4,
+    "deduplicated_count": 945,
+    "synthesis_method": "deterministic_verified_sources",
+    "rbc_included": true,
+    "vedomosti_included": false,
+    "negotiations_count": 2,
+    "status": "success"
+  },
+  {
+    "timestamp": "2026-09-06T15:34:06.253Z",
+    "operating_date": "2026-09-06",
+    "duration_ms": 2803,
+    "sources_polled": 16,
+    "items_ingested": 0,
+    "deduplicated_count": 950,
+    "synthesis_method": "deterministic_verified_sources",
+    "rbc_included": true,
+    "vedomosti_included": false,
+    "negotiations_count": 1,
+    "status": "success"
+  },
+  {
+    "timestamp": "2026-09-06T15:33:33.960Z",
+    "operating_date": "2026-09-06",
+    "duration_ms": 3654,
+    "sources_polled": 16,
+    "items_ingested": 2,
+    "deduplicated_count": 948,
+    "synthesis_method": "deterministic_verified_sources",
+    "rbc_included": true,
+    "vedomosti_included": false,
+    "negotiations_count": 1,
+    "status": "success"
+  },
+  {
     "timestamp": "2026-09-06T15:33:08.495Z",
     "operating_date": "2026-09-06",
     "duration_ms": 14158,

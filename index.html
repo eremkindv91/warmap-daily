@@ -52,7 +52,7 @@
         </a>
         <div class="date-badge-wrap">
           <span class="freshness-dot green" id="topFreshnessDot" title="Срез актуален (<24ч), все источники проверены"></span>
-          <span class="date-badge" id="topDataDate">05.09.2026</span>
+          <span class="date-badge" id="topDataDate">06.09.2026</span>
           <span class="delay-tag" title="Оперативная задержка публикации: 24ч (защита безопасности ЛБС)">24h OSINT</span>
         </div>
       </div>
@@ -156,7 +156,7 @@
             <span class="synthesis-badge">⚡ ВЫЖИМКА ЗА 60 СЕКУНД</span>
             <span class="synthesis-balance-badge" id="synthesisBalanceBadge" style="display:none;"></span>
           </div>
-          <span class="synthesis-date" id="synthesisDate">5 сентября 2026</span>
+          <span class="synthesis-date" id="synthesisDate">6 сентября 2026</span>
         </div>
         
         <p id="synthesisParagraph" class="synthesis-text">Загрузка краткой сводки...</p>
@@ -225,6 +225,13 @@
           </div>
 
           <div class="map-quick-actions">
+            <!-- Sector Real-Time Statistics Toggle Button -->
+            <button id="sectorStatsToggleBtn" class="map-pill-btn stats-btn" type="button" title="Открыть статистику активного сектора фронта" aria-expanded="false" aria-controls="sectorStatsOverlay">
+              <span class="stats-icon">📊</span>
+              <span class="stats-btn-label">Статистика сектора</span>
+              <span id="sectorStatsBadge" class="sector-stat-count-pill" title="Событий в секторе">0</span>
+            </button>
+
             <!-- Compare with Yesterday Button -->
             <button id="compareYesterdayBtn" class="map-pill-btn comp-btn" type="button" title="Сравнить текущую линию со вчерашней">
               <span>⚡ Сравнить со вчера</span>
@@ -302,6 +309,57 @@
             </div>
           </div>
 
+          <!-- Real-Time Sector Statistics Floating Dashboard Overlay -->
+          <div id="sectorStatsOverlay" class="floating-hud sector-stats-hud" hidden aria-label="Панель статистики сектора фронта">
+            <div class="hud-header">
+              <div class="hud-header-title-group">
+                <span class="sector-hud-dot" aria-hidden="true"></span>
+                <strong id="sectorHudTitle">Покровский сектор</strong>
+                <span id="sectorHudActivityBadge" class="sector-hud-pill hot">🔥 Высокая активность</span>
+              </div>
+              <button id="closeSectorStatsHud" class="hud-close" type="button" title="Закрыть панель статистики" aria-label="Закрыть">✕</button>
+            </div>
+
+            <div class="sector-stats-grid">
+              <div class="sector-stat-card">
+                <div class="sector-stat-label">Протяжённость серой зоны</div>
+                <div id="sectorContestedDist" class="sector-stat-value font-mono">19.9 км</div>
+                <div id="sectorContestedSub" class="sector-stat-sub">Линия активных столкновений</div>
+              </div>
+
+              <div class="sector-stat-card">
+                <div class="sector-stat-label">События объективного контроля</div>
+                <div id="sectorActiveEvents" class="sector-stat-value font-mono">8</div>
+                <div id="sectorEventsSub" class="sector-stat-sub">100% подтверждено</div>
+              </div>
+
+              <div class="sector-stat-card">
+                <div class="sector-stat-label">Сдвиг ЛБС (24ч)</div>
+                <div id="sectorShiftArea" class="sector-stat-value font-mono text-green">+2.65 км²</div>
+                <div id="sectorShiftSub" class="sector-stat-sub">Достоверность: 94%</div>
+              </div>
+
+              <div class="sector-stat-card">
+                <div class="sector-stat-label">Контрольные н.п. / Узлы</div>
+                <div id="sectorSettlementsCount" class="sector-stat-value font-mono">5</div>
+                <div id="sectorSettlementsSub" class="sector-stat-sub">Очаги: Гродовка, Селидово</div>
+              </div>
+            </div>
+
+            <div class="sector-stats-footer">
+              <div class="sector-stats-meta">
+                <span id="sectorStatsDateBadge">Срез: 06.09.2026</span>
+                <span class="sector-stats-tag">Мульти-источниковый OSINT</span>
+              </div>
+              <div class="sector-quick-select-wrap">
+                <label for="sectorQuickSelectDropdown" class="sr-only">Выбрать сектор</label>
+                <select id="sectorQuickSelectDropdown" class="sector-quick-dropdown" title="Быстрое переключение сектора">
+                  <!-- Filled dynamically -->
+                </select>
+              </div>
+            </div>
+          </div>
+
           <!-- Floating Layer Legend Pills (Tap to Toggle Layers) -->
           <div class="map-layers-floating-bar" id="mapLayersBar">
             <button type="button" data-layer="reference_ru" class="layer-chip active" title="Территория под контролем РФ (сплошная красная граница)">
@@ -360,7 +418,7 @@
         <div class="digest-header-left">
           <div class="digest-badge-row">
             <span class="digest-badge-pill primary">Ежедневный военно-политический обзор</span>
-            <span class="digest-badge-pill date" id="digestHeaderDateBadge">5 сентября 2026</span>
+            <span class="digest-badge-pill date" id="digestHeaderDateBadge">6 сентября 2026</span>
             <span class="digest-badge-pill time">⏱️ 5–8 мин чтения</span>
             <span class="digest-badge-pill verified">🛡️ OSINT-верификация</span>
           </div>
@@ -372,7 +430,8 @@
           <div class="digest-date-picker-wrap">
             <label for="digestDateSelect" class="sr-only">Выбрать дату обзора</label>
             <select id="digestDateSelect" class="digest-date-dropdown" title="Выберите дату дайджеста">
-              <option value="2026-09-05" selected>5 сентября 2026 (Сегодня)</option>
+              <option value="2026-09-06" selected>6 сентября 2026 (Сегодня)</option>
+              <option value="2026-09-05">5 сентября 2026</option>
               <option value="2026-09-04">4 сентября 2026</option>
             </select>
           </div>
@@ -638,7 +697,7 @@
         
         <div class="modal-form-group">
           <label for="modalAiDateInput">Дата обзора (ГГГГ-ММ-ДД):</label>
-          <input type="date" id="modalAiDateInput" class="modal-input" value="2026-09-05" />
+          <input type="date" id="modalAiDateInput" class="modal-input" value="2026-09-06" />
         </div>
 
         <div class="digest-ai-status-box" id="digestAiStatusBox">
@@ -669,7 +728,7 @@
         <div class="modal-form-row">
           <div class="modal-form-group" style="flex: 1;">
             <label for="pasteDateInput">Дата обзора:</label>
-            <input type="date" id="pasteDateInput" class="modal-input" value="2026-09-05" />
+            <input type="date" id="pasteDateInput" class="modal-input" value="2026-09-06" />
           </div>
           <div class="modal-form-group" style="flex: 2;">
             <label for="pasteTitleInput">Заголовок обзора:</label>
@@ -680,7 +739,7 @@
         <div class="modal-form-group">
           <label for="pasteMarkdownTextarea">Текст обзора (Markdown):</label>
           <textarea id="pasteMarkdownTextarea" class="modal-textarea" rows="12" placeholder="Вставьте сюда текст начиная с:
-**5 сентября 2026, 00:00–23:59 МСК**
+**6 сентября 2026, 00:00–23:59 МСК**
 
 ## Картина дня за 60 секунд
 ..."></textarea>

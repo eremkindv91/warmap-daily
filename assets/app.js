@@ -15,12 +15,13 @@
     basemap: 'dark',
     comparisonMode: false,
     isFullscreen: false,
+    sectorStatsOpen: false,
 
     // Data Models
     status: {},
     digest: null,
     digestMode: 'analytical',
-    activeDigestDate: '2026-09-05',
+    activeDigestDate: '2026-09-06',
     availableDigests: [],
     activeDigestCat: 'all',
     news: [],
@@ -40,7 +41,7 @@
     // Timeline & Chronological Snapshots
     snapshots: [],
     activeSnapshotIndex: 0,
-    activeSnapshotDate: '2026-09-05',
+    activeSnapshotDate: '2026-09-06',
     isPlayingTimeline: false,
     timelineSpeed: 1,
     timelineTimer: null,
@@ -914,17 +915,23 @@
     state.status = statusData || {};
     state.digest = digestData || {};
     state.availableDigests = Array.isArray(availableDigestsData) ? availableDigestsData : [];
+    if (state.digest?.date) {
+      state.activeDigestDate = state.digest.date;
+    } else if (state.status?.snapshot_date) {
+      state.activeDigestDate = state.status.snapshot_date;
+    }
+
     state.snapshots = Array.isArray(snapshotsData) && snapshotsData.length ? snapshotsData : [
-      { date: '2026-09-01', area_change_km2: 0.8, sha256: '9ba511ac037d' },
       { date: '2026-09-02', area_change_km2: 2.2, sha256: '36950cc22721' },
       { date: '2026-09-03', area_change_km2: 4.85, sha256: '5707c02427de' },
       { date: '2026-09-04', area_change_km2: 3.4, sha256: 'f77e2d17e821' },
-      { date: '2026-09-05', area_change_km2: 4.85, sha256: 'fefaf0f5abf5' }
+      { date: '2026-09-05', area_change_km2: 4.85, sha256: 'fefaf0f5abf5' },
+      { date: '2026-09-06', area_change_km2: 4.85, sha256: '64ffb6ce7e96' }
     ];
     // Sort snapshots chronologically (oldest to newest for the timeline slider)
     state.snapshots.sort((a, b) => a.date.localeCompare(b.date));
     state.activeSnapshotIndex = state.snapshots.length - 1;
-    state.activeSnapshotDate = state.snapshots[state.activeSnapshotIndex]?.date || '2026-09-05';
+    state.activeSnapshotDate = state.snapshots[state.activeSnapshotIndex]?.date || state.activeDigestDate || '2026-09-06';
     state.news = Array.isArray(newsData) ? newsData : [];
     state.sources = Array.isArray(sourcesData) ? sourcesData : [];
     state.sourceHealth = sourceHealthData?.results || [];
@@ -949,6 +956,8 @@
     try { renderDailyDigest(); } catch (e) { console.error('renderDailyDigest error:', e); }
     try { renderMonitoringSection(); } catch (e) { console.error('renderMonitoringSection error:', e); }
     try { renderMapLayers(); } catch (e) { console.error('renderMapLayers error:', e); }
+    try { updateSectorStatsBadge(); } catch (e) { console.error('updateSectorStatsBadge error:', e); }
+    try { updateSectorStatsDashboard(); } catch (e) { console.error('updateSectorStatsDashboard error:', e); }
   }
 
   // Setup Sector Chips (Horizontally Scrollable)
@@ -992,6 +1001,8 @@
     }
 
     renderMapLayers();
+    updateSectorStatsDashboard();
+    updateSectorStatsBadge();
   }
 
   // --- Chronological Timeline Controller & Snapshots Engine ---
@@ -1351,6 +1362,198 @@
     const helpBtn = document.getElementById('mapLegendHelpBtn');
     if (helpBtn) {
       helpBtn.addEventListener('click', openMapLegendHelp);
+    }
+
+    // Sector Real-Time Statistics Toggle Button & HUD
+    const statsBtn = document.getElementById('sectorStatsToggleBtn');
+    const closeStatsHud = document.getElementById('closeSectorStatsHud');
+    const sectorQuickSelect = document.getElementById('sectorQuickSelectDropdown');
+
+    if (statsBtn) {
+      statsBtn.addEventListener('click', () => {
+        toggleSectorStats();
+      });
+    }
+
+    if (closeStatsHud) {
+      closeStatsHud.addEventListener('click', () => {
+        toggleSectorStats(false);
+      });
+    }
+
+    if (sectorQuickSelect) {
+      sectorQuickSelect.addEventListener('change', (e) => {
+        selectSector(e.target.value);
+      });
+    }
+  }
+
+  // Geodetic Distance helper for Contested Frontline Calculation
+  function haversineDistanceKm(c1, c2) {
+    if (!c1 || !c2) return 0;
+    const R = 6371; // Earth radius in km
+    const dLat = (c2[1] - c1[1]) * Math.PI / 180;
+    const dLon = (c2[0] - c1[0]) * Math.PI / 180;
+    const lat1 = c1[1] * Math.PI / 180;
+    const lat2 = c2[1] * Math.PI / 180;
+    const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+              Math.cos(lat1) * Math.cos(lat2) *
+              Math.sin(dLon / 2) * Math.sin(dLon / 2);
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    return R * c;
+  }
+
+  function calculateContestedLengthKm(coords) {
+    if (!coords || coords.length < 2) return 0;
+    let totalPerimeter = 0;
+    for (let i = 0; i < coords.length - 1; i++) {
+      totalPerimeter += haversineDistanceKm(coords[i], coords[i + 1]);
+    }
+    // For a strip corridor along the frontline, length is half the perimeter
+    return Math.round((totalPerimeter / 2) * 10) / 10;
+  }
+
+  function toggleSectorStats(forceState) {
+    state.sectorStatsOpen = (typeof forceState === 'boolean') ? forceState : !state.sectorStatsOpen;
+    const btn = document.getElementById('sectorStatsToggleBtn');
+    const hud = document.getElementById('sectorStatsOverlay');
+
+    if (btn) {
+      btn.classList.toggle('active', state.sectorStatsOpen);
+      btn.setAttribute('aria-expanded', String(state.sectorStatsOpen));
+    }
+
+    if (hud) {
+      hud.hidden = !state.sectorStatsOpen;
+    }
+
+    if (state.sectorStatsOpen) {
+      updateSectorStatsDashboard();
+    }
+  }
+
+  function updateSectorStatsBadge() {
+    const badge = document.getElementById('sectorStatsBadge');
+    if (!badge) return;
+    const secId = state.activeSector || 'all';
+    const secEvents = (state.events || []).filter(e => secId === 'all' || e.sector_id === secId);
+    badge.textContent = String(secEvents.length);
+    badge.title = `Событий объективного контроля в секторе: ${secEvents.length}`;
+  }
+
+  function updateSectorStatsDashboard() {
+    const secId = state.activeSector || 'all';
+    const secObj = DEFAULT_SECTORS.find(s => s.id === secId) || DEFAULT_SECTORS[0];
+
+    // 1. Update Title & Activity badge
+    const titleEl = document.getElementById('sectorHudTitle');
+    const badgeEl = document.getElementById('sectorHudActivityBadge');
+    if (titleEl) {
+      titleEl.textContent = secObj[`name_${state.lang}`] || secObj.name_ru;
+    }
+
+    // Filter events for sector
+    const secEvents = (state.events || []).filter(e => secId === 'all' || e.sector_id === secId);
+    const confirmedEvents = secEvents.filter(e => (e.verification_status || '').toLowerCase() === 'confirmed').length;
+    const confRate = secEvents.length > 0 ? Math.round((confirmedEvents / secEvents.length) * 100) : 100;
+
+    if (badgeEl) {
+      if (secObj.hot || secEvents.length >= 6) {
+        badgeEl.className = 'sector-hud-pill hot';
+        badgeEl.textContent = '🔥 Высокая активность';
+      } else if (secEvents.length >= 2) {
+        badgeEl.className = 'sector-hud-pill medium';
+        badgeEl.textContent = '⚡ Позиционные бои';
+      } else {
+        badgeEl.className = 'sector-hud-pill low';
+        badgeEl.textContent = '🟢 Умеренная активность';
+      }
+    }
+
+    // 2. Contested frontline distance & area
+    let contestedDist = 0;
+    const contestedFeatures = (state.contested?.features || []).filter(f => secId === 'all' || f.properties?.sector_id === secId);
+    contestedFeatures.forEach(f => {
+      const coords = f.geometry?.coordinates?.[0];
+      if (coords) {
+        contestedDist += calculateContestedLengthKm(coords);
+      }
+    });
+
+    const contestedDistEl = document.getElementById('sectorContestedDist');
+    const contestedSubEl = document.getElementById('sectorContestedSub');
+    if (contestedDistEl) {
+      contestedDistEl.textContent = contestedDist > 0 ? `${contestedDist.toFixed(1)} км` : '—';
+    }
+    if (contestedSubEl) {
+      contestedSubEl.textContent = secId === 'all'
+        ? 'Суммарно по всем участкам ЛБС'
+        : `Ширина полосы боёв: 1.5–3.5 км`;
+    }
+
+    // 3. Active Events Count
+    const eventsValEl = document.getElementById('sectorActiveEvents');
+    const eventsSubEl = document.getElementById('sectorEventsSub');
+    if (eventsValEl) {
+      eventsValEl.textContent = String(secEvents.length);
+    }
+    if (eventsSubEl) {
+      eventsSubEl.textContent = `${confRate}% подтверждено OSINT`;
+    }
+
+    // 4. 24h Territorial Shift Area
+    const secChanges = (state.changes?.features || []).filter(f => secId === 'all' || f.properties?.sector_id === secId);
+    const shiftArea = secChanges.reduce((sum, f) => sum + (Number(f.properties?.area_km2) || 0), 0);
+    const shiftValEl = document.getElementById('sectorShiftArea');
+    const shiftSubEl = document.getElementById('sectorShiftSub');
+    if (shiftValEl) {
+      if (shiftArea > 0) {
+        shiftValEl.textContent = `+${shiftArea.toFixed(2)} км²`;
+        shiftValEl.className = 'sector-stat-value font-mono text-green';
+      } else {
+        shiftValEl.textContent = '0.00 км²';
+        shiftValEl.className = 'sector-stat-value font-mono';
+      }
+    }
+    if (shiftSubEl) {
+      shiftSubEl.textContent = secChanges.length > 0
+        ? `Участков продвижения: ${secChanges.length}`
+        : 'Линия без подтверждённых сдвигов';
+    }
+
+    // 5. Monitored Settlements & Hotspots
+    const secSettlements = (state.settlements || []).filter(s => secId === 'all' || s.sector_id === secId);
+    const settlementsValEl = document.getElementById('sectorSettlementsCount');
+    const settlementsSubEl = document.getElementById('sectorSettlementsSub');
+    if (settlementsValEl) {
+      settlementsValEl.textContent = String(secSettlements.length);
+    }
+    if (settlementsSubEl) {
+      const activeHotspots = secSettlements
+        .filter(s => s.status === 'contested' || s.status === 'control_ru')
+        .slice(0, 2)
+        .map(s => s.name_ru || s.name);
+      if (activeHotspots.length > 0) {
+        settlementsSubEl.textContent = `Очаги: ${activeHotspots.join(', ')}`;
+      } else {
+        settlementsSubEl.textContent = secSettlements.length > 0 ? 'Под постоянным контролем' : 'Нет опорных узлов';
+      }
+    }
+
+    // 6. Footer Date Badge
+    const dateBadgeEl = document.getElementById('sectorStatsDateBadge');
+    if (dateBadgeEl) {
+      dateBadgeEl.textContent = `Срез: ${state.activeSnapshotDate || '06.09.2026'}`;
+    }
+
+    // 7. Sync Dropdown options
+    const dropdown = document.getElementById('sectorQuickSelectDropdown');
+    if (dropdown) {
+      dropdown.innerHTML = DEFAULT_SECTORS.map(s => `
+        <option value="${s.id}" ${s.id === secId ? 'selected' : ''}>
+          ${s[`name_${state.lang}`] || s.name_ru}
+        </option>
+      `).join('');
     }
   }
 
@@ -1978,16 +2181,28 @@
 
     if (!grid) return;
 
+    const SECTOR_LABELS = {
+      pokrovsk: 'Покровский сектор',
+      toretsk: 'Торецкий сектор',
+      chasiv_yar: 'Часов Яр / Бахмут',
+      kurakhove_vuhledar: 'Курахово — Угледар',
+      kupyansk_lyman: 'Купянск — Лиман',
+      zaporizhzhia: 'Запорожский сектор',
+      kherson: 'Херсонский сектор',
+      all: 'Весь фронт'
+    };
+
     const items = state.news || [];
     grid.innerHTML = items.map(n => {
       const title = n[`title_${state.lang}`] || n.title;
       const whatHappened = n[`what_happened_${state.lang}`] || n.what_happened;
       const statusClass = (n.verification_status || 'CONFIRMED').toLowerCase();
+      const locLabel = n.settlement_name || SECTOR_LABELS[n.sector_id] || (n.category === 'negotiations' ? 'Дипломатия' : (n.category === 'economy' ? 'Экономика' : (n.source_name || 'СВО / Фронт')));
 
       return `
         <article class="event-card" data-event-id="${n.id}">
           <div class="event-top-meta">
-            <span class="event-loc-badge">📍 ${n.settlement_name || n.sector_id}</span>
+            <span class="event-loc-badge">📍 ${locLabel}</span>
             <span class="event-time-badge">${n.time_formatted || getShortCurrentDate(n.timestamp)}</span>
           </div>
 
