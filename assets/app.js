@@ -96,6 +96,7 @@
     'Покровськ': 'Покровск',
     'Торецьк': 'Торецк',
     'Часів Яр': 'Часов Яр',
+    'Часовому Яру': 'Часов Яр',
     'Курахове': 'Курахово',
     'Вугледар': 'Угледар',
     'Куп’янськ': 'Купянск',
@@ -120,6 +121,7 @@
     'Синьківка': 'Синьковка',
     'Петропавлівка': 'Петропавловка',
     'Піщане': 'Песчаное',
+    'Піщаного': 'Песчаное',
     'Стельмахівка': 'Стельмаховка',
     'Макіївка': 'Макеевка',
     'Невське': 'Невское',
@@ -127,6 +129,7 @@
     'Торське': 'Торское',
     'Водяне': 'Водяное',
     'Костянтинівка': 'Константиновка',
+    'Костянтинівки': 'Константиновка',
     'Павлівка': 'Павловка',
     'Времівка': 'Времевка',
     'Велика Новосілка': 'Великая Новоселка',
@@ -136,6 +139,32 @@
     'Мала Токмачка': 'Малая Токмачка',
     'Кринки': 'Крынки',
     'Антонівка': 'Антоновка',
+    'Малих Щербаків': 'Малые Щербаки',
+    'Малі Щербаки': 'Малые Щербаки',
+    'Гуляйпільського': 'Гуляйпольское',
+    'Гуляйпільське': 'Гуляйпольское',
+    'Варварівки': 'Варваровка',
+    'Варварівка': 'Варваровка',
+    'Голубівки': 'Голубовка',
+    'Голубівка': 'Голубовка',
+    'Ступочок': 'Ступочки',
+    'Ступочки': 'Ступочки',
+    'Міньківки': 'Миньковка',
+    'Міньківка': 'Миньковка',
+    'Никифорівки': 'Никифоровка',
+    'Никифорівка': 'Никифоровка',
+    'Дорожнього': 'Дорожное',
+    'Дорожнє': 'Дорожное',
+    'Софіївки': 'Софиевка',
+    'Софіївка': 'Софиевка',
+    'Родинського': 'Родинское',
+    'Родинське': 'Родинское',
+    'Артільного': 'Артельное',
+    'Артільне': 'Артельное',
+    'Залізничного': 'Зализничное',
+    'Залізничне': 'Зализничное',
+    'Западного': 'Западное',
+    'Западне': 'Западное',
     'Довгої Балки': 'Долгая Балка',
     'Довга Балка': 'Долгая Балка',
     'Іллінівки': 'Ильиновка',
@@ -160,26 +189,41 @@
     'Білицького': 'Белицкое',
     'Білицьке': 'Белицкое',
     'Марковому': 'Марково',
-    'Маркове': 'Марково'
+    'Маркове': 'Марково',
+    'Бочкового': 'Бочковое',
+    'Івашкиного': 'Ивашкино',
+    'Лугівського': 'Луговское',
+    'Дворічної': 'Двуречная',
+    'Шевченко': 'Шевченко'
   };
 
   const SLUG_TO_NAME = {
     pokrovsk: { ru: 'Покровский сектор', uk: 'Покровський сектор', en: 'Pokrovsk Sector' },
     toretsk: { ru: 'Торецкий сектор', uk: 'Торецький сектор', en: 'Toretsk Sector' },
     chasiv_yar: { ru: 'Часов Яр / Бахмут', uk: 'Часів Яр / Бахмут', en: 'Chasiv Yar / Bakhmut' },
-    kurakhove_vuhledar: { ru: 'Курахово — Угледар', uk: 'Курахове — Вугледар', en: 'Kurakhove — Vuhledar' },
+    kurakhove_vuhledar: { ru: 'Курахово / Угледар', uk: 'Курахове / Вугледар', en: 'Kurakhove / Vuhledar' },
     kupyansk_lyman: { ru: 'Купянск — Лиман', uk: 'Куп’янськ — Лиман', en: 'Kupyansk — Lyman' },
     zaporizhzhia: { ru: 'Запорожский сектор', uk: 'Запорізький сектор', en: 'Zaporizhzhia Sector' },
     kherson: { ru: 'Херсонский сектор', uk: 'Херсонський сектор', en: 'Kherson Sector' },
     all: { ru: 'Весь фронт', uk: 'Весь фронт', en: 'All Fronts' }
   };
 
-  // Text Sanitization and Typo Cleaner
+  // Text Sanitization, Typo Cleaner & Slug Resolver
   function cleanEventText(text) {
     if (!text || typeof text !== 'string') return '';
     let cleaned = text.trim();
+
+    // Normalize typos
+    cleaned = cleaned.replace(/воссиновил(?:и|а|о)?/gi, 'восстановили');
+    cleaned = cleaned.replace(/воссиновлен(?:о|ы|а)?/gi, 'восстановлено');
+
+    // SLUG_TO_NAME kurakhove_vuhledar and others in text
+    cleaned = cleaned.replace(/\bkurakhove_vuhledar\b/gi, 'Курахово / Угледар');
+    cleaned = cleaned.replace(/Курахово\s*—\s*Угледар/g, 'Курахово / Угледар');
+    cleaned = cleaned.replace(/Курахове\s*—\s*Вугледар/g, 'Курахове / Вугледар');
+
     for (const [uaName, ruName] of Object.entries(UA_TO_RU)) {
-      const reg = new RegExp(uaName, 'g');
+      const reg = new RegExp(`\\b${uaName}\\b`, 'g');
       cleaned = cleaned.replace(reg, ruName);
     }
     cleaned = cleaned.replace(/\s+/g, ' ');
@@ -188,6 +232,23 @@
     cleaned = cleaned.replace(/\s+([.,;:!?])/g, '$1');
     cleaned = cleaned.replace(/«\s+/g, '«').replace(/\s+»/g, '»');
     return cleaned;
+  }
+
+  // Check if title is verbatim equal to lead/what_happened (ignoring prefix dash or punctuation)
+  function isTitleEqualToLead(title, lead) {
+    if (!title || !lead) return false;
+    const tNorm = title.trim().toLowerCase().replace(/[.,;:!?\s«»"']/g, '');
+    const lNorm = lead.trim().toLowerCase().replace(/[.,;:!?\s«»"']/g, '');
+    if (!tNorm || !lNorm) return false;
+    if (tNorm === lNorm) return true;
+
+    // Check if title is structured as "Settlement — What happened" where what happened matches lead
+    const dashIdx = title.indexOf('—');
+    if (dashIdx >= 0) {
+      const bodyNorm = title.substring(dashIdx + 1).trim().toLowerCase().replace(/[.,;:!?\s«»"']/g, '');
+      if (bodyNorm === lNorm) return true;
+    }
+    return false;
   }
 
   // Frontline Sectors Preset
@@ -2720,7 +2781,7 @@
       </div>
 
       <div class="sheet-blocks">
-        <div style="font-size: 0.85rem; line-height: 1.5; color: var(--text-primary);">${whatHappened}</div>
+        ${isTitleEqualToLead(title, whatHappened) ? '' : `<div style="font-size: 0.85rem; line-height: 1.5; color: var(--text-primary);">${whatHappened}</div>`}
 
         <div class="sheet-fact-box confirmed">
           <div class="sheet-fact-title">🟢 ${t('what_confirmed')}</div>
@@ -2818,6 +2879,147 @@
     return t('past_24h');
   }
 
+  // Extract settlement tokens from event object
+  function extractSettlementsFromEvent(item) {
+    if (!item || typeof item !== 'object') return [];
+    const candidates = [];
+
+    // 1. From item.settlement_name
+    if (item.settlement_name && typeof item.settlement_name === 'string') {
+      candidates.push(item.settlement_name);
+    }
+
+    // 2. From item.location_label e.g. "Малих Щербаків, Гуляйпільського, Варварівки (zaporizhzhia)"
+    if (item.location_label && typeof item.location_label === 'string') {
+      const labelWithoutSector = item.location_label.replace(/\s*\([^)]*\)/g, '').trim();
+      if (labelWithoutSector) candidates.push(labelWithoutSector);
+    }
+
+    // 3. From item.title prefix before dash or prepositional phrase
+    if (item.title && typeof item.title === 'string') {
+      const dashIdx = item.title.indexOf('—');
+      if (dashIdx > 0) {
+        candidates.push(item.title.substring(0, dashIdx).trim());
+      } else {
+        const m = item.title.match(/(?:в районе|поблизу|в|возле|около|у|near)\s+([^.,;!?]+)/i);
+        if (m) candidates.push(m[1].trim());
+      }
+    }
+
+    // Split candidates into individual settlement tokens using ONLY comma, semicolon, or conjunction words
+    const tokens = [];
+    candidates.forEach(cand => {
+      const normalizedDelims = cand.replace(/\s+(?:и|та|&)\s+/gi, ', ');
+      const parts = normalizedDelims.split(/[,;/]+/).map(s => s.trim()).filter(Boolean);
+      tokens.push(...parts);
+    });
+
+    return tokens;
+  }
+
+  // Normalize an individual settlement name before join
+  function normalizeSettlementName(raw) {
+    if (!raw || typeof raw !== 'string') return null;
+    let s = raw.trim();
+
+    // Strip parenthetical remarks e.g. (Восточная окраина) or (toretsk)
+    s = s.replace(/\s*\([^)]*\)/g, '').trim();
+
+    // Strip "в районе", "поблизу", "район", "н.п.", "село", "город", "пгт", "урочище", "окраина", etc.
+    s = s.replace(/^(?:в\s+районе|поблизу|районе|район|н\.п\.|село|город|пгт|урочище|околицы|окраины|near)\s+/i, '');
+    s = s.replace(/\s+(?:район|районе)$/i, '');
+    s = s.replace(/^[«"']+|[»"']+$/g, '').trim();
+    s = s.replace(/[.,;:!?]+$/, '').trim();
+
+    if (!s) return null;
+
+    // Requirement 3: Apply UA_TO_RU dictionary to EACH individual element before render
+    for (const [ua, ru] of Object.entries(UA_TO_RU)) {
+      if (s.toLowerCase() === ua.toLowerCase()) {
+        s = ru;
+        break;
+      }
+    }
+    for (const [ua, ru] of Object.entries(UA_TO_RU)) {
+      const reg = new RegExp(`\\b${ua}\\b`, 'gi');
+      if (reg.test(s)) {
+        s = s.replace(reg, ru);
+      }
+    }
+
+    s = s.replace(/\s+/g, ' ').trim();
+    return s;
+  }
+
+  // Requirement 2: Case-insensitive deduplication ignoring "район / в районе"
+  function deduplicateSettlements(settlementList) {
+    const seen = new Set();
+    const result = [];
+
+    settlementList.forEach(raw => {
+      const norm = normalizeSettlementName(raw);
+      if (!norm) return;
+
+      const compKey = norm.toLowerCase()
+        .replace(/в\s+районе|районе|район/g, '')
+        .replace(/[^\p{L}\p{N}]/gu, '')
+        .trim();
+
+      if (!compKey) return;
+
+      if (!seen.has(compKey)) {
+        seen.add(compKey);
+        result.push(norm);
+      }
+    });
+
+    return result;
+  }
+
+  // Requirement 4: Post-filter for single letters or fragments <= 2 chars separated by commas
+  function postFilterSettlements(settlementList) {
+    return settlementList.filter(item => {
+      const trimmed = (item || '').trim();
+      if (trimmed.length <= 2) {
+        console.warn('Post-filter: excluded invalid settlement fragment (<=2 chars):', trimmed);
+        return false;
+      }
+      return true;
+    });
+  }
+
+  // Sanitize joined settlement string
+  function sanitizeJoinedSettlementsString(joinedStr) {
+    if (!joinedStr || typeof joinedStr !== 'string') return '';
+    const parts = joinedStr.split(',').map(p => p.trim()).filter(Boolean);
+    const valid = parts.filter(p => {
+      if (p.length <= 2) {
+        console.warn('Post-filter: excluded fragment <=2 chars from joined string:', p);
+        return false;
+      }
+      return true;
+    });
+    return valid.join(', ');
+  }
+
+  function resolveEventSector(ev) {
+    if (ev.sector_id && ev.sector_id !== 'all' && ev.sector_id !== 'general') {
+      return ev.sector_id;
+    }
+    if (ev.location_label && typeof ev.location_label === 'string') {
+      const m = ev.location_label.match(/\(([^)]+)\)/);
+      if (m && SLUG_TO_NAME[m[1]]) return m[1];
+    }
+    const fullText = `${ev.title || ''} ${ev.settlement_name || ''} ${ev.what_happened || ''}`;
+    if (/Запорож|Щербак|Гуляйп|Варвар|Святопетр|Залізн/i.test(fullText)) return 'zaporizhzhia';
+    if (/Часов|Часів|Марков|Міньк|Никифор|Голуб|Ступоч/i.test(fullText)) return 'chasiv_yar';
+    if (/Торецк|Торецьк|Довг|Іллін/i.test(fullText)) return 'toretsk';
+    if (/Купян|Куп’ян|Лиман|Западн|Курил|Крив/i.test(fullText)) return 'kupyansk_lyman';
+    if (/Курахов|Вугледар|Угледар|Водян/i.test(fullText)) return 'kurakhove_vuhledar';
+    if (/Покровск|Покровськ|Родинс|Шевченк|Дорожн|Софії|Новоолекс|Шахов|Білиць/i.test(fullText)) return 'pokrovsk';
+    return 'pokrovsk';
+  }
+
   // Deduplication & Aggregation of repetitive assault templates
   function groupTemplateEvents(events) {
     if (!Array.isArray(events) || events.length === 0) return [];
@@ -2830,7 +3032,7 @@
     events.forEach(ev => {
       const fullText = `${ev.title || ''} ${ev.what_happened || ''}`;
       if (assaultRegex.test(fullText)) {
-        const sec = ev.sector_id || 'pokrovsk';
+        const sec = resolveEventSector(ev);
         if (!assaultGroupsBySector[sec]) assaultGroupsBySector[sec] = [];
         assaultGroupsBySector[sec].push(ev);
       } else {
@@ -2842,32 +3044,26 @@
 
     for (const [sec, items] of Object.entries(assaultGroupsBySector)) {
       if (items.length >= 2) {
-        const locations = [];
+        // Requirement 1: Build array of settlements from event objects BEFORE joining
+        const rawSettlementTokens = [];
         items.forEach(item => {
-          let loc = item.settlement_name;
-          if (!loc && item.title) {
-            const dashIdx = item.title.indexOf('—');
-            if (dashIdx > 0) {
-              loc = item.title.substring(0, dashIdx).trim();
-            } else {
-              const m = item.title.match(/(?:в районе|в|поблизу|near)\s+([^.]+)/i);
-              if (m) loc = m[1].trim();
-            }
-          }
-          if (loc) {
-            const parts = loc.split(/[,ийта&]+/).map(s => s.trim()).filter(Boolean);
-            parts.forEach(p => {
-              const cleaned = cleanEventText(p);
-              if (cleaned && !locations.includes(cleaned)) locations.push(cleaned);
-            });
-          }
+          const extracted = extractSettlementsFromEvent(item);
+          rawSettlementTokens.push(...extracted);
         });
 
+        // Requirement 2: Deduplicate inside array (case-insensitive, ignoring "район/в районе")
+        const deduplicated = deduplicateSettlements(rawSettlementTokens);
+
+        // Requirement 4: Post-filter log & exclude fragments <= 2 chars
+        const cleanSettlements = postFilterSettlements(deduplicated);
+
         const sectorObj = DEFAULT_SECTORS.find(s => s.id === sec);
-        const sectorName = sectorObj ? (sectorObj[`name_${state.lang}`] || sectorObj.name_ru) : (SLUG_TO_NAME[sec]?.[state.lang] || 'Фронт');
-        const locDisplay = locations.slice(0, 4).join(', ');
-        const locTail = locations.length > 4 ? ` и ещё ${locations.length - 4} ${t('settlements_count_label')}` : '';
-        const fullLocList = locations.join(', ') || sectorName;
+        const sectorName = sectorObj ? (sectorObj[`name_${state.lang}`] || sectorObj.name_ru) : (SLUG_TO_NAME[sec]?.[state.lang] || SLUG_TO_NAME[sec]?.ru || 'Фронт');
+
+        // Render via join(', ') ONLY at final output stage
+        const locDisplay = sanitizeJoinedSettlementsString(cleanSettlements.slice(0, 4).join(', '));
+        const locTail = cleanSettlements.length > 4 ? ` и ещё ${cleanSettlements.length - 4} ${t('settlements_count_label') || 'н.п.'}` : '';
+        const fullLocList = sanitizeJoinedSettlementsString(cleanSettlements.join(', ')) || sectorName;
 
         const primaryGeolocated = items.find(i => Array.isArray(i.coordinates) && i.coordinates.length === 2 && !isNaN(i.coordinates[0]));
 
@@ -2890,7 +3086,7 @@
           is_aggregated: true,
           aggregated_count: items.length,
           sector_id: sec,
-          settlement_name: locations[0] || sectorName,
+          settlement_name: cleanSettlements[0] || sectorName,
           category: 'svo_front',
           verification_status: 'CONFIRMED',
           timestamp: items[0].timestamp,
@@ -2917,6 +3113,32 @@
     return [...synthesizedAggregates, ...standardEvents];
   }
 
+  // Deduplicate identical events (Requirement 5a)
+  function deduplicateEvents(events) {
+    if (!Array.isArray(events)) return [];
+    const seen = new Set();
+    return events.filter(ev => {
+      if (!ev) return false;
+      const rawText = (ev.title || ev.what_happened || ev.summary || '').toLowerCase();
+      const normText = rawText
+        .replace(/геолокация:\s*/gi, '')
+        .replace(/воссиновили/gi, 'восстановили')
+        .replace(/воссиновил/gi, 'восстановил')
+        .replace(/воссиновлено/gi, 'восстановлено')
+        .replace(/[^\p{L}\p{N}]/gu, '')
+        .trim();
+
+      const sec = ev.sector_id || 'general';
+      const key = `${sec}::${normText.slice(0, 45)}`;
+
+      if (normText.length > 5 && seen.has(key)) {
+        return false;
+      }
+      seen.add(key);
+      return true;
+    });
+  }
+
   function processAndNormalizeEvents(events) {
     if (!Array.isArray(events)) return [];
     const normalized = events.map(ev => {
@@ -2926,11 +3148,20 @@
       copy.what_happened = cleanEventText(copy.what_happened || '');
       if (copy.what_happened_ru) copy.what_happened_ru = cleanEventText(copy.what_happened_ru);
       if (copy.settlement_name) copy.settlement_name = cleanEventText(copy.settlement_name);
+
+      // Requirement 5(в): Euractiv source attribution
+      if (copy.id === 'art-394de4412fb94696' || /Euractiv/i.test(copy.title || '') || /Euractiv/i.test(copy.what_happened || '')) {
+        copy.source_id = 'euractiv';
+        copy.source_name = 'Euractiv';
+        copy.source_type = 'international_media';
+      }
+
       copy.verification_status = deriveVerificationStatus(copy);
       return copy;
     });
 
-    return groupTemplateEvents(normalized);
+    const deduplicated = deduplicateEvents(normalized);
+    return groupTemplateEvents(deduplicated);
   }
 
   // Verdict Threshold & 3-Tier Badge Logic
@@ -3008,10 +3239,6 @@
           </circle>
         `).join('')}
       </svg>
-      <div class="dynamics-sparkline-labels">
-        <span>7 дней назад</span>
-        <span>Сегодня</span>
-      </div>
     `;
   }
 
@@ -3019,6 +3246,8 @@
   function renderFeaturedCardHtml(n) {
     const title = cleanEventText(n[`title_${state.lang}`] || n.title);
     const whatHappened = cleanEventText(n[`what_happened_${state.lang}`] || n.what_happened);
+    const isVerbatimSame = isTitleEqualToLead(title, whatHappened);
+    const leadHtml = (!whatHappened || isVerbatimSame) ? '' : `<p class="event-text">${whatHappened}</p>`;
     const vStatus = deriveVerificationStatus(n);
     const locLabel = cleanEventText(n.settlement_name || SLUG_TO_NAME[n.sector_id]?.[state.lang] || SLUG_TO_NAME[n.sector_id]?.ru || (n.category === 'negotiations' ? t('cat_diplomacy') : (n.category === 'economy' ? t('cat_economy') : (n.source_name || 'Фронт'))));
     const timeBadge = formatEventTimeBadge(n);
@@ -3052,7 +3281,7 @@
         </div>
 
         <h3 class="event-heading">${title}</h3>
-        <p class="event-text">${whatHappened}</p>
+        ${leadHtml}
 
         <div class="event-card-actions">
           ${getVerificationBadgeHtml(vStatus)}
@@ -3071,6 +3300,8 @@
   function renderCompactRowHtml(n) {
     const title = cleanEventText(n[`title_${state.lang}`] || n.title);
     const whatHappened = cleanEventText(n[`what_happened_${state.lang}`] || n.what_happened);
+    const isVerbatimSame = isTitleEqualToLead(title, whatHappened);
+    const leadSpan = (!whatHappened || isVerbatimSame) ? '' : `<span class="compact-lead">— ${whatHappened}</span>`;
     const vStatus = deriveVerificationStatus(n);
     const locLabel = cleanEventText(n.settlement_name || SLUG_TO_NAME[n.sector_id]?.[state.lang] || SLUG_TO_NAME[n.sector_id]?.ru || (n.category === 'negotiations' ? t('cat_diplomacy') : (n.category === 'economy' ? t('cat_economy') : (n.source_name || 'Фронт'))));
     const timeBadge = formatEventTimeBadge(n);
@@ -3098,7 +3329,7 @@
           </div>
           <div class="compact-title-wrap">
             <h4 class="compact-heading">${title}</h4>
-            <span class="compact-lead">— ${whatHappened}</span>
+            ${leadSpan}
           </div>
         </div>
         <div class="compact-side-col">
@@ -3435,6 +3666,7 @@
 
     const title = ev[`title_${state.lang}`] || ev.title;
     const whatHappened = ev[`what_happened_${state.lang}`] || ev.what_happened;
+    const isVerbatimSame = isTitleEqualToLead(title, whatHappened);
     const confirmed = ev[`what_is_confirmed_${state.lang}`] || ev.what_is_confirmed;
     const notConfirmed = ev[`what_is_not_confirmed_${state.lang}`] || ev.what_is_not_confirmed;
     const sources = ev.sources_lineage || [];
@@ -3447,7 +3679,7 @@
           <h2 style="font-size: 1.25rem; font-weight: 800; margin-top: 6px;">${title}</h2>
         </div>
 
-        <p style="font-size: 0.9rem; line-height: 1.5;">${whatHappened}</p>
+        ${(!whatHappened || isVerbatimSame) ? '' : `<p style="font-size: 0.9rem; line-height: 1.5;">${whatHappened}</p>`}
 
         <div class="sheet-fact-box confirmed">
           <div class="sheet-fact-title">🟢 ${t('what_confirmed')}</div>
