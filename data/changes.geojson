@@ -1,10 +1,10 @@
 {
   "type": "FeatureCollection",
   "metadata": {
-    "from": "2026-09-05",
-    "to": "2026-09-06",
+    "from": "2026-09-06",
+    "to": "2026-09-07",
     "area_change_km2": 4.85,
-    "last_updated": "2026-09-06T15:51:44.285Z",
+    "last_updated": "2026-09-07T04:20:56.545Z",
     "noise_filtered": true,
     "verification_standard": "multi-source consensus"
   },

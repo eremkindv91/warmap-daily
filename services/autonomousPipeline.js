@@ -12,6 +12,14 @@ import { evaluateSourceCoverage, createCoverageTracker } from './sourceCoverageC
 import { parseDigestMarkdown, SYSTEM_PROMPT_DAILY_DIGEST } from '../lib/digest-parser.js';
 import { classifySector, getFrontlineOperatingDate } from './osintCollector.js';
 import {
+  evaluateWarRelevance,
+  is_ukraine_war_relevant,
+  validate_article_for_publication,
+  classifySectorWithConfidence,
+  EVENT_CATEGORIES,
+  LEGACY_CATEGORY_MAP
+} from './warRelevanceFilter.js';
+import {
   calculateConsensusScore,
   getConfidenceLevel,
   getConfidenceLabelRu,
@@ -24,6 +32,27 @@ import {
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const ROOT_DIR = path.resolve(__dirname, '..');
+
+// In-memory debug log for tracking relevance & sector decisions
+export const pipelineRelevanceDebugLog = [];
+
+export function recordDebugLogEntry(entry) {
+  pipelineRelevanceDebugLog.unshift({
+    timestamp: new Date().toISOString(),
+    ...entry
+  });
+  if (pipelineRelevanceDebugLog.length > 100) {
+    pipelineRelevanceDebugLog.pop();
+  }
+}
+
+export function getPipelineDebugLog() {
+  return {
+    total_evaluated: pipelineRelevanceDebugLog.length,
+    timestamp: new Date().toISOString(),
+    evaluations: pipelineRelevanceDebugLog
+  };
+}
 
 // Helper to safely read JSON
 function readJson(relPath, fallback = null) {
@@ -127,35 +156,11 @@ const CATEGORY_KEYWORDS = {
 };
 
 export function detectCategory(text = '') {
-  const lower = text.toLowerCase();
-
-  // 1. Immediately drop non-conflict topics
-  for (const stop of NON_CONFLICT_STOPWORDS) {
-    if (lower.includes(stop)) return null;
+  const evalResult = evaluateWarRelevance({ title: text });
+  if (!evalResult.is_relevant || evalResult.war_relevance_score < 0.60) {
+    return null;
   }
-
-  // 2. Require conflict context anchor for general news sources
-  const hasConflictAnchor = /украин|росси|всу|миноборон|сво|донбасс|киев|москв|фронт|лбс|бпла|пво|ракет|санкци|путин|зеленск|трамп|кремл|госдеп|байден|уиткофф|кушнер|лукойл|лавро|песков/.test(lower);
-  if (!hasConflictAnchor) return null;
-
-  // 3. Priority categories
-  for (const kw of CATEGORY_KEYWORDS.negotiations) {
-    if (lower.includes(kw)) return 'negotiations';
-  }
-  for (const kw of CATEGORY_KEYWORDS.economy) {
-    if (lower.includes(kw)) return 'economy';
-  }
-  for (const kw of CATEGORY_KEYWORDS.strikes) {
-    if (lower.includes(kw)) return 'strikes';
-  }
-  for (const kw of CATEGORY_KEYWORDS.losses) {
-    if (lower.includes(kw)) return 'losses';
-  }
-  for (const kw of CATEGORY_KEYWORDS.svo_front) {
-    if (lower.includes(kw)) return 'svo_front';
-  }
-
-  return null;
+  return evalResult.legacy_category || 'svo_front';
 }
 
 /**
@@ -335,11 +340,37 @@ export async function runAutonomousPipeline(targetDate = null) {
     sourceHealth.results = healthList;
     writeJson('data/source-health.json', sourceHealth);
 
-    // Stage 3: Normalization, Language Validation, Deduplication & Categorization
+    // Stage 3: Two-Stage Normalization, Language Validation, War Relevance & Geographic Classification
     const existingNews = readJson('data/news.json', []);
     const existingEvents = readJson('data/events.json', []);
     const newArticles = [];
     let deduplicatedCount = 0;
+    let excludedCount = 0;
+
+    // First, filter and sanitize existing news against two-stage filter to purge legacy non-conflict items and remove fake sectors
+    const cleanedExistingNews = [];
+    for (const item of existingNews) {
+      const evalRes = evaluateWarRelevance({
+        title: item.title_ru || item.title,
+        description: item.what_happened_ru || item.what_happened || item.description,
+        url: item.url,
+        source_id: item.source_id,
+        source_name: item.source_name
+      });
+      if (evalRes.is_relevant && evalRes.war_relevance_score >= 0.60) {
+        // Enforce sector rule: sector assigned ONLY if location_confidence >= 0.70!
+        item.sector_id = evalRes.sector; // null if location_confidence < 0.70
+        item.sector_name = evalRes.sector_name;
+        item.settlement_name = evalRes.settlement_name;
+        item.location_confidence = evalRes.location_confidence;
+        item.war_relevance_score = evalRes.war_relevance_score;
+        item.event_category = evalRes.category;
+        item.category = evalRes.legacy_category;
+        cleanedExistingNews.push(item);
+      } else {
+        console.log(`[Autonomous Pipeline: CLEANSE] Purged non-relevant legacy item: "${(item.title || '').slice(0, 60)}" (${evalRes.reason})`);
+      }
+    }
 
     for (const raw of rawArticles) {
       const hash = computeHash((raw.title || '') + (raw.url || ''));
@@ -351,8 +382,41 @@ export async function runAutonomousPipeline(targetDate = null) {
       // 100% Russian language normalization
       const titleRu = cleanHtml(normalizeToRussian(raw.title));
       const descRu = cleanHtml(normalizeToRussian(raw.description));
-      const category = detectCategory(titleRu + ' ' + descRu);
-      const sectorId = classifySector(null, null, titleRu + ' ' + descRu);
+      
+      // TWO-STAGE FILTERING:
+      // STEP A: Evaluate war relevance & negative topic filters
+      // STEP B: Category and Geographic classification with location_confidence
+      const evalResult = evaluateWarRelevance({
+        title: titleRu,
+        description: descRu,
+        url: raw.url,
+        source_id: raw.source_id,
+        source_name: raw.source_name
+      });
+
+      // Record detailed evaluation into debug tracker
+      recordDebugLogEntry({
+        title: titleRu,
+        source_id: raw.source_id,
+        source_name: raw.source_name,
+        url: raw.url,
+        published_at: raw.pubDate || opDate.isoString,
+        war_relevance_score: evalResult.war_relevance_score,
+        decision: evalResult.decision,
+        reason: evalResult.reason,
+        detected_entities: evalResult.detected_entities,
+        detected_locations: evalResult.detected_locations,
+        assigned_category: evalResult.category,
+        assigned_sector: evalResult.sector,
+        location_confidence: evalResult.location_confidence,
+        final_decision: evalResult.is_relevant ? 'PUBLISHED' : 'EXCLUDED'
+      });
+
+      // If not relevant to Ukraine war (fails STEP A or score < 0.60), exclude completely!
+      if (!evalResult.is_relevant || evalResult.war_relevance_score < 0.60) {
+        excludedCount++;
+        continue;
+      }
 
       const articleItem = {
         id: `art-${hash}`,
@@ -368,21 +432,36 @@ export async function runAutonomousPipeline(targetDate = null) {
         description: descRu,
         what_happened: descRu || titleRu,
         what_happened_ru: descRu || titleRu,
-        category,
-        sector_id: sectorId,
+        category: evalResult.legacy_category,
+        event_category: evalResult.category,
+        sector_id: evalResult.sector, // WILL BE NULL IF location_confidence < 0.70!
+        sector_name: evalResult.sector_name,
+        settlement_name: evalResult.settlement_name,
+        location_confidence: evalResult.location_confidence,
+        war_relevance_score: evalResult.war_relevance_score,
+        relevance_reason: evalResult.reason,
+        why_included: evalResult.why_included,
         timestamp: raw.pubDate || opDate.isoString,
         time_formatted: `${opDate.ddmmyyyy.slice(0, 5)} ${opDate.hours}:${opDate.minutes} МСК`,
-        importance: category === 'negotiations' || category === 'economy' ? 'critical' : 'important',
+        importance: evalResult.category === 'DIPLOMACY' || evalResult.category === 'MILITARY_AID' ? 'critical' : 'important',
         verification_status: 'CONFIRMED',
         confidence: raw.source_type === 'russian_media' || raw.source_type === 'international_media' ? 0.94 : 0.88,
         cached_at: opDate.isoString
       };
 
+      // FINAL VALIDATION GATE BEFORE PUBLICATION
+      const gate = validate_article_for_publication(articleItem);
+      if (!gate.valid) {
+        console.warn(`[Autonomous Pipeline: GATE REJECT] ${gate.reason} | ${titleRu.slice(0, 50)}`);
+        excludedCount++;
+        continue;
+      }
+
       // Record into cache
       cache[hash] = {
         title: titleRu,
         url: raw.url,
-        category,
+        category: evalResult.legacy_category,
         cached_at: opDate.isoString
       };
 
@@ -398,10 +477,10 @@ export async function runAutonomousPipeline(targetDate = null) {
     }
     writeJson('data/article-cache.json', cache);
 
-    console.log(`[Autonomous Pipeline] Ingested ${rawArticles.length} items, deduplicated ${deduplicatedCount}, new unique: ${newArticles.length}`);
+    console.log(`[Autonomous Pipeline] Ingested ${rawArticles.length} items: deduplicated=${deduplicatedCount}, excluded_non_war=${excludedCount}, new_verified_war=${newArticles.length}, cleaned_legacy=${cleanedExistingNews.length}`);
 
-    // Merge new articles into news.json
-    const mergedNews = [...newArticles, ...existingNews].slice(0, 50);
+    // Merge new verified articles with cleaned existing news
+    const mergedNews = [...newArticles, ...cleanedExistingNews].slice(0, 50);
     writeJson('data/news.json', mergedNews);
 
     // Stage 4: Source Coverage Checker (MANDATORY RBC & Vedomosti Verification)
@@ -528,6 +607,8 @@ ${JSON.stringify(mergedNews.filter(n => n.category === 'svo_front').slice(0, 8).
 
     // 3. Update status.json
     const status = readJson('data/status.json', {});
+    status.operating_date = effectiveDate;
+    status.latest_snapshot_date = effectiveDate;
     status.snapshot_date = effectiveDate;
     status.geometry_date = effectiveDate;
     status.point_feed_date = effectiveDate;
@@ -728,18 +809,18 @@ function syncDailyEvents(effectiveDate, opDate, diffData, mergedNews = []) {
         published_at: opDate.isoString,
         verification_status: 'confirmed',
         event_kind: 'territorial_update',
-        sector_id: p.sector_id || 'pokrovsk',
+        sector_id: p.sector_id || classifySectorWithConfidence(p.name, lat, lon).sector || null,
         confidence: (p.consensus_score || 90) / 100,
         source_ids: p.source_ids || ['deepstate-map', 'isw'],
         evidence_ids: p.evidence_ids || ['ev-sat-01'],
         location: { lat: Number(lat.toFixed(6)), lon: Number(lon.toFixed(6)) },
-        location_label: `${p.name || 'Участок'} (${p.sector_id || 'покровск'})`,
-        settlement_id: `settlement-${p.sector_id || 'pokrovsk'}`,
+        location_label: `${p.name || 'Участок'} (${p.sector_id || 'ЛБС'})`,
+        settlement_id: p.sector_id ? `settlement-${p.sector_id}` : null,
         publication_note: 'Геолокация подтверждена спутниковой оптикой и видео объективного контроля.'
       });
     }
 
-    // 2. Add top verified conflict news items
+    // 2. Add top verified conflict news items ONLY if they have verified geographic coordinates
     const SECTOR_COORDS = {
       pokrovsk: { lat: 48.28, lon: 37.18, name: 'Покровский сектор' },
       toretsk: { lat: 48.40, lon: 37.85, name: 'Торецкий сектор' },
@@ -747,12 +828,18 @@ function syncDailyEvents(effectiveDate, opDate, diffData, mergedNews = []) {
       kurakhove_vuhledar: { lat: 47.78, lon: 37.25, name: 'Курахово — Угледар' },
       kupyansk_lyman: { lat: 49.50, lon: 37.75, name: 'Купянск — Лиман' },
       zaporizhzhia: { lat: 47.55, lon: 35.56, name: 'Запорожский сектор' },
-      kherson: { lat: 46.65, lon: 32.60, name: 'Херсонский сектор' }
+      kherson_dnipro: { lat: 46.65, lon: 32.60, name: 'Херсонский сектор' }
     };
 
-    const topNews = mergedNews.filter(n => n.category === 'strikes' || n.category === 'svo_front').slice(0, 5);
+    const topNews = mergedNews.filter(n =>
+      (n.category === 'strikes' || n.category === 'svo_front') &&
+      n.sector_id &&
+      SECTOR_COORDS[n.sector_id] &&
+      (n.location_confidence === undefined || n.location_confidence >= 0.70)
+    ).slice(0, 5);
+
     for (const n of topNews) {
-      const sec = SECTOR_COORDS[n.sector_id] || SECTOR_COORDS.pokrovsk;
+      const sec = SECTOR_COORDS[n.sector_id];
       todayEvents.push({
         id: `ev-news-${n.hash || computeHash(n.title)}`,
         title: n.title_ru || n.title,
@@ -767,13 +854,13 @@ function syncDailyEvents(effectiveDate, opDate, diffData, mergedNews = []) {
         published_at: n.timestamp || opDate.isoString,
         verification_status: 'confirmed',
         event_kind: n.category === 'strikes' ? 'strike_drone' : 'frontline_action',
-        sector_id: n.sector_id || 'pokrovsk',
+        sector_id: n.sector_id,
         confidence: n.confidence || 0.92,
         source_ids: [n.source_id || 'rbc'],
         evidence_ids: [],
         location: { lat: sec.lat, lon: sec.lon },
         location_label: `${sec.name} (${n.source_name || 'СМИ'})`,
-        settlement_id: `settlement-${n.sector_id || 'pokrovsk'}`,
+        settlement_id: `settlement-${n.sector_id}`,
         publication_note: `Сообщение проверенного источника «${n.source_name || 'СМИ'}». Зафиксировано в суточном мониторинге.`
       });
     }

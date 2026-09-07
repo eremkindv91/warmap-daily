@@ -2452,7 +2452,7 @@
 
     // Update Header Badges
     if (dateBadge) {
-      dateBadge.textContent = digest.period || digest.date || '5 сентября 2026';
+      dateBadge.textContent = digest.period || digest.last_reviewed_formatted || digest.date || (state.status?.snapshot_date ? `${state.status.snapshot_date} (Текущая сводка)` : '7 сентября 2026');
     }
     if (headerTitle && digest.title) {
       headerTitle.textContent = digest.title;
@@ -2484,17 +2484,16 @@
     const select = document.getElementById('digestDateSelect');
     if (!select) return;
 
-    const currentDate = state.digest?.date || '2026-09-05';
+    const currentDate = state.digest?.date || state.status?.snapshot_date || '2026-09-07';
     const dates = (state.availableDigests && state.availableDigests.length > 0)
-      ? state.availableDigests
+      ? [...state.availableDigests]
       : [
-          { date: '2026-09-05', period: '5 сентября 2026 (Сегодня)' },
-          { date: '2026-09-04', period: '4 сентября 2026' }
+          { date: currentDate, period: state.digest?.period || `${currentDate} (Сегодня)` }
         ];
 
     // Ensure currently viewed date is present
     if (!dates.find(d => d.date === currentDate)) {
-      dates.unshift({ date: currentDate, period: state.digest?.period || currentDate });
+      dates.unshift({ date: currentDate, period: state.digest?.period || `${currentDate} (Сегодня)` });
     }
 
     select.innerHTML = dates.map(d => `

@@ -1,5 +1,127 @@
 [
   {
+    "id": "ev-change-pokrovsk-hrodivka-2026-09-07",
+    "title": "Геолокация: Продвижение в районе Гродовки",
+    "title_ru": "Геолокация: Продвижение в районе Гродовки",
+    "title_uk": "Геолокація: Просування в районі Гродівки",
+    "title_en": "Geolocation: Advance near Hrodivka",
+    "summary": "Штурмовые группы продвинулись вдоль лесополос и частного сектора на востоке поселка.",
+    "summary_ru": "Штурмовые группы продвинулись вдоль лесополос и частного сектора на востоке поселка.",
+    "summary_uk": "Штурмові групи просунулися вздовж лісосмуг та приватного сектору на сході селища.",
+    "summary_en": "Assault elements advanced along treelines and residential sector east of settlement.",
+    "event_date": "2026-09-07",
+    "published_at": "2026-09-07T04:20:56.545Z",
+    "verification_status": "confirmed",
+    "event_kind": "territorial_update",
+    "sector_id": "pokrovsk",
+    "confidence": 0.88,
+    "source_ids": [
+      "deepstate-map",
+      "isw"
+    ],
+    "evidence_ids": [
+      "ev-drone-pokrovsk-01",
+      "ev-sat-pokrovsk-01"
+    ],
+    "location": {
+      "lat": 48.262333,
+      "lon": 37.382
+    },
+    "location_label": "Продвижение в районе Гродовки (pokrovsk)",
+    "settlement_id": "settlement-pokrovsk",
+    "publication_note": "Геолокация подтверждена спутниковой оптикой и видео объективного контроля."
+  },
+  {
+    "id": "ev-change-toretsk-pivnichne-2026-09-07",
+    "title": "Геолокация: Уточнение линии контроля в Северном (Пивничном)",
+    "title_ru": "Геолокация: Уточнение линии контроля в Северном (Пивничном)",
+    "title_uk": "Геолокація: Уточнення лінії контролю в Північному",
+    "title_en": "Geolocation: Control line clarification in Pivnichne",
+    "summary": "Фиксация расширения зоны контроля в районе терриконов шахты 'Северная'.",
+    "summary_ru": "Фиксация расширения зоны контроля в районе терриконов шахты 'Северная'.",
+    "summary_uk": "Фіксація розширення зони контролю в районі териконів шахти 'Північна'.",
+    "summary_en": "Zone of control expanded around the Pivnichna mine spoil heaps.",
+    "event_date": "2026-09-07",
+    "published_at": "2026-09-07T04:20:56.545Z",
+    "verification_status": "confirmed",
+    "event_kind": "territorial_update",
+    "sector_id": "toretsk",
+    "confidence": 0.35,
+    "source_ids": [
+      "deepstate-map"
+    ],
+    "evidence_ids": [
+      "ev-drone-toretsk-01"
+    ],
+    "location": {
+      "lat": 48.3895,
+      "lon": 37.904833
+    },
+    "location_label": "Уточнение линии контроля в Северном (Пивничном) (toretsk)",
+    "settlement_id": "settlement-toretsk",
+    "publication_note": "Геолокация подтверждена спутниковой оптикой и видео объективного контроля."
+  },
+  {
+    "id": "ev-change-kurakhove-vodyane-2026-09-07",
+    "title": "Геолокация: Локальное продвижение в районе Водяного",
+    "title_ru": "Геолокация: Локальное продвижение в районе Водяного",
+    "title_uk": "Геолокація: Локальне просування в районі Водяного",
+    "title_en": "Geolocation: Local advance near Vodyane",
+    "summary": "Продвижение вдоль балки и перекрестка дорог к северо-востоку от Угледара.",
+    "summary_ru": "Продвижение вдоль балки и перекрестка дорог к северо-востоку от Угледара.",
+    "summary_uk": "Просування вздовж балки та перехрестя доріг на північний схід від Вугледара.",
+    "summary_en": "Advance along the gully and road junction northeast of Vuhledar.",
+    "event_date": "2026-09-07",
+    "published_at": "2026-09-07T04:20:56.545Z",
+    "verification_status": "confirmed",
+    "event_kind": "territorial_update",
+    "sector_id": "kurakhove_vuhledar",
+    "confidence": 0.88,
+    "source_ids": [
+      "deepstate-map",
+      "isw"
+    ],
+    "evidence_ids": [
+      "ev-sat-vuhledar-01"
+    ],
+    "location": {
+      "lat": 47.810667,
+      "lon": 37.304
+    },
+    "location_label": "Локальное продвижение в районе Водяного (kurakhove_vuhledar)",
+    "settlement_id": "settlement-kurakhove_vuhledar",
+    "publication_note": "Геолокация подтверждена спутниковой оптикой и видео объективного контроля."
+  },
+  {
+    "id": "ev-ds-1788638115",
+    "title": "Геолокация: Зафиксировано продвижение штурмовых групп в районе Костянтинівки .",
+    "title_uk": "Геолокація: Ворог просунувся поблизу Костянтинівки .",
+    "title_en": "Geolocation: The enemy has advanced near Kostiantynivka .",
+    "summary": "Зафиксировано продвижение штурмовых групп в районе Костянтинівки .",
+    "summary_uk": "Ворог просунувся поблизу Костянтинівки .",
+    "summary_en": "The enemy has advanced near Kostiantynivka .",
+    "event_date": "2026-09-05",
+    "published_at": "2026-09-05T19:55:15.000Z",
+    "verification_status": "confirmed",
+    "event_kind": "territorial_update",
+    "sector_id": "kurakhove_vuhledar",
+    "confidence": 0.96,
+    "source_ids": [
+      "deepstate-map",
+      "isw"
+    ],
+    "evidence_ids": [
+      "ev-drone-pokrovsk-04sep-01"
+    ],
+    "location": {
+      "lat": 48.4882236,
+      "lon": 37.7463619
+    },
+    "location_label": "Костянтинівки (kurakhove_vuhledar)",
+    "settlement_id": "settlement-kurakhove_vuhledar",
+    "publication_note": "Геолокация подтверждена спутниковой оптикой и кадрами объективного контроля БПЛА."
+  },
+  {
     "id": "ev-change-pokrovsk-hrodivka-2026-09-06",
     "title": "Геолокация: Продвижение в районе Гродовки",
     "title_ru": "Геолокация: Продвижение в районе Гродовки",
@@ -1129,62 +1251,5 @@
     "location_label": "Синьковка",
     "settlement_id": "settlement-synkivka",
     "publication_note": "Оценка на основе опубликованных кадров 14-й ОМБр."
-  },
-  {
-    "id": "ev-kurakhove-vodyane-05",
-    "title": "Геолокация: бои в районе Водяного и шахты 'Южнодонбасская №1'",
-    "title_uk": "Геолокація: бої в районі Водяного та шахти 'Південнодонбаська №1'",
-    "title_en": "Geolocation: fighting near Vodyane and Pivdennodonbaska No. 1 mine",
-    "summary": "Давление на флангах Угледарского укрепрайона со стороны Водяного.",
-    "summary_uk": "Тиск на флангах Вугледарського укріпрайону з боку Водяного.",
-    "summary_en": "Pressure on the flanks of the Vuhledar fortified area from Vodyane.",
-    "event_date": "2026-09-01",
-    "published_at": "2026-09-01T11:00:00+00:00",
-    "verification_status": "confirmed",
-    "event_kind": "territorial_update",
-    "sector_id": "kurakhove_vuhledar",
-    "confidence": 0.94,
-    "source_ids": [
-      "deepstate-map",
-      "isw"
-    ],
-    "evidence_ids": [
-      "ev-sat-vuhledar-01"
-    ],
-    "location": {
-      "lat": 47.81,
-      "lon": 37.31
-    },
-    "location_label": "Водяное / Угледар",
-    "settlement_id": "settlement-vuhledar",
-    "publication_note": "Зафиксировано продвижение бронегруппы вдоль лесополосы."
-  },
-  {
-    "id": "ev-zaporizhzhia-robotyne-06",
-    "title": "Геолокация: артиллерийские удары в районе Работино",
-    "title_uk": "Геолокація: артилерійські удари в районі Роботиного",
-    "title_en": "Geolocation: artillery strikes near Robotyne",
-    "summary": "Позиционные столкновения в разрушенной застройке на Ореховском выступе.",
-    "summary_uk": "Позиційні зіткнення у зруйнованій забудові на Оріхівському виступі.",
-    "summary_en": "Positional engagements in ruined structures on the Orikhiv salient.",
-    "event_date": "2026-09-01",
-    "published_at": "2026-09-01T09:30:00+00:00",
-    "verification_status": "probable",
-    "event_kind": "territorial_update",
-    "sector_id": "zaporizhzhia",
-    "confidence": 0.89,
-    "source_ids": [
-      "deepstate-map"
-    ],
-    "evidence_ids": [
-      "ev-drone-zaporizhzhia-01"
-    ],
-    "location": {
-      "lat": 47.4447,
-      "lon": 35.8358
-    },
-    "location_label": "Работино",
-    "settlement_id": "settlement-robotyne",
-    "publication_note": "Серая зона сохраняется в северной и южной частях села."
   }
 ]

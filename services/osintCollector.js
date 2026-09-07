@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { classifySectorWithConfidence } from './warRelevanceFilter.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -81,42 +82,8 @@ const collectorState = {
 
 // Geographical Sector classifier based on coordinates and keywords
 export function classifySector(lat, lon, text = '') {
-  const t = (text || '').toLowerCase();
-
-  if (t.includes('покровськ') || t.includes('покровск') || t.includes('гродів') || t.includes('гродовк') || t.includes('новогродів') || t.includes('новогродовк') || t.includes('селидов') || t.includes('селидово') || t.includes('родинськ')) {
-    return 'pokrovsk';
-  }
-  if (t.includes('торецьк') || t.includes('торецк') || t.includes('північн') || t.includes('северное') || t.includes('нью-йорк') || t.includes('залізне') || t.includes('железное')) {
-    return 'toretsk';
-  }
-  if (t.includes('часів яр') || t.includes('часов яр') || t.includes('бахмут') || t.includes('клещіїв') || t.includes('клещеевк') || t.includes('іванівськ') || t.includes('ивановск') || t.includes('ступки') || t.includes('ступочки')) {
-    return 'chasiv_yar';
-  }
-  if (t.includes('куп’янськ') || t.includes('купянск') || t.includes('лиман') || t.includes('дворічн') || t.includes('двуречн') || t.includes('синьків') || t.includes('синьков') || t.includes('піщан') || t.includes('песчан') || t.includes('кремінн') || t.includes('кременн')) {
-    return 'kupyansk_lyman';
-  }
-  if (t.includes('вугледар') || t.includes('угледар') || t.includes('курахов') || t.includes('водяне') || t.includes('водяное') || t.includes('мар’їнк') || t.includes('марьинк') || t.includes('красногорів') || t.includes('красногоровк') || t.includes('костянтинів') || t.includes('константиновк')) {
-    return 'kurakhove_vuhledar';
-  }
-  if (t.includes('роботин') || t.includes('работино') || t.includes('вербов') || t.includes('вербовое') || t.includes('гуляйпол') || t.includes('лугівськ') || t.includes('луговское') || t.includes('запоріз') || t.includes('запорож')) {
-    return 'zaporizhzhia';
-  }
-  if (t.includes('дніпр') || t.includes('днепр') || t.includes('херсон') || t.includes('кринки') || t.includes('крынки') || t.includes('олешк') || t.includes('антонів') || t.includes('антонов')) {
-    return 'kherson_dnipro';
-  }
-
-  // Coordinate bounding boxes
-  if (typeof lat === 'number' && typeof lon === 'number') {
-    if (lat >= 49.2) return 'kupyansk_lyman';
-    if (lat >= 48.5 && lon >= 37.6) return 'chasiv_yar';
-    if (lat >= 48.3 && lat < 48.5 && lon >= 37.6) return 'toretsk';
-    if (lat >= 48.0 && lat < 48.4 && lon < 37.6) return 'pokrovsk';
-    if (lat >= 47.7 && lat < 48.1) return 'kurakhove_vuhledar';
-    if (lat < 47.7 && lon > 34.5) return 'zaporizhzhia';
-    if (lon <= 34.5) return 'kherson_dnipro';
-  }
-
-  return 'pokrovsk';
+  const result = classifySectorWithConfidence(text, lat, lon);
+  return result.sector || null;
 }
 
 // Clean HTML tags and entities

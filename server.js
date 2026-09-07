@@ -11,7 +11,8 @@ import {
 import {
   initAutonomousScheduler,
   runAutonomousPipeline,
-  getPipelineStatus
+  getPipelineStatus,
+  getPipelineDebugLog
 } from './services/autonomousPipeline.js';
 import { parseDigestMarkdown, SYSTEM_PROMPT_DAILY_DIGEST } from './lib/digest-parser.js';
 import {
@@ -800,6 +801,12 @@ app.get('/api/pipeline/status', (req, res) => {
     ...status,
     recent_runs: runs
   });
+});
+
+// Autonomous Pipeline Relevance & Classification Debug endpoint
+app.get('/api/pipeline/debug', (req, res) => {
+  const debugData = getPipelineDebugLog();
+  res.json(debugData);
 });
 
 // Autonomous Pipeline Trigger endpoint
