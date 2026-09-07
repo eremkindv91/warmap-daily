@@ -23,6 +23,13 @@ import {
   MIN_CHANGE_DISTANCE_METERS,
   MIN_CHANGE_AREA_KM2
 } from './lib/geoConsensus.js';
+import {
+  syncLostArmour,
+  getLostArmourLatest,
+  getLostArmourSnapshot,
+  getLostArmourDiscrepancies,
+  getLostArmourComparison
+} from './services/lostArmourSync.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -583,6 +590,62 @@ app.get('/api/front/diff', (req, res) => {
   res.json(diffResult);
 });
 
+// 6a. Map Layer Architecture Metadata & Sources Lineage
+app.get('/api/front/layers', (req, res) => {
+  const op = getOperatingDate();
+  const latestLA = getLostArmourLatest();
+  const comp = getLostArmourComparison();
+  const disc = getLostArmourDiscrepancies();
+  const changes = readJson('data/changes.geojson', { features: [] });
+  const events = readJson('data/events.json', []);
+  const snapshots = readJson('data/snapshots/index.json', []);
+
+  res.json({
+    timestamp: new Date().toISOString(),
+    operating_date: op.isoDate,
+    layers: {
+      layer_1_lostarmour_base: {
+        id: 'lostarmour_base',
+        name: 'Базовый фронт (LostArmour)',
+        role: 'PRIMARY_REFERENCE_BASEMAP',
+        status: latestLA ? 'SYNCHRONIZED' : 'OFFLINE_CACHE',
+        polygons_count: latestLA?.metadata?.polygons_count || 29,
+        total_area_km2: latestLA?.metadata?.total_control_area_km2 || 122191.4,
+        source_url: 'https://lostarmour.info/map',
+        last_sync: latestLA?.metadata?.synchronized_at || null
+      },
+      layer_2_warmap_enrichment: {
+        id: 'warmap_enrichment',
+        name: 'Обогащение (WarMap Daily)',
+        role: 'ENRICHMENT_AND_ACTIVE_SHIFTS',
+        status: 'ACTIVE',
+        active_shifts_km2: comp.enrichment_layer.active_shifts_km2,
+        changes_count: changes.features?.length || 0
+      },
+      layer_3_osint_events: {
+        id: 'osint_events',
+        name: 'Свежие OSINT-события (24–72ч)',
+        role: 'OBJECTIVE_VIDEO_CONTROL',
+        status: 'ACTIVE',
+        events_count: events.length
+      },
+      layer_4_discrepancies: {
+        id: 'discrepancies',
+        name: 'Зоны расхождений / На проверке',
+        role: 'CROSS_SOURCE_VERIFICATION',
+        status: 'ACTIVE',
+        zones_count: disc.features?.length || 0
+      },
+      layer_5_timeline_history: {
+        id: 'timeline_history',
+        name: 'Хронологический таймлайн',
+        role: 'HISTORICAL_PLAYBACK',
+        snapshots_count: snapshots.length
+      }
+    }
+  });
+});
+
 // 6b. Frontline Consensus GeoJSON by Historical Date
 app.get('/api/front/:date', (req, res) => {
   const dateParam = req.params.date;
@@ -640,6 +703,51 @@ app.get('/api/settlements/search', (req, res) => {
   });
 
   res.json(matched.slice(0, 15));
+});
+
+// 8. LostArmour Base Map Latest GeoJSON
+app.get('/api/lostarmour/latest', (req, res) => {
+  const latest = getLostArmourLatest();
+  if (!latest) {
+    return res.status(503).json({ error: 'LostArmour base map data not yet initialized' });
+  }
+  res.json(latest);
+});
+
+// 9. LostArmour Base Map Snapshot by Date
+app.get('/api/lostarmour/:date', (req, res) => {
+  const dateParam = req.params.date;
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(dateParam)) {
+    return res.status(400).json({ error: 'Invalid date format. Use YYYY-MM-DD.' });
+  }
+  const snap = getLostArmourSnapshot(dateParam);
+  if (!snap) {
+    return res.status(404).json({ error: `LostArmour snapshot for ${dateParam} not found.` });
+  }
+  res.json(snap);
+});
+
+// 10. LostArmour Discrepancies and Pending Changes Layer
+app.get('/api/lostarmour-data/discrepancies', (req, res) => {
+  const disc = getLostArmourDiscrepancies();
+  res.json(disc);
+});
+
+// 11. Comprehensive Comparison Matrix: LostArmour vs WarMap Daily vs OSINT
+app.get('/api/lostarmour-data/comparison', (req, res) => {
+  const comp = getLostArmourComparison();
+  res.json(comp);
+});
+
+// 12. Trigger manual sync of LostArmour
+app.post('/api/lostarmour/sync', async (req, res) => {
+  try {
+    const targetDate = req.body?.date || getOperatingDate().isoDate;
+    const result = await syncLostArmour(targetDate);
+    res.json(result);
+  } catch (e) {
+    res.status(500).json({ error: e.message });
+  }
 });
 
 // Perform rollover check on server boot

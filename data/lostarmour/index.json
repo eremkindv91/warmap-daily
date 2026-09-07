@@ -1,0 +1,18 @@
+{
+  "snapshots": [
+    {
+      "date": "2026-09-06",
+      "synchronized_at": "2026-09-07T05:58:07.484Z",
+      "polygons_count": 29,
+      "total_area_km2": 122191.39,
+      "last_modified": "Sat, 05 Sep 2026 20:14:55 GMT",
+      "etag": "\"dl7npozvokfoq0fc\"",
+      "file": "data/lostarmour/snapshots/2026-09-06.geojson"
+    }
+  ],
+  "latest_date": "2026-09-06",
+  "last_sync_time": "2026-09-07T05:58:07.484Z",
+  "status": "ACTIVE",
+  "total_control_area_km2": 122191.39,
+  "polygons_count": 29
+}

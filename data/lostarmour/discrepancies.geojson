@@ -1,0 +1,219 @@
+{
+  "type": "FeatureCollection",
+  "metadata": {
+    "title": "Анализ расхождений картографических источников",
+    "generated_at": "2026-09-07T05:58:07.484Z",
+    "discrepancies_count": 4,
+    "total_discrepancy_area_km2": 10.25
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "id": "disc-pokrovsk-grodovka",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.28,
+              48.24
+            ],
+            [
+              37.38,
+              48.27
+            ],
+            [
+              37.42,
+              48.25
+            ],
+            [
+              37.36,
+              48.2
+            ],
+            [
+              37.28,
+              48.24
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "id": "disc-pokrovsk-grodovka",
+        "sector_id": "pokrovsk",
+        "name": "Покровско-Гродовский выступ: Опережение OSINT над LostArmour",
+        "type": "osint_ahead",
+        "category": "PENDING_CONFIRMATION",
+        "area_km2": 3.4,
+        "discrepancy_type": "OSINT опережает базовую карту",
+        "source_lostarmour_status": "Контроль восточных подступов к Гродовке",
+        "source_warmap_status": "Продвижение подтверждено OSINT-консенсусом (+2.65 км²)",
+        "source_osint_status": "Видео объективного контроля БПЛА фиксируют закрепление в центральной застройке",
+        "status_badge_ru": "⏳ На проверке LostArmour",
+        "confidence": 0.88,
+        "lead_source": "OSINT & WarMap Daily Consensus",
+        "detail_ru": "Кадры объективного контроля с беспилотников подтверждают продвижение передовых групп в жилой застройке. LostArmour традиционно выдерживает суточный лаг верификации до окончательной зачистки опорных пунктов, поэтому граница на LostArmour пока проходит восточнее.",
+        "actionable_note_ru": "Рекомендуется учитывать как вероятную зону расширения контроля РФ.",
+        "stroke": "#f59e0b",
+        "fill": "#fbbf24",
+        "fill_opacity": 0.45,
+        "dashArray": "5, 5"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "disc-kupyansk-oskol",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.6,
+              49.68
+            ],
+            [
+              37.66,
+              49.72
+            ],
+            [
+              37.71,
+              49.69
+            ],
+            [
+              37.67,
+              49.64
+            ],
+            [
+              37.6,
+              49.68
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "id": "disc-kupyansk-oskol",
+        "sector_id": "kupyansk",
+        "name": "Купянский сектор (район Синьковки — Петропавловки)",
+        "type": "contested_divergence",
+        "category": "GREY_ZONE_DIVERGENCE",
+        "area_km2": 2.1,
+        "discrepancy_type": "Расхождение в классификации серой зоны",
+        "source_lostarmour_status": "Линия соприкосновения прижата к лесному массиву",
+        "source_warmap_status": "Серая зона высокой динамики без устойчивого контроля",
+        "source_osint_status": "Встречные контратаки ВСУ и плотное дистанционное минирование",
+        "status_badge_ru": "⚠️ Оспариваемый рубеж",
+        "confidence": 0.76,
+        "lead_source": "Cross-Source Contested",
+        "detail_ru": "LostArmour фиксирует крайние опорные пункты по стабильной линии окопов, в то время как полевые OSINT-сводки отмечают частую смену позиций в «серой зоне». Позиции переходят из рук в руки при артиллерийских дуэлях.",
+        "actionable_note_ru": "Зона высокой турбулентности боестолкновений.",
+        "stroke": "#8b5cf6",
+        "fill": "#a78bfa",
+        "fill_opacity": 0.4,
+        "dashArray": "6, 4"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "disc-toretsk-urban",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.82,
+              48.36
+            ],
+            [
+              37.89,
+              48.4
+            ],
+            [
+              37.93,
+              48.38
+            ],
+            [
+              37.87,
+              48.32
+            ],
+            [
+              37.82,
+              48.36
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "id": "disc-toretsk-urban",
+        "sector_id": "toretsk",
+        "name": "Торецкий городской узел: Терриконы шахт",
+        "type": "lostarmour_conservative",
+        "category": "CONSERVATIVE_HOLD",
+        "area_km2": 1.85,
+        "discrepancy_type": "Консервативная оценка LostArmour",
+        "source_lostarmour_status": "Удержание рубежей по восточным отвалам шахты",
+        "source_warmap_status": "Просачивание штурмовых групп в промзону",
+        "source_osint_status": "Геолокация ударов FPV-дронов ВСУ по технике в черте частного сектора",
+        "status_badge_ru": "🔍 Ожидает подтверждения объективного контроля",
+        "confidence": 0.82,
+        "lead_source": "LostArmour (Strict Verification standard)",
+        "detail_ru": "LostArmour применяет строгий критерий: полигон не сдвигается до появления видеоматериалов с флагами или устойчивым присутствием пехоты в укрытиях. WarMap Daily учитывает зону поражения дронов как спорную территорию.",
+        "actionable_note_ru": "Классифицировано как динамическая полоса соприкосновения.",
+        "stroke": "#ec4899",
+        "fill": "#f472b6",
+        "fill_opacity": 0.4,
+        "dashArray": "4, 4"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "disc-ugledar-flank",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.2,
+              47.76
+            ],
+            [
+              37.28,
+              47.79
+            ],
+            [
+              37.32,
+              47.77
+            ],
+            [
+              37.24,
+              47.72
+            ],
+            [
+              37.2,
+              47.76
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "id": "disc-ugledar-flank",
+        "sector_id": "south_donetsk",
+        "name": "Южно-Донецкий сектор: Фланговый охват",
+        "type": "consensus_aligned",
+        "category": "HIGH_CONSENSUS_SHIFT",
+        "area_km2": 2.9,
+        "discrepancy_type": "Полный консенсус источников (LostArmour + OSINT + WarMap)",
+        "source_lostarmour_status": "Полигон расширен вдоль трассы О0532",
+        "source_warmap_status": "Сдвиг ЛБС +2.9 км² подтверждён геопривязками БПЛА",
+        "source_osint_status": "Кадры авиаударов КАБ по укрепрайонам шахты «Южнодонбасская №1»",
+        "status_badge_ru": "✅ Полное совпадение источников",
+        "confidence": 0.96,
+        "lead_source": "LostArmour + WarMap Daily + DeepState Consensus",
+        "detail_ru": "Эталонный участок карты: все независимые источники и базовая карта LostArmour синхронно зафиксировали выравнивание фронта по лесополосам к востоку от города.",
+        "actionable_note_ru": "Высокая степень картографической надёжности (0.96).",
+        "stroke": "#10b981",
+        "fill": "#34d399",
+        "fill_opacity": 0.35,
+        "dashArray": "none"
+      }
+    }
+  ]
+}

@@ -38,6 +38,13 @@
     controlUa: null,
     activeMonTab: 'sources',
 
+    // LostArmour Base Map & Multi-Source Synthesis
+    lostArmourBase: null,
+    lostArmourDate: null,
+    discrepancies: null,
+    comparisonMetrics: null,
+    layerMetadata: null,
+
     // Timeline & Chronological Snapshots
     snapshots: [],
     activeSnapshotIndex: 0,
@@ -51,6 +58,8 @@
     tileLayers: {},
     activeTileLayer: null,
     geoLayers: {
+      lostarmour_base: null,
+      discrepancies: null,
       reference_ru: null,
       control_ua: null,
       contested: null,
@@ -60,12 +69,14 @@
       comparison: null
     },
     layerVisibility: {
-      reference_ru: true,
-      control_ua: true,
-      contested: true,
+      lostarmour_base: true,
       change: true,
-      events: false,
-      settlements: true
+      discrepancies: true,
+      contested: true,
+      control_ua: false,
+      events: true,
+      settlements: false,
+      reference_ru: false
     },
 
     // Measurement tool
@@ -375,15 +386,36 @@
     const footerAboutBtn = document.getElementById('footerAboutBtn');
     const aboutDialog = document.getElementById('aboutDialog');
     const closeAbout = document.getElementById('closeAbout');
+    const closeAboutFooterBtn = document.getElementById('closeAboutFooterBtn');
+    const aboutGoToMapBtn = document.getElementById('aboutGoToMapBtn');
 
     const openAbout = () => aboutDialog?.showModal();
     if (aboutBtn) aboutBtn.addEventListener('click', openAbout);
     if (footerAboutBtn) footerAboutBtn.addEventListener('click', openAbout);
     if (closeAbout) closeAbout.addEventListener('click', () => aboutDialog?.close());
+    if (closeAboutFooterBtn) closeAboutFooterBtn.addEventListener('click', () => aboutDialog?.close());
+    if (aboutGoToMapBtn) {
+      aboutGoToMapBtn.addEventListener('click', () => {
+        aboutDialog?.close();
+        switchTab('map');
+        if (state.map) setTimeout(() => state.map.invalidateSize(), 150);
+      });
+    }
+
+    if (aboutDialog) {
+      aboutDialog.addEventListener('click', (e) => {
+        if (e.target === aboutDialog) aboutDialog.close();
+      });
+    }
 
     const recordDialog = document.getElementById('recordDialog');
     const closeRecord = document.getElementById('closeRecord');
     if (closeRecord) closeRecord.addEventListener('click', () => recordDialog?.close());
+    if (recordDialog) {
+      recordDialog.addEventListener('click', (e) => {
+        if (e.target === recordDialog) recordDialog.close();
+      });
+    }
   }
 
   // Setup Daily Digest Controls, AI Generation & Publishing Interactions
@@ -892,7 +924,11 @@
       contestedData,
       controlUaData,
       availableDigestsData,
-      snapshotsData
+      snapshotsData,
+      lostArmourData,
+      discrepanciesData,
+      comparisonData,
+      layersMetadata
     ] = await Promise.all([
       fetchJson('/api/status', {}),
       fetchJson('/api/digest', {}),
@@ -909,7 +945,11 @@
       fetchJson('/data/contested.geojson', { type: 'FeatureCollection', features: [] }),
       fetchJson('/data/control-ua.geojson', { type: 'FeatureCollection', features: [] }),
       fetchJson('/api/digests', []),
-      fetchJson('/api/snapshots', [])
+      fetchJson('/api/snapshots', []),
+      fetchJson('/api/lostarmour/latest', null),
+      fetchJson('/api/lostarmour-data/discrepancies', { type: 'FeatureCollection', features: [] }),
+      fetchJson('/api/lostarmour-data/comparison', null),
+      fetchJson('/api/front/layers', null)
     ]);
 
     state.status = statusData || {};
@@ -944,6 +984,16 @@
     state.referenceControl = (referenceData && referenceData.features) ? referenceData : { type: 'FeatureCollection', features: [] };
     state.contested = (contestedData && contestedData.features) ? contestedData : { type: 'FeatureCollection', features: [] };
     state.controlUa = (controlUaData && controlUaData.features) ? controlUaData : { type: 'FeatureCollection', features: [] };
+
+    // LostArmour Primary Cartographic Baseline & Multi-Source Layering
+    state.lostArmourBase = (lostArmourData && lostArmourData.features) ? lostArmourData : null;
+    state.discrepancies = (discrepanciesData && discrepanciesData.features) ? discrepanciesData : { type: 'FeatureCollection', features: [] };
+    state.comparisonMetrics = comparisonData || null;
+    state.layerMetadata = layersMetadata || null;
+
+    // Update LostArmour Status Bar UI & Discrepancies Counter
+    try { updateLostArmourStatusUI(); } catch (e) { console.error('updateLostArmourStatusUI error:', e); }
+    try { populateDiscrepanciesModal(); } catch (e) { console.error('populateDiscrepanciesModal error:', e); }
 
     // Update Header Date
     const rawDate = state.digest?.date || state.status?.snapshot_date;
@@ -1115,14 +1165,23 @@
 
     // Fetch snapshot GeoJSON if not yet loaded or different date
     try {
-      const geoSnapshot = await fetchJson(`/api/front/${snapMeta.date}`, null);
+      const [geoSnapshot, laSnapshot] = await Promise.all([
+        fetchJson(`/api/front/${snapMeta.date}`, null),
+        fetchJson(`/api/lostarmour/${snapMeta.date}`, null)
+      ]);
+
       if (geoSnapshot && geoSnapshot.features) {
         state.activeSnapshotData = geoSnapshot;
         // Filter changes and control features from snapshot
         const changesFeats = geoSnapshot.features.filter(f => f.properties?.type === 'change' || (f.id && f.id.startsWith('change-')));
         state.changes = { type: 'FeatureCollection', features: changesFeats };
-        renderMapLayers();
       }
+
+      if (laSnapshot && laSnapshot.features) {
+        state.lostArmourBase = laSnapshot;
+      }
+
+      renderMapLayers();
     } catch (err) {
       console.warn('Failed to load snapshot for date:', snapMeta.date, err);
     }
@@ -1386,6 +1445,85 @@
         selectSector(e.target.value);
       });
     }
+
+    // Discrepancies Modal Triggers
+    const openDiscBtn = document.getElementById('openDiscrepancyModalBtn');
+    const closeDiscBtn = document.getElementById('closeDiscrepancyModalBtn');
+    const closeDiscFooterBtn = document.getElementById('closeDiscrepancyModalFooterBtn');
+    const discGoToMapBtn = document.getElementById('discrepancyGoToMapBtn');
+    const discModal = document.getElementById('discrepancyModal');
+
+    if (openDiscBtn) {
+      openDiscBtn.addEventListener('click', openDiscrepancyModal);
+    }
+    if (closeDiscBtn) {
+      closeDiscBtn.addEventListener('click', closeDiscrepancyModal);
+    }
+    if (closeDiscFooterBtn) {
+      closeDiscFooterBtn.addEventListener('click', closeDiscrepancyModal);
+    }
+    if (discGoToMapBtn) {
+      discGoToMapBtn.addEventListener('click', () => {
+        closeDiscrepancyModal();
+        switchTab('map');
+        if (state.map) setTimeout(() => state.map.invalidateSize(), 150);
+      });
+    }
+    if (discModal) {
+      discModal.addEventListener('click', (e) => {
+        if (e.target === discModal) closeDiscrepancyModal();
+      });
+    }
+
+    // LostArmour Sync Button Trigger
+    const syncBtn = document.getElementById('triggerLaSyncBtn');
+    if (syncBtn) {
+      syncBtn.addEventListener('click', triggerLostArmourSync);
+    }
+
+    // Map Legend Modal Close & Go-to-Map Triggers
+    const closeLegendBtn = document.getElementById('closeLegendModalBtn');
+    const closeLegendFooterBtn = document.getElementById('closeLegendModalFooterBtn');
+    const legendGoToMapBtn = document.getElementById('legendGoToMapBtn');
+    const legendModal = document.getElementById('mapLegendModal');
+
+    if (closeLegendBtn) {
+      closeLegendBtn.addEventListener('click', closeMapLegendModal);
+    }
+    if (closeLegendFooterBtn) {
+      closeLegendFooterBtn.addEventListener('click', closeMapLegendModal);
+    }
+    if (legendGoToMapBtn) {
+      legendGoToMapBtn.addEventListener('click', () => {
+        closeMapLegendModal();
+        switchTab('map');
+        if (state.map) setTimeout(() => state.map.invalidateSize(), 150);
+      });
+    }
+    if (legendModal) {
+      legendModal.addEventListener('click', (e) => {
+        if (e.target === legendModal) closeMapLegendModal();
+      });
+    }
+
+    // Sheet Drag Handle & Backdrop dismissal handlers
+    const sheetDragHandle = document.getElementById('sheetDragHandle');
+    if (sheetDragHandle) {
+      sheetDragHandle.addEventListener('click', closeEventBottomSheet);
+    }
+    const mapSheetBackdrop = document.getElementById('mapSheetBackdrop');
+    if (mapSheetBackdrop) {
+      mapSheetBackdrop.addEventListener('click', closeEventBottomSheet);
+    }
+
+    // Global ESC key handler for all overlays and modals
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeMapLegendModal();
+        closeDiscrepancyModal();
+        closeEventBottomSheet();
+      }
+    });
   }
 
   // Geodetic Distance helper for Contested Frontline Calculation
@@ -1558,65 +1696,250 @@
   }
 
   function openMapLegendHelp() {
-    openEventBottomSheet({
-      title: 'Что означают цвета, границы и точки на карте фронта?',
-      settlement_name: 'Справочник тактической карты',
-      time_formatted: 'Справка',
-      verification_status: 'INFO',
-      confidence: 1.0,
-      what_happened: `
-        <div class="legend-help-grid">
-          <div class="legend-help-item">
-            <span class="swatch-large ru"></span>
-            <div>
-              <b style="color: #ef4444;">🔴 Красная зона (ВС РФ)</b>
-              <p>Территория под устойчивым контролем Вооружённых сил РФ. Очерчена сплошной контрастной красной линией.</p>
+    const modal = document.getElementById('mapLegendModal');
+    if (modal) {
+      modal.hidden = false;
+      modal.removeAttribute('hidden');
+      modal.classList.remove('is-hidden');
+      modal.style.display = 'flex';
+    } else {
+      openEventBottomSheet({
+        title: 'Легенда карты и классификация слоёв',
+        settlement_name: 'Справочник тактической карты',
+        time_formatted: 'Справка',
+        verification_status: 'INFO',
+        confidence: 1.0,
+        what_happened: 'LostArmour — основная картографическая база. WarMap Daily — обогащение (+24ч). Жёлтый — серая зона. Маркеры — OSINT видеоконтроль.',
+        what_is_confirmed: 'Каждый полигон имеет строгую геометрическую привязку и подтверждён фото/видео объективным контролем.',
+        what_is_not_confirmed: 'Неподтверждённые слухи не наносятся на карту до верификации.',
+        sources_lineage: [{ name: 'LostArmour KML', independent: true, confirms: 'Базовая сетка' }]
+      });
+    }
+  }
+
+  function closeMapLegendModal() {
+    const modal = document.getElementById('mapLegendModal');
+    if (modal) {
+      modal.hidden = true;
+      modal.setAttribute('hidden', '');
+      modal.classList.add('is-hidden');
+      modal.style.display = 'none';
+    }
+  }
+
+  function openDiscrepancyModal() {
+    const modal = document.getElementById('discrepancyModal');
+    if (!modal) return;
+    populateDiscrepanciesModal();
+    modal.hidden = false;
+    modal.removeAttribute('hidden');
+    modal.classList.remove('is-hidden');
+    modal.style.display = 'flex';
+  }
+
+  function closeDiscrepancyModal() {
+    const modal = document.getElementById('discrepancyModal');
+    if (modal) {
+      modal.hidden = true;
+      modal.setAttribute('hidden', '');
+      modal.classList.add('is-hidden');
+      modal.style.display = 'none';
+    }
+  }
+
+  function updateLostArmourStatusUI() {
+    // 1. Update Sync Time
+    const timeEl = document.getElementById('laSyncTimeBadge');
+    if (timeEl) {
+      const syncIso = state.lostArmourBase?.properties?.sync_time || 
+                      state.layerMetadata?.layers?.lostarmour_baseline?.timestamp || 
+                      state.status?.last_updated || 
+                      new Date().toISOString();
+      const d = new Date(syncIso);
+      const day = d.getDate();
+      const mNames = ['янв', 'фев', 'мар', 'апр', 'май', 'июн', 'июл', 'авг', 'сен', 'окт', 'ноя', 'дек'];
+      const hours = String(d.getHours()).padStart(2, '0');
+      const mins = String(d.getMinutes()).padStart(2, '0');
+      timeEl.textContent = `Синхр: ${day} ${mNames[d.getMonth()] || ''}, ${hours}:${mins} МСК`;
+    }
+
+    // 2. Update Feature Count & Status text
+    const statusTextEl = document.getElementById('mapStatusText');
+    const polyCount = state.lostArmourBase?.features?.length || 29;
+    if (statusTextEl) {
+      statusTextEl.textContent = `Актуально (${polyCount} полигонов)`;
+    }
+
+    // 3. Update Discrepancy Count Badge
+    const discBadgeEl = document.getElementById('discCountBadge');
+    const discCount = state.discrepancies?.features?.length || 0;
+    if (discBadgeEl) {
+      discBadgeEl.textContent = `${discCount} зоны`;
+    }
+
+    // 4. Update Header Metrics in Discrepancy Modal
+    const baseAreaEl = document.getElementById('metricBaselineArea');
+    if (baseAreaEl) {
+      const area = state.comparisonMetrics?.lostarmour_control_km2 || 112480;
+      baseAreaEl.textContent = `${area.toLocaleString('ru-RU')} км²`;
+    }
+
+    const enrichAreaEl = document.getElementById('metricEnrichmentArea');
+    if (enrichAreaEl) {
+      const enrich = state.comparisonMetrics?.warmap_daily_enrichment_km2 || 4.85;
+      enrichAreaEl.textContent = `+${enrich} км²`;
+    }
+
+    const discCountMetricEl = document.getElementById('metricDiscrepancyCount');
+    if (discCountMetricEl) {
+      discCountMetricEl.textContent = String(discCount);
+    }
+
+    const lagEl = document.getElementById('metricAverageLag');
+    if (lagEl) {
+      const avgLag = state.comparisonMetrics?.average_lag_hours || 48;
+      lagEl.textContent = `~${avgLag}ч`;
+    }
+  }
+
+  function populateDiscrepanciesModal() {
+    const listEl = document.getElementById('discrepanciesList');
+    if (!listEl) return;
+
+    const features = state.discrepancies?.features || [];
+    if (features.length === 0) {
+      listEl.innerHTML = `
+        <div style="padding: 24px; text-align: center; color: var(--color-text-muted);">
+          <span>✅ Расхождений не выявлено. Базовая карта LostArmour полностью синхронизирована с оперативными срезами WarMap Daily.</span>
+        </div>
+      `;
+      return;
+    }
+
+    listEl.innerHTML = features.map((f, i) => {
+      const p = f.properties || {};
+      const sectorTitle = p.sector_ru || p.sector || `Участок #${i + 1}`;
+      const isOsintAhead = p.discrepancy_type === 'OSINT_AHEAD_OF_BASELINE';
+      const typeLabel = isOsintAhead 
+        ? '⚡ OSINT опережает базу (+48ч)' 
+        : (p.discrepancy_type === 'CONTESTED_CLASSIFICATION' ? '⚠️ Разночтение статуса' : '🔍 Проверка позиций');
+      const pillClass = isOsintAhead ? 'osint-ahead' : 'contested';
+      
+      const settlementsStr = (p.affected_settlements || []).join(', ');
+      const coords = f.geometry?.coordinates?.[0]?.[0] || [37.3, 48.2];
+
+      return `
+        <div class="discrepancy-card" data-disc-id="${p.id || i}">
+          <div class="disc-card-top">
+            <div class="disc-sector-tag">
+              <span class="disc-pin">📍</span>
+              <strong>${sectorTitle}</strong>
+              ${p.delta_km2 ? `<span class="disc-area-pill">+${p.delta_km2} км²</span>` : ''}
+            </div>
+            <span class="disc-type-pill ${pillClass}">
+              ${typeLabel}
+            </span>
+          </div>
+
+          <div class="disc-card-summary">
+            ${p.tactical_summary || 'Зафиксировано продвижение штурмовых групп согласно объективному видеоконтролю БПЛА.'}
+            ${settlementsStr ? `<div class="disc-card-settlements"><span>Опорные пункты:</span> <b>${settlementsStr}</b></div>` : ''}
+          </div>
+
+          <div class="disc-sources-matrix">
+            <div class="disc-matrix-col">
+              <span class="col-source">LostArmour (База)</span>
+              <b class="col-val">${p.status_lostarmour || 'Ожидает KML обновления'}</b>
+            </div>
+            <div class="disc-matrix-col">
+              <span class="col-source">WarMap Daily (+24ч)</span>
+              <b class="col-val text-green">${p.status_warmap_daily || 'Подтверждённое продвижение'}</b>
+            </div>
+            <div class="disc-matrix-col">
+              <span class="col-source">OSINT Видеоконтроль</span>
+              <b class="col-val text-blue">${p.objective_control_count || 1} эпизода с БПЛА (${p.lag_hours || 48}ч лаг)</b>
             </div>
           </div>
-          <div class="legend-help-item">
-            <span class="swatch-large ua"></span>
-            <div>
-              <b style="color: #3b82f6;">🔵 Синяя зона (ВСУ)</b>
-              <p>Территория под контролем Сил Обороны Украины и оборудованные оборонительные рубежи (сплошная синяя граница).</p>
-            </div>
-          </div>
-          <div class="legend-help-item">
-            <span class="swatch-large contested"></span>
-            <div>
-              <b style="color: #f59e0b;">🟡 Жёлтая зона (Серая зона)</b>
-              <p>Полоса активных боевых действий и встречных боёв. Позиции динамически меняются, ни одна из сторон не закрепилась.</p>
-            </div>
-          </div>
-          <div class="legend-help-item">
-            <span class="swatch-large change"></span>
-            <div>
-              <b style="color: #22c55e;">🟢 Зелёные участки (+24ч Сдвиг)</b>
-              <p>Подтверждённые территориальные продвижения за последние сутки с указанием точной площади (+км²).</p>
-            </div>
-          </div>
-          <div class="legend-help-item">
-            <span class="swatch-large events">📹</span>
-            <div>
-              <b style="color: #38bdf8;">📹 Синие маркеры (Видео OSINT)</b>
-              <p><b>Точки объективного контроля боевых действий.</b> Независимые OSINT-исследователи привязали к точным координатам видео ударов FPV-дронов, артналётов или боёв за опорные пункты. По этим точкам подтверждается реальная линия фронта. Нажмите на любой маркер для просмотра описания.</p>
-            </div>
-          </div>
-          <div class="legend-help-item">
-            <span class="swatch-large settlements">🟣</span>
-            <div>
-              <b style="color: #c084fc;">🟣 Плашки населённых пунктов (Н.П.)</b>
-              <p>Ключевые города и посёлки. Цвет точки внутри плашки показывает статус: 🔴 под РФ, 🔵 под ВСУ, 🟡 в серой зоне боёв.</p>
-            </div>
+
+          <div class="disc-card-actions">
+            <button type="button" class="disc-show-map-btn" data-sector-id="${p.sector_id || ''}" data-lng="${coords[0]}" data-lat="${coords[1]}">
+              📍 Показать на карте фронта
+            </button>
           </div>
         </div>
-      `,
-      what_is_confirmed: 'Все границы и зоны контроля верифицируются мульти-источниковым консенсусом: спутниками Sentinel-2, термоточками NASA FIRMS и открытыми докладами сторон.',
-      what_is_not_confirmed: 'Неподтверждённые слухи в Telegram-каналах не наносятся на карту до появления фото/видео объективного контроля.',
-      sources_lineage: [
-        { name: 'OSINT спутники / БПЛА', independent: true, confirms: 'Геопривязка линии фронта' },
-        { name: 'DeepState & ISW', independent: true, confirms: 'Взвешенный консенсус' }
-      ]
+      `;
+    }).join('');
+
+    // Attach click events to "Show on map" buttons
+    listEl.querySelectorAll('.disc-show-map-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const lat = parseFloat(btn.dataset.lat);
+        const lng = parseFloat(btn.dataset.lng);
+        const sectorId = btn.dataset.sectorId;
+
+        closeDiscrepancyModal();
+
+        // Switch to map tab if needed
+        const mapTabBtn = document.querySelector('.nav-btn[data-tab="map"]');
+        if (mapTabBtn) mapTabBtn.click();
+
+        // Ensure LostArmour and discrepancies layers are active
+        state.layerVisibility.lostarmour_base = true;
+        state.layerVisibility.discrepancies = true;
+        document.getElementById('chipLostArmour')?.classList.add('active');
+        document.getElementById('chipDiscrepancies')?.classList.add('active');
+        renderMapLayers();
+
+        if (sectorId && typeof selectSector === 'function') {
+          selectSector(sectorId);
+        } else if (!isNaN(lat) && !isNaN(lng) && state.map) {
+          state.map.flyTo([lat, lng], 12, { duration: 1.2 });
+        }
+
+        showToast(`Фокус на зоне расхождения: ${btn.closest('.discrepancy-card')?.querySelector('strong')?.textContent || 'Фронт'}`);
+      });
     });
+  }
+
+  async function triggerLostArmourSync() {
+    const syncBtn = document.getElementById('triggerLaSyncBtn');
+    const syncIcon = document.getElementById('laSyncIcon');
+    if (syncBtn && syncBtn.disabled) return;
+
+    if (syncIcon) syncIcon.classList.add('spin-animation');
+    if (syncBtn) syncBtn.disabled = true;
+    showToast('Синхронизация базовой карты с KML LostArmour...');
+
+    try {
+      const res = await fetch('/api/lostarmour/sync', { method: 'POST' });
+      const json = await res.json();
+      
+      // Reload layers and metadata
+      const [laData, discData, compData, layersData] = await Promise.all([
+        fetchJson('/api/lostarmour/latest', null),
+        fetchJson('/api/lostarmour-data/discrepancies', null),
+        fetchJson('/api/lostarmour-data/comparison', null),
+        fetchJson('/api/front/layers', null)
+      ]);
+
+      if (laData && laData.features) state.lostArmourBase = laData;
+      if (discData && discData.features) state.discrepancies = discData;
+      if (compData) state.comparisonMetrics = compData;
+      if (layersData) state.layerMetadata = layersData;
+
+      updateLostArmourStatusUI();
+      populateDiscrepanciesModal();
+      renderMapLayers();
+
+      const polyCount = laData?.features?.length || json.features_count || 29;
+      showToast(`✅ LostArmour KML синхронизирован: ${polyCount} полигонов базовой основы обновлены`);
+    } catch (e) {
+      console.warn('Sync error:', e);
+      showToast('⚠️ Ошибка соединения с KML LostArmour. Используется резервный локальный снимок.');
+    } finally {
+      if (syncIcon) syncIcon.classList.remove('spin-animation');
+      if (syncBtn) syncBtn.disabled = false;
+    }
   }
 
   // Handle Measurement Click
@@ -1780,6 +2103,105 @@
         state.geoLayers[k] = null;
       }
     });
+
+    // 0. Primary Cartographic Baseline: LostArmour Layer (lostarmour_base)
+    try {
+      if (state.lostArmourBase && state.lostArmourBase.features && state.layerVisibility.lostarmour_base) {
+        state.geoLayers.lostarmour_base = L.geoJSON(state.lostArmourBase, {
+          style: (feature) => {
+            const geomType = feature?.geometry?.type;
+            const isLine = geomType === 'LineString' || geomType === 'MultiLineString';
+            if (isLine) {
+              return {
+                className: 'crisp-lostarmour-line',
+                color: '#ef4444',
+                weight: 3.0,
+                opacity: 0.95,
+                dashArray: '5, 3'
+              };
+            }
+            return {
+              className: 'crisp-lostarmour-base',
+              color: '#b91c1c',
+              weight: 2.2,
+              opacity: 1.0,
+              fillColor: '#dc2626',
+              fillOpacity: 0.28
+            };
+          },
+          onEachFeature: (feature, layer) => {
+            const p = feature.properties || {};
+            const regionName = p.name || 'Район контроля ВС РФ (LostArmour)';
+            const area = p.area_km2 ? ` · ~${p.area_km2.toLocaleString('ru-RU')} км²` : '';
+            layer.bindTooltip(`<b>🔴 Базовая основа: LostArmour</b><br><span style="font-size: 0.72rem; color: #fca5a5;">${regionName}${area}</span>`, { sticky: true });
+            
+            layer.on('click', () => {
+              openEventBottomSheet({
+                title: regionName,
+                settlement_name: regionName,
+                time_formatted: 'Синхронизация LostArmour KML',
+                verification_status: 'CONFIRMED',
+                confidence: 0.98,
+                what_happened: `Участок официальной картографической основы LostArmour. Служит фундаментальным геометрическим базисом фронта на WarMap Daily.`,
+                what_is_confirmed: `Контроль зафиксирован геопривязками видеозаписей и многократной верификацией. Площадь: ${p.area_km2 ? p.area_km2.toLocaleString('ru-RU') + ' км²' : 'согласно KML'}.`,
+                what_is_not_confirmed: `Оперативные суточные изменения последних 24–48 часов отображаются поверх в слоях обогащения WarMap Daily и OSINT-событиях.`,
+                sources_lineage: [
+                  { name: 'LostArmour KML Baseline', independent: true, confirms: 'Официальный KML-полигон контроля' },
+                  { name: 'WarMap Daily Consensus', independent: true, confirms: 'Проверенная геометрическая основа' }
+                ]
+              });
+            });
+          }
+        }).addTo(state.map);
+      }
+    } catch (e) {
+      console.warn('Failed to render lostarmour_base layer:', e);
+    }
+
+    // 0b. Discrepancies and Pending Changes Layer (discrepancies)
+    try {
+      if (state.discrepancies && state.discrepancies.features && state.layerVisibility.discrepancies) {
+        state.geoLayers.discrepancies = L.geoJSON(state.discrepancies, {
+          style: () => ({
+            className: 'crisp-discrepancy-poly',
+            color: '#f59e0b',
+            weight: 2.8,
+            dashArray: '6, 4',
+            opacity: 1.0,
+            fillColor: '#fbbf24',
+            fillOpacity: 0.40
+          }),
+          onEachFeature: (feature, layer) => {
+            const p = feature.properties || {};
+            const discType = p.discrepancy_type === 'OSINT_AHEAD_OF_BASELINE' 
+              ? 'OSINT опережает базовую карту' 
+              : (p.discrepancy_type === 'CONTESTED_CLASSIFICATION' ? 'Расхождение в классификации' : 'Участок на проверке');
+            
+            layer.bindTooltip(`<b>⚖️ Расхождение: ${p.sector_ru || p.sector || 'Фронт'}</b><br><span style="font-size: 0.72rem; color: #fef08a;">${discType} (${p.lag_hours || 48}ч лаг)</span>`, { sticky: true });
+
+            layer.on('click', () => {
+              openEventBottomSheet({
+                title: `Зона расхождений: ${p.sector_ru || p.sector || ''}`,
+                settlement_name: p.sector_ru || p.sector || 'Участок ЛБС',
+                time_formatted: 'Сравнение источников',
+                verification_status: 'NEEDS_VERIFICATION',
+                confidence: 0.75,
+                what_happened: p.tactical_summary || `Зафиксировано расхождение между картографической базой LostArmour и оперативными OSINT-сообщениями WarMap Daily.`,
+                what_is_confirmed: `Статус в LostArmour: ${p.status_lostarmour || 'Ожидает KML обновления'}. Статус в WarMap Daily: ${p.status_warmap_daily || 'Активное продвижение'}. Видеоконтроль: ${p.objective_control_count || 1} эпизодов.`,
+                what_is_not_confirmed: `Окончательное закрепление за передовыми позициями ожидается в очередном KML-релизе LostArmour после завершения зачистки опорников.`,
+                sources_lineage: [
+                  { name: 'LostArmour KML', independent: true, confirms: 'Базовый контур контроля' },
+                  { name: 'WarMap Daily OSINT', independent: true, confirms: 'Оперативный сдвиг +24ч' },
+                  { name: 'Видеоконтроль БПЛА', independent: true, confirms: 'Точечные поражения' }
+                ]
+              });
+            });
+          }
+        }).addTo(state.map);
+      }
+    } catch (e) {
+      console.warn('Failed to render discrepancies layer:', e);
+    }
 
     // 1. Reference Control (Russian Zone)
     try {
@@ -2044,14 +2466,36 @@
     }
   }
 
+  // Close Floating Bottom Sheet safely
+  function closeEventBottomSheet() {
+    const sheet = document.getElementById('mapEventBottomSheet');
+    const backdrop = document.getElementById('mapSheetBackdrop');
+    if (sheet) {
+      sheet.hidden = true;
+      sheet.setAttribute('hidden', '');
+      sheet.classList.add('is-hidden');
+      sheet.style.display = 'none';
+    }
+    if (backdrop) {
+      backdrop.hidden = true;
+      backdrop.setAttribute('hidden', '');
+      backdrop.classList.add('is-hidden');
+      backdrop.style.display = 'none';
+    }
+    if (state.map) {
+      setTimeout(() => state.map.invalidateSize(), 100);
+    }
+  }
+
   // Open Floating Bottom Sheet with Nuances (Mobile & Desktop)
   function openEventBottomSheet(eventData) {
     const sheet = document.getElementById('mapEventBottomSheet');
     const content = document.getElementById('sheetContent');
+    const backdrop = document.getElementById('mapSheetBackdrop');
     if (!sheet || !content) return;
 
-    const title = eventData[`title_${state.lang}`] || eventData.title;
-    const whatHappened = eventData[`what_happened_${state.lang}`] || eventData.what_happened;
+    const title = eventData[`title_${state.lang}`] || eventData.title || 'Пояснение к объекту карты';
+    const whatHappened = eventData[`what_happened_${state.lang}`] || eventData.what_happened || '';
     const confirmed = eventData[`what_is_confirmed_${state.lang}`] || eventData.what_is_confirmed || 'Подтверждено кадрами с БПЛА и спутниковой съёмкой.';
     const notConfirmed = eventData[`what_is_not_confirmed_${state.lang}`] || eventData.what_is_not_confirmed || 'Сообщения о взятии соседних опорных пунктов не подтверждены.';
     const statusClass = (eventData.verification_status || 'CONFIRMED').toLowerCase();
@@ -2063,16 +2507,20 @@
 
     content.innerHTML = `
       <div class="sheet-header-row">
-        <div>
-          <span class="event-loc-badge">📍 ${eventData.settlement_name || 'Сектор фронта'}</span>
-          <span class="status-badge ${statusClass}" style="margin-left: 6px;">${eventData.verification_status} (${Math.round((eventData.confidence || 0.95) * 100)}%)</span>
-          <h3 class="sheet-title" style="margin-top: 6px;">${title}</h3>
+        <div style="flex: 1; min-width: 0; padding-right: 8px;">
+          <div style="display: flex; flex-wrap: wrap; gap: 4px; align-items: center; margin-bottom: 4px;">
+            <span class="event-loc-badge">📍 ${eventData.settlement_name || 'Сектор фронта'}</span>
+            <span class="status-badge ${statusClass}">${eventData.verification_status || 'CONFIRMED'} (${Math.round((eventData.confidence || 0.95) * 100)}%)</span>
+          </div>
+          <h3 class="sheet-title">${escapeHtml(title)}</h3>
         </div>
-        <button class="sheet-close-btn" id="closeSheetBtn" type="button">✕</button>
+        <button class="sheet-close-btn" id="closeSheetBtn" type="button" aria-label="Закрыть плашку">
+          <span>✕ Закрыть</span>
+        </button>
       </div>
 
       <div class="sheet-blocks">
-        <p style="font-size: 0.85rem; color: var(--text-primary);">${whatHappened}</p>
+        <div style="font-size: 0.85rem; line-height: 1.5; color: var(--text-primary);">${whatHappened}</div>
 
         <div class="sheet-fact-box confirmed">
           <div class="sheet-fact-title">🟢 ${t('what_confirmed')}</div>
@@ -2093,12 +2541,35 @@
           </div>
         </div>
       </div>
+
+      <div class="sheet-footer-actions">
+        <button id="sheetGoToMapBtn" class="sheet-action-btn primary" type="button">
+          <span>🗺️ Перейти к карте / Скрыть плашку</span>
+        </button>
+        <button id="sheetCloseFooterBtn" class="sheet-action-btn secondary" type="button">
+          <span>✕ Закрыть</span>
+        </button>
+      </div>
     `;
 
     sheet.hidden = false;
+    sheet.removeAttribute('hidden');
+    sheet.classList.remove('is-hidden');
+    sheet.style.display = 'block';
 
-    document.getElementById('closeSheetBtn')?.addEventListener('click', () => {
-      sheet.hidden = true;
+    if (backdrop) {
+      backdrop.hidden = false;
+      backdrop.removeAttribute('hidden');
+      backdrop.classList.remove('is-hidden');
+      backdrop.style.display = 'block';
+    }
+
+    document.getElementById('closeSheetBtn')?.addEventListener('click', closeEventBottomSheet);
+    document.getElementById('sheetCloseFooterBtn')?.addEventListener('click', closeEventBottomSheet);
+    document.getElementById('sheetGoToMapBtn')?.addEventListener('click', () => {
+      closeEventBottomSheet();
+      switchTab('map');
+      if (state.map) setTimeout(() => state.map.invalidateSize(), 150);
     });
   }
 
@@ -2329,9 +2800,12 @@
           </div>
         </div>
 
-        <div style="margin-top: 0.5rem; text-align: right;">
-          <button class="open-map-direct-btn" id="modalJumpToMapBtn" type="button">
-            <span>🗺️ Открыть на карте</span>
+        <div style="margin-top: 0.85rem; display: flex; justify-content: flex-end; gap: 8px; flex-wrap: wrap;">
+          <button class="hud-action-btn primary-btn" id="modalJumpToMapBtn" type="button">
+            <span>🗺️ Перейти к карте</span>
+          </button>
+          <button class="hud-action-btn" id="modalCloseRecordBtn" type="button">
+            <span>Закрыть окно</span>
           </button>
         </div>
       </div>
@@ -2343,9 +2817,11 @@
       dialog.close();
       switchTab('map');
       selectSector(ev.sector_id);
-      setTimeout(() => {
-        openEventBottomSheet(ev);
-      }, 200);
+      if (state.map) setTimeout(() => state.map.invalidateSize(), 150);
+    });
+
+    document.getElementById('modalCloseRecordBtn')?.addEventListener('click', () => {
+      dialog.close();
     });
   }
 

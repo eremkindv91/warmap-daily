@@ -280,6 +280,38 @@
           </div>
         </div>
 
+        <!-- LostArmour Provenance & Multi-Source Synchronization Status Bar -->
+        <div class="map-source-status-bar" id="mapSourceStatusBar" aria-label="Статус картографических источников">
+          <div class="status-bar-left">
+            <span class="source-badge lostarmour">
+              <span class="live-dot green" id="laStatusDot"></span>
+              <span class="source-label-title">База:</span> <b>LostArmour Baseline</b>
+            </span>
+            <span class="source-sync-time" id="laSyncTimeBadge">Синхр: 5 сен, 23:14 МСК</span>
+            <span class="source-divider" aria-hidden="true">·</span>
+            <span class="source-badge warmap">
+              <span class="source-label-title">Обогащение:</span> <b>WarMap Daily (+24ч)</b>
+            </span>
+            <span class="source-divider" aria-hidden="true">·</span>
+            <span class="source-badge osint">
+              <span class="source-label-title">OSINT:</span> <b>БПЛА-геолокации</b>
+            </span>
+            <span class="source-divider" aria-hidden="true">·</span>
+            <span class="source-badge status-ok" id="mapOverallStatusBadge">
+              <span class="badge-icon">🛡️</span> <span id="mapStatusText">Актуально (29 полигонов)</span>
+            </span>
+          </div>
+          <div class="status-bar-right">
+            <button type="button" id="openDiscrepancyModalBtn" class="map-action-pill-btn" title="Анализ расхождений между LostArmour, WarMap Daily и OSINT">
+              <span>⚖️ Аналитика расхождений</span>
+              <span class="disc-count-badge" id="discCountBadge">4 зоны</span>
+            </button>
+            <button type="button" id="triggerLaSyncBtn" class="map-icon-mini-btn" title="Проверить обновление LostArmour KML" aria-label="Синхронизировать">
+              <span id="laSyncIcon">🔄</span>
+            </button>
+          </div>
+        </div>
+
         <!-- The Leaflet Map Canvas -->
         <div class="map-viewport" id="mapViewport">
           <div id="map" aria-label="Интерактивная карта контроля"></div>
@@ -362,41 +394,184 @@
 
           <!-- Floating Layer Legend Pills (Tap to Toggle Layers) -->
           <div class="map-layers-floating-bar" id="mapLayersBar">
-            <button type="button" data-layer="reference_ru" class="layer-chip active" title="Территория под контролем РФ (сплошная красная граница)">
-              <span class="swatch ru"></span>
-              <span>РФ</span>
+            <button type="button" data-layer="lostarmour_base" class="layer-chip active" id="chipLostArmour" title="Базовая линия фронта и полигоны контроля РФ (LostArmour)">
+              <span class="swatch la-base"></span>
+              <span>База (LostArmour)</span>
             </button>
-            <button type="button" data-layer="control_ua" class="layer-chip active" title="Позиции и рубежи обороны ВСУ (сплошная синяя граница)">
-              <span class="swatch ua"></span>
-              <span>Украина</span>
+            <button type="button" data-layer="change" class="layer-chip active" id="chipEnrichment" title="Обогащение WarMap Daily: подтверждённые оперативные сдвиги за 24–72ч">
+              <span class="swatch change"></span>
+              <span>Обогащение (+24ч)</span>
             </button>
-            <button type="button" data-layer="contested" class="layer-chip active" title="Серая зона встречных боёв (жёлтая полоса)">
+            <button type="button" data-layer="discrepancies" class="layer-chip active" id="chipDiscrepancies" title="Зоны расхождений между LostArmour, WarMap Daily и OSINT (на проверке)">
+              <span class="swatch discrepancies"></span>
+              <span>Зоны расхождений</span>
+            </button>
+            <button type="button" data-layer="contested" class="layer-chip active" title="Серая зона встречных боёв (жёлтая штриховка)">
               <span class="swatch contested"></span>
               <span>Серая зона</span>
             </button>
-            <button type="button" data-layer="change" class="layer-chip active" title="Подтверждённые сдвиги за 24ч (зелёные участки)">
-              <span class="swatch change"></span>
-              <span>+24ч Сдвиг</span>
+            <button type="button" data-layer="control_ua" class="layer-chip" title="Рубежи обороны и укрепрайоны ВСУ">
+              <span class="swatch ua"></span>
+              <span>Рубежи ВСУ</span>
             </button>
-            <button type="button" data-layer="settlements" class="layer-chip active" title="Населённые пункты со статусами">
+            <button type="button" data-layer="events" class="layer-chip active" id="layerChipEvents" title="Свежие геолокации объективного контроля с БПЛА (24–72ч)">
+              <span class="swatch events">📹</span>
+              <span>OSINT-видео</span>
+            </button>
+            <button type="button" data-layer="settlements" class="layer-chip" title="Контрольные населённые пункты">
               <span class="swatch settlements"></span>
               <span>Н.П.</span>
             </button>
-            <button type="button" data-layer="events" class="layer-chip" id="layerChipEvents" title="Точки видеофиксаций боевых действий с БПЛА (OSINT-геолокации)">
-              <span class="swatch events" style="background: #0284c7; color: #fff; font-size: 9px; line-height: 1; display: inline-flex; align-items: center; justify-content: center;">📹</span>
-              <span>Видео OSINT</span>
-            </button>
-            <button type="button" id="mapLegendHelpBtn" class="layer-chip help-chip" title="Что означают цвета и точки на карте?">
+            <button type="button" id="mapLegendHelpBtn" class="layer-chip help-chip" title="Подробная легенда и методология слоёв">
               <span style="font-size: 11px;">ℹ️</span>
-              <span>Что на карте?</span>
+              <span>Легенда</span>
             </button>
           </div>
 
-          <!-- Mobile Floating Event Bottom Sheet (Opens on tapping any marker/change) -->
+          <!-- Backdrop overlay when bottom sheet is active -->
+          <div id="mapSheetBackdrop" class="sheet-backdrop" hidden></div>
+
+          <!-- Mobile Floating Event Bottom Sheet (Opens on tapping any marker/change/polygon) -->
           <div id="mapEventBottomSheet" class="map-bottom-sheet" hidden>
-            <div class="sheet-drag-handle" id="sheetDragHandle"></div>
+            <div class="sheet-drag-handle-wrap" id="sheetDragHandle" title="Нажмите, чтобы скрыть плашку">
+              <div class="sheet-drag-handle"></div>
+              <span class="sheet-drag-hint">Нажмите, чтобы скрыть плашку</span>
+            </div>
             <div class="sheet-content" id="sheetContent">
               <!-- Rendered dynamically on event click -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Discrepancy & Multi-Source Analytical Modal -->
+        <div id="discrepancyModal" class="app-modal-backdrop" hidden>
+          <div class="app-modal-dialog discrepancy-dialog" role="dialog" aria-modal="true" aria-labelledby="discModalTitle">
+            <div class="app-modal-header">
+              <div class="disc-header-title-group">
+                <span class="disc-icon">⚖️</span>
+                <div>
+                  <h3 id="discModalTitle" class="modal-title">Сравнение источников и аналитика расхождений</h3>
+                  <p class="modal-subtitle">LostArmour (база) vs WarMap Daily (обогащение) vs OSINT (оперативный видеоконтроль)</p>
+                </div>
+              </div>
+              <button id="closeDiscrepancyModalBtn" class="modal-close-btn" type="button" aria-label="Закрыть">✕</button>
+            </div>
+
+            <div class="app-modal-body">
+              <!-- Metrics Cards Row -->
+              <div class="disc-stats-banner">
+                <div class="disc-stat-box">
+                  <div class="disc-stat-num font-mono text-red">~122 191 км²</div>
+                  <div class="disc-stat-label">Базовый контроль РФ (LostArmour)</div>
+                  <div class="disc-stat-sub">29 официальных полигонов KML</div>
+                </div>
+                <div class="disc-stat-box">
+                  <div class="disc-stat-num font-mono text-green">+4.85 км²</div>
+                  <div class="disc-stat-label">Обогащение WarMap Daily (24ч)</div>
+                  <div class="disc-stat-sub">Мульти-источниковый консенсус</div>
+                </div>
+                <div class="disc-stat-box">
+                  <div class="disc-stat-num font-mono text-amber" id="discZonesCountDisplay">4 зоны</div>
+                  <div class="disc-stat-label">Участки на проверке / Расхождения</div>
+                  <div class="disc-stat-sub">Разница лагов верификации</div>
+                </div>
+              </div>
+
+              <!-- Methodology Explainer Box -->
+              <div class="disc-methodology-card">
+                <h4>📌 Как устроена синхронизация и почему возникают расхождения?</h4>
+                <p>
+                  <b>1. LostArmour — основной картографический базис:</b> Мы используем официальные геометрические срезы LostArmour как наиболее консервативную и авторитетную основу всей линии боевого соприкосновения. LostArmour традиционно обновляет полигоны после появления железных видеоподтверждений с флагами или зачистки опорных пунктов (лаг верификации 24–48 часов).
+                </p>
+                <p>
+                  <b>2. WarMap Daily — оперативное обогащение:</b> Накладывает поверх базовой карты свежие суточные продвижения (+24–72ч), отфильтрованные от картографического шума.
+                </p>
+                <p>
+                  <b>3. OSINT-события:</b> Точечные привязки ударов дронов-камикадзе и боевых эпизодов, указывающие реальный передний край ещё до сдвига крупных полигонов.
+                </p>
+              </div>
+
+              <!-- List of Active Discrepancy Zones -->
+              <div class="disc-zones-container">
+                <h4 class="disc-zones-title">Текущие выявленные расхождения на линии фронта:</h4>
+                <div class="disc-zones-list" id="discrepanciesList">
+                  <!-- Dynamically populated from /api/lostarmour-data/comparison -->
+                </div>
+              </div>
+            </div>
+
+            <div class="app-modal-footer">
+              <span class="disc-footer-note">Данные обновляются в автоматическом фоновом режиме каждые 15 минут</span>
+              <div style="display: flex; gap: 8px;">
+                <button id="discrepancyGoToMapBtn" class="hud-action-btn primary-btn" type="button">🗺️ Перейти к карте</button>
+                <button id="closeDiscrepancyModalFooterBtn" class="hud-action-btn" type="button">Закрыть окно</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Map Legend & Methodology Help Modal -->
+        <div id="mapLegendModal" class="app-modal-backdrop" hidden>
+          <div class="app-modal-dialog legend-dialog" role="dialog" aria-modal="true" aria-labelledby="legendModalTitle">
+            <div class="app-modal-header">
+              <h3 id="legendModalTitle" class="modal-title">Легенда карты и классификация слоёв</h3>
+              <button id="closeLegendModalBtn" class="modal-close-btn" type="button" aria-label="Закрыть">✕</button>
+            </div>
+            <div class="app-modal-body legend-body">
+              <div class="legend-item-row">
+                <span class="legend-swatch-box" style="background: rgba(239, 68, 68, 0.4); border: 2px solid #b91c1c;"></span>
+                <div class="legend-item-text">
+                  <strong>Красная сплошная зона (LostArmour Base)</strong>
+                  <p>Территория под устойчивым контролем ВС РФ по данным LostArmour KML. Включает Крым, Донбасс до 2022 года и все освобождённые в ходе СВО районы.</p>
+                </div>
+              </div>
+
+              <div class="legend-item-row">
+                <span class="legend-swatch-box" style="background: rgba(34, 197, 94, 0.55); border: 2px solid #15803d;"></span>
+                <div class="legend-item-text">
+                  <strong>Зелёные полигоны (Обогащение WarMap Daily +24ч)</strong>
+                  <p>Свежие подтверждённые продвижения за последние 24–72 часа, подтверждённые кросс-консенсусом и спутниковыми термоточками.</p>
+                </div>
+              </div>
+
+              <div class="legend-item-row">
+                <span class="legend-swatch-box" style="background: rgba(245, 158, 11, 0.4); border: 2px dashed #f59e0b;"></span>
+                <div class="legend-item-text">
+                  <strong>Жёлто-оранжевая штриховка (Зоны расхождений / На проверке)</strong>
+                  <p>Участки фронта, где свежие OSINT-данные опережают базовую карту LostArmour либо стороны оспаривают принадлежность опорных пунктов.</p>
+                </div>
+              </div>
+
+              <div class="legend-item-row">
+                <span class="legend-swatch-box" style="background: rgba(234, 179, 8, 0.45); border: 2px dashed #b45309;"></span>
+                <div class="legend-item-text">
+                  <strong>Жёлтая полоса (Серая зона встречных боёв)</strong>
+                  <p>Полоса активных столкновений, где ни одна из сторон не имеет устойчивого контроля.</p>
+                </div>
+              </div>
+
+              <div class="legend-item-row">
+                <span class="legend-swatch-box" style="background: rgba(59, 130, 246, 0.28); border: 2px solid #1d4ed8;"></span>
+                <div class="legend-item-text">
+                  <strong>Синяя зона (Рубежи обороны ВСУ)</strong>
+                  <p>Опорные пункты, высоты и укрепрайоны, удерживаемые украинскими формированиями.</p>
+                </div>
+              </div>
+
+              <div class="legend-item-row">
+                <span class="legend-swatch-box" style="background: #0284c7; color: #fff; font-size: 11px; display: inline-flex; align-items: center; justify-content: center; border-radius: 50%;">📹</span>
+                <div class="legend-item-text">
+                  <strong>Значки видеокамер (OSINT-геолокация БПЛА)</strong>
+                  <p>Точки с точными координатами, где привязаны видеозаписи объективного контроля.</p>
+                </div>
+              </div>
+            </div>
+            <div class="app-modal-footer">
+              <span></span>
+              <div style="display: flex; gap: 8px;">
+                <button id="legendGoToMapBtn" class="hud-action-btn primary-btn" type="button">🗺️ Перейти к карте</button>
+                <button id="closeLegendModalFooterBtn" class="hud-action-btn" type="button">Закрыть</button>
+              </div>
             </div>
           </div>
         </div>
@@ -671,6 +846,10 @@
           <h3>Неизменяемый аудит данных</h3>
           <p>Каждый снимок фронта верифицируется и сохраняется с контрольной суммой SHA-256 в открытом репозитории.</p>
         </div>
+      </div>
+      <div style="margin-top: 1.25rem; display: flex; justify-content: flex-end; gap: 8px;">
+        <button id="aboutGoToMapBtn" class="hud-action-btn primary-btn" type="button">🗺️ Перейти к карте</button>
+        <button id="closeAboutFooterBtn" class="hud-action-btn" type="button">Закрыть окно</button>
       </div>
     </div>
   </dialog>

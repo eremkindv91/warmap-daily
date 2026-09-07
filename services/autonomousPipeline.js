@@ -28,6 +28,7 @@ import {
   findAffectedSettlements,
   MIN_CHANGE_AREA_KM2
 } from '../lib/geoConsensus.js';
+import { syncLostArmour } from './lostArmourSync.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -491,6 +492,14 @@ export async function runAutonomousPipeline(targetDate = null) {
     console.log('[Autonomous Pipeline] Running Frontline Snapshot & GeoConsensus diffing engine...');
     const snapshotDiffResult = syncFrontlineSnapshotAndDiff(effectiveDate, opDate);
     const diffData = snapshotDiffResult?.diff || null;
+
+    // Stage 4b-1: Synchronize LostArmour Primary Reference Baseline Map & Discrepancies
+    try {
+      console.log(`[Autonomous Pipeline] Synchronizing LostArmour Primary Reference Map for ${effectiveDate}...`);
+      await syncLostArmour(effectiveDate);
+    } catch (laErr) {
+      console.warn('[Autonomous Pipeline] LostArmour sync warning (using cached fallback):', laErr.message);
+    }
 
     // Stage 4c: Synchronize today's geolocated frontline & verified events into events.json
     syncDailyEvents(effectiveDate, opDate, diffData, mergedNews);

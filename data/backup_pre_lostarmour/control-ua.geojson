@@ -1,0 +1,165 @@
+{
+  "type": "FeatureCollection",
+  "metadata": {
+    "title": "Зона контроля ВСУ и передовые оборонительные рубежи",
+    "date": "2026-09-04",
+    "source": "OSINT Cross-Verification (DeepState / ISW / OpenStreetMap)"
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "control-ua-donbas-fortified",
+        "name": "Зона контроля ВСУ: Покровско-Мирноградский и Краматорский узлы обороны",
+        "name_uk": "Зона контролю ЗСУ: Покровсько-Мирноградський та Краматорський вузли оборони",
+        "name_en": "AFU Control Zone: Pokrovsk-Myrnohrad and Kramatorsk defense hubs",
+        "status": "control_ua",
+        "summary": "Основной оборонительный рубеж украинских сил: Покровск, Мирноград, Доброполье, Дружковка, Краматорск, Славянск, Константиновка.",
+        "summary_uk": "Основний оборонний рубіж українських сил: Покровськ, Мирноград, Добропілля, Дружківка, Краматорськ, Слов янськ, Костянтинівка.",
+        "summary_en": "Main defensive perimeter of Ukrainian forces: Pokrovsk, Myrnohrad, Kramatorsk, Slovyansk.",
+        "date": "2026-09-04"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.8,
+              48.0
+            ],
+            [
+              37.22,
+              48.12
+            ],
+            [
+              37.28,
+              48.2
+            ],
+            [
+              37.32,
+              48.29
+            ],
+            [
+              37.6,
+              48.45
+            ],
+            [
+              37.75,
+              48.55
+            ],
+            [
+              37.8,
+              48.8
+            ],
+            [
+              37.6,
+              49.0
+            ],
+            [
+              37.3,
+              49.0
+            ],
+            [
+              36.8,
+              48.6
+            ],
+            [
+              36.8,
+              48.0
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "control-ua-kharkiv-kupyansk",
+        "name": "Зона контроля ВСУ: Купянско-Харьковский сектор",
+        "name_uk": "Зона контролю ЗСУ: Куп янсько-Харківський сектор",
+        "name_en": "AFU Control Zone: Kupyansk-Kharkiv sector",
+        "status": "control_ua",
+        "summary": "Контроль правого и левого берега реки Оскол в районе Купянска, узловая ж/д станция Купянск-Узловой.",
+        "summary_uk": "Контроль правого та лівого берега річки Оскіл у районі Куп янська, вузлова станція Куп янськ-Вузловий.",
+        "summary_en": "Control of Oskil river banks around Kupyansk and rail junction.",
+        "date": "2026-09-04"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.4,
+              49.6
+            ],
+            [
+              37.6,
+              49.65
+            ],
+            [
+              37.66,
+              49.75
+            ],
+            [
+              37.55,
+              49.85
+            ],
+            [
+              37.3,
+              49.8
+            ],
+            [
+              37.4,
+              49.6
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "control-ua-zaporizhzhia",
+        "name": "Зона контроля ВСУ: Ореховско-Запорожский оборонительный рубеж",
+        "name_uk": "Зона контролю ЗСУ: Оріхівсько-Запорізький оборонний рубіж",
+        "name_en": "AFU Control Zone: Orikhiv-Zaporizhzhia defensive line",
+        "status": "control_ua",
+        "summary": "Укрепрайон Орехов — Камышеваха, прикрывающий Запорожское направление.",
+        "summary_uk": "Укріпрайон Оріхів — Комишуваха, що прикриває Запорізький напрямок.",
+        "summary_en": "Fortified zone Orikhiv - Komyshuvakha shielding Zaporizhzhia direction.",
+        "date": "2026-09-04"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              35.6,
+              47.45
+            ],
+            [
+              35.8,
+              47.52
+            ],
+            [
+              36.1,
+              47.6
+            ],
+            [
+              36.0,
+              47.8
+            ],
+            [
+              35.5,
+              47.75
+            ],
+            [
+              35.6,
+              47.45
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

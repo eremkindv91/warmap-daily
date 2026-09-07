@@ -1,0 +1,89 @@
+[
+  {
+    "date": "2026-09-01",
+    "sha256": "9ba511ac037d3d9f8f2e0210792f43b3a831e5967f6097e4f87e261ccaa36ab6",
+    "change_count": 1,
+    "area_change_km2": 0.8,
+    "summary": "Локальные позиционные бои в районе Синьковки и северо-восточнее Купянска.",
+    "published_at": "2026-09-01T20:00:00Z",
+    "file": "data/snapshots/2026-09-01.geojson"
+  },
+  {
+    "date": "2026-09-02",
+    "sha256": "36950cc22721a599a007b00e2951004c454af0f0490784cb588049e1b9e51706",
+    "change_count": 1,
+    "area_change_km2": 2.2,
+    "summary": "Тактическое продвижение штурмовых групп в лесополосах восточнее Гродовки.",
+    "published_at": "2026-09-02T20:00:00Z",
+    "file": "data/snapshots/2026-09-02.geojson"
+  },
+  {
+    "date": "2026-09-03",
+    "sha256": "5707c02427de4f7d1100a0780c02e032497cd48846a907b0a00a878ded502340",
+    "change_count": 3,
+    "area_change_km2": 4.85,
+    "summary": "Продвижение в районе Гродовки, Водяного и уточнение контроля в Пивничном.",
+    "published_at": "2026-09-03T20:00:00Z",
+    "file": "data/snapshots/2026-09-03.geojson"
+  },
+  {
+    "date": "2026-09-04",
+    "sha256": "f77e2d17e8212ae8af7a59632956a92666f11127c8fb74144782783c05442784",
+    "change_count": 2,
+    "area_change_km2": 3.4,
+    "summary": "Расширение флангового охвата севернее Новогродовки и позиционные бои у террикона шахты Центральная.",
+    "published_at": "2026-09-04T20:00:00Z",
+    "file": "data/snapshots/2026-09-04.geojson"
+  },
+  {
+    "date": "2026-09-05",
+    "sha256": "e1ede12f094ba1592e332b75da11b2b4ebd33ac25c28b45c4b61584065d80e44",
+    "change_count": 3,
+    "area_change_km2": 4.85,
+    "summary": "Подтверждённый суточный срез за 2026-09-05: 3 изменений ЛБС (+4.85 км²)."
+  },
+  {
+    "date": "2026-09-06",
+    "sha256": "46dea0f5ec55ab0874af9bbe5877211fb6264982c4b07169c09c894666f1a38c",
+    "change_count": 3,
+    "area_change_km2": 4.85,
+    "summary": "Подтверждённый суточный срез за 2026-09-06: 3 изменений ЛБС (+4.85 км²). Срезы: 2026-09-05 ➔ 2026-09-06.",
+    "published_at": "2026-09-06T15:51:44.285Z",
+    "file": "data/snapshots/2026-09-06.geojson",
+    "diff_metrics": {
+      "ru_advance_km2": 4.85,
+      "ua_advance_km2": 0,
+      "contested_change_km2": 0,
+      "total_delta_km2": 4.85
+    },
+    "confidence_breakdown": {
+      "high": 3,
+      "medium": 0,
+      "low": 0,
+      "cross_confirmed": 2,
+      "average_confidence": 93
+    }
+  },
+  {
+    "date": "2026-09-07",
+    "sha256": "21ac06a1df5383402c8cb6ea7eee6013284a360492c5ba6c8a8165526bb1cc26",
+    "change_count": 3,
+    "area_change_km2": 4.85,
+    "summary": "Подтверждённый суточный срез за 2026-09-07: 3 изменений ЛБС (+4.85 км²). Срезы: 2026-09-06 ➔ 2026-09-07.",
+    "published_at": "2026-09-07T05:51:19.346Z",
+    "file": "data/snapshots/2026-09-07.geojson",
+    "diff_metrics": {
+      "ru_advance_km2": 4.85,
+      "ua_advance_km2": 0,
+      "contested_change_km2": 0,
+      "total_delta_km2": 4.85
+    },
+    "confidence_breakdown": {
+      "high": 3,
+      "medium": 0,
+      "low": 0,
+      "cross_confirmed": 2,
+      "average_confidence": 93
+    }
+  }
+]
