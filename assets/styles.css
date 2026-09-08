@@ -1117,10 +1117,19 @@ body.theme-light .feed-filter-chip.active {
 }
 
 .status-badge.unverified,
-.status-badge.status-unverified {
-  background: rgba(148, 163, 184, 0.18);
-  color: #cbd5e1;
-  border: 1px solid rgba(148, 163, 184, 0.35);
+.status-badge.status-unverified,
+.status-badge.requires_check,
+.status-badge.status-requires-check {
+  background: rgba(249, 115, 22, 0.18);
+  color: #fb923c;
+  border: 1px solid rgba(249, 115, 22, 0.35);
+}
+
+.status-badge.assessment,
+.status-badge.status-assessment {
+  background: rgba(56, 189, 248, 0.18);
+  color: #38bdf8;
+  border: 1px solid rgba(56, 189, 248, 0.35);
 }
 
 body.theme-light .status-badge.confirmed,
@@ -1138,11 +1147,20 @@ body.theme-light .status-badge.status-claimed {
   border-color: #fef08a;
 }
 
+body.theme-light .status-badge.assessment,
+body.theme-light .status-badge.status-assessment {
+  background: #e0f2fe;
+  color: #0369a1;
+  border-color: #bae6fd;
+}
+
 body.theme-light .status-badge.unverified,
-body.theme-light .status-badge.status-unverified {
-  background: #f1f5f9;
-  color: #475569;
-  border-color: #e2e8f0;
+body.theme-light .status-badge.status-unverified,
+body.theme-light .status-badge.requires_check,
+body.theme-light .status-badge.status-requires-check {
+  background: #ffedd5;
+  color: #c2410c;
+  border-color: #fed7aa;
 }
 
 .card-btn-group {

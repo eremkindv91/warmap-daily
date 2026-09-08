@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { classifySectorWithConfidence } from './warRelevanceFilter.js';
+import { normalizeToRussian, formatList, sanitizeEventForPublication, validateEventForPublication, SLUG_TO_NAME } from '../lib/languageValidator.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -234,24 +235,6 @@ async function checkNasaFirmsThermalRadar() {
   return result;
 }
 
-// Translate and normalize Ukrainian battlefield description to Russian
-function normalizeToRussian(textUk) {
-  let ru = textUk;
-  ru = ru.replace(/Сили Оборони України відновили контроль поблизу/gi, 'Силы Обороны Украины восстановили контроль в районе');
-  ru = ru.replace(/Сили Оборони України повернули контроль поблизу/gi, 'Силы Обороны Украины вернули контроль в районе');
-  ru = ru.replace(/Сили Оборони України відновили позиції в/gi, 'Силы Обороны Украины восстановили позиции в');
-  ru = ru.replace(/Ворог просунувся поблизу/gi, 'Зафиксировано продвижение штурмовых групп в районе');
-  ru = ru.replace(/Ворог просунувся у/gi, 'Зафиксировано продвижение штурмовых групп в');
-  ru = ru.replace(/Ворог окупував/gi, 'Подтвержден переход под контроль ВС РФ н.п.');
-  ru = ru.replace(/Тривають важкі бої за/gi, 'Продолжаются тяжелые бои за');
-  ru = ru.replace(/Тривають бої у/gi, 'Идут активные бои в');
-  ru = ru.replace(/Уточнено лінію фронту поблизу/gi, 'Уточнена линия боевого соприкосновения в районе');
-  ru = ru.replace(/та/g, 'и');
-  ru = ru.replace(/поблизу/g, 'в районе');
-  ru = ru.replace(/біля/g, 'около');
-  return ru;
-}
-
 // Main Ingestion and Normalization Function
 export async function fetchAndNormalizeOsintData() {
   if (collectorState.isCollecting) {
@@ -335,7 +318,12 @@ export async function fetchAndNormalizeOsintData() {
         const coordsMatches = [...raw.description.matchAll(/#\d+\/([\d\.]+)\/([\d\.]+)/g)];
         const settlementMatches = [...raw.description.matchAll(/>([^<]+)<\/a>/g)];
 
-        const settlementName = settlementMatches.length > 0 ? settlementMatches.map(m => m[1]).join(', ') : 'Линия фронта';
+        const rawSettlements = settlementMatches.length > 0 ? settlementMatches.map(m => m[1].trim()).filter(Boolean) : [];
+        const settlementsRu = rawSettlements.map(s => normalizeToRussian(s));
+        const settlementNameRu = settlementsRu.length > 0 ? formatList(settlementsRu) : 'Линия фронта';
+        const settlementNameUk = rawSettlements.length > 0 ? formatList(rawSettlements, { lang: 'uk' }) : 'Лінія фронту';
+        const settlementNameEn = rawSettlements.length > 0 ? formatList(rawSettlements, { lang: 'en' }) : 'Frontline';
+
         const primaryLat = coordsMatches.length > 0 ? parseFloat(coordsMatches[0][1]) : 48.28;
         const primaryLon = coordsMatches.length > 0 ? parseFloat(coordsMatches[0][2]) : 37.18;
 
@@ -344,7 +332,7 @@ export async function fetchAndNormalizeOsintData() {
 
         // Add to events.json if not present
         if (!existingEventIds.has(eventId)) {
-          const newEvent = {
+          let newEvent = {
             id: eventId,
             title: `Геолокация: ${descRu}`,
             title_uk: `Геолокація: ${descUk}`,
@@ -354,32 +342,40 @@ export async function fetchAndNormalizeOsintData() {
             summary_en: descEn,
             event_date: eventDate,
             published_at: raw.createdAt || opDate.isoString,
-            verification_status: 'confirmed',
+            verification_status: 'CONFIRMED',
             event_kind: 'territorial_update',
             sector_id: sectorId,
             confidence: 0.96,
             source_ids: ['deepstate-map', 'isw'],
             evidence_ids: ['ev-drone-pokrovsk-04sep-01'],
             location: { lat: primaryLat, lon: primaryLon },
-            location_label: `${settlementName} (${sectorId})`,
+            coordinates: [primaryLat, primaryLon],
+            location_label: settlementNameRu,
             settlement_id: `settlement-${sectorId}`,
+            settlement_name: settlementNameRu,
             publication_note: 'Геолокация подтверждена спутниковой оптикой и кадрами объективного контроля БПЛА.'
           };
 
-          existingEvents.unshift(newEvent);
-          existingEventIds.add(eventId);
-          newEventsCount++;
+          newEvent = sanitizeEventForPublication(newEvent);
+          const valRes = validateEventForPublication(newEvent);
+          if (valRes.valid) {
+            existingEvents.unshift(newEvent);
+            existingEventIds.add(eventId);
+            newEventsCount++;
+          } else {
+            console.warn(`[OSINT Collector] Skipped invalid event ${eventId}:`, valRes.error);
+          }
         }
 
         // Add to news.json if not present
         if (!existingNewsIds.has(newsId)) {
-          const newNewsItem = {
+          let newNewsItem = {
             id: newsId,
-            title: `${settlementName} — ${descRu}`,
-            title_uk: `${settlementName} — ${descUk}`,
-            title_en: `${settlementName} — ${descEn}`,
+            title: `${settlementNameRu} — ${descRu}`,
+            title_uk: `${settlementNameUk} — ${descUk}`,
+            title_en: `${settlementNameEn} — ${descEn}`,
             sector_id: sectorId,
-            settlement_name: settlementName,
+            settlement_name: settlementNameRu,
             timestamp: raw.createdAt || opDate.isoString,
             time_formatted: `${opDate.ddmmyyyy.slice(0, 5)} ${opDate.hours}:${opDate.minutes} МСК`,
             importance: 'important',
@@ -388,16 +384,17 @@ export async function fetchAndNormalizeOsintData() {
             what_happened: descRu,
             what_happened_uk: descUk,
             what_happened_en: descEn,
-            what_is_confirmed: `Подтверждено позиционными видеокадрами БПЛА и спутниковой фиксацией изменений по линии ${settlementName}.`,
+            what_is_confirmed: `Подтверждено позиционными видеокадрами БПЛА и спутниковой фиксацией изменений по линии ${settlementNameRu}.`,
             what_is_not_confirmed: 'Информация о дальнейшем продвижении за пределы указанного опорного пункта уточняется разведкой.',
             independent_sources_count: 2,
             raw_publications_compressed: 14,
+            coordinates: [primaryLat, primaryLon],
             sources_lineage: [
               {
                 name: 'DeepState UA Map',
                 type: 'osint',
                 independent: true,
-                confirms: `Уточнение линии боевого соприкосновения: ${settlementName}`,
+                confirms: `Уточнение линии боевого соприкосновения: ${settlementNameRu}`,
                 timestamp: opDate.hours + ':' + opDate.minutes
               },
               {
@@ -410,9 +407,15 @@ export async function fetchAndNormalizeOsintData() {
             ]
           };
 
-          existingNews.unshift(newNewsItem);
-          existingNewsIds.add(newsId);
-          newNewsCount++;
+          newNewsItem = sanitizeEventForPublication(newNewsItem);
+          const valRes = validateEventForPublication(newNewsItem);
+          if (valRes.valid) {
+            existingNews.unshift(newNewsItem);
+            existingNewsIds.add(newsId);
+            newNewsCount++;
+          } else {
+            console.warn(`[OSINT Collector] Skipped invalid news ${newsId}:`, valRes.error);
+          }
         }
       });
     }

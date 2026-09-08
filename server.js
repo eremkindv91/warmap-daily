@@ -30,6 +30,11 @@ import {
   getLostArmourDiscrepancies,
   getLostArmourComparison
 } from './services/lostArmourSync.js';
+import {
+  getSourceAdapter,
+  listAvailableAdapters,
+  fetchAllUnifiedSources
+} from './sources/index.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -1075,6 +1080,48 @@ app.get('/api/sources', (req, res) => {
   });
 
   res.json(enriched);
+});
+
+// List configured Source Adapters
+app.get('/api/sources/adapters', (req, res) => {
+  res.json({
+    adapters: listAvailableAdapters(),
+    count: listAvailableAdapters().length
+  });
+});
+
+// Unified Multi-Source Pipeline Data across all adapters
+app.get('/api/sources/unified', async (req, res) => {
+  try {
+    const op = getOperatingDate();
+    const targetDate = req.query.date || op.isoDate;
+    const unifiedData = await fetchAllUnifiedSources(targetDate);
+    res.json({
+      date: targetDate,
+      timestamp: new Date().toISOString(),
+      sources: unifiedData
+    });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// Unified Source Data for a specific adapter
+app.get('/api/sources/unified/:sourceId', async (req, res) => {
+  const { sourceId } = req.params;
+  const adapter = getSourceAdapter(sourceId);
+  if (!adapter) {
+    return res.status(404).json({ error: `Adapter for source '${sourceId}' not found.` });
+  }
+
+  try {
+    const op = getOperatingDate();
+    const targetDate = req.query.date || op.isoDate;
+    const data = await adapter.getUnified(targetDate);
+    res.json(data);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
 });
 
 app.get('/api/source-health', (req, res) => {

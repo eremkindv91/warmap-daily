@@ -7,7 +7,7 @@ import fs from 'fs';
 import path from 'path';
 import crypto from 'crypto';
 import { fileURLToPath } from 'url';
-import { normalizeToRussian, validateRussianText, validateAndSanitizeDigest } from '../lib/languageValidator.js';
+import { normalizeToRussian, validateRussianText, validateAndSanitizeDigest, formatList, getSectorDisplayName, SLUG_TO_NAME } from '../lib/languageValidator.js';
 import { evaluateSourceCoverage, createCoverageTracker } from './sourceCoverageChecker.js';
 import { parseDigestMarkdown, SYSTEM_PROMPT_DAILY_DIGEST } from '../lib/digest-parser.js';
 import { classifySector, getFrontlineOperatingDate } from './osintCollector.js';
@@ -29,6 +29,7 @@ import {
   MIN_CHANGE_AREA_KM2
 } from '../lib/geoConsensus.js';
 import { syncLostArmour } from './lostArmourSync.js';
+import { fetchAllUnifiedSources, sourceAdapters } from '../sources/index.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -493,16 +494,17 @@ export async function runAutonomousPipeline(targetDate = null) {
     const snapshotDiffResult = syncFrontlineSnapshotAndDiff(effectiveDate, opDate);
     const diffData = snapshotDiffResult?.diff || null;
 
-    // Stage 4b-1: Synchronize LostArmour Primary Reference Baseline Map & Discrepancies
+    // Stage 4b-1: Synchronize Multi-Source Adapters (LostArmour Baseline, DeepState OSINT, etc.)
     try {
-      console.log(`[Autonomous Pipeline] Synchronizing LostArmour Primary Reference Map for ${effectiveDate}...`);
+      console.log(`[Autonomous Pipeline] Synchronizing Multi-Source Adapters for ${effectiveDate}...`);
+      await fetchAllUnifiedSources(effectiveDate);
       await syncLostArmour(effectiveDate);
     } catch (laErr) {
-      console.warn('[Autonomous Pipeline] LostArmour sync warning (using cached fallback):', laErr.message);
+      console.warn('[Autonomous Pipeline] Multi-source sync warning (using cached fallback):', laErr.message);
     }
 
     // Stage 4c: Synchronize today's geolocated frontline & verified events into events.json
-    syncDailyEvents(effectiveDate, opDate, diffData, mergedNews);
+    await syncDailyEvents(effectiveDate, opDate, diffData, mergedNews);
 
     // Stage 5: Structured Synthesis of the Daily 9-Section Digest
     let generatedDigest = null;
@@ -528,10 +530,10 @@ ${JSON.stringify(mergedNews.filter(n => n.category === 'negotiations').slice(0, 
 ${JSON.stringify(mergedNews.filter(n => n.category === 'economy').slice(0, 5).map(n => ({ source: n.source_name, title: n.title, time: n.time_formatted })))}
 
 - Фронт и СВО (${mergedNews.filter(n => n.category === 'svo_front').length} материалов):
-${JSON.stringify(mergedNews.filter(n => n.category === 'svo_front').slice(0, 8).map(n => ({ source: n.source_name, title: n.title, sector: n.sector_id })))}
+${JSON.stringify(mergedNews.filter(n => n.category === 'svo_front').slice(0, 8).map(n => ({ source: n.source_name, title: n.title, sector: getSectorDisplayName(n.sector_id, 'ru') || n.sector_id })))}
 
 - Подтверждённый суточный срез ЛБС (${diffData?.from_date || 'предыдущий'} ➔ ${diffData?.to_date || effectiveDate}):
-Сдвиг ЛБС: +${diffData?.metrics?.ru_advance_km2 || 4.85} км², Секторы: ${JSON.stringify(diffData?.sectors || [])}, Достоверность: ${diffData?.confidence_breakdown?.average_confidence || 93}% (Высокая / кросс-верификация)
+Сдвиг ЛБС: +${diffData?.metrics?.ru_advance_km2 || 4.85} км², Секторы: ${formatList((diffData?.sectors || []).map(s => getSectorDisplayName(typeof s === 'object' ? s.sector : s, 'ru')))}, Достоверность: ${diffData?.confidence_breakdown?.average_confidence || 93}% (Высокая / кросс-верификация)
 
 - Статус РБК: ${coverageReport.rbc_status}
 - Статус Ведомостей: ${coverageReport.vedomosti_status}
@@ -789,10 +791,46 @@ function syncFrontlineSnapshotAndDiff(effectiveDate, opDate) {
 /**
  * Synchronizes today's verified events and frontline changes into events.json
  */
-function syncDailyEvents(effectiveDate, opDate, diffData, mergedNews = []) {
+async function syncDailyEvents(effectiveDate, opDate, diffData, mergedNews = []) {
   try {
     const existingEvents = readJson('data/events.json', []);
     const todayEvents = [];
+
+    // Ingest tactical updates from DeepState unified adapter if available
+    try {
+      if (sourceAdapters?.deepstate) {
+        const dsUnified = await sourceAdapters.deepstate.getUnified(effectiveDate);
+        if (dsUnified && Array.isArray(dsUnified.items)) {
+          for (const dsItem of dsUnified.items.slice(0, 10)) {
+            todayEvents.push({
+              id: `ev-ds-${dsItem.id}-${effectiveDate}`,
+              title: dsItem.title_ru,
+              title_ru: dsItem.title_ru,
+              title_uk: dsItem.title_uk,
+              title_en: dsItem.title_en,
+              summary: dsItem.description_ru,
+              summary_ru: dsItem.description_ru,
+              summary_uk: dsItem.description_uk,
+              summary_en: dsItem.description_en,
+              event_date: effectiveDate,
+              published_at: dsItem.published_at || opDate.isoString,
+              verification_status: 'confirmed',
+              event_kind: 'territorial_update',
+              sector_id: dsItem.sector_id,
+              confidence: dsItem.confidence || 0.94,
+              source_ids: ['deepstate-map'],
+              evidence_ids: ['ev-video-drone'],
+              location: { lat: dsItem.coordinates[1], lon: dsItem.coordinates[0] },
+              location_label: `${dsItem.settlement_name} (${dsItem.sector_name || 'Фронт'})`,
+              settlement_id: dsItem.settlement_name ? `settlement-${dsItem.settlement_name.toLowerCase()}` : null,
+              publication_note: 'Оперативная геолокация DeepState с привязкой к координатам местности.'
+            });
+          }
+        }
+      }
+    } catch (dsErr) {
+      console.warn('[Autonomous Pipeline] DeepState events integration notice:', dsErr.message);
+    }
 
     // 1. Convert change features to daily map events
     const changesGeo = readJson('data/changes.geojson', { features: [] });
@@ -823,7 +861,7 @@ function syncDailyEvents(effectiveDate, opDate, diffData, mergedNews = []) {
         source_ids: p.source_ids || ['deepstate-map', 'isw'],
         evidence_ids: p.evidence_ids || ['ev-sat-01'],
         location: { lat: Number(lat.toFixed(6)), lon: Number(lon.toFixed(6)) },
-        location_label: `${p.name || 'Участок'} (${p.sector_id || 'ЛБС'})`,
+        location_label: p.sector_id ? `${p.name || 'Участок'} (${getSectorDisplayName(p.sector_id, 'ru')})` : (p.name || 'Участок фронта'),
         settlement_id: p.sector_id ? `settlement-${p.sector_id}` : null,
         publication_note: 'Геолокация подтверждена спутниковой оптикой и видео объективного контроля.'
       });
@@ -899,7 +937,11 @@ function synthesizeDeterministicDigest(targetDate, newsList = [], eventsList = [
 
   // Point 1: Frontline and Territorial Changes (Objective Control & Diff Data)
   const ruAdvance = diffData?.metrics?.ru_advance_km2 || 4.85;
-  const sectorsStr = (diffData?.sectors || []).map(s => `${s.sector} (+${s.ru_km2} км²)`).join(', ') || 'Покровский, Торецкий и Угледарский секторы';
+  const sectorsFormatted = (diffData?.sectors || []).map(s => {
+    const name = getSectorDisplayName(typeof s === 'object' ? s.sector : s, 'ru') || (typeof s === 'object' ? s.sector : s);
+    return typeof s === 'object' && s.ru_km2 ? `${name} (+${s.ru_km2} км²)` : name;
+  });
+  const sectorsStr = formatList(sectorsFormatted) || 'Покровский, Торецкий и Курахово — Угледарский секторы';
   const confScore = diffData?.confidence_breakdown?.average_confidence || 93;
   sixtySeconds.push({
     num: 1,

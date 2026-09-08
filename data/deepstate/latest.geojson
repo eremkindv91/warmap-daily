@@ -1,0 +1,855 @@
+{
+  "type": "FeatureCollection",
+  "metadata": {
+    "source": "DeepState",
+    "source_name_ru": "OSINT-проект DeepState UA",
+    "source_url": "https://deepstatemap.live",
+    "role": "GEOSPATIAL_OSINT_FEED",
+    "snapshot_date": "2026-09-08",
+    "synchronized_at": "2026-09-08T06:48:30.235Z",
+    "features_count": 30,
+    "version": "fe5a098a6b4a5e89"
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "id": "ds-feat-1786217646",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.6447392,
+          48.4928336
+        ]
+      },
+      "properties": {
+        "id": "ds-feat-1786217646",
+        "name": "Ильиновка и Часовому Яру",
+        "title_ru": "Ильиновка и Часовому Яру",
+        "title_uk": "Іллінівки та Часовому Яру",
+        "description": "противник продвинулся вблизи Ильиновка и у Часовому Яру.",
+        "description_ru": "противник продвинулся вблизи Ильиновка и у Часовому Яру.",
+        "description_uk": "Ворог просунувся поблизу Іллінівки та у Часовому Яру .",
+        "sector_id": "toretsk",
+        "source": "DeepState",
+        "source_type": "geospatial_osint",
+        "source_url": "https://deepstatemap.live",
+        "event_date": "2026-08-08",
+        "published_at": "2026-08-08T19:34:06.000Z",
+        "confidence": 0.94,
+        "status": "osint_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ds-feat-1786302062",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.2156715,
+          48.3850432
+        ]
+      },
+      "properties": {
+        "id": "ds-feat-1786302062",
+        "name": "Сухецького",
+        "title_ru": "Сухецького",
+        "title_uk": "Сухецького",
+        "description": "противник продвинулся вблизи Сухецького.",
+        "description_ru": "противник продвинулся вблизи Сухецького.",
+        "description_uk": "Ворог просунувся поблизу Сухецького .",
+        "sector_id": "pokrovsk",
+        "source": "DeepState",
+        "source_type": "geospatial_osint",
+        "source_url": "https://deepstatemap.live",
+        "event_date": "2026-08-09",
+        "published_at": "2026-08-09T19:01:02.000Z",
+        "confidence": 0.94,
+        "status": "osint_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ds-feat-1786391167",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.7540016,
+          49.6565163
+        ]
+      },
+      "properties": {
+        "id": "ds-feat-1786391167",
+        "name": "Пищаного",
+        "title_ru": "Пищаного",
+        "title_uk": "Піщаного",
+        "description": "противник продвинулся вблизи Пищаного.",
+        "description_ru": "противник продвинулся вблизи Пищаного.",
+        "description_uk": "Ворог просунувся поблизу Піщаного .",
+        "sector_id": "kupyansk_lyman",
+        "source": "DeepState",
+        "source_type": "geospatial_osint",
+        "source_url": "https://deepstatemap.live",
+        "event_date": "2026-08-10",
+        "published_at": "2026-08-10T19:46:07.000Z",
+        "confidence": 0.94,
+        "status": "osint_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ds-feat-1786477983",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.8662682,
+          48.7360121
+        ]
+      },
+      "properties": {
+        "id": "ds-feat-1786477983",
+        "name": "Приволье",
+        "title_ru": "Приволье",
+        "title_uk": "Привілля",
+        "description": "противник продвинулся вблизи Приволье.",
+        "description_ru": "противник продвинулся вблизи Приволье.",
+        "description_uk": "Ворог просунувся поблизу Привілля .",
+        "sector_id": "chasiv_yar",
+        "source": "DeepState",
+        "source_type": "geospatial_osint",
+        "source_url": "https://deepstatemap.live",
+        "event_date": "2026-08-11",
+        "published_at": "2026-08-11T19:53:03.000Z",
+        "confidence": 0.94,
+        "status": "osint_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ds-feat-1786559811",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.18,
+          48.28
+        ]
+      },
+      "properties": {
+        "id": "ds-feat-1786559811",
+        "name": "Зелений Гай, Новохатское, Грушевское, Толстой, Зирку, Ялту, Поддубное, Мирне, Воскресенку, Сичневое, Вороное, Терновое, Березовое, Степовое, Калинивське, Приволье, Злагоду, Рибне, Красногирське, Новопавловка, Новогеоргиевка, Новониколаевка, Новогригоровка, Запорожское и Привольное",
+        "title_ru": "Зелений Гай, Новохатское, Грушевское, Толстой, Зирку, Ялту, Поддубное, Мирне, Воскресенку, Сичневое, Вороное, Терновое, Березовое, Степовое, Калинивське, Приволье, Злагоду, Рибне, Красногирське, Новопавловка, Новогеоргиевка, Новониколаевка, Новогригоровка, Запорожское и Привольное",
+        "title_uk": "Зелений Гай, Новохатське, Грушівське, Толстой, Зірку, Ялту, Піддубне, Мирне, Воскресенку, Січневе, Воронне, Тернове, Березове, Степове, Калинівське, Привілля, Злагоду, Рибне, Красногірське, Новопавлівці, Новогеоргіївці, Новомиколаївці, Новогригорівці, Запорізькому та Привільному",
+        "description": "Силы обороны Украины звильнили Зелений Гай, Новохатское, Грушевское, Толстой, Зирку, Ялту, Поддубное, Мирне, Воскресенку, Сичневое, Вороное, Терновое, Березовое, Степовое, Калинивське, Приволье, Злагоду, Рибне и Красногирське. противника видкинуто у Новопавловка, Новогеоргиевка, Новониколаевка, Новогригоровка, Запорожское и Привольное.",
+        "description_ru": "Силы обороны Украины звильнили Зелений Гай, Новохатское, Грушевское, Толстой, Зирку, Ялту, Поддубное, Мирне, Воскресенку, Сичневое, Вороное, Терновое, Березовое, Степовое, Калинивське, Приволье, Злагоду, Рибне и Красногирське. противника видкинуто у Новопавловка, Новогеоргиевка, Новониколаевка, Новогригоровка, Запорожское и Привольное.",
+        "description_uk": "Сили Оборони України звільнили Зелений Гай , Новохатське , Грушівське , Толстой , Зірку , Ялту , Піддубне , Мирне , Воскресенку , Січневе , Воронне , Тернове , Березове , Степове , Калинівське , Привілля , Злагоду , Рибне та Красногірське . Ворога відкинуто у Новопавлівці , Новогеоргіївці , Новомиколаївці , Новогригорівці , Запорізькому та Привільному .",
+        "sector_id": "pokrovsk",
+        "source": "DeepState",
+        "source_type": "geospatial_osint",
+        "source_url": "https://deepstatemap.live",
+        "event_date": "2026-08-12",
+        "published_at": "2026-08-12T18:36:51.000Z",
+        "confidence": 0.94,
+        "status": "osint_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ds-feat-1786628267",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.8063581,
+          48.6589305
+        ]
+      },
+      "properties": {
+        "id": "ds-feat-1786628267",
+        "name": "Марково",
+        "title_ru": "Марково",
+        "title_uk": "Марковому",
+        "description": "противник продвинулся у Марково.",
+        "description_ru": "противник продвинулся у Марково.",
+        "description_uk": "Ворог просунувся у Марковому .",
+        "sector_id": "chasiv_yar",
+        "source": "DeepState",
+        "source_type": "geospatial_osint",
+        "source_url": "https://deepstatemap.live",
+        "event_date": "2026-08-13",
+        "published_at": "2026-08-13T13:37:47.000Z",
+        "confidence": 0.94,
+        "status": "osint_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ds-feat-1786716408",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.2181522,
+          48.3947046
+        ]
+      },
+      "properties": {
+        "id": "ds-feat-1786716408",
+        "name": "Белицкое",
+        "title_ru": "Белицкое",
+        "title_uk": "Білицького",
+        "description": "противник продвинулся вблизи Белицкое.",
+        "description_ru": "противник продвинулся вблизи Белицкое.",
+        "description_uk": "Ворог просунувся поблизу Білицького .",
+        "sector_id": "pokrovsk",
+        "source": "DeepState",
+        "source_type": "geospatial_osint",
+        "source_url": "https://deepstatemap.live",
+        "event_date": "2026-08-14",
+        "published_at": "2026-08-14T14:06:48.000Z",
+        "confidence": 0.94,
+        "status": "osint_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ds-feat-1786809894",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.7176107,
+          49.6609535
+        ]
+      },
+      "properties": {
+        "id": "ds-feat-1786809894",
+        "name": "Куриливци и Кривая Лука",
+        "title_ru": "Куриливци и Кривая Лука",
+        "title_uk": "Курилівці та Кривій Луці",
+        "description": "противник продвинулся у Куриливци и Кривая Лука.",
+        "description_ru": "противник продвинулся у Куриливци и Кривая Лука.",
+        "description_uk": "Ворог просунувся у Курилівці та Кривій Луці .",
+        "sector_id": "kupyansk_lyman",
+        "source": "DeepState",
+        "source_type": "geospatial_osint",
+        "source_url": "https://deepstatemap.live",
+        "event_date": "2026-08-15",
+        "published_at": "2026-08-15T16:04:54.000Z",
+        "confidence": 0.94,
+        "status": "osint_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ds-feat-1786906774",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.0550848,
+          48.3489796
+        ]
+      },
+      "properties": {
+        "id": "ds-feat-1786906774",
+        "name": "Новоалександровка",
+        "title_ru": "Новоалександровка",
+        "title_uk": "Новоолександрівки",
+        "description": "противник продвинулся вблизи Новоалександровка.",
+        "description_ru": "противник продвинулся вблизи Новоалександровка.",
+        "description_uk": "Ворог просунувся поблизу Новоолександрівки .",
+        "sector_id": "pokrovsk",
+        "source": "DeepState",
+        "source_type": "geospatial_osint",
+        "source_url": "https://deepstatemap.live",
+        "event_date": "2026-08-16",
+        "published_at": "2026-08-16T18:59:34.000Z",
+        "confidence": 0.94,
+        "status": "osint_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ds-feat-1786979893",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.1230612,
+          48.3539425
+        ]
+      },
+      "properties": {
+        "id": "ds-feat-1786979893",
+        "name": "Новоалександровка и Нового Шахового",
+        "title_ru": "Новоалександровка и Нового Шахового",
+        "title_uk": "Новоолександрівки та Нового Шахового",
+        "description": "противник продвинулся вблизи Новоалександровка и Нового Шахового.",
+        "description_ru": "противник продвинулся вблизи Новоалександровка и Нового Шахового.",
+        "description_uk": "Ворог просунувся поблизу Новоолександрівки та Нового Шахового .",
+        "sector_id": "pokrovsk",
+        "source": "DeepState",
+        "source_type": "geospatial_osint",
+        "source_url": "https://deepstatemap.live",
+        "event_date": "2026-08-17",
+        "published_at": "2026-08-17T15:18:13.000Z",
+        "confidence": 0.94,
+        "status": "osint_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ds-feat-1787057419",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          36.1761904,
+          47.6866598
+        ]
+      },
+      "properties": {
+        "id": "ds-feat-1787057419",
+        "name": "Святопетровка",
+        "title_ru": "Святопетровка",
+        "title_uk": "Святопетрівки",
+        "description": "противник продвинулся вблизи Святопетровка.",
+        "description_ru": "противник продвинулся вблизи Святопетровка.",
+        "description_uk": "Ворог просунувся поблизу Святопетрівки .",
+        "sector_id": "zaporizhzhia",
+        "source": "DeepState",
+        "source_type": "geospatial_osint",
+        "source_url": "https://deepstatemap.live",
+        "event_date": "2026-08-18",
+        "published_at": "2026-08-18T12:50:19.000Z",
+        "confidence": 0.94,
+        "status": "osint_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ds-feat-1787148750",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.9368223,
+          48.7904093
+        ]
+      },
+      "properties": {
+        "id": "ds-feat-1787148750",
+        "name": "Каленики и Цветковое",
+        "title_ru": "Каленики и Цветковое",
+        "title_uk": "Калеників та Цвіткового",
+        "description": "противник продвинулся вблизи Каленики и Цветковое.",
+        "description_ru": "противник продвинулся вблизи Каленики и Цветковое.",
+        "description_uk": "Ворог просунувся поблизу Калеників та Цвіткового .",
+        "sector_id": "chasiv_yar",
+        "source": "DeepState",
+        "source_type": "geospatial_osint",
+        "source_url": "https://deepstatemap.live",
+        "event_date": "2026-08-19",
+        "published_at": "2026-08-19T14:12:30.000Z",
+        "confidence": 0.94,
+        "status": "osint_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ds-feat-1787231882",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.8056718,
+          48.7184607
+        ]
+      },
+      "properties": {
+        "id": "ds-feat-1787231882",
+        "name": "Тихоновка",
+        "title_ru": "Тихоновка",
+        "title_uk": "Тихонівки",
+        "description": "противник продвинулся вблизи Тихоновка.",
+        "description_ru": "противник продвинулся вблизи Тихоновка.",
+        "description_uk": "Ворог просунувся поблизу Тихонівки .",
+        "sector_id": "chasiv_yar",
+        "source": "DeepState",
+        "source_type": "geospatial_osint",
+        "source_url": "https://deepstatemap.live",
+        "event_date": "2026-08-20",
+        "published_at": "2026-08-20T13:18:02.000Z",
+        "confidence": 0.94,
+        "status": "osint_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ds-feat-1787314988",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.6339254,
+          48.4892514
+        ]
+      },
+      "properties": {
+        "id": "ds-feat-1787314988",
+        "name": "Ильиновка и Приволье",
+        "title_ru": "Ильиновка и Приволье",
+        "title_uk": "Іллінівки та Привілля",
+        "description": "противник продвинулся вблизи Ильиновка и Приволье.",
+        "description_ru": "противник продвинулся вблизи Ильиновка и Приволье.",
+        "description_uk": "Ворог просунувся поблизу Іллінівки та Привілля .",
+        "sector_id": "toretsk",
+        "source": "DeepState",
+        "source_type": "geospatial_osint",
+        "source_url": "https://deepstatemap.live",
+        "event_date": "2026-08-21",
+        "published_at": "2026-08-21T12:23:08.000Z",
+        "confidence": 0.94,
+        "status": "osint_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ds-feat-1787398876",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.6116028,
+          50.250501
+        ]
+      },
+      "properties": {
+        "id": "ds-feat-1787398876",
+        "name": "Родинское и Артельное",
+        "title_ru": "Родинское и Артельное",
+        "title_uk": "Родинське та Артільного",
+        "description": "противник занял Родинское, а также продвинулся вблизи Артельное.",
+        "description_ru": "противник занял Родинское, а также продвинулся вблизи Артельное.",
+        "description_uk": "Ворог окупував Родинське , а також просунувся поблизу Артільного .",
+        "sector_id": "kupyansk_lyman",
+        "source": "DeepState",
+        "source_type": "geospatial_osint",
+        "source_url": "https://deepstatemap.live",
+        "event_date": "2026-08-22",
+        "published_at": "2026-08-22T11:41:16.000Z",
+        "confidence": 0.94,
+        "status": "osint_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ds-feat-1787509777",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.6237966,
+          48.4916965
+        ]
+      },
+      "properties": {
+        "id": "ds-feat-1787509777",
+        "name": "Долгая Балка",
+        "title_ru": "Долгая Балка",
+        "title_uk": "Довгої Балки",
+        "description": "противник продвинулся вблизи Долгая Балка.",
+        "description_ru": "противник продвинулся вблизи Долгая Балка.",
+        "description_uk": "Ворог просунувся поблизу Довгої Балки .",
+        "sector_id": "toretsk",
+        "source": "DeepState",
+        "source_type": "geospatial_osint",
+        "source_url": "https://deepstatemap.live",
+        "event_date": "2026-08-23",
+        "published_at": "2026-08-23T18:29:37.000Z",
+        "confidence": 0.94,
+        "status": "osint_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ds-feat-1787604618",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.2304382,
+          48.4351558
+        ]
+      },
+      "properties": {
+        "id": "ds-feat-1787604618",
+        "name": "Дорожное и Софиевка",
+        "title_ru": "Дорожное и Софиевка",
+        "title_uk": "Дорожнього та Софіївки",
+        "description": "противник продвинулся вблизи Дорожное и Софиевка.",
+        "description_ru": "противник продвинулся вблизи Дорожное и Софиевка.",
+        "description_uk": "Ворог просунувся поблизу Дорожнього та Софіївки .",
+        "sector_id": "pokrovsk",
+        "source": "DeepState",
+        "source_type": "geospatial_osint",
+        "source_url": "https://deepstatemap.live",
+        "event_date": "2026-08-24",
+        "published_at": "2026-08-24T20:50:18.000Z",
+        "confidence": 0.94,
+        "status": "osint_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ds-feat-1787662201",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.6359016,
+          49.8436906
+        ]
+      },
+      "properties": {
+        "id": "ds-feat-1787662201",
+        "name": "Западного",
+        "title_ru": "Западного",
+        "title_uk": "Западного",
+        "description": "Силы обороны Украины восстановили контроль вблизи Западного.",
+        "description_ru": "Силы обороны Украины восстановили контроль вблизи Западного.",
+        "description_uk": "Сили Оборони України відновили контроль поблизу Западного .",
+        "sector_id": "kupyansk_lyman",
+        "source": "DeepState",
+        "source_type": "geospatial_osint",
+        "source_url": "https://deepstatemap.live",
+        "event_date": "2026-08-25",
+        "published_at": "2026-08-25T12:50:01.000Z",
+        "confidence": 0.94,
+        "status": "osint_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ds-feat-1787766560",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.8259264,
+          48.567741
+        ]
+      },
+      "properties": {
+        "id": "ds-feat-1787766560",
+        "name": "Часовому Яру",
+        "title_ru": "Часовому Яру",
+        "title_uk": "Часовому Яру",
+        "description": "противник продвинулся у Часовому Яру.",
+        "description_ru": "противник продвинулся у Часовому Яру.",
+        "description_uk": "Ворог просунувся у Часовому Яру .",
+        "sector_id": "chasiv_yar",
+        "source": "DeepState",
+        "source_type": "geospatial_osint",
+        "source_url": "https://deepstatemap.live",
+        "event_date": "2026-08-26",
+        "published_at": "2026-08-26T17:49:20.000Z",
+        "confidence": 0.94,
+        "status": "osint_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ds-feat-1787830095",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.8963093,
+          48.7751984
+        ]
+      },
+      "properties": {
+        "id": "ds-feat-1787830095",
+        "name": "Никифоровка",
+        "title_ru": "Никифоровка",
+        "title_uk": "Никифорівки",
+        "description": "противник продвинулся вблизи Никифоровка.",
+        "description_ru": "противник продвинулся вблизи Никифоровка.",
+        "description_uk": "Ворог просунувся поблизу Никифорівки .",
+        "sector_id": "chasiv_yar",
+        "source": "DeepState",
+        "source_type": "geospatial_osint",
+        "source_url": "https://deepstatemap.live",
+        "event_date": "2026-08-27",
+        "published_at": "2026-08-27T11:28:15.000Z",
+        "confidence": 0.94,
+        "status": "osint_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ds-feat-1787921095",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          36.1831312,
+          47.6493755
+        ]
+      },
+      "properties": {
+        "id": "ds-feat-1787921095",
+        "name": "Зализное (Железное)",
+        "title_ru": "Зализное (Железное)",
+        "title_uk": "Залізничного",
+        "description": "противник продвинулся вблизи Зализное (Железное).",
+        "description_ru": "противник продвинулся вблизи Зализное (Железное).",
+        "description_uk": "Ворог просунувся поблизу Залізничного .",
+        "sector_id": "zaporizhzhia",
+        "source": "DeepState",
+        "source_type": "geospatial_osint",
+        "source_url": "https://deepstatemap.live",
+        "event_date": "2026-08-28",
+        "published_at": "2026-08-28T12:44:55.000Z",
+        "confidence": 0.94,
+        "status": "osint_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ds-feat-1788030194",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.1725898,
+          48.3585352
+        ]
+      },
+      "properties": {
+        "id": "ds-feat-1788030194",
+        "name": "Родинское",
+        "title_ru": "Родинское",
+        "title_uk": "Родинського",
+        "description": "противник продвинулся вблизи Родинское.",
+        "description_ru": "противник продвинулся вблизи Родинское.",
+        "description_uk": "Ворог просунувся поблизу Родинського .",
+        "sector_id": "pokrovsk",
+        "source": "DeepState",
+        "source_type": "geospatial_osint",
+        "source_url": "https://deepstatemap.live",
+        "event_date": "2026-08-29",
+        "published_at": "2026-08-29T19:03:14.000Z",
+        "confidence": 0.94,
+        "status": "osint_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ds-feat-1788099997",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.6025945,
+          49.8072691
+        ]
+      },
+      "properties": {
+        "id": "ds-feat-1788099997",
+        "name": "Западного",
+        "title_ru": "Западного",
+        "title_uk": "Западного",
+        "description": "Силы обороны Украины восстановили контроль вблизи Западного.",
+        "description_ru": "Силы обороны Украины восстановили контроль вблизи Западного.",
+        "description_uk": "Сили Оборони України відновили контроль поблизу Западного .",
+        "sector_id": "kupyansk_lyman",
+        "source": "DeepState",
+        "source_type": "geospatial_osint",
+        "source_url": "https://deepstatemap.live",
+        "event_date": "2026-08-30",
+        "published_at": "2026-08-30T14:26:37.000Z",
+        "confidence": 0.94,
+        "status": "osint_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ds-feat-1788206224",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.8315067,
+          48.7149193
+        ]
+      },
+      "properties": {
+        "id": "ds-feat-1788206224",
+        "name": "Миньковка",
+        "title_ru": "Миньковка",
+        "title_uk": "Міньківки",
+        "description": "противник продвинулся вблизи Миньковка.",
+        "description_ru": "противник продвинулся вблизи Миньковка.",
+        "description_uk": "Ворог просунувся поблизу Міньківки .",
+        "sector_id": "chasiv_yar",
+        "source": "DeepState",
+        "source_type": "geospatial_osint",
+        "source_url": "https://deepstatemap.live",
+        "event_date": "2026-08-31",
+        "published_at": "2026-08-31T19:57:04.000Z",
+        "confidence": 0.94,
+        "status": "osint_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ds-feat-1788288304",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.1528598,
+          50.3431531
+        ]
+      },
+      "properties": {
+        "id": "ds-feat-1788288304",
+        "name": "Бочково, Ивашкиного, Луговское и Гуляйпольское",
+        "title_ru": "Бочково, Ивашкиного, Луговское и Гуляйпольское",
+        "title_uk": "Бочкового, Івашкиного, Лугівського та Гуляйпільського",
+        "description": "противник продвинулся вблизи Бочково, Ивашкиного, Луговское и Гуляйпольское.",
+        "description_ru": "противник продвинулся вблизи Бочково, Ивашкиного, Луговское и Гуляйпольское.",
+        "description_uk": "Ворог просунувся поблизу Бочкового , Івашкиного , Лугівського та Гуляйпільського .",
+        "sector_id": "kupyansk_lyman",
+        "source": "DeepState",
+        "source_type": "geospatial_osint",
+        "source_url": "https://deepstatemap.live",
+        "event_date": "2026-09-01",
+        "published_at": "2026-09-01T18:45:04.000Z",
+        "confidence": 0.94,
+        "status": "osint_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ds-feat-1788377945",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.8185458,
+          48.7324262
+        ]
+      },
+      "properties": {
+        "id": "ds-feat-1788377945",
+        "name": "Голубовка и Ступочок",
+        "title_ru": "Голубовка и Ступочок",
+        "title_uk": "Голубівки та Ступочок",
+        "description": "противник продвинулся вблизи Голубовка и Ступочок.",
+        "description_ru": "противник продвинулся вблизи Голубовка и Ступочок.",
+        "description_uk": "Ворог просунувся поблизу Голубівки та Ступочок .",
+        "sector_id": "chasiv_yar",
+        "source": "DeepState",
+        "source_type": "geospatial_osint",
+        "source_url": "https://deepstatemap.live",
+        "event_date": "2026-09-02",
+        "published_at": "2026-09-02T19:39:05.000Z",
+        "confidence": 0.94,
+        "status": "osint_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ds-feat-1788443805",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.6508315,
+          49.8486151
+        ]
+      },
+      "properties": {
+        "id": "ds-feat-1788443805",
+        "name": "Двуречная",
+        "title_ru": "Двуречная",
+        "title_uk": "Дворічної",
+        "description": "Силы обороны Украины вернули контроль вблизи Двуречная.",
+        "description_ru": "Силы обороны Украины вернули контроль вблизи Двуречная.",
+        "description_uk": "Сили Оборони України повернули контроль поблизу Дворічної .",
+        "sector_id": "kupyansk_lyman",
+        "source": "DeepState",
+        "source_type": "geospatial_osint",
+        "source_url": "https://deepstatemap.live",
+        "event_date": "2026-09-03",
+        "published_at": "2026-09-03T13:56:45.000Z",
+        "confidence": 0.94,
+        "status": "osint_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ds-feat-1788506983",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.5665732,
+          47.5506029
+        ]
+      },
+      "properties": {
+        "id": "ds-feat-1788506983",
+        "name": "Малые Щербаки, Гуляйпольское и Варваривки",
+        "title_ru": "Малые Щербаки, Гуляйпольское и Варваривки",
+        "title_uk": "Малих Щербаків, Гуляйпільського та Варварівки",
+        "description": "противник продвинулся вблизи Малые Щербаки, Гуляйпольское и Варваривки.",
+        "description_ru": "противник продвинулся вблизи Малые Щербаки, Гуляйпольское и Варваривки.",
+        "description_uk": "Ворог просунувся поблизу Малих Щербаків , Гуляйпільського та Варварівки .",
+        "sector_id": "zaporizhzhia",
+        "source": "DeepState",
+        "source_type": "geospatial_osint",
+        "source_url": "https://deepstatemap.live",
+        "event_date": "2026-09-04",
+        "published_at": "2026-09-04T07:29:43.000Z",
+        "confidence": 0.94,
+        "status": "osint_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ds-feat-1788638115",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.7463619,
+          48.4882236
+        ]
+      },
+      "properties": {
+        "id": "ds-feat-1788638115",
+        "name": "Константиновка",
+        "title_ru": "Константиновка",
+        "title_uk": "Костянтинівки",
+        "description": "противник продвинулся вблизи Константиновка.",
+        "description_ru": "противник продвинулся вблизи Константиновка.",
+        "description_uk": "Ворог просунувся поблизу Костянтинівки .",
+        "sector_id": "toretsk",
+        "source": "DeepState",
+        "source_type": "geospatial_osint",
+        "source_url": "https://deepstatemap.live",
+        "event_date": "2026-09-05",
+        "published_at": "2026-09-05T19:55:15.000Z",
+        "confidence": 0.94,
+        "status": "osint_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ds-feat-1788726211",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.1265954,
+          48.3705503
+        ]
+      },
+      "properties": {
+        "id": "ds-feat-1788726211",
+        "name": "Шевченко",
+        "title_ru": "Шевченко",
+        "title_uk": "Шевченко",
+        "description": "противник продвинулся вблизи Шевченко.",
+        "description_ru": "противник продвинулся вблизи Шевченко.",
+        "description_uk": "Ворог просунувся поблизу Шевченко .",
+        "sector_id": "pokrovsk",
+        "source": "DeepState",
+        "source_type": "geospatial_osint",
+        "source_url": "https://deepstatemap.live",
+        "event_date": "2026-09-06",
+        "published_at": "2026-09-06T20:23:31.000Z",
+        "confidence": 0.94,
+        "status": "osint_verified"
+      }
+    }
+  ]
+}

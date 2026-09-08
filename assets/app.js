@@ -297,7 +297,9 @@
       dynamics_title: 'Динамика:',
       status_confirmed: 'Подтверждено',
       status_claimed: 'Заявлено стороной',
-      status_unverified: 'Уточняется',
+      status_assessment: 'Оценка',
+      status_requires_check: 'Требует проверки',
+      status_unverified: 'Требует проверки',
       past_24h: 'за сутки',
       load_more_events: 'Показать ещё',
       all_categories: 'Все',
@@ -339,7 +341,9 @@
       dynamics_title: 'Динаміка:',
       status_confirmed: 'Підтверджено',
       status_claimed: 'Заявлено стороною',
-      status_unverified: 'Уточнюється',
+      status_assessment: 'Оцінка',
+      status_requires_check: 'Потребує перевірки',
+      status_unverified: 'Потребує перевірки',
       past_24h: 'за добу',
       load_more_events: 'Показати ще',
       all_categories: 'Всі',
@@ -381,7 +385,9 @@
       dynamics_title: 'Dynamics:',
       status_confirmed: 'Confirmed',
       status_claimed: 'Claimed by side',
-      status_unverified: 'Under review',
+      status_assessment: 'Assessment',
+      status_requires_check: 'Requires verification',
+      status_unverified: 'Requires verification',
       past_24h: 'past 24h',
       load_more_events: 'Load more',
       all_categories: 'All',
@@ -2840,8 +2846,9 @@
     if (!ev) return 'CONFIRMED';
     const rawStatus = (ev.verification_status || ev.status || '').toUpperCase();
     if (rawStatus === 'CONFIRMED' || rawStatus === 'VERIFIED') return 'CONFIRMED';
-    if (rawStatus === 'CLAIMED' || rawStatus === 'PROBABLE') return 'CLAIMED';
-    if (rawStatus === 'UNVERIFIED' || rawStatus === 'CLARIFYING' || rawStatus === 'UNDER_REVIEW') return 'UNVERIFIED';
+    if (rawStatus === 'CLAIMED' || rawStatus === 'OFFICIAL_CLAIM') return 'CLAIMED';
+    if (rawStatus === 'ASSESSMENT' || rawStatus === 'ESTIMATE' || rawStatus === 'ANALYTICAL') return 'ASSESSMENT';
+    if (rawStatus === 'REQUIRES_CHECK' || rawStatus === 'UNVERIFIED' || rawStatus === 'CLARIFYING' || rawStatus === 'UNDER_REVIEW') return 'REQUIRES_CHECK';
 
     const hasVisualEvidence = ev.has_video || ev.has_photo ||
       (Array.isArray(ev.evidence_sources) && ev.evidence_sources.some(s =>
@@ -2854,18 +2861,24 @@
     if (ev.source_tier === 2 || ev.source_type === 'official_statement' || ev.source_type === 'telegram_claim') {
       return 'CLAIMED';
     }
-    return 'UNVERIFIED';
+    if (ev.source_type === 'analyst' || ev.source_type === 'expert' || ev.source_type === 'think_tank') {
+      return 'ASSESSMENT';
+    }
+    return 'REQUIRES_CHECK';
   }
 
   function getVerificationBadgeHtml(statusKey) {
     const norm = (statusKey || 'CONFIRMED').toUpperCase();
-    if (norm === 'CONFIRMED') {
-      return `<span class="status-badge status-confirmed">${t('status_confirmed')}</span>`;
+    if (norm === 'CONFIRMED' || norm === 'VERIFIED') {
+      return `<span class="status-badge status-confirmed">✓ ${t('status_confirmed')}</span>`;
     }
-    if (norm === 'CLAIMED' || norm === 'PROBABLE') {
-      return `<span class="status-badge status-claimed">${t('status_claimed')}</span>`;
+    if (norm === 'CLAIMED' || norm === 'OFFICIAL_CLAIM') {
+      return `<span class="status-badge status-claimed">📢 ${t('status_claimed')}</span>`;
     }
-    return `<span class="status-badge status-unverified">${t('status_unverified')}</span>`;
+    if (norm === 'ASSESSMENT' || norm === 'ESTIMATE' || norm === 'ANALYTICAL') {
+      return `<span class="status-badge status-assessment">📊 ${t('status_assessment')}</span>`;
+    }
+    return `<span class="status-badge status-requires-check">⏳ ${t('status_requires_check')}</span>`;
   }
 
   function formatEventTimeBadge(ev) {
