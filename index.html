@@ -442,7 +442,7 @@
               <div class="sector-stat-card">
                 <div class="sector-stat-label">События объективного контроля</div>
                 <div id="sectorActiveEvents" class="sector-stat-value font-mono">8</div>
-                <div id="sectorEventsSub" class="sector-stat-sub">100% подтверждено</div>
+                <div id="sectorEventsSub" class="sector-stat-sub">CONFIDENCE: 92% (HIGH)</div>
               </div>
 
               <div class="sector-stat-card">
@@ -531,7 +531,7 @@
                 <span class="disc-icon">⚖️</span>
                 <div>
                   <h3 id="discModalTitle" class="modal-title">Сравнение источников и аналитика расхождений</h3>
-                  <p class="modal-subtitle">LostArmour (база) vs WarMap Daily (обогащение) vs OSINT (оперативный видеоконтроль)</p>
+                  <p class="modal-subtitle">LostArmour (база РФ) vs DeepState (OSINT Украины) vs WarMap Daily (консенсус) vs Объективный видеоконтроль</p>
                 </div>
               </div>
               <button id="closeDiscrepancyModalBtn" class="modal-close-btn" type="button" aria-label="Закрыть">✕</button>
@@ -548,7 +548,7 @@
                 <div class="disc-stat-box">
                   <div class="disc-stat-num font-mono text-green">+4.85 км²</div>
                   <div class="disc-stat-label">Обогащение WarMap Daily (24ч)</div>
-                  <div class="disc-stat-sub">Мульти-источниковый консенсус</div>
+                  <div class="disc-stat-sub">Кросс-верификация с DeepState</div>
                 </div>
                 <div class="disc-stat-box">
                   <div class="disc-stat-num font-mono text-amber" id="discZonesCountDisplay">4 зоны</div>
@@ -564,10 +564,10 @@
                   <b>1. LostArmour — основной картографический базис:</b> Мы используем официальные геометрические срезы LostArmour как наиболее консервативную и авторитетную основу всей линии боевого соприкосновения. LostArmour традиционно обновляет полигоны после появления железных видеоподтверждений с флагами или зачистки опорных пунктов (лаг верификации 24–48 часов).
                 </p>
                 <p>
-                  <b>2. WarMap Daily — оперативное обогащение:</b> Накладывает поверх базовой карты свежие суточные продвижения (+24–72ч), отфильтрованные от картографического шума.
+                  <b>2. DeepState & WarMap Daily — кросс-валидация и оперативное обогащение:</b> Адаптер DeepState непрерывно парсит публичный гео-API DeepState (`/api/history/public`) и канал @DeepStateUA, транслитерирует и нормализует украинские топонимы на русский язык, отсекая пропагандистские искажения. Если продвижение зафиксировано обеими сторонами (LostArmour / росвоенкоры + DeepState), статус доверия повышается до 92–96% (HIGH CONFIDENCE).
                 </p>
                 <p>
-                  <b>3. OSINT-события:</b> Точечные привязки ударов дронов-камикадзе и боевых эпизодов, указывающие реальный передний край ещё до сдвига крупных полигонов.
+                  <b>3. Объективный контроль БПЛА и спутниковые радары:</b> Точечные привязки ударов FPV-дронов и спутниковые термальные снимки NASA FIRMS / Sentinel-2 служат строгим фильтром отсечения картографических иллюзий.
                 </p>
               </div>
 
@@ -946,12 +946,12 @@
         <div class="admin-metrics-grid" style="margin-top: 0.85rem; display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 0.65rem;">
           <div class="admin-metric-card" style="background: var(--bg-surface); padding: 0.65rem; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">
             <div class="admin-metric-title" style="font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase;">РБК (RBC.ru)</div>
-            <div class="admin-metric-val" id="aboutAdminRbcVal" style="font-size: 1rem; font-weight: 700; color: #4ade80;">100% OK</div>
+            <div class="admin-metric-val" id="aboutAdminRbcVal" style="font-size: 1rem; font-weight: 700; color: #4ade80;">200 OK</div>
             <div class="admin-metric-desc" id="aboutAdminRbcDesc" style="font-size: 0.72rem; color: var(--text-secondary);">Проверено</div>
           </div>
           <div class="admin-metric-card" style="background: var(--bg-surface); padding: 0.65rem; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">
             <div class="admin-metric-title" style="font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase;">Ведомости</div>
-            <div class="admin-metric-val" id="aboutAdminVedomostiVal" style="font-size: 1rem; font-weight: 700; color: #4ade80;">100% OK</div>
+            <div class="admin-metric-val" id="aboutAdminVedomostiVal" style="font-size: 1rem; font-weight: 700; color: #4ade80;">200 OK</div>
             <div class="admin-metric-desc" id="aboutAdminVedomostiDesc" style="font-size: 0.72rem; color: var(--text-secondary);">Проверено</div>
           </div>
           <div class="admin-metric-card" style="background: var(--bg-surface); padding: 0.65rem; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">

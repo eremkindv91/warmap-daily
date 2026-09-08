@@ -1,5 +1,398 @@
 [
   {
+    "id": "ev-ds-ds-1786217646-2026-09-08",
+    "title": "Ильиновка и Часовому Яру — противник продвинулся вблизи Ильиновка и у Часовому Яру.",
+    "title_ru": "Ильиновка и Часовому Яру — противник продвинулся вблизи Ильиновка и у Часовому Яру.",
+    "title_uk": "Іллінівки та Часовому Яру — Ворог просунувся поблизу Іллінівки та у Часовому Яру .",
+    "title_en": "Іллінівки and Часовому Яру — The enemy advanced near Illinivka and in Chasіv Yar .",
+    "summary": "противник продвинулся вблизи Ильиновка и у Часовому Яру.",
+    "summary_ru": "противник продвинулся вблизи Ильиновка и у Часовому Яру.",
+    "summary_uk": "Ворог просунувся поблизу Іллінівки та у Часовому Яру .",
+    "summary_en": "The enemy advanced near Illinivka and in Chasіv Yar .",
+    "event_date": "2026-09-08",
+    "published_at": "2026-08-08T19:34:06.000Z",
+    "verification_status": "confirmed",
+    "event_kind": "territorial_update",
+    "sector_id": "toretsk",
+    "confidence": 0.94,
+    "source_ids": [
+      "deepstate-map"
+    ],
+    "evidence_ids": [
+      "ev-video-drone"
+    ],
+    "location": {
+      "lat": 48.4928336,
+      "lon": 37.6447392
+    },
+    "location_label": "Ильиновка и Часовому Яру (Торецкое направление)",
+    "settlement_id": "settlement-ильиновка и часовому яру",
+    "publication_note": "Оперативная геолокация DeepState с привязкой к координатам местности."
+  },
+  {
+    "id": "ev-ds-ds-1786302062-2026-09-08",
+    "title": "Сухецького — противник продвинулся вблизи Сухецького.",
+    "title_ru": "Сухецького — противник продвинулся вблизи Сухецького.",
+    "title_uk": "Сухецького — Ворог просунувся поблизу Сухецького .",
+    "title_en": "Сухецького — The enemy has advanced near Sukhetske .",
+    "summary": "противник продвинулся вблизи Сухецького.",
+    "summary_ru": "противник продвинулся вблизи Сухецького.",
+    "summary_uk": "Ворог просунувся поблизу Сухецького .",
+    "summary_en": "The enemy has advanced near Sukhetske .",
+    "event_date": "2026-09-08",
+    "published_at": "2026-08-09T19:01:02.000Z",
+    "verification_status": "confirmed",
+    "event_kind": "territorial_update",
+    "sector_id": "pokrovsk",
+    "confidence": 0.94,
+    "source_ids": [
+      "deepstate-map"
+    ],
+    "evidence_ids": [
+      "ev-video-drone"
+    ],
+    "location": {
+      "lat": 48.3850432,
+      "lon": 37.2156715
+    },
+    "location_label": "Сухецького (Покровское направление)",
+    "settlement_id": "settlement-сухецького",
+    "publication_note": "Оперативная геолокация DeepState с привязкой к координатам местности."
+  },
+  {
+    "id": "ev-ds-ds-1786391167-2026-09-08",
+    "title": "Пищаного — противник продвинулся вблизи Пищаного.",
+    "title_ru": "Пищаного — противник продвинулся вблизи Пищаного.",
+    "title_uk": "Піщаного — Ворог просунувся поблизу Піщаного .",
+    "title_en": "Піщаного — The enemy has advanced near Pishchane .",
+    "summary": "противник продвинулся вблизи Пищаного.",
+    "summary_ru": "противник продвинулся вблизи Пищаного.",
+    "summary_uk": "Ворог просунувся поблизу Піщаного .",
+    "summary_en": "The enemy has advanced near Pishchane .",
+    "event_date": "2026-09-08",
+    "published_at": "2026-08-10T19:46:07.000Z",
+    "verification_status": "confirmed",
+    "event_kind": "territorial_update",
+    "sector_id": "kupyansk_lyman",
+    "confidence": 0.94,
+    "source_ids": [
+      "deepstate-map"
+    ],
+    "evidence_ids": [
+      "ev-video-drone"
+    ],
+    "location": {
+      "lat": 49.6565163,
+      "lon": 37.7540016
+    },
+    "location_label": "Пищаного (Купянск — Лиман)",
+    "settlement_id": "settlement-пищаного",
+    "publication_note": "Оперативная геолокация DeepState с привязкой к координатам местности."
+  },
+  {
+    "id": "ev-ds-ds-1786477983-2026-09-08",
+    "title": "Приволье — противник продвинулся вблизи Приволье.",
+    "title_ru": "Приволье — противник продвинулся вблизи Приволье.",
+    "title_uk": "Привілля — Ворог просунувся поблизу Привілля .",
+    "title_en": "Привілля — The enemy has advanced near Pryvillia .",
+    "summary": "противник продвинулся вблизи Приволье.",
+    "summary_ru": "противник продвинулся вблизи Приволье.",
+    "summary_uk": "Ворог просунувся поблизу Привілля .",
+    "summary_en": "The enemy has advanced near Pryvillia .",
+    "event_date": "2026-09-08",
+    "published_at": "2026-08-11T19:53:03.000Z",
+    "verification_status": "confirmed",
+    "event_kind": "territorial_update",
+    "sector_id": "chasiv_yar",
+    "confidence": 0.94,
+    "source_ids": [
+      "deepstate-map"
+    ],
+    "evidence_ids": [
+      "ev-video-drone"
+    ],
+    "location": {
+      "lat": 48.7360121,
+      "lon": 37.8662682
+    },
+    "location_label": "Приволье (Часов Яр)",
+    "settlement_id": "settlement-приволье",
+    "publication_note": "Оперативная геолокация DeepState с привязкой к координатам местности."
+  },
+  {
+    "id": "ev-ds-ds-1786559811-2026-09-08",
+    "title": "Зелений Гай, Новохатское, Грушевское, Толстой, Зирку, Ялту, Поддубное, Мирне, Воскресенку, Сичневое, Вороное, Терновое, Березовое, Степовое, Калинивське, Приволье, Злагоду, Рибне, Красногирське, Новопавловка, Новогеоргиевка, Новониколаевка, Новогригоровка, Запорожское и Привольное — Силы обороны Украины звильнили Зелений Гай, Новохатское, Грушевское, Толстой, Зирку, Ялту, Поддубное, Мирне, Воскресенку, Сичневое, Вороное, Терновое, Березовое, Степовое, Калинивське, Приволье, Злагоду, Рибне и Красногирське. противника видкинуто у Новопавловка, Новогеоргиевка, Новониколаевка, Новогригоровка, Запорожское и Привольное.",
+    "title_ru": "Зелений Гай, Новохатское, Грушевское, Толстой, Зирку, Ялту, Поддубное, Мирне, Воскресенку, Сичневое, Вороное, Терновое, Березовое, Степовое, Калинивське, Приволье, Злагоду, Рибне, Красногирське, Новопавловка, Новогеоргиевка, Новониколаевка, Новогригоровка, Запорожское и Привольное — Силы обороны Украины звильнили Зелений Гай, Новохатское, Грушевское, Толстой, Зирку, Ялту, Поддубное, Мирне, Воскресенку, Сичневое, Вороное, Терновое, Березовое, Степовое, Калинивське, Приволье, Злагоду, Рибне и Красногирське. противника видкинуто у Новопавловка, Новогеоргиевка, Новониколаевка, Новогригоровка, Запорожское и Привольное.",
+    "title_uk": "Зелений Гай, Новохатське, Грушівське, Толстой, Зірку, Ялту, Піддубне, Мирне, Воскресенку, Січневе, Воронне, Тернове, Березове, Степове, Калинівське, Привілля, Злагоду, Рибне, Красногірське, Новопавлівці, Новогеоргіївці, Новомиколаївці, Новогригорівці, Запорізькому та Привільному — Сили Оборони України звільнили Зелений Гай , Новохатське , Грушівське , Толстой , Зірку , Ялту , Піддубне , Мирне , Воскресенку , Січневе , Воронне , Тернове , Березове , Степове , Калинівське , Привілля , Злагоду , Рибне та Красногірське . Ворога відкинуто у Новопавлівці , Новогеоргіївці , Новомиколаївці , Новогригорівці , Запорізькому та Привільному .",
+    "title_en": "Зелений Гай, Новохатське, Грушівське, Толстой, Зірку, Ялту, Піддубне, Мирне, Воскресенку, Січневе, Воронне, Тернове, Березове, Степове, Калинівське, Привілля, Злагоду, Рибне, Красногірське, Новопавлівці, Новогеоргіївці, Новомиколаївці, Новогригорівці, Запорізькому and Привільному — The Ukrainian Defense Forces have liberated Zelenyi Hai , Novokhatske , Hrushevsk , Tolstoy , Zirka , Yalta , Piddubne , Myrne , Voskresenka , Sichneve , Voronne , Ternove , Berezove , Stepove , Kalynivske , Pryvillia , Zlagoda , Rybne , and Krasnogirske . The enemy has been pushed back in Novopavlivka , Novogeorgievka , Novomykolaivka , Novohryhorivka , Zaporizhzhia , and Pryvilne .",
+    "summary": "Силы обороны Украины звильнили Зелений Гай, Новохатское, Грушевское, Толстой, Зирку, Ялту, Поддубное, Мирне, Воскресенку, Сичневое, Вороное, Терновое, Березовое, Степовое, Калинивське, Приволье, Злагоду, Рибне и Красногирське. противника видкинуто у Новопавловка, Новогеоргиевка, Новониколаевка, Новогригоровка, Запорожское и Привольное.",
+    "summary_ru": "Силы обороны Украины звильнили Зелений Гай, Новохатское, Грушевское, Толстой, Зирку, Ялту, Поддубное, Мирне, Воскресенку, Сичневое, Вороное, Терновое, Березовое, Степовое, Калинивське, Приволье, Злагоду, Рибне и Красногирське. противника видкинуто у Новопавловка, Новогеоргиевка, Новониколаевка, Новогригоровка, Запорожское и Привольное.",
+    "summary_uk": "Сили Оборони України звільнили Зелений Гай , Новохатське , Грушівське , Толстой , Зірку , Ялту , Піддубне , Мирне , Воскресенку , Січневе , Воронне , Тернове , Березове , Степове , Калинівське , Привілля , Злагоду , Рибне та Красногірське . Ворога відкинуто у Новопавлівці , Новогеоргіївці , Новомиколаївці , Новогригорівці , Запорізькому та Привільному .",
+    "summary_en": "The Ukrainian Defense Forces have liberated Zelenyi Hai , Novokhatske , Hrushevsk , Tolstoy , Zirka , Yalta , Piddubne , Myrne , Voskresenka , Sichneve , Voronne , Ternove , Berezove , Stepove , Kalynivske , Pryvillia , Zlagoda , Rybne , and Krasnogirske . The enemy has been pushed back in Novopavlivka , Novogeorgievka , Novomykolaivka , Novohryhorivka , Zaporizhzhia , and Pryvilne .",
+    "event_date": "2026-09-08",
+    "published_at": "2026-08-12T18:36:51.000Z",
+    "verification_status": "confirmed",
+    "event_kind": "territorial_update",
+    "sector_id": "pokrovsk",
+    "confidence": 0.94,
+    "source_ids": [
+      "deepstate-map"
+    ],
+    "evidence_ids": [
+      "ev-video-drone"
+    ],
+    "location": {
+      "lat": 48.28,
+      "lon": 37.18
+    },
+    "location_label": "Зелений Гай, Новохатское, Грушевское, Толстой, Зирку, Ялту, Поддубное, Мирне, Воскресенку, Сичневое, Вороное, Терновое, Березовое, Степовое, Калинивське, Приволье, Злагоду, Рибне, Красногирське, Новопавловка, Новогеоргиевка, Новониколаевка, Новогригоровка, Запорожское и Привольное (Покровское направление)",
+    "settlement_id": "settlement-зелений гай, новохатское, грушевское, толстой, зирку, ялту, поддубное, мирне, воскресенку, сичневое, вороное, терновое, березовое, степовое, калинивське, приволье, злагоду, рибне, красногирське, новопавловка, новогеоргиевка, новониколаевка, новогригоровка, запорожское и привольное",
+    "publication_note": "Оперативная геолокация DeepState с привязкой к координатам местности."
+  },
+  {
+    "id": "ev-ds-ds-1786628267-2026-09-08",
+    "title": "Марково — противник продвинулся у Марково.",
+    "title_ru": "Марково — противник продвинулся у Марково.",
+    "title_uk": "Марковому — Ворог просунувся у Марковому .",
+    "title_en": "Марковому — The enemy has advanced in Markove .",
+    "summary": "противник продвинулся у Марково.",
+    "summary_ru": "противник продвинулся у Марково.",
+    "summary_uk": "Ворог просунувся у Марковому .",
+    "summary_en": "The enemy has advanced in Markove .",
+    "event_date": "2026-09-08",
+    "published_at": "2026-08-13T13:37:47.000Z",
+    "verification_status": "confirmed",
+    "event_kind": "territorial_update",
+    "sector_id": "chasiv_yar",
+    "confidence": 0.94,
+    "source_ids": [
+      "deepstate-map"
+    ],
+    "evidence_ids": [
+      "ev-video-drone"
+    ],
+    "location": {
+      "lat": 48.6589305,
+      "lon": 37.8063581
+    },
+    "location_label": "Марково (Часов Яр)",
+    "settlement_id": "settlement-марково",
+    "publication_note": "Оперативная геолокация DeepState с привязкой к координатам местности."
+  },
+  {
+    "id": "ev-ds-ds-1786716408-2026-09-08",
+    "title": "Белицкое — противник продвинулся вблизи Белицкое.",
+    "title_ru": "Белицкое — противник продвинулся вблизи Белицкое.",
+    "title_uk": "Білицького — Ворог просунувся поблизу Білицького .",
+    "title_en": "Білицького — The enemy has advanced near Bilytske .",
+    "summary": "противник продвинулся вблизи Белицкое.",
+    "summary_ru": "противник продвинулся вблизи Белицкое.",
+    "summary_uk": "Ворог просунувся поблизу Білицького .",
+    "summary_en": "The enemy has advanced near Bilytske .",
+    "event_date": "2026-09-08",
+    "published_at": "2026-08-14T14:06:48.000Z",
+    "verification_status": "confirmed",
+    "event_kind": "territorial_update",
+    "sector_id": "pokrovsk",
+    "confidence": 0.94,
+    "source_ids": [
+      "deepstate-map"
+    ],
+    "evidence_ids": [
+      "ev-video-drone"
+    ],
+    "location": {
+      "lat": 48.3947046,
+      "lon": 37.2181522
+    },
+    "location_label": "Белицкое (Покровское направление)",
+    "settlement_id": "settlement-белицкое",
+    "publication_note": "Оперативная геолокация DeepState с привязкой к координатам местности."
+  },
+  {
+    "id": "ev-ds-ds-1786809894-2026-09-08",
+    "title": "Куриливци и Кривая Лука — противник продвинулся у Куриливци и Кривая Лука.",
+    "title_ru": "Куриливци и Кривая Лука — противник продвинулся у Куриливци и Кривая Лука.",
+    "title_uk": "Курилівці та Кривій Луці — Ворог просунувся у Курилівці та Кривій Луці .",
+    "title_en": "Курилівці and Кривій Луці — The enemy has advanced in Kurylivka and Kryva Luka .",
+    "summary": "противник продвинулся у Куриливци и Кривая Лука.",
+    "summary_ru": "противник продвинулся у Куриливци и Кривая Лука.",
+    "summary_uk": "Ворог просунувся у Курилівці та Кривій Луці .",
+    "summary_en": "The enemy has advanced in Kurylivka and Kryva Luka .",
+    "event_date": "2026-09-08",
+    "published_at": "2026-08-15T16:04:54.000Z",
+    "verification_status": "confirmed",
+    "event_kind": "territorial_update",
+    "sector_id": "kupyansk_lyman",
+    "confidence": 0.94,
+    "source_ids": [
+      "deepstate-map"
+    ],
+    "evidence_ids": [
+      "ev-video-drone"
+    ],
+    "location": {
+      "lat": 49.6609535,
+      "lon": 37.7176107
+    },
+    "location_label": "Куриливци и Кривая Лука (Купянск — Лиман)",
+    "settlement_id": "settlement-куриливци и кривая лука",
+    "publication_note": "Оперативная геолокация DeepState с привязкой к координатам местности."
+  },
+  {
+    "id": "ev-ds-ds-1786906774-2026-09-08",
+    "title": "Новоалександровка — противник продвинулся вблизи Новоалександровка.",
+    "title_ru": "Новоалександровка — противник продвинулся вблизи Новоалександровка.",
+    "title_uk": "Новоолександрівки — Ворог просунувся поблизу Новоолександрівки .",
+    "title_en": "Новоолександрівки — The enemy has advanced near Novooleksandrivka .",
+    "summary": "противник продвинулся вблизи Новоалександровка.",
+    "summary_ru": "противник продвинулся вблизи Новоалександровка.",
+    "summary_uk": "Ворог просунувся поблизу Новоолександрівки .",
+    "summary_en": "The enemy has advanced near Novooleksandrivka .",
+    "event_date": "2026-09-08",
+    "published_at": "2026-08-16T18:59:34.000Z",
+    "verification_status": "confirmed",
+    "event_kind": "territorial_update",
+    "sector_id": "pokrovsk",
+    "confidence": 0.94,
+    "source_ids": [
+      "deepstate-map"
+    ],
+    "evidence_ids": [
+      "ev-video-drone"
+    ],
+    "location": {
+      "lat": 48.3489796,
+      "lon": 37.0550848
+    },
+    "location_label": "Новоалександровка (Покровское направление)",
+    "settlement_id": "settlement-новоалександровка",
+    "publication_note": "Оперативная геолокация DeepState с привязкой к координатам местности."
+  },
+  {
+    "id": "ev-ds-ds-1786979893-2026-09-08",
+    "title": "Новоалександровка и Нового Шахового — противник продвинулся вблизи Новоалександровка и Нового Шахового.",
+    "title_ru": "Новоалександровка и Нового Шахового — противник продвинулся вблизи Новоалександровка и Нового Шахового.",
+    "title_uk": "Новоолександрівки та Нового Шахового — Ворог просунувся поблизу Новоолександрівки та Нового Шахового .",
+    "title_en": "Новоолександрівки and Нового Шахового — The enemy has advanced near Novooleksandrivka and Nove Shakhove .",
+    "summary": "противник продвинулся вблизи Новоалександровка и Нового Шахового.",
+    "summary_ru": "противник продвинулся вблизи Новоалександровка и Нового Шахового.",
+    "summary_uk": "Ворог просунувся поблизу Новоолександрівки та Нового Шахового .",
+    "summary_en": "The enemy has advanced near Novooleksandrivka and Nove Shakhove .",
+    "event_date": "2026-09-08",
+    "published_at": "2026-08-17T15:18:13.000Z",
+    "verification_status": "confirmed",
+    "event_kind": "territorial_update",
+    "sector_id": "pokrovsk",
+    "confidence": 0.94,
+    "source_ids": [
+      "deepstate-map"
+    ],
+    "evidence_ids": [
+      "ev-video-drone"
+    ],
+    "location": {
+      "lat": 48.3539425,
+      "lon": 37.1230612
+    },
+    "location_label": "Новоалександровка и Нового Шахового (Покровское направление)",
+    "settlement_id": "settlement-новоалександровка и нового шахового",
+    "publication_note": "Оперативная геолокация DeepState с привязкой к координатам местности."
+  },
+  {
+    "id": "ev-change-pokrovsk-hrodivka-2026-09-08",
+    "title": "Геолокация: Продвижение в районе Гродовки",
+    "title_ru": "Геолокация: Продвижение в районе Гродовки",
+    "title_uk": "Геолокація: Просування в районі Гродівки",
+    "title_en": "Geolocation: Advance near Hrodivka",
+    "summary": "Штурмовые группы продвинулись вдоль лесополос и частного сектора на востоке поселка.",
+    "summary_ru": "Штурмовые группы продвинулись вдоль лесополос и частного сектора на востоке поселка.",
+    "summary_uk": "Штурмові групи просунулися вздовж лісосмуг та приватного сектору на сході селища.",
+    "summary_en": "Assault elements advanced along treelines and residential sector east of settlement.",
+    "event_date": "2026-09-08",
+    "published_at": "2026-09-08T06:58:13.187Z",
+    "verification_status": "confirmed",
+    "event_kind": "territorial_update",
+    "sector_id": "pokrovsk",
+    "confidence": 0.88,
+    "source_ids": [
+      "deepstate-map",
+      "isw"
+    ],
+    "evidence_ids": [
+      "ev-drone-pokrovsk-01",
+      "ev-sat-pokrovsk-01"
+    ],
+    "location": {
+      "lat": 48.262333,
+      "lon": 37.382
+    },
+    "location_label": "Продвижение в районе Гродовки (Покровский сектор)",
+    "settlement_id": "settlement-pokrovsk",
+    "publication_note": "Геолокация подтверждена спутниковой оптикой и видео объективного контроля."
+  },
+  {
+    "id": "ev-change-toretsk-pivnichne-2026-09-08",
+    "title": "Геолокация: Уточнение линии контроля в Северном (Пивничном)",
+    "title_ru": "Геолокация: Уточнение линии контроля в Северном (Пивничном)",
+    "title_uk": "Геолокація: Уточнення лінії контролю в Північному",
+    "title_en": "Geolocation: Control line clarification in Pivnichne",
+    "summary": "Фиксация расширения зоны контроля в районе терриконов шахты 'Северная'.",
+    "summary_ru": "Фиксация расширения зоны контроля в районе терриконов шахты 'Северная'.",
+    "summary_uk": "Фіксація розширення зони контролю в районі териконів шахти 'Північна'.",
+    "summary_en": "Zone of control expanded around the Pivnichna mine spoil heaps.",
+    "event_date": "2026-09-08",
+    "published_at": "2026-09-08T06:58:13.187Z",
+    "verification_status": "confirmed",
+    "event_kind": "territorial_update",
+    "sector_id": "toretsk",
+    "confidence": 0.35,
+    "source_ids": [
+      "deepstate-map"
+    ],
+    "evidence_ids": [
+      "ev-drone-toretsk-01"
+    ],
+    "location": {
+      "lat": 48.3895,
+      "lon": 37.904833
+    },
+    "location_label": "Уточнение линии контроля в Северном (Пивничном) (Торецкий сектор)",
+    "settlement_id": "settlement-toretsk",
+    "publication_note": "Геолокация подтверждена спутниковой оптикой и видео объективного контроля."
+  },
+  {
+    "id": "ev-change-kurakhove-vodyane-2026-09-08",
+    "title": "Геолокация: Локальное продвижение в районе Водяного",
+    "title_ru": "Геолокация: Локальное продвижение в районе Водяного",
+    "title_uk": "Геолокація: Локальне просування в районі Водяного",
+    "title_en": "Geolocation: Local advance near Vodyane",
+    "summary": "Продвижение вдоль балки и перекрестка дорог к северо-востоку от Угледара.",
+    "summary_ru": "Продвижение вдоль балки и перекрестка дорог к северо-востоку от Угледара.",
+    "summary_uk": "Просування вздовж балки та перехрестя доріг на північний схід від Вугледара.",
+    "summary_en": "Advance along the gully and road junction northeast of Vuhledar.",
+    "event_date": "2026-09-08",
+    "published_at": "2026-09-08T06:58:13.187Z",
+    "verification_status": "confirmed",
+    "event_kind": "territorial_update",
+    "sector_id": "kurakhove_vuhledar",
+    "confidence": 0.88,
+    "source_ids": [
+      "deepstate-map",
+      "isw"
+    ],
+    "evidence_ids": [
+      "ev-sat-vuhledar-01"
+    ],
+    "location": {
+      "lat": 47.810667,
+      "lon": 37.304
+    },
+    "location_label": "Локальное продвижение в районе Водяного (Курахово — Угледар)",
+    "settlement_id": "settlement-kurakhove_vuhledar",
+    "publication_note": "Геолокация подтверждена спутниковой оптикой и видео объективного контроля."
+  },
+  {
     "id": "ev-change-pokrovsk-hrodivka-2026-09-07",
     "title": "Геолокация: Продвижение в районе Гродовки",
     "title_ru": "Геолокация: Продвижение в районе Гродовки",
@@ -788,382 +1181,5 @@
     "location_label": "Родинское, Артильного (Покровск сектор)",
     "settlement_id": "settlement-pokrovsk",
     "publication_note": "Геолокация подтверждена спутниковой оптикой и кадрами объективного контроля БПЛА."
-  },
-  {
-    "id": "ev-ds-1787314988",
-    "title": "Геолокация: Зафиксировано продвижение штурмовых групп в районе Иллинивки и Привилля.",
-    "title_uk": "Геолокація: Ворог просунувся поблизу Іллінівки та Привілля .",
-    "title_en": "Geolocation: The enemy has advanced near Illinivka and Pryvillia .",
-    "summary": "Зафиксировано продвижение штурмовых групп в районе Иллинивки и Привилля.",
-    "summary_uk": "Ворог просунувся поблизу Іллінівки та Привілля .",
-    "summary_en": "The enemy has advanced near Illinivka and Pryvillia .",
-    "event_date": "2026-08-21",
-    "published_at": "2026-08-21T12:23:08.000Z",
-    "verification_status": "confirmed",
-    "event_kind": "territorial_update",
-    "sector_id": "toretsk",
-    "confidence": 0.96,
-    "source_ids": [
-      "deepstate-map",
-      "isw"
-    ],
-    "evidence_ids": [
-      "ev-drone-pokrovsk-04sep-01"
-    ],
-    "location": {
-      "lat": 48.4892514,
-      "lon": 37.6339254
-    },
-    "location_label": "Иллинивки, Привилля (Торецк сектор)",
-    "settlement_id": "settlement-toretsk",
-    "publication_note": "Геолокация подтверждена спутниковой оптикой и кадрами объективного контроля БПЛА."
-  },
-  {
-    "id": "ev-ds-1787231882",
-    "title": "Геолокация: Зафиксировано продвижение штурмовых групп в районе Тихонивки.",
-    "title_uk": "Геолокація: Ворог просунувся поблизу Тихонівки .",
-    "title_en": "Geolocation: The enemy has advanced near Tykhonivka .",
-    "summary": "Зафиксировано продвижение штурмовых групп в районе Тихонивки.",
-    "summary_uk": "Ворог просунувся поблизу Тихонівки .",
-    "summary_en": "The enemy has advanced near Tykhonivka .",
-    "event_date": "2026-08-20",
-    "published_at": "2026-08-20T13:18:02.000Z",
-    "verification_status": "confirmed",
-    "event_kind": "territorial_update",
-    "sector_id": "chasiv_yar",
-    "confidence": 0.96,
-    "source_ids": [
-      "deepstate-map",
-      "isw"
-    ],
-    "evidence_ids": [
-      "ev-drone-pokrovsk-04sep-01"
-    ],
-    "location": {
-      "lat": 48.7184607,
-      "lon": 37.8056718
-    },
-    "location_label": "Тихонивки (Часов Яр / Бахмут)",
-    "settlement_id": "settlement-chasiv_yar",
-    "publication_note": "Геолокация подтверждена спутниковой оптикой и кадрами объективного контроля БПЛА."
-  },
-  {
-    "id": "ev-ds-1787148750",
-    "title": "Геолокация: Зафиксировано продвижение штурмовых групп в районе Каленики и Цвиткового.",
-    "title_uk": "Геолокація: Ворог просунувся поблизу Калеників та Цвіткового .",
-    "title_en": "Geolocation: The enemy advanced near Kalenyky and Tsvitkove .",
-    "summary": "Зафиксировано продвижение штурмовых групп в районе Каленики и Цвиткового.",
-    "summary_uk": "Ворог просунувся поблизу Калеників та Цвіткового .",
-    "summary_en": "The enemy advanced near Kalenyky and Tsvitkove .",
-    "event_date": "2026-08-19",
-    "published_at": "2026-08-19T14:12:30.000Z",
-    "verification_status": "confirmed",
-    "event_kind": "territorial_update",
-    "sector_id": "chasiv_yar",
-    "confidence": 0.96,
-    "source_ids": [
-      "deepstate-map",
-      "isw"
-    ],
-    "evidence_ids": [
-      "ev-drone-pokrovsk-04sep-01"
-    ],
-    "location": {
-      "lat": 48.7904093,
-      "lon": 37.9368223
-    },
-    "location_label": "Каленики, Цвиткового (Часов Яр / Бахмут)",
-    "settlement_id": "settlement-chasiv_yar",
-    "publication_note": "Геолокация подтверждена спутниковой оптикой и кадрами объективного контроля БПЛА."
-  },
-  {
-    "id": "ev-ds-1787057419",
-    "title": "Геолокация: Зафиксировано продвижение штурмовых групп в районе Святопетривки.",
-    "title_uk": "Геолокація: Ворог просунувся поблизу Святопетрівки .",
-    "title_en": "Geolocation: The enemy has advanced near Svyatopetrivka .",
-    "summary": "Зафиксировано продвижение штурмовых групп в районе Святопетривки.",
-    "summary_uk": "Ворог просунувся поблизу Святопетрівки .",
-    "summary_en": "The enemy has advanced near Svyatopetrivka .",
-    "event_date": "2026-08-18",
-    "published_at": "2026-08-18T12:50:19.000Z",
-    "verification_status": "confirmed",
-    "event_kind": "territorial_update",
-    "sector_id": "zaporizhzhia",
-    "confidence": 0.96,
-    "source_ids": [
-      "deepstate-map",
-      "isw"
-    ],
-    "evidence_ids": [
-      "ev-drone-pokrovsk-04sep-01"
-    ],
-    "location": {
-      "lat": 47.6866598,
-      "lon": 36.1761904
-    },
-    "location_label": "Святопетривки (Запорожский сектор)",
-    "settlement_id": "settlement-zaporizhzhia",
-    "publication_note": "Геолокация подтверждена спутниковой оптикой и кадрами объективного контроля БПЛА."
-  },
-  {
-    "id": "ev-ds-1786979893",
-    "title": "Геолокация: Зафиксировано продвижение штурмовых групп в районе Новоолександривки и Нового Шахового.",
-    "title_uk": "Геолокація: Ворог просунувся поблизу Новоолександрівки та Нового Шахового .",
-    "title_en": "Geolocation: The enemy has advanced near Novooleksandrivka and Nove Shakhove .",
-    "summary": "Зафиксировано продвижение штурмовых групп в районе Новоолександривки и Нового Шахового.",
-    "summary_uk": "Ворог просунувся поблизу Новоолександрівки та Нового Шахового .",
-    "summary_en": "The enemy has advanced near Novooleksandrivka and Nove Shakhove .",
-    "event_date": "2026-08-17",
-    "published_at": "2026-08-17T15:18:13.000Z",
-    "verification_status": "confirmed",
-    "event_kind": "territorial_update",
-    "sector_id": "pokrovsk",
-    "confidence": 0.96,
-    "source_ids": [
-      "deepstate-map",
-      "isw"
-    ],
-    "evidence_ids": [
-      "ev-drone-pokrovsk-04sep-01"
-    ],
-    "location": {
-      "lat": 48.3539425,
-      "lon": 37.1230612
-    },
-    "location_label": "Новоолександривки, Нового Шахового (Покровск сектор)",
-    "settlement_id": "settlement-pokrovsk",
-    "publication_note": "Геолокация подтверждена спутниковой оптикой и кадрами объективного контроля БПЛА."
-  },
-  {
-    "id": "ev-ds-1786906774",
-    "title": "Геолокация: Зафиксировано продвижение штурмовых групп в районе Новоолександривки.",
-    "title_uk": "Геолокація: Ворог просунувся поблизу Новоолександрівки .",
-    "title_en": "Geolocation: The enemy has advanced near Novooleksandrivka .",
-    "summary": "Зафиксировано продвижение штурмовых групп в районе Новоолександривки.",
-    "summary_uk": "Ворог просунувся поблизу Новоолександрівки .",
-    "summary_en": "The enemy has advanced near Novooleksandrivka .",
-    "event_date": "2026-08-16",
-    "published_at": "2026-08-16T18:59:34.000Z",
-    "verification_status": "confirmed",
-    "event_kind": "territorial_update",
-    "sector_id": "pokrovsk",
-    "confidence": 0.96,
-    "source_ids": [
-      "deepstate-map",
-      "isw"
-    ],
-    "evidence_ids": [
-      "ev-drone-pokrovsk-04sep-01"
-    ],
-    "location": {
-      "lat": 48.3489796,
-      "lon": 37.0550848
-    },
-    "location_label": "Новоолександривки (Покровск сектор)",
-    "settlement_id": "settlement-pokrovsk",
-    "publication_note": "Геолокация подтверждена спутниковой оптикой и кадрами объективного контроля БПЛА."
-  },
-  {
-    "id": "ev-ds-1786809894",
-    "title": "Геолокация: Зафиксировано продвижение штурмовых групп в Куриливци и Кривий Луци.",
-    "title_uk": "Геолокація: Ворог просунувся у Курилівці та Кривій Луці .",
-    "title_en": "Geolocation: The enemy has advanced in Kurylivka and Kryva Luka .",
-    "summary": "Зафиксировано продвижение штурмовых групп в Куриливци и Кривий Луци.",
-    "summary_uk": "Ворог просунувся у Курилівці та Кривій Луці .",
-    "summary_en": "The enemy has advanced in Kurylivka and Kryva Luka .",
-    "event_date": "2026-08-15",
-    "published_at": "2026-08-15T16:04:54.000Z",
-    "verification_status": "confirmed",
-    "event_kind": "territorial_update",
-    "sector_id": "kupyansk_lyman",
-    "confidence": 0.96,
-    "source_ids": [
-      "deepstate-map",
-      "isw"
-    ],
-    "evidence_ids": [
-      "ev-drone-pokrovsk-04sep-01"
-    ],
-    "location": {
-      "lat": 49.6609535,
-      "lon": 37.7176107
-    },
-    "location_label": "Куриливци, Кривий Луци (Купянск — Лиман)",
-    "settlement_id": "settlement-kupyansk_lyman",
-    "publication_note": "Геолокация подтверждена спутниковой оптикой и кадрами объективного контроля БПЛА."
-  },
-  {
-    "id": "ev-ds-1786716408",
-    "title": "Геолокация: Зафиксировано продвижение штурмовых групп в районе Билицького.",
-    "title_uk": "Геолокація: Ворог просунувся поблизу Білицького .",
-    "title_en": "Geolocation: The enemy has advanced near Bilytske .",
-    "summary": "Зафиксировано продвижение штурмовых групп в районе Билицького.",
-    "summary_uk": "Ворог просунувся поблизу Білицького .",
-    "summary_en": "The enemy has advanced near Bilytske .",
-    "event_date": "2026-08-14",
-    "published_at": "2026-08-14T14:06:48.000Z",
-    "verification_status": "confirmed",
-    "event_kind": "territorial_update",
-    "sector_id": "pokrovsk",
-    "confidence": 0.96,
-    "source_ids": [
-      "deepstate-map",
-      "isw"
-    ],
-    "evidence_ids": [
-      "ev-drone-pokrovsk-04sep-01"
-    ],
-    "location": {
-      "lat": 48.3947046,
-      "lon": 37.2181522
-    },
-    "location_label": "Билицького (Покровск сектор)",
-    "settlement_id": "settlement-pokrovsk",
-    "publication_note": "Геолокация подтверждена спутниковой оптикой и кадрами объективного контроля БПЛА."
-  },
-  {
-    "id": "ev-ds-1786628267",
-    "title": "Геолокация: Зафиксировано продвижение штурмовых групп в Марково.",
-    "title_uk": "Геолокація: Ворог просунувся у Марковому .",
-    "title_en": "Geolocation: The enemy has advanced in Markove .",
-    "summary": "Зафиксировано продвижение штурмовых групп в Марково.",
-    "summary_uk": "Ворог просунувся у Марковому .",
-    "summary_en": "The enemy has advanced in Markove .",
-    "event_date": "2026-08-13",
-    "published_at": "2026-08-13T13:37:47.000Z",
-    "verification_status": "confirmed",
-    "event_kind": "territorial_update",
-    "sector_id": "chasiv_yar",
-    "confidence": 0.96,
-    "source_ids": [
-      "deepstate-map",
-      "isw"
-    ],
-    "evidence_ids": [
-      "ev-drone-pokrovsk-04sep-01"
-    ],
-    "location": {
-      "lat": 48.6589305,
-      "lon": 37.8063581
-    },
-    "location_label": "Марково (Часов Яр / Бахмут)",
-    "settlement_id": "settlement-chasiv_yar",
-    "publication_note": "Геолокация подтверждена спутниковой оптикой и кадрами объективного контроля БПЛА."
-  },
-  {
-    "id": "ev-ds-1786559811",
-    "title": "Геолокация: Сили Оборони Украини звильнили Зелений Гай, Новохатское, Грушивське, Толстой, Зирку, Ялту, Пиддубне, Мирне, Воскресенку, Сичневе, Вороное, Терновое, Березовое, Степовое, Калинивське, Привилля, Злагоду, Рибне и Красногирське. Ворога видкинуто у Новопавливци, Новогеоргиивци, Новониколаевка, Новогригоровка, Запоризькому и Привильному.",
-    "title_uk": "Геолокація: Сили Оборони України звільнили Зелений Гай , Новохатське , Грушівське , Толстой , Зірку , Ялту , Піддубне , Мирне , Воскресенку , Січневе , Воронне , Тернове , Березове , Степове , Калинівське , Привілля , Злагоду , Рибне та Красногірське . Ворога відкинуто у Новопавлівці , Новогеоргіївці , Новомиколаївці , Новогригорівці , Запорізькому та Привільному .",
-    "title_en": "Geolocation: The Ukrainian Defense Forces have liberated Zelenyi Hai , Novokhatske , Hrushevsk , Tolstoy , Zirka , Yalta , Piddubne , Myrne , Voskresenka , Sichneve , Voronne , Ternove , Berezove , Stepove , Kalynivske , Pryvillia , Zlagoda , Rybne , and Krasnogirske . The enemy has been pushed back in Novopavlivka , Novogeorgievka , Novomykolaivka , Novohryhorivka , Zaporizhzhia , and Pryvilne .",
-    "summary": "Сили Оборони Украини звильнили Зелений Гай, Новохатское, Грушивське, Толстой, Зирку, Ялту, Пиддубне, Мирне, Воскресенку, Сичневе, Вороное, Терновое, Березовое, Степовое, Калинивське, Привилля, Злагоду, Рибне и Красногирське. Ворога видкинуто у Новопавливци, Новогеоргиивци, Новониколаевка, Новогригоровка, Запоризькому и Привильному.",
-    "summary_uk": "Сили Оборони України звільнили Зелений Гай , Новохатське , Грушівське , Толстой , Зірку , Ялту , Піддубне , Мирне , Воскресенку , Січневе , Воронне , Тернове , Березове , Степове , Калинівське , Привілля , Злагоду , Рибне та Красногірське . Ворога відкинуто у Новопавлівці , Новогеоргіївці , Новомиколаївці , Новогригорівці , Запорізькому та Привільному .",
-    "summary_en": "The Ukrainian Defense Forces have liberated Zelenyi Hai , Novokhatske , Hrushevsk , Tolstoy , Zirka , Yalta , Piddubne , Myrne , Voskresenka , Sichneve , Voronne , Ternove , Berezove , Stepove , Kalynivske , Pryvillia , Zlagoda , Rybne , and Krasnogirske . The enemy has been pushed back in Novopavlivka , Novogeorgievka , Novomykolaivka , Novohryhorivka , Zaporizhzhia , and Pryvilne .",
-    "event_date": "2026-08-12",
-    "published_at": "2026-08-12T18:36:51.000Z",
-    "verification_status": "confirmed",
-    "event_kind": "territorial_update",
-    "sector_id": "zaporizhzhia",
-    "confidence": 0.96,
-    "source_ids": [
-      "deepstate-map",
-      "isw"
-    ],
-    "evidence_ids": [
-      "ev-drone-pokrovsk-04sep-01"
-    ],
-    "location": {
-      "lat": 48.28,
-      "lon": 37.18
-    },
-    "location_label": "Зелений Гай, Новохатское, Грушивське, Толстой, Зирку, Ялту, Пиддубне, Мирне, Воскресенку, Сичневе, Вороное, Терновое, Березовое, Степовое, Калинивське, Привилля, Злагоду, Рибне, Красногирське, Новопавливци, Новогеоргиивци, Новониколаевка, Новогригоровка, Запоризькому, Привильному (Запорожский сектор)",
-    "settlement_id": "settlement-zaporizhzhia",
-    "publication_note": "Геолокация подтверждена спутниковой оптикой и кадрами объективного контроля БПЛА."
-  },
-  {
-    "id": "ev-ds-1786477983",
-    "title": "Геолокация: Зафиксировано продвижение штурмовых групп в районе Привилля.",
-    "title_uk": "Геолокація: Ворог просунувся поблизу Привілля .",
-    "title_en": "Geolocation: The enemy has advanced near Pryvillia .",
-    "summary": "Зафиксировано продвижение штурмовых групп в районе Привилля.",
-    "summary_uk": "Ворог просунувся поблизу Привілля .",
-    "summary_en": "The enemy has advanced near Pryvillia .",
-    "event_date": "2026-08-11",
-    "published_at": "2026-08-11T19:53:03.000Z",
-    "verification_status": "confirmed",
-    "event_kind": "territorial_update",
-    "sector_id": "chasiv_yar",
-    "confidence": 0.96,
-    "source_ids": [
-      "deepstate-map",
-      "isw"
-    ],
-    "evidence_ids": [
-      "ev-drone-pokrovsk-04sep-01"
-    ],
-    "location": {
-      "lat": 48.7360121,
-      "lon": 37.8662682
-    },
-    "location_label": "Привилля (Часов Яр / Бахмут)",
-    "settlement_id": "settlement-chasiv_yar",
-    "publication_note": "Геолокация подтверждена спутниковой оптикой и кадрами объективного контроля БПЛА."
-  },
-  {
-    "id": "ev-ds-1786391167",
-    "title": "Геолокация: Зафиксировано продвижение штурмовых групп в районе Пищаного.",
-    "title_uk": "Геолокація: Ворог просунувся поблизу Піщаного .",
-    "title_en": "Geolocation: The enemy has advanced near Pishchane .",
-    "summary": "Зафиксировано продвижение штурмовых групп в районе Пищаного.",
-    "summary_uk": "Ворог просунувся поблизу Піщаного .",
-    "summary_en": "The enemy has advanced near Pishchane .",
-    "event_date": "2026-08-10",
-    "published_at": "2026-08-10T19:46:07.000Z",
-    "verification_status": "confirmed",
-    "event_kind": "territorial_update",
-    "sector_id": "kupyansk_lyman",
-    "confidence": 0.96,
-    "source_ids": [
-      "deepstate-map",
-      "isw"
-    ],
-    "evidence_ids": [
-      "ev-drone-pokrovsk-04sep-01"
-    ],
-    "location": {
-      "lat": 49.6565163,
-      "lon": 37.7540016
-    },
-    "location_label": "Пищаного (Купянск — Лиман)",
-    "settlement_id": "settlement-kupyansk_lyman",
-    "publication_note": "Геолокация подтверждена спутниковой оптикой и кадрами объективного контроля БПЛА."
-  },
-  {
-    "id": "ev-pokrovsk-hrodivka-04sep",
-    "title": "Геолокация: утренняя фиксация рубежа Гродовка — балка Журавка",
-    "title_uk": "Геолокація: ранкова фіксація рубежу Гродівка — балка Журавка",
-    "title_en": "Geolocation: morning perimeter verification Hrodivka — Zhuravka",
-    "summary": "Аэроразведка подтверждает удержание позиций вдоль ул. Заводская в Гродовке на утро 4 сентября.",
-    "summary_uk": "Аеророзвідка підтверджує утримання позицій вздовж вул. Заводська у Гродівці на ранок 4 вересня.",
-    "summary_en": "Aerial reconnaissance verifies positions along Zavodska St in Hrodivka on morning of Sept 4.",
-    "event_date": "2026-09-04",
-    "published_at": "2026-09-04T05:30:00+00:00",
-    "verification_status": "confirmed",
-    "event_kind": "territorial_update",
-    "sector_id": "pokrovsk",
-    "confidence": 0.97,
-    "source_ids": [
-      "deepstate-map",
-      "isw"
-    ],
-    "evidence_ids": [
-      "ev-drone-pokrovsk-04sep-01"
-    ],
-    "location": {
-      "lat": 48.2618,
-      "lon": 37.3835
-    },
-    "location_label": "Гродовка (Восточная окраина)",
-    "settlement_id": "settlement-hrodivka",
-    "publication_note": "Утренний объективный контроль подтверждает удержание линии позиций."
   }
 ]

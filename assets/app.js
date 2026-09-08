@@ -1903,7 +1903,8 @@
       eventsValEl.textContent = String(secEvents.length);
     }
     if (eventsSubEl) {
-      eventsSubEl.textContent = `${confRate}% подтверждено OSINT`;
+      const confLevel = confRate >= 80 ? 'HIGH' : (confRate >= 60 ? 'MEDIUM' : 'LOW');
+      eventsSubEl.textContent = `CONFIDENCE: ${confRate}% (${confLevel})`;
     }
 
     // 4. 24h Territorial Shift Area
@@ -3208,19 +3209,21 @@
     if (!headlineEl || !chartContainer) return;
 
     const todayChange = parseFloat(state.status?.area_change_km2 || d?.total_gain_km2 || '4.85');
-    const prevChange = 3.4; // yesterday baseline
+    
+    // Derive 7-day chronological history from snapshots data
+    let history = [2.2, 3.4, 2.9, 4.1, 3.4, 4.2, todayChange];
+    if (state.snapshots && state.snapshots.length >= 2) {
+      const snapVals = state.snapshots
+        .map(s => Number(s.area_change_km2))
+        .filter(v => !isNaN(v) && v >= 0);
+      if (snapVals.length >= 2) {
+        history = snapVals.slice(-7);
+      }
+    }
+    const prevChange = history.length >= 2 ? history[history.length - 2] : 3.4;
     const isUp = todayChange >= prevChange;
     const diff = Math.abs(todayChange - prevChange).toFixed(2);
     const sign = isUp ? '+' : '-';
-
-    headlineEl.textContent = `+${todayChange.toFixed(2)} км² ${isUp ? '▲' : '▼'} против +${prevChange.toFixed(2)} км² вчера (${sign}${diff} км²)`;
-    if (subtextEl) {
-      subtextEl.textContent = isUp
-        ? 'Интенсивность продвижения выше среднего за 7 дней. Основной темп сосредоточен в Покровском и Торецком секторах.'
-        : 'Темп продвижения стабилизировался на средних значениях.';
-    }
-
-    const history = [2.2, 3.4, 2.9, 4.1, 3.4, 4.2, todayChange];
     const maxVal = Math.max(...history, 5);
     const minVal = Math.min(...history, 1);
     const w = 220;
@@ -4827,10 +4830,13 @@
           const res = await fetch('/api/osint/fetch-now', { method: 'POST' });
           const json = await res.json();
           await loadAllData();
-          if (syncText) syncText.textContent = 'Live';
+          if (syncText) {
+            const timeStr = new Date().toLocaleTimeString('ru-RU', { hour: '2-digit', minute: '2-digit' });
+            syncText.textContent = `Синхр: ${timeStr}`;
+          }
           showToast('✅ OSINT-данные обновлены без ручного деплоя');
         } catch (e) {
-          if (syncText) syncText.textContent = 'Live';
+          if (syncText) syncText.textContent = 'Автономный (15м)';
           showToast('Синхронизация завершена');
         }
       });
@@ -4841,7 +4847,16 @@
       if (statusData) {
         state.status = statusData;
         const syncText = document.getElementById('syncText');
-        if (syncText) syncText.textContent = 'Live';
+        if (syncText) {
+          const lastUpdated = state.status?.last_updated || state.status?.server_sync_timestamp;
+          if (lastUpdated) {
+            const d = new Date(lastUpdated);
+            const timeStr = d.toLocaleTimeString('ru-RU', { hour: '2-digit', minute: '2-digit' });
+            syncText.textContent = `Автономный · ${timeStr}`;
+          } else {
+            syncText.textContent = 'Автономный (15м)';
+          }
+        }
 
         // Update Top Data Date dynamically
         const rawDate = state.digest?.date || state.status?.snapshot_date;

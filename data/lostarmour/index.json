@@ -8,11 +8,20 @@
       "last_modified": "Sat, 05 Sep 2026 20:14:55 GMT",
       "etag": "\"dl7npozvokfoq0fc\"",
       "file": "data/lostarmour/snapshots/2026-09-06.geojson"
+    },
+    {
+      "date": "2026-09-08",
+      "synchronized_at": "2026-09-08T06:58:17.381Z",
+      "polygons_count": 29,
+      "total_area_km2": 122211.35,
+      "last_modified": "Mon, 07 Sep 2026 21:10:52 GMT",
+      "etag": "\"dl9e5meb3oq5q0d7\"",
+      "file": "data/lostarmour/snapshots/2026-09-08.geojson"
     }
   ],
-  "latest_date": "2026-09-06",
-  "last_sync_time": "2026-09-07T05:58:07.484Z",
+  "latest_date": "2026-09-08",
+  "last_sync_time": "2026-09-08T06:58:17.381Z",
   "status": "ACTIVE",
-  "total_control_area_km2": 122191.39,
+  "total_control_area_km2": 122211.35,
   "polygons_count": 29
 }
