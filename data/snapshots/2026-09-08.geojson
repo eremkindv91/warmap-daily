@@ -7,7 +7,11 @@
     "verification_level": "OSINT cross-verified",
     "features_count": 19,
     "description": "Сводный оперативный датасет: зона контроля РФ, передовые рубежи ВСУ, серая зона боёв, подтверждённые сдвиги за 24ч и геолокации объективного контроля.",
-    "generated_at": "2026-09-08T06:59:22.814Z"
+    "generated_at": "2026-09-08T07:06:09.344Z",
+    "source_cut_off": "2026-09-08T23:59:59Z",
+    "feature_count": 19,
+    "hash_sha256": "1b15338dc80b8f52828fd7fdfed697b465a7682ead711bcea5b4b46d90d00d0b",
+    "previous_snapshot_hash": "1b15338dc80b8f52828fd7fdfed697b465a7682ead711bcea5b4b46d90d00d0b"
   },
   "features": [
     {

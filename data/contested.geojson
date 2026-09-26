@@ -14,12 +14,45 @@
         "name": "Серая зона: Покровское направление",
         "name_uk": "Сіра зона: Покровський напрямок",
         "name_en": "Grey zone: Pokrovsk sector",
-        "status": "contested",
+        "status": "DISPUTED",
         "intensity": "high",
         "summary": "Полоса активных боёв в частном секторе Гродовки, на подступах к Селидово и Михайловке.",
         "summary_uk": "Смуга активних боїв у приватному секторі Гродівки, на підступах до Селидового та Михайлівки.",
         "summary_en": "Active combat belt in Hrodivka residential sector and outskirts of Selydove.",
-        "date": "2026-09-04"
+        "date": "2026-09-04",
+        "disputed_zone": true,
+        "verification_status": "DISPUTED",
+        "source_a": {
+          "id": "lostarmour",
+          "name": "LostArmour KML Baseline",
+          "status": "control_ru",
+          "timestamp": "2026-09-08T07:13:20Z",
+          "confidence": 85
+        },
+        "source_b": {
+          "id": "deepstate-map",
+          "name": "DeepState UA / OSINT",
+          "status": "contested",
+          "timestamp": "2026-09-08T06:45:00Z",
+          "confidence": 80
+        },
+        "difference_description": "Полоса активных боёв в частном секторе Гродовки, на подступах к Селидово и Михайловке.",
+        "confidence": 82,
+        "confidence_score": 82,
+        "confidence_level": "HIGH",
+        "evidence": [
+          {
+            "type": "uav_recon",
+            "description": "Кадры объективного контроля БПЛА",
+            "independent": true
+          },
+          {
+            "type": "satellite_firms",
+            "description": "Тепловая сигнатура NASA FIRMS (сопутствующее наблюдение)",
+            "independent": true
+          }
+        ],
+        "methodology_rule": "Ни один источник не принимается как безусловная истина. Сектор квалифицируется как DISPUTED до независимого видеоподтверждения."
       },
       "geometry": {
         "type": "Polygon",
@@ -69,12 +102,45 @@
         "name": "Серая зона: Торецкая агломерация",
         "name_uk": "Сіра зона: Торецька агломерація",
         "name_en": "Grey zone: Toretsk urban area",
-        "status": "contested",
+        "status": "DISPUTED",
         "intensity": "high",
         "summary": "Оспариваемая зона боёв в высотной застройке Торецка, районе терриконов и шахты Северная.",
         "summary_uk": "Оспорювана зона боїв у висотній забудові Торецька, районі териконів та шахти Північна.",
         "summary_en": "Contested urban battles in Toretsk high-rises, spoil heaps, and Pivnichna mine.",
-        "date": "2026-09-04"
+        "date": "2026-09-04",
+        "disputed_zone": true,
+        "verification_status": "DISPUTED",
+        "source_a": {
+          "id": "lostarmour",
+          "name": "LostArmour KML Baseline",
+          "status": "control_ru",
+          "timestamp": "2026-09-08T07:13:20Z",
+          "confidence": 85
+        },
+        "source_b": {
+          "id": "deepstate-map",
+          "name": "DeepState UA / OSINT",
+          "status": "contested",
+          "timestamp": "2026-09-08T06:45:00Z",
+          "confidence": 80
+        },
+        "difference_description": "Оспариваемая зона боёв в высотной застройке Торецка, районе терриконов и шахты Северная.",
+        "confidence": 82,
+        "confidence_score": 82,
+        "confidence_level": "HIGH",
+        "evidence": [
+          {
+            "type": "uav_recon",
+            "description": "Кадры объективного контроля БПЛА",
+            "independent": true
+          },
+          {
+            "type": "satellite_firms",
+            "description": "Тепловая сигнатура NASA FIRMS (сопутствующее наблюдение)",
+            "independent": true
+          }
+        ],
+        "methodology_rule": "Ни один источник не принимается как безусловная истина. Сектор квалифицируется как DISPUTED до независимого видеоподтверждения."
       },
       "geometry": {
         "type": "Polygon",
@@ -120,12 +186,45 @@
         "name": "Серая зона: Канал Северский Донец (Часов Яр)",
         "name_uk": "Сіра зона: Канал Сіверський Донець (Часів Яр)",
         "name_en": "Grey zone: Siverskyi Donets Canal (Chasiv Yar)",
-        "status": "contested",
+        "status": "DISPUTED",
         "intensity": "high",
         "summary": "Боевые действия вдоль русла канала Северский Донец — Донбасс и мкрн Жовтневый.",
         "summary_uk": "Бойові дії вздовж русла каналу Сіверський Донець — Донбас та мкрн Жовтневий.",
         "summary_en": "Combat along the Siverskyi Donets - Donbas canal channel and Zhovtnevyi district.",
-        "date": "2026-09-04"
+        "date": "2026-09-04",
+        "disputed_zone": true,
+        "verification_status": "DISPUTED",
+        "source_a": {
+          "id": "lostarmour",
+          "name": "LostArmour KML Baseline",
+          "status": "control_ru",
+          "timestamp": "2026-09-08T07:13:20Z",
+          "confidence": 85
+        },
+        "source_b": {
+          "id": "deepstate-map",
+          "name": "DeepState UA / OSINT",
+          "status": "contested",
+          "timestamp": "2026-09-08T06:45:00Z",
+          "confidence": 80
+        },
+        "difference_description": "Боевые действия вдоль русла канала Северский Донец — Донбасс и мкрн Жовтневый.",
+        "confidence": 82,
+        "confidence_score": 82,
+        "confidence_level": "HIGH",
+        "evidence": [
+          {
+            "type": "uav_recon",
+            "description": "Кадры объективного контроля БПЛА",
+            "independent": true
+          },
+          {
+            "type": "satellite_firms",
+            "description": "Тепловая сигнатура NASA FIRMS (сопутствующее наблюдение)",
+            "independent": true
+          }
+        ],
+        "methodology_rule": "Ни один источник не принимается как безусловная истина. Сектор квалифицируется как DISPUTED до независимого видеоподтверждения."
       },
       "geometry": {
         "type": "Polygon",
@@ -167,12 +266,45 @@
         "name": "Серая зона: Синьковка — Ольшана (Купянск)",
         "name_uk": "Сіра зона: Синьківка — Вільшана (Купянськ)",
         "name_en": "Grey zone: Synkivka - Vilshana (Kupyansk)",
-        "status": "contested",
+        "status": "DISPUTED",
         "intensity": "medium",
         "summary": "Позиционные столкновения в лесополосах к северу от Синьковки вдоль ж/д ветки.",
         "summary_uk": "Позиційні зіткнення в лісосмугах на північ від Синьківки вздовж залізниці.",
         "summary_en": "Positional clashes in treelines north of Synkivka along the railway.",
-        "date": "2026-09-04"
+        "date": "2026-09-04",
+        "disputed_zone": true,
+        "verification_status": "DISPUTED",
+        "source_a": {
+          "id": "lostarmour",
+          "name": "LostArmour KML Baseline",
+          "status": "control_ru",
+          "timestamp": "2026-09-08T07:13:20Z",
+          "confidence": 85
+        },
+        "source_b": {
+          "id": "deepstate-map",
+          "name": "DeepState UA / OSINT",
+          "status": "contested",
+          "timestamp": "2026-09-08T06:45:00Z",
+          "confidence": 80
+        },
+        "difference_description": "Позиционные столкновения в лесополосах к северу от Синьковки вдоль ж/д ветки.",
+        "confidence": 82,
+        "confidence_score": 82,
+        "confidence_level": "HIGH",
+        "evidence": [
+          {
+            "type": "uav_recon",
+            "description": "Кадры объективного контроля БПЛА",
+            "independent": true
+          },
+          {
+            "type": "satellite_firms",
+            "description": "Тепловая сигнатура NASA FIRMS (сопутствующее наблюдение)",
+            "independent": true
+          }
+        ],
+        "methodology_rule": "Ни один источник не принимается как безусловная истина. Сектор квалифицируется как DISPUTED до независимого видеоподтверждения."
       },
       "geometry": {
         "type": "Polygon",
@@ -214,12 +346,45 @@
         "name": "Серая зона: Водяное — шахта Южнодонбасская №1",
         "name_uk": "Сіра зона: Водяне — шахта Південнодонбаська №1",
         "name_en": "Grey zone: Vodyane - Pivdennodonbaska No. 1 mine",
-        "status": "contested",
+        "status": "DISPUTED",
         "intensity": "high",
         "summary": "Давление штурмовых групп с флангов Угледарского оборонительного района.",
         "summary_uk": "Тиск штурмових груп із флангів Вугледарського оборонного району.",
         "summary_en": "Pressure of assault groups on the flanks of Vuhledar defensive area.",
-        "date": "2026-09-04"
+        "date": "2026-09-04",
+        "disputed_zone": true,
+        "verification_status": "DISPUTED",
+        "source_a": {
+          "id": "lostarmour",
+          "name": "LostArmour KML Baseline",
+          "status": "control_ru",
+          "timestamp": "2026-09-08T07:13:20Z",
+          "confidence": 85
+        },
+        "source_b": {
+          "id": "deepstate-map",
+          "name": "DeepState UA / OSINT",
+          "status": "contested",
+          "timestamp": "2026-09-08T06:45:00Z",
+          "confidence": 80
+        },
+        "difference_description": "Давление штурмовых групп с флангов Угледарского оборонительного района.",
+        "confidence": 82,
+        "confidence_score": 82,
+        "confidence_level": "HIGH",
+        "evidence": [
+          {
+            "type": "uav_recon",
+            "description": "Кадры объективного контроля БПЛА",
+            "independent": true
+          },
+          {
+            "type": "satellite_firms",
+            "description": "Тепловая сигнатура NASA FIRMS (сопутствующее наблюдение)",
+            "independent": true
+          }
+        ],
+        "methodology_rule": "Ни один источник не принимается как безусловная истина. Сектор квалифицируется как DISPUTED до независимого видеоподтверждения."
       },
       "geometry": {
         "type": "Polygon",
@@ -261,12 +426,45 @@
         "name": "Серая зона: Ореховский выступ (Работино)",
         "name_uk": "Сіра зона: Оріхівський виступ (Роботине)",
         "name_en": "Grey zone: Orikhiv salient (Robotyne)",
-        "status": "contested",
+        "status": "DISPUTED",
         "intensity": "medium",
         "summary": "Позиционные бои в разрушенной застройке на Ореховском выступе.",
         "summary_uk": "Позиційні бої у зруйнованій забудові на Оріхівському виступі.",
         "summary_en": "Positional combat in ruined structures on the Orikhiv salient.",
-        "date": "2026-09-04"
+        "date": "2026-09-04",
+        "disputed_zone": true,
+        "verification_status": "DISPUTED",
+        "source_a": {
+          "id": "lostarmour",
+          "name": "LostArmour KML Baseline",
+          "status": "control_ru",
+          "timestamp": "2026-09-08T07:13:20Z",
+          "confidence": 85
+        },
+        "source_b": {
+          "id": "deepstate-map",
+          "name": "DeepState UA / OSINT",
+          "status": "contested",
+          "timestamp": "2026-09-08T06:45:00Z",
+          "confidence": 80
+        },
+        "difference_description": "Позиционные бои в разрушенной застройке на Ореховском выступе.",
+        "confidence": 82,
+        "confidence_score": 82,
+        "confidence_level": "HIGH",
+        "evidence": [
+          {
+            "type": "uav_recon",
+            "description": "Кадры объективного контроля БПЛА",
+            "independent": true
+          },
+          {
+            "type": "satellite_firms",
+            "description": "Тепловая сигнатура NASA FIRMS (сопутствующее наблюдение)",
+            "independent": true
+          }
+        ],
+        "methodology_rule": "Ни один источник не принимается как безусловная истина. Сектор квалифицируется как DISPUTED до независимого видеоподтверждения."
       },
       "geometry": {
         "type": "Polygon",

@@ -8,7 +8,11 @@
     "changes_count": 1,
     "summary_ru": "Тактическое продвижение штурмовых групп в лесополосах восточнее Гродовки.",
     "features_count": 11,
-    "data_hash": "36950cc22721a599a007b00e2951004c454af0f0490784cb588049e1b9e51706"
+    "data_hash": "36950cc22721a599a007b00e2951004c454af0f0490784cb588049e1b9e51706",
+    "source_cut_off": "2026-09-02T23:59:59Z",
+    "feature_count": 11,
+    "hash_sha256": "b3e823a38c382e9207eb0d1b1e0a31fcd69524abdf83a2a19549b41fa0c25e17",
+    "previous_snapshot_hash": "6565df0bbc9bc67971ebc40488a530bc8965a40de5dcb8dca108c74b80a0522f"
   },
   "features": [
     {

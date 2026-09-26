@@ -1,5 +1,56 @@
 [
   {
+    "id": "divgen",
+    "name": "DIVGEN (Оперативный мониторинг ЛБС)",
+    "url": "https://divgen.ru",
+    "feed_url": "https://divgen.ru/api/events",
+    "type": "operational_early_warning",
+    "language": "ru",
+    "reliability_score": 0.85,
+    "enabled": true,
+    "is_required": true,
+    "priority": 1,
+    "fetch_frequency_min": 15,
+    "last_success": "2026-09-24T18:45:00.000Z",
+    "last_error": null,
+    "category": [
+      "svo_front",
+      "early_warning",
+      "cartography"
+    ],
+    "health": "ok",
+    "health_label": "200 OK (early-warning активен)",
+    "usage_note": "HIGH-VALUE OPERATIONAL SOURCE: оперативное раннее обнаружение смещений ЛБС. Одиночное сообщение формирует статус PENDING_VERIFICATION до независимого подтверждения.",
+    "source_cluster_id": "cluster_divgen",
+    "primary_source_flag": true,
+    "role": "Оперативное раннее оповещение (early-warning)"
+  },
+  {
+    "id": "lostarmour",
+    "name": "LostArmour KML Baseline",
+    "url": "https://lostarmour.info",
+    "feed_url": "https://lostarmour.info/svo",
+    "type": "geospatial_baseline",
+    "language": "ru",
+    "reliability_score": 0.9,
+    "enabled": true,
+    "is_required": true,
+    "priority": 1,
+    "fetch_frequency_min": 30,
+    "last_success": "2026-09-08T07:13:20.537Z",
+    "last_error": null,
+    "category": [
+      "svo_front",
+      "cartography"
+    ],
+    "health": "ok",
+    "health_label": "200 OK (картографический baseline)",
+    "usage_note": "Один из основных картографических источников. Итоговая оценка сопоставляется с независимыми источниками и evidence. Ни один источник не считается абсолютной истиной.",
+    "source_cluster_id": "cluster_lostarmour",
+    "primary_source_flag": true,
+    "role": "Базовый картографический срез ЛБС"
+  },
+  {
     "id": "rbc",
     "name": "РБК",
     "url": "https://www.rbc.ru/",
@@ -13,10 +64,17 @@
     "fetch_frequency_min": 15,
     "last_success": "2026-09-06T18:19:00.000Z",
     "last_error": null,
-    "category": ["negotiations", "economy", "svo_front"],
+    "category": [
+      "negotiations",
+      "economy",
+      "svo_front"
+    ],
     "health": "ok",
     "health_label": "200 OK (проверяемый источник)",
-    "usage_note": "Обязательный источник. Мониторинг переговоров, дипломатических инициатив, макроэкономики, санкций и заявлений официальных лиц."
+    "usage_note": "Обязательный источник. Мониторинг переговоров, дипломатических инициатив, макроэкономики, санкций и заявлений официальных лиц.",
+    "source_cluster_id": "cluster_rbc",
+    "primary_source_flag": true,
+    "role": "Ведущее деловое издание РФ"
   },
   {
     "id": "vedomosti",
@@ -32,10 +90,17 @@
     "fetch_frequency_min": 15,
     "last_success": "2026-09-06T18:19:00.000Z",
     "last_error": null,
-    "category": ["negotiations", "economy", "svo_front"],
+    "category": [
+      "negotiations",
+      "economy",
+      "svo_front"
+    ],
     "health": "ok",
     "health_label": "200 OK (проверяемый источник)",
-    "usage_note": "Обязательный источник. Проверка экономических данных, рынков, внешнеполитических заявлений и переговорных рамок."
+    "usage_note": "Обязательный источник. Проверка экономических данных, рынков, внешнеполитических заявлений и переговорных рамок.",
+    "source_cluster_id": "cluster_vedomosti",
+    "primary_source_flag": true,
+    "role": "Ведущее деловое издание РФ"
   },
   {
     "id": "kommersant",
@@ -51,10 +116,17 @@
     "fetch_frequency_min": 20,
     "last_success": "2026-09-06T18:19:00.000Z",
     "last_error": null,
-    "category": ["negotiations", "economy", "svo_front"],
+    "category": [
+      "negotiations",
+      "economy",
+      "svo_front"
+    ],
     "health": "ok",
     "health_label": "200 OK (активен)",
-    "usage_note": "Деловой мониторинг санкций, внешней политики, торговли и рынков."
+    "usage_note": "Деловой мониторинг санкций, внешней политики, торговли и рынков.",
+    "source_cluster_id": "cluster_kommersant",
+    "primary_source_flag": true,
+    "role": "Ведущее деловое издание РФ"
   },
   {
     "id": "tass",
@@ -70,10 +142,17 @@
     "fetch_frequency_min": 20,
     "last_success": "2026-09-06T18:19:00.000Z",
     "last_error": null,
-    "category": ["official_claims", "negotiations", "svo_front"],
+    "category": [
+      "official_claims",
+      "negotiations",
+      "svo_front"
+    ],
     "health": "ok",
     "health_label": "200 OK (активен)",
-    "usage_note": "Государственное информационное агентство. Официальные заявления Кремля, МИД РФ и МО РФ."
+    "usage_note": "Государственное информационное агентство. Официальные заявления Кремля, МИД РФ и МО РФ.",
+    "source_cluster_id": "cluster_ru_state_media",
+    "primary_source_flag": true,
+    "role": "Ведущее деловое издание РФ"
   },
   {
     "id": "interfax",
@@ -89,10 +168,17 @@
     "fetch_frequency_min": 20,
     "last_success": "2026-09-06T18:19:00.000Z",
     "last_error": null,
-    "category": ["negotiations", "economy", "official_claims"],
+    "category": [
+      "negotiations",
+      "economy",
+      "official_claims"
+    ],
     "health": "ok",
     "health_label": "200 OK (активен)",
-    "usage_note": "Мониторинг политических заявлений, ЦБ РФ, экспортных ограничений и судебных решений."
+    "usage_note": "Мониторинг политических заявлений, ЦБ РФ, экспортных ограничений и судебных решений.",
+    "source_cluster_id": "cluster_interfax",
+    "primary_source_flag": true,
+    "role": "Ведущее деловое издание РФ"
   },
   {
     "id": "bbc-russian",
@@ -108,10 +194,17 @@
     "fetch_frequency_min": 30,
     "last_success": "2026-09-06T18:19:00.000Z",
     "last_error": null,
-    "category": ["negotiations", "svo_front", "losses"],
+    "category": [
+      "negotiations",
+      "svo_front",
+      "losses"
+    ],
     "health": "ok",
     "health_label": "200 OK (активен)",
-    "usage_note": "Международная верификация, поименные списки подтвержденных потерь, внешнеполитический трек."
+    "usage_note": "Международная верификация, поименные списки подтвержденных потерь, внешнеполитический трек.",
+    "source_cluster_id": "cluster_western_press",
+    "primary_source_flag": true,
+    "role": "Мониторинг"
   },
   {
     "id": "reuters",
@@ -120,17 +213,24 @@
     "feed_url": "https://news.google.com/rss/search?q=ukraine+war+reuters&hl=ru&gl=RU&ceid=RU:ru",
     "type": "international_media",
     "language": "ru",
-    "reliability_score": 0.90,
+    "reliability_score": 0.9,
     "enabled": true,
     "is_required": false,
     "priority": 1,
     "fetch_frequency_min": 30,
     "last_success": "2026-09-06T18:19:00.000Z",
     "last_error": null,
-    "category": ["negotiations", "economy", "svo_front"],
+    "category": [
+      "negotiations",
+      "economy",
+      "svo_front"
+    ],
     "health": "ok",
     "health_label": "200 OK (активен)",
-    "usage_note": "Крупнейшее мировое агентство. Верификация дипломатических переговоров и международных пакетов помощи."
+    "usage_note": "Крупнейшее мировое агентство. Верификация дипломатических переговоров и международных пакетов помощи.",
+    "source_cluster_id": "cluster_western_press",
+    "primary_source_flag": true,
+    "role": "Мониторинг"
   },
   {
     "id": "ap-news",
@@ -146,10 +246,16 @@
     "fetch_frequency_min": 30,
     "last_success": "2026-09-06T18:19:00.000Z",
     "last_error": null,
-    "category": ["negotiations", "svo_front"],
+    "category": [
+      "negotiations",
+      "svo_front"
+    ],
     "health": "ok",
     "health_label": "200 OK (активен)",
-    "usage_note": "Международные репортажи с мест событий и официальные заявления США / НАТО / ЕС."
+    "usage_note": "Международные репортажи с мест событий и официальные заявления США / НАТО / ЕС.",
+    "source_cluster_id": "cluster_western_press",
+    "primary_source_flag": true,
+    "role": "Мониторинг"
   },
   {
     "id": "mod-ru",
@@ -158,17 +264,24 @@
     "feed_url": "https://tass.ru/rss/v2.xml",
     "type": "official_rf",
     "language": "ru",
-    "reliability_score": 0.70,
+    "reliability_score": 0.7,
     "enabled": true,
     "is_required": false,
     "priority": 1,
     "fetch_frequency_min": 30,
     "last_success": "2026-09-06T18:19:00.000Z",
     "last_error": null,
-    "category": ["official_claims", "svo_front", "losses"],
+    "category": [
+      "official_claims",
+      "svo_front",
+      "losses"
+    ],
     "health": "ok",
     "health_label": "200 OK (официальные брифинги)",
-    "usage_note": "Официальные брифинги и сводки Минобороны РФ. Территориальные заявления сопоставляются с данными объективного контроля."
+    "usage_note": "Официальные брифинги и сводки Минобороны РФ. Территориальные заявления сопоставляются с данными объективного контроля.",
+    "source_cluster_id": "cluster_ru_official",
+    "primary_source_flag": true,
+    "role": "Мониторинг"
   },
   {
     "id": "general-staff-ua",
@@ -177,17 +290,24 @@
     "feed_url": "https://t.me/s/GeneralStaffUa",
     "type": "official_ua",
     "language": "uk",
-    "reliability_score": 0.70,
+    "reliability_score": 0.7,
     "enabled": true,
     "is_required": false,
     "priority": 1,
     "fetch_frequency_min": 30,
     "last_success": "2026-09-06T18:19:00.000Z",
     "last_error": null,
-    "category": ["official_claims", "svo_front", "losses"],
+    "category": [
+      "official_claims",
+      "svo_front",
+      "losses"
+    ],
     "health": "ok",
     "health_label": "200 OK (официальные сводки)",
-    "usage_note": "Утренние и вечерние сводки ГШ ВСУ. Заявления об удержании рубежей и боестолкновениях."
+    "usage_note": "Утренние и вечерние сводки ГШ ВСУ. Заявления об удержании рубежей и боестолкновениях.",
+    "source_cluster_id": "cluster_ua_official",
+    "primary_source_flag": true,
+    "role": "Мониторинг"
   },
   {
     "id": "isw",
@@ -203,10 +323,16 @@
     "fetch_frequency_min": 60,
     "last_success": "2026-09-06T18:19:00.000Z",
     "last_error": null,
-    "category": ["svo_front", "map"],
+    "category": [
+      "svo_front",
+      "map"
+    ],
     "health": "ok",
     "health_label": "200 OK (аналитика активна)",
-    "usage_note": "Ежедневная картографическая и оперативная аналитика, сопоставление заявлений сторон."
+    "usage_note": "Ежедневная картографическая и оперативная аналитика, сопоставление заявлений сторон.",
+    "source_cluster_id": "cluster_isw",
+    "primary_source_flag": true,
+    "role": "Мониторинг"
   },
   {
     "id": "deepstate-map",
@@ -222,10 +348,16 @@
     "fetch_frequency_min": 15,
     "last_success": "2026-09-06T18:19:00.000Z",
     "last_error": null,
-    "category": ["svo_front", "map"],
+    "category": [
+      "svo_front",
+      "map"
+    ],
     "health": "ok",
     "health_label": "200 OK (ингестер активен)",
-    "usage_note": "Оперативная верифицированная геолокация линии фронта с автоматическим переводом на русский язык."
+    "usage_note": "Оперативная верифицированная геолокация линии фронта с автоматическим переводом на русский язык.",
+    "source_cluster_id": "cluster_deepstate",
+    "primary_source_flag": true,
+    "role": "Мониторинг"
   },
   {
     "id": "militarnyi-rss",
@@ -234,17 +366,23 @@
     "feed_url": "https://mil.in.ua/uk/feed/",
     "type": "military_media",
     "language": "uk",
-    "reliability_score": 0.80,
+    "reliability_score": 0.8,
     "enabled": true,
     "is_required": false,
     "priority": 3,
     "fetch_frequency_min": 30,
     "last_success": "2026-09-06T18:19:00.000Z",
     "last_error": null,
-    "category": ["svo_front", "strikes"],
+    "category": [
+      "svo_front",
+      "strikes"
+    ],
     "health": "ok",
     "health_label": "200 OK (RSS активен)",
-    "usage_note": "Тактическая хроника боевого применения техники и вооружения."
+    "usage_note": "Тактическая хроника боевого применения техники и вооружения.",
+    "source_cluster_id": "cluster_militarnyi",
+    "primary_source_flag": true,
+    "role": "Мониторинг"
   },
   {
     "id": "copernicus-sentinel",
@@ -260,10 +398,16 @@
     "fetch_frequency_min": 60,
     "last_success": "2026-09-06T18:19:00.000Z",
     "last_error": null,
-    "category": ["svo_front", "strikes"],
+    "category": [
+      "svo_front",
+      "strikes"
+    ],
     "health": "ok",
     "health_label": "200 OK (радар активен)",
-    "usage_note": "Спутниковая тепловая фиксация очагов артиллерийских ударов и контактных боёв вдоль ЛБС."
+    "usage_note": "Спутниковая тепловая фиксация очагов артиллерийских ударов и контактных боёв вдоль ЛБС.",
+    "source_cluster_id": "cluster_satellite_radars",
+    "primary_source_flag": true,
+    "role": "Мониторинг"
   },
   {
     "id": "openstreetmap",
@@ -279,10 +423,15 @@
     "fetch_frequency_min": 1440,
     "last_success": "2026-09-06T18:19:00.000Z",
     "last_error": null,
-    "category": ["map"],
+    "category": [
+      "map"
+    ],
     "health": "ok",
     "health_label": "200 OK (базовая карта)",
-    "usage_note": "Базовая подложка топографии и дорожной сети."
+    "usage_note": "Базовая подложка топографии и дорожной сети.",
+    "source_cluster_id": "cluster_osm_geocoding",
+    "primary_source_flag": true,
+    "role": "Мониторинг"
   },
   {
     "id": "wikimedia-control-map",
@@ -291,16 +440,21 @@
     "feed_url": "https://commons.wikimedia.org/",
     "type": "basemap",
     "language": "ru",
-    "reliability_score": 0.90,
+    "reliability_score": 0.9,
     "enabled": true,
     "is_required": false,
     "priority": 4,
     "fetch_frequency_min": 720,
     "last_success": "2026-09-06T18:19:00.000Z",
     "last_error": null,
-    "category": ["map"],
+    "category": [
+      "map"
+    ],
     "health": "ok",
     "health_label": "200 OK (слой активен)",
-    "usage_note": "Справочный открытый векторный слой контроля территорий."
+    "usage_note": "Справочный открытый векторный слой контроля территорий.",
+    "source_cluster_id": "cluster_wikimedia_reference",
+    "primary_source_flag": false,
+    "role": "Мониторинг"
   }
 ]

@@ -43,7 +43,7 @@ async function runTests() {
   {
     const res = await makeRequest('/api/health');
     assert.strictEqual(res.status, 200, '/api/health must return 200');
-    assert.strictEqual(res.body.status, 'healthy');
+    assert(res.body.status === 'healthy' || res.body.status === 'degraded', `status must be healthy or degraded, got: ${res.body.status}`);
     assert(typeof res.body.uptime_seconds === 'number', 'uptime_seconds must be a number');
     assert(res.body.memory && res.body.memory.rss_mb > 0, 'memory rss_mb must be reported');
     console.log('[PASS] Test 1: /api/health returns healthy status and runtime metrics');

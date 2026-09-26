@@ -8,7 +8,11 @@
     "changes_count": 3,
     "summary_ru": "Продвижение в районе Гродовки, Водяного и уточнение контроля в Пивничном.",
     "features_count": 13,
-    "data_hash": "5707c02427de4f7d1100a0780c02e032497cd48846a907b0a00a878ded502340"
+    "data_hash": "5707c02427de4f7d1100a0780c02e032497cd48846a907b0a00a878ded502340",
+    "source_cut_off": "2026-09-03T23:59:59Z",
+    "feature_count": 13,
+    "hash_sha256": "f4f8af0205a6307bd2fd05f698bdfd6fb8b3367c28015e6442eee66aa9384f69",
+    "previous_snapshot_hash": "b3e823a38c382e9207eb0d1b1e0a31fcd69524abdf83a2a19549b41fa0c25e17"
   },
   "features": [
     {

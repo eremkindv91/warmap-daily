@@ -1,16 +1,24 @@
 /**
- * WarMap Daily - Master Source Adapters Registry
+ * WarMap Daily - Master Multi-Source Adapters Registry
  * Registers all multi-source adapters conforming to the Unified Source Data schema:
  * { source, source_type, retrieved_at, published_at, version, geometry, metadata }
  */
 
 import { lostArmourAdapter } from './lostarmour/index.js';
 import { deepStateAdapter } from './deepstate/index.js';
-import { validateUnifiedSourceData } from './baseAdapter.js';
+import { divgenAdapter } from './divgen/index.js';
+import { iswAdapter } from './isw/index.js';
+import { evidenceAdapter } from './evidence/index.js';
+import { claimsAdapter } from './claims/index.js';
+import { validateUnifiedSourceData, createUnifiedSourceData } from './baseAdapter.js';
 
 export const sourceAdapters = {
   lostarmour: lostArmourAdapter,
-  deepstate: deepStateAdapter
+  deepstate: deepStateAdapter,
+  divgen: divgenAdapter,
+  isw: iswAdapter,
+  evidence: evidenceAdapter,
+  claims: claimsAdapter
 };
 
 export function getSourceAdapter(sourceId) {
@@ -21,7 +29,8 @@ export function listAvailableAdapters() {
   return Object.values(sourceAdapters).map(a => ({
     id: a.id,
     name: a.name,
-    type: a.type
+    type: a.type,
+    role: a.role
   }));
 }
 
@@ -52,6 +61,11 @@ export async function fetchAllUnifiedSources(targetDate = null) {
 
 export {
   validateUnifiedSourceData,
+  createUnifiedSourceData,
   lostArmourAdapter,
-  deepStateAdapter
+  deepStateAdapter,
+  divgenAdapter,
+  iswAdapter,
+  evidenceAdapter,
+  claimsAdapter
 };

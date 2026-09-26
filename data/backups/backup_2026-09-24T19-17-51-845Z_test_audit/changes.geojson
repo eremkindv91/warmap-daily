@@ -1,0 +1,329 @@
+{
+  "type": "FeatureCollection",
+  "metadata": {
+    "from": "2026-09-08",
+    "to": "2026-09-24",
+    "area_change_km2": 5.43,
+    "last_updated": "2026-09-24T19:07:25.340Z",
+    "noise_filtered": true,
+    "verification_standard": "multi-source consensus"
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "id": "change-pokrovsk-hrodivka",
+      "properties": {
+        "id": "change-pokrovsk-hrodivka",
+        "name": "Продвижение в районе Гродовки",
+        "name_uk": "Просування в районі Гродівки",
+        "name_en": "Advance near Hrodivka",
+        "summary": "Штурмовые группы продвинулись вдоль лесополос и частного сектора на востоке поселка.",
+        "summary_uk": "Штурмові групи просунулися вздовж лісосмуг та приватного сектору на сході селища.",
+        "summary_en": "Assault elements advanced along treelines and residential sector east of settlement.",
+        "date": "2026-09-04",
+        "area_km2": 1.432,
+        "confidence": 0.98,
+        "from_status": "contested",
+        "to_status": "control_ru",
+        "source_ids": [
+          "deepstate-map",
+          "isw"
+        ],
+        "evidence_ids": [
+          "ev-drone-pokrovsk-01",
+          "ev-sat-pokrovsk-01"
+        ],
+        "sector_id": "pokrovsk",
+        "consensus_score": 98,
+        "confidence_level": "VERY HIGH",
+        "confidence_label_ru": "Очень высокая (мульти-картографический консенсус + видеоконтроль)",
+        "cross_confirmed": true,
+        "verification_sources": [
+          {
+            "id": "deepstate-map",
+            "weight": 0.35,
+            "cluster": "cluster_deepstate"
+          },
+          {
+            "id": "isw",
+            "weight": 0.25,
+            "cluster": "cluster_isw"
+          }
+        ],
+        "confidence_score": 96,
+        "independent_evidence_clusters": 4,
+        "reasons": [
+          "Cross-confirmation across opposing / independent monitoring channels",
+          "geolocated OSINT evidence",
+          "thermal / satellite radar correlation",
+          "no contradictory evidence"
+        ],
+        "primary_sources": [
+          "DEEPSTATE-MAP",
+          "ISW"
+        ],
+        "geolocation_method": "БПЛА-видеопривязка + спутниковый контроль Sentinel-2",
+        "evidence_url": "https://t.me/DeepStateUA/20145",
+        "last_verified_at": "2026-09-08T07:13:31.767Z",
+        "provenance_summary": "Подтверждено методом: БПЛА-видеопривязка + спутниковый контроль Sentinel-2 на основе консенсуса deepstate-map, isw",
+        "provenance": {
+          "primary_sources": [
+            "DEEPSTATE-MAP",
+            "ISW"
+          ],
+          "geolocation_method": "БПЛА-видеопривязка + спутниковый контроль Sentinel-2",
+          "evidence_url": "https://t.me/DeepStateUA/20145",
+          "last_verified_at": "2026-09-08T07:13:31.767Z",
+          "confidence_score": 96,
+          "confidence_level": "VERY HIGH",
+          "independent_evidence_clusters": 4,
+          "reasons": [
+            "Cross-confirmation across opposing / independent monitoring channels",
+            "geolocated OSINT evidence",
+            "thermal / satellite radar correlation",
+            "no contradictory evidence"
+          ],
+          "provenance_summary": "Подтверждено методом: БПЛА-видеопривязка + спутниковый контроль Sentinel-2 на основе консенсуса deepstate-map, isw"
+        },
+        "verification_level": "LEVEL_A_PHYSICAL_EVIDENCE"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.375,
+              48.258
+            ],
+            [
+              37.391,
+              48.259
+            ],
+            [
+              37.396,
+              48.267
+            ],
+            [
+              37.382,
+              48.269
+            ],
+            [
+              37.373,
+              48.263
+            ],
+            [
+              37.375,
+              48.258
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "change-toretsk-pivnichne",
+      "properties": {
+        "id": "change-toretsk-pivnichne",
+        "name": "Уточнение линии контроля в Северном (Пивничном)",
+        "name_uk": "Уточнення лінії контролю в Північному",
+        "name_en": "Control line clarification in Pivnichne",
+        "summary": "Фиксация расширения зоны контроля в районе терриконов шахты 'Северная'.",
+        "summary_uk": "Фіксація розширення зони контролю в районі териконів шахти 'Північна'.",
+        "summary_en": "Zone of control expanded around the Pivnichna mine spoil heaps.",
+        "date": "2026-09-02",
+        "area_km2": 1.798,
+        "confidence": 0.82,
+        "from_status": "contested",
+        "to_status": "control_ru",
+        "source_ids": [
+          "deepstate-map"
+        ],
+        "evidence_ids": [
+          "ev-drone-toretsk-01"
+        ],
+        "sector_id": "toretsk",
+        "consensus_score": 82,
+        "confidence_level": "HIGH",
+        "confidence_label_ru": "Высокая (кросс-подтверждение независимых источников)",
+        "cross_confirmed": true,
+        "verification_sources": [
+          {
+            "id": "deepstate-map",
+            "weight": 0.35,
+            "cluster": "cluster_deepstate"
+          }
+        ],
+        "confidence_score": 80,
+        "independent_evidence_clusters": 2,
+        "reasons": [
+          "DeepState geolocated OSINT report",
+          "geolocated OSINT evidence",
+          "no contradictory evidence"
+        ],
+        "primary_sources": [
+          "DEEPSTATE-MAP"
+        ],
+        "geolocation_method": "Геолокация видеозаписей контактных боев в городской застройке",
+        "evidence_url": "https://t.me/DeepStateUA/20120",
+        "last_verified_at": "2026-09-08T07:13:31.768Z",
+        "provenance_summary": "Подтверждено методом: Геолокация видеозаписей контактных боев в городской застройке на основе консенсуса deepstate-map",
+        "provenance": {
+          "primary_sources": [
+            "DEEPSTATE-MAP"
+          ],
+          "geolocation_method": "Геолокация видеозаписей контактных боев в городской застройке",
+          "evidence_url": "https://t.me/DeepStateUA/20120",
+          "last_verified_at": "2026-09-08T07:13:31.768Z",
+          "confidence_score": 80,
+          "confidence_level": "HIGH",
+          "independent_evidence_clusters": 2,
+          "reasons": [
+            "DeepState geolocated OSINT report",
+            "geolocated OSINT evidence",
+            "no contradictory evidence"
+          ],
+          "provenance_summary": "Подтверждено методом: Геолокация видеозаписей контактных боев в городской застройке на основе консенсуса deepstate-map"
+        },
+        "verification_level": "LEVEL_A_PHYSICAL_EVIDENCE"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.898,
+              48.384
+            ],
+            [
+              37.915,
+              48.386
+            ],
+            [
+              37.919,
+              48.396
+            ],
+            [
+              37.904,
+              48.397
+            ],
+            [
+              37.895,
+              48.39
+            ],
+            [
+              37.898,
+              48.384
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "change-kurakhove-vodyane",
+      "properties": {
+        "id": "change-kurakhove-vodyane",
+        "name": "Локальное продвижение в районе Водяного",
+        "name_uk": "Локальне просування в районі Водяного",
+        "name_en": "Local advance near Vodyane",
+        "summary": "Продвижение вдоль балки и перекрестка дорог к северо-востоку от Угледара.",
+        "summary_uk": "Просування вздовж балки та перехрестя доріг на північний схід від Вугледара.",
+        "summary_en": "Advance along the gully and road junction northeast of Vuhledar.",
+        "date": "2026-09-01",
+        "area_km2": 2.196,
+        "confidence": 0.92,
+        "from_status": "contested",
+        "to_status": "control_ru",
+        "source_ids": [
+          "deepstate-map",
+          "isw"
+        ],
+        "evidence_ids": [
+          "ev-sat-vuhledar-01"
+        ],
+        "sector_id": "kurakhove_vuhledar",
+        "consensus_score": 92,
+        "confidence_level": "VERY HIGH",
+        "confidence_label_ru": "Очень высокая (мульти-картографический консенсус + видеоконтроль)",
+        "cross_confirmed": true,
+        "verification_sources": [
+          {
+            "id": "deepstate-map",
+            "weight": 0.35,
+            "cluster": "cluster_deepstate"
+          },
+          {
+            "id": "isw",
+            "weight": 0.25,
+            "cluster": "cluster_isw"
+          }
+        ],
+        "confidence_score": 91,
+        "independent_evidence_clusters": 3,
+        "reasons": [
+          "Cross-confirmation across opposing / independent monitoring channels",
+          "thermal / satellite radar correlation",
+          "no contradictory evidence"
+        ],
+        "primary_sources": [
+          "DEEPSTATE-MAP",
+          "ISW"
+        ],
+        "geolocation_method": "Спутниковые термоточки NASA FIRMS + кросс-анализ сводок",
+        "evidence_url": "https://understandingwar.org/backgrounder/russian-offensive-campaign-assessment-september-2026",
+        "last_verified_at": "2026-09-08T07:13:31.768Z",
+        "provenance_summary": "Подтверждено методом: Спутниковые термоточки NASA FIRMS + кросс-анализ сводок на основе консенсуса deepstate-map, isw",
+        "provenance": {
+          "primary_sources": [
+            "DEEPSTATE-MAP",
+            "ISW"
+          ],
+          "geolocation_method": "Спутниковые термоточки NASA FIRMS + кросс-анализ сводок",
+          "evidence_url": "https://understandingwar.org/backgrounder/russian-offensive-campaign-assessment-september-2026",
+          "last_verified_at": "2026-09-08T07:13:31.768Z",
+          "confidence_score": 91,
+          "confidence_level": "VERY HIGH",
+          "independent_evidence_clusters": 3,
+          "reasons": [
+            "Cross-confirmation across opposing / independent monitoring channels",
+            "thermal / satellite radar correlation",
+            "no contradictory evidence"
+          ],
+          "provenance_summary": "Подтверждено методом: Спутниковые термоточки NASA FIRMS + кросс-анализ сводок на основе консенсуса deepstate-map, isw"
+        },
+        "verification_level": "LEVEL_C_MULTI_MAP_CONSENSUS"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              37.295,
+              47.805
+            ],
+            [
+              37.318,
+              47.808
+            ],
+            [
+              37.322,
+              47.818
+            ],
+            [
+              37.302,
+              47.817
+            ],
+            [
+              37.292,
+              47.811
+            ],
+            [
+              37.295,
+              47.805
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

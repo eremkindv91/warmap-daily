@@ -8,7 +8,11 @@
     "changes_count": 3,
     "summary_ru": "Подтверждённый суточный срез на 5 сентября 2026. Консолидация позиций на Покровском и Торецком участках.",
     "features_count": 13,
-    "data_hash": "fefaf0f5abf58e28f3ee1d0e8ad9ce04367243c52eee6183e5649fc611e003bf"
+    "data_hash": "fefaf0f5abf58e28f3ee1d0e8ad9ce04367243c52eee6183e5649fc611e003bf",
+    "source_cut_off": "2026-09-05T23:59:59Z",
+    "feature_count": 13,
+    "hash_sha256": "0c293e3c816c52d0bccbb6645ed16a2491320ba571490d8f86c3e436f9763d53",
+    "previous_snapshot_hash": "bef8f72027d51bb50344b0ca76432cc97ddd9e1cead499edf4330dada3bd9a39"
   },
   "features": [
     {

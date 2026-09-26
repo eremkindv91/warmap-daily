@@ -1,0 +1,16 @@
+{
+  "backup_id": "backup_2026-09-25T15-37-28-515Z_pre_rollback_safety",
+  "created_at": "2026-09-25T15:37:28.515Z",
+  "label": "pre_rollback_safety",
+  "files_backed_up": [
+    "data/status.json",
+    "data/news.json",
+    "data/events.json",
+    "data/claims.json",
+    "data/evidence.json",
+    "data/changes.geojson",
+    "data/daily-digest.json",
+    "data/source-health.json",
+    "data/settlements-index.json"
+  ]
+}

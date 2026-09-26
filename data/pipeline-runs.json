@@ -1,5 +1,23 @@
 [
   {
+    "run_id": "run_1790349409949_zzg5s",
+    "started_at": "2026-09-25T15:16:42.478Z",
+    "finished_at": "2026-09-25T15:16:49.949Z",
+    "duration": "7.47s",
+    "duration_ms": 7471,
+    "status": "HEALTHY",
+    "sources_processed": 18,
+    "records_processed": 140,
+    "records_new": 34,
+    "duplicates": 106,
+    "errors": 1,
+    "operating_date": "2026-09-25",
+    "synthesis_method": "deterministic_verified_sources",
+    "rbc_included": true,
+    "vedomosti_included": true,
+    "timestamp": "2026-09-25T15:16:42.478Z"
+  },
+  {
     "timestamp": "2026-09-08T06:58:13.187Z",
     "operating_date": "2026-09-08",
     "duration_ms": 4651,

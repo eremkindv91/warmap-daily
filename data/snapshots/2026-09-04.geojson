@@ -8,7 +8,11 @@
     "changes_count": 2,
     "summary_ru": "Расширение флангового охвата севернее Новогродовки и позиционные бои у террикона шахты Центральная.",
     "features_count": 12,
-    "data_hash": "f77e2d17e8212ae8af7a59632956a92666f11127c8fb74144782783c05442784"
+    "data_hash": "f77e2d17e8212ae8af7a59632956a92666f11127c8fb74144782783c05442784",
+    "source_cut_off": "2026-09-04T23:59:59Z",
+    "feature_count": 12,
+    "hash_sha256": "bef8f72027d51bb50344b0ca76432cc97ddd9e1cead499edf4330dada3bd9a39",
+    "previous_snapshot_hash": "f4f8af0205a6307bd2fd05f698bdfd6fb8b3367c28015e6442eee66aa9384f69"
   },
   "features": [
     {

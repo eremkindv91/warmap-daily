@@ -8,7 +8,11 @@
     "changes_count": 1,
     "summary_ru": "Локальные позиционные бои в районе Синьковки и северо-восточнее Купянска.",
     "features_count": 11,
-    "data_hash": "9ba511ac037d3d9f8f2e0210792f43b3a831e5967f6097e4f87e261ccaa36ab6"
+    "data_hash": "9ba511ac037d3d9f8f2e0210792f43b3a831e5967f6097e4f87e261ccaa36ab6",
+    "source_cut_off": "2026-09-01T23:59:59Z",
+    "feature_count": 11,
+    "hash_sha256": "6565df0bbc9bc67971ebc40488a530bc8965a40de5dcb8dca108c74b80a0522f",
+    "previous_snapshot_hash": "0000000000000000000000000000000000000000000000000000000000000000"
   },
   "features": [
     {

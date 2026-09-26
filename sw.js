@@ -1,4 +1,4 @@
-const CACHE_NAME = 'warmap-daily-v3';
+const CACHE_NAME = 'warmap-daily-v4';
 const STATIC_ASSETS = [
   '/',
   '/index.html',
@@ -36,6 +36,12 @@ self.addEventListener('fetch', (event) => {
 
   // Do not intercept or cache POST/PUT or non-HTTP requests
   if (event.request.method !== 'GET') {
+    return;
+  }
+
+  // Never intercept cross-origin requests (e.g. map tiles from CartoDB or ArcGIS)
+  // Let the browser handle tile requests directly with HTTP/2 and native connection pooling!
+  if (url.origin !== self.location.origin) {
     return;
   }
 

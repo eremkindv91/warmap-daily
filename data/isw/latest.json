@@ -1,0 +1,172 @@
+{
+  "metadata": {
+    "source": "ISW",
+    "retrieved_at": "2026-09-24T18:51:21.339Z",
+    "total": 4
+  },
+  "items": [
+    {
+      "id": "isw-pokrovsk-advance",
+      "title": "Russian Assessed Advance towards Pokrovsk / Myrnohrad",
+      "title_ru": "Оценка продвижения ВС РФ в направлении Покровск / Мирноград",
+      "sector_id": "pokrovsk",
+      "coordinates": [
+        37.28,
+        48.25
+      ],
+      "status": "RU_CONTROLLED",
+      "assessment_type": "assessed_russian_advance",
+      "is_infiltration": false,
+      "date": "2026-09-24",
+      "summary_ru": "ISW оценивает продвижение российских войск вдоль железнодорожной ветки к югу от Новогродовки.",
+      "evidence": [
+        "Geolocated footage of drone strikes on Russian positions",
+        "Satellite thermal imagery FIRMS"
+      ],
+      "polygon": [
+        [
+          37.26,
+          48.22
+        ],
+        [
+          37.34,
+          48.24
+        ],
+        [
+          37.36,
+          48.21
+        ],
+        [
+          37.27,
+          48.19
+        ],
+        [
+          37.26,
+          48.22
+        ]
+      ]
+    },
+    {
+      "id": "isw-toretsk-urban-infiltration",
+      "title": "Russian Infiltration Area into Toretsk Residential Core",
+      "title_ru": "Зона инфильтрации ВС РФ в городскую застройку Торецка",
+      "sector_id": "toretsk",
+      "coordinates": [
+        37.84,
+        48.39
+      ],
+      "status": "RU_INFILTRATION",
+      "assessment_type": "russian_infiltration",
+      "is_infiltration": true,
+      "date": "2026-09-24",
+      "summary_ru": "Зафиксировано проникновение малых штурмовых групп в частный сектор. Позиции неустойчивы, огневой контроль оспаривается.",
+      "evidence": [
+        "Geolocated combat footage near school #1",
+        "Ukrainian drone drops on DRG"
+      ],
+      "polygon": [
+        [
+          37.82,
+          48.38
+        ],
+        [
+          37.87,
+          48.4
+        ],
+        [
+          37.88,
+          48.37
+        ],
+        [
+          37.83,
+          48.36
+        ],
+        [
+          37.82,
+          48.38
+        ]
+      ]
+    },
+    {
+      "id": "isw-chasiv-yar-flot",
+      "title": "Forward Line of Own Troops (FLOT) at Siverskyi Donets Canal",
+      "title_ru": "Передовая линия боевого соприкосновения по каналу Северский Донец — Донбасс",
+      "sector_id": "chasiv_yar",
+      "coordinates": [
+        37.86,
+        48.59
+      ],
+      "status": "DISPUTED",
+      "assessment_type": "flot_contested",
+      "is_infiltration": false,
+      "date": "2026-09-24",
+      "summary_ru": "Линия соприкосновения стабилизирована по руслу канала. Встречные бои за переправы.",
+      "evidence": [
+        "Sentinel-2 high-res optical imagery",
+        "Video of destroyed crossings"
+      ],
+      "polygon": [
+        [
+          37.84,
+          48.57
+        ],
+        [
+          37.89,
+          48.61
+        ],
+        [
+          37.91,
+          48.58
+        ],
+        [
+          37.85,
+          48.55
+        ],
+        [
+          37.84,
+          48.57
+        ]
+      ]
+    },
+    {
+      "id": "isw-kupyansk-counterattack",
+      "title": "Ukrainian Tactical Counterattack near Synkivka",
+      "title_ru": "Тактический контрудар ВСУ в районе Синьковки",
+      "sector_id": "kupyansk_lyman",
+      "coordinates": [
+        37.69,
+        49.76
+      ],
+      "status": "DISPUTED",
+      "assessment_type": "ukrainian_counterattack",
+      "is_infiltration": false,
+      "date": "2026-09-24",
+      "summary_ru": "Украинские механизированные подразделения провели локальный контрудар для зачистки лесополос.",
+      "evidence": [
+        "Geolocated footage of armored vehicle operations"
+      ],
+      "polygon": [
+        [
+          37.66,
+          49.74
+        ],
+        [
+          37.72,
+          49.77
+        ],
+        [
+          37.75,
+          49.75
+        ],
+        [
+          37.68,
+          49.72
+        ],
+        [
+          37.66,
+          49.74
+        ]
+      ]
+    }
+  ]
+}

@@ -63,7 +63,7 @@
     <line x1="380" y1="25" x2="380" y2="95" stroke="#334155" stroke-width="1"/>
     
     <text x="420" y="50" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="16" font-weight="600" text-transform="uppercase">Верификация</text>
-    <text x="420" y="94" fill="#22c55e" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="36" font-weight="800">100% Фото/Видео/БПЛА</text>
+    <text x="420" y="94" fill="#22c55e" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="36" font-weight="800">Мультиисточниковый OSINT • Фото/Видео</text>
 
     <line x1="760" y1="25" x2="760" y2="95" stroke="#334155" stroke-width="1"/>
 
