@@ -412,10 +412,11 @@
 
   const t = (k) => i18n[state.lang]?.[k] || i18n.ru[k] || k;
 
-  // Safe JSON Fetch
+  // Safe JSON Fetch with 20s bucket for efficient HTTP/2 multiplexing & connection pooling
   async function fetchJson(url, fallback = null) {
     try {
-      const res = await fetch(url + (url.includes('?') ? '&' : '?') + 't=' + Date.now());
+      const bucket = Math.floor(Date.now() / 20000);
+      const res = await fetch(url + (url.includes('?') ? '&' : '?') + '_v=' + bucket);
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       return await res.json();
     } catch (e) {
@@ -541,12 +542,12 @@
     try { setupFeedFiltersAndPagination(); } catch (e) { console.warn('Feed filters err:', e); }
     try { setupDigestInteractions(); } catch (e) { console.warn('Digest err:', e); }
     try { setupIosInstallPrompt(); } catch (e) { console.warn('iOS banner err:', e); }
-    try { initLeafletMap(); } catch (e) { console.warn('Leaflet map init err:', e); }
-    try { await loadAllData(); } catch (e) { console.warn('Data load err:', e); }
-    try { initTimeline(); } catch (e) { console.warn('Timeline err:', e); }
-    try { setupSectorChips(); } catch (e) { console.warn('Sector chips err:', e); }
     try { setupMapControls(); } catch (e) { console.warn('Map controls err:', e); }
+    try { setupSectorChips(); } catch (e) { console.warn('Sector chips err:', e); }
     try { setupSearch(); } catch (e) { console.warn('Search err:', e); }
+    try { initTimeline(); } catch (e) { console.warn('Timeline err:', e); }
+    try { initLeafletMap(); } catch (e) { console.warn('Leaflet map init err:', e); }
+    try { loadAllData(); } catch (e) { console.warn('Data load err:', e); }
     try { startAutoSync(); } catch (e) { console.warn('Auto sync err:', e); }
   }
 
@@ -1280,120 +1281,115 @@
     });
   }
 
-  // Load All Core Data
+  // Load All Core Data with Instant 2-Phase Progressive Hydration
   async function loadAllData() {
-    let [
+    // Phase 1: Essential Fast Data (Immediate UI hydration < 80ms)
+    const [
       statusData,
       digestData,
       newsData,
-      sourcesData,
-      sourceHealthData,
-      evidenceData,
-      claimsData,
       eventsData,
       settlementsData,
-      youtubeData,
       changesData,
       referenceData,
       contestedData,
-      controlUaData,
-      availableDigestsData,
-      snapshotsData,
-      lostArmourData,
-      discrepanciesData,
-      comparisonData,
-      layersMetadata
+      controlUaData
     ] = await Promise.all([
       fetchJson('/api/status', {}),
       fetchJson('/api/digest', {}),
       fetchJson('/api/news', []),
-      fetchJson('/api/sources', []),
-      fetchJson('/data/source-health.json', { results: [] }),
-      fetchJson('/api/evidence', []),
-      fetchJson('/api/claims', []),
       fetchJson('/data/events.json', []),
       fetchJson('/data/settlements-index.json', []),
-      fetchJson('/api/youtube', []).then(res => (res && res.length ? res : fetchJson('/data/youtube.json', []))),
       fetchJson('/data/changes.geojson', { type: 'FeatureCollection', features: [] }),
       fetchJson('/data/reference-control.geojson', { type: 'FeatureCollection', features: [] }),
       fetchJson('/data/contested.geojson', { type: 'FeatureCollection', features: [] }),
-      fetchJson('/data/control-ua.geojson', { type: 'FeatureCollection', features: [] }),
-      fetchJson('/api/digests', []),
-      fetchJson('/api/snapshots', []),
-      fetchJson('/api/lostarmour/latest', null),
-      fetchJson('/api/lostarmour-data/discrepancies', { type: 'FeatureCollection', features: [] }),
-      fetchJson('/api/lostarmour-data/comparison', null),
-      fetchJson('/api/front/layers', null),
-      fetchJson('/api/sources/divgen/events', { items: [] }),
-      fetchJson('/api/sources/isw', { items: [] })
+      fetchJson('/data/control-ua.geojson', { type: 'FeatureCollection', features: [] })
     ]);
-
-    const divgenRes = arguments ? (await Promise.allSettled([
-      fetchJson('/api/sources/divgen/events', { items: [] }),
-      fetchJson('/api/sources/isw', { items: [] })
-    ])) : [];
-    if (divgenRes[0]?.status === 'fulfilled') {
-      const d = divgenRes[0].value;
-      state.divgenEvents = d?.items || d?.data?.events || [];
-    }
-    if (divgenRes[1]?.status === 'fulfilled') {
-      const isw = divgenRes[1].value;
-      state.iswAssessments = isw?.items || [];
-    }
 
     state.status = statusData || {};
     state.digest = digestData || {};
-    state.availableDigests = Array.isArray(availableDigestsData) ? availableDigestsData : [];
     if (state.digest?.date) {
       state.activeDigestDate = state.digest.date;
     } else if (state.status?.snapshot_date) {
       state.activeDigestDate = state.status.snapshot_date;
     }
-
-    state.snapshots = Array.isArray(snapshotsData) && snapshotsData.length ? snapshotsData : [
-      { date: '2026-09-02', area_change_km2: 2.2, sha256: '36950cc22721' },
-      { date: '2026-09-03', area_change_km2: 4.85, sha256: '5707c02427de' },
-      { date: '2026-09-04', area_change_km2: 3.4, sha256: 'f77e2d17e821' },
-      { date: '2026-09-05', area_change_km2: 4.85, sha256: 'fefaf0f5abf5' },
-      { date: '2026-09-06', area_change_km2: 4.85, sha256: '64ffb6ce7e96' }
-    ];
-    // Sort snapshots chronologically (oldest to newest for the timeline slider)
-    state.snapshots.sort((a, b) => a.date.localeCompare(b.date));
-    state.activeSnapshotIndex = state.snapshots.length - 1;
-    state.activeSnapshotDate = state.snapshots[state.activeSnapshotIndex]?.date || state.activeDigestDate || '2026-09-06';
     state.news = processAndNormalizeEvents(Array.isArray(newsData) ? newsData : []);
-    state.sources = Array.isArray(sourcesData) ? sourcesData : [];
-    state.sourceHealth = sourceHealthData?.results || [];
-    state.evidence = Array.isArray(evidenceData) ? evidenceData : [];
-    state.claims = Array.isArray(claimsData) ? claimsData : [];
     state.events = Array.isArray(eventsData) ? eventsData : [];
     state.settlements = Array.isArray(settlementsData) ? settlementsData : [];
-    state.youtube = Array.isArray(youtubeData) ? youtubeData : [];
     state.changes = (changesData && changesData.features) ? changesData : { type: 'FeatureCollection', features: [] };
     state.referenceControl = (referenceData && referenceData.features) ? referenceData : { type: 'FeatureCollection', features: [] };
     state.contested = (contestedData && contestedData.features) ? contestedData : { type: 'FeatureCollection', features: [] };
     state.controlUa = (controlUaData && controlUaData.features) ? controlUaData : { type: 'FeatureCollection', features: [] };
 
-    // LostArmour Primary Cartographic Baseline & Multi-Source Layering
-    state.lostArmourBase = (lostArmourData && lostArmourData.features) ? lostArmourData : null;
-    state.discrepancies = (discrepanciesData && discrepanciesData.features) ? discrepanciesData : { type: 'FeatureCollection', features: [] };
-    state.comparisonMetrics = comparisonData || null;
-    state.layerMetadata = layersMetadata || null;
-
-    // Update LostArmour Status Bar UI & Discrepancies Counter
-    try { updateLostArmourStatusUI(); } catch (e) { console.error('updateLostArmourStatusUI error:', e); }
-    try { populateDiscrepanciesModal(); } catch (e) { console.error('populateDiscrepanciesModal error:', e); }
-
-    // Update Header Date (Requirement 4: Данные актуальны на: DD.MM.YYYY HH:MM МСК)
+    // Update Header Date immediately
     updateTopDataAsOfDisplay();
 
-    // Render Components safely so failure in one never blocks the others
+    // Render Components instantly so user sees the page with zero delay!
     try { renderSummaryView(); } catch (e) { console.error('renderSummaryView error:', e); }
     try { renderDailyDigest(); } catch (e) { console.error('renderDailyDigest error:', e); }
-    try { renderMonitoringSection(); } catch (e) { console.error('renderMonitoringSection error:', e); }
     try { renderMapLayers(); } catch (e) { console.error('renderMapLayers error:', e); }
-    try { updateSectorStatsBadge(); } catch (e) { console.error('updateSectorStatsBadge error:', e); }
-    try { updateSectorStatsDashboard(); } catch (e) { console.error('updateSectorStatsDashboard error:', e); }
+    try { updateDesktopIntelPanel(); } catch (e) { console.error('updateDesktopIntelPanel error:', e); }
+
+    // Phase 2: Progressive Secondary Enrichment (Runs asynchronously in background without blocking initial paint)
+    Promise.all([
+      fetchJson('/api/lostarmour/latest', null),
+      fetchJson('/api/lostarmour-data/discrepancies', { type: 'FeatureCollection', features: [] }),
+      fetchJson('/api/lostarmour-data/comparison', null),
+      fetchJson('/api/front/layers', null),
+      fetchJson('/api/sources/divgen/events', { items: [] }),
+      fetchJson('/api/sources/isw', { items: [] }),
+      fetchJson('/api/sources', []),
+      fetchJson('/data/source-health.json', { results: [] }),
+      fetchJson('/api/evidence', []),
+      fetchJson('/api/claims', []),
+      fetchJson('/api/digests', []),
+      fetchJson('/api/snapshots', []),
+      fetchJson('/api/youtube', []).then(res => (res && res.length ? res : fetchJson('/data/youtube.json', [])))
+    ]).then(([
+      lostArmourData,
+      discrepanciesData,
+      comparisonData,
+      layersMetadata,
+      divgenData,
+      iswData,
+      sourcesData,
+      sourceHealthData,
+      evidenceData,
+      claimsData,
+      availableDigestsData,
+      snapshotsData,
+      youtubeData
+    ]) => {
+      state.lostArmourBase = (lostArmourData && lostArmourData.features) ? lostArmourData : null;
+      state.discrepancies = (discrepanciesData && discrepanciesData.features) ? discrepanciesData : { type: 'FeatureCollection', features: [] };
+      state.comparisonMetrics = comparisonData || null;
+      state.layerMetadata = layersMetadata || null;
+      state.divgenEvents = divgenData?.items || divgenData?.events || [];
+      state.iswAssessments = iswData?.items || [];
+      state.sources = Array.isArray(sourcesData) ? sourcesData : [];
+      state.sourceHealth = sourceHealthData?.results || [];
+      state.evidence = Array.isArray(evidenceData) ? evidenceData : [];
+      state.claims = Array.isArray(claimsData) ? claimsData : [];
+      state.availableDigests = Array.isArray(availableDigestsData) ? availableDigestsData : [];
+
+      if (Array.isArray(snapshotsData) && snapshotsData.length) {
+        state.snapshots = snapshotsData.sort((a, b) => a.date.localeCompare(b.date));
+        state.activeSnapshotIndex = state.snapshots.length - 1;
+        state.activeSnapshotDate = state.snapshots[state.activeSnapshotIndex]?.date || state.activeDigestDate;
+      }
+      state.youtube = Array.isArray(youtubeData) ? youtubeData : [];
+
+      // Update background status UI and secondary layers
+      try { updateLostArmourStatusUI(); } catch (e) { console.error('updateLostArmourStatusUI error:', e); }
+      try { populateDiscrepanciesModal(); } catch (e) { console.error('populateDiscrepanciesModal error:', e); }
+      try { renderMonitoringSection(); } catch (e) { console.error('renderMonitoringSection error:', e); }
+      try { renderMapLayers(); } catch (e) { console.error('renderMapLayers error:', e); }
+      try { updateSectorStatsBadge(); } catch (e) { console.error('updateSectorStatsBadge error:', e); }
+      try { updateSectorStatsDashboard(); } catch (e) { console.error('updateSectorStatsDashboard error:', e); }
+      try { updateDesktopIntelPanel(); } catch (e) { console.error('updateDesktopIntelPanel error:', e); }
+    }).catch(err => {
+      console.warn('Phase 2 progressive hydration warning:', err);
+    });
   }
 
   // Setup Sector Chips (Horizontally Scrollable)

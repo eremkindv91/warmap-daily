@@ -1,4 +1,5 @@
 import express from 'express';
+import compression from 'compression';
 import path from 'path';
 import fs from 'fs';
 import { fileURLToPath } from 'url';
@@ -62,18 +63,31 @@ const app = express();
 const PORT = 3000;
 const HOST = '0.0.0.0';
 
+// Enable gzip/deflate compression for all API payloads and assets
+app.use(compression({
+  threshold: 512, // Compress anything over 512 bytes
+  filter: (req, res) => {
+    if (req.headers['x-no-compression']) return false;
+    return compression.filter(req, res);
+  }
+}));
+
 app.use(express.json());
 
-// Enable CORS and disable cache on assets, HTML, and API to ensure instant preview refresh
+// Enable CORS and smart caching: cache immutable vendor assets, keep API & HTML fresh
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-  if (req.path.startsWith('/api/') || req.path.startsWith('/data/') || req.path.endsWith('.html') || req.path.endsWith('.js') || req.path === '/') {
-    res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+
+  if (req.path.startsWith('/assets/leaflet.') || req.path.endsWith('.png') || req.path.endsWith('.svg') || req.path.endsWith('.woff2')) {
+    res.setHeader('Cache-Control', 'public, max-age=604800, immutable');
+  } else if (req.path.startsWith('/api/') || req.path.startsWith('/data/') || req.path.endsWith('.html') || req.path.endsWith('.js') || req.path === '/') {
+    res.setHeader('Cache-Control', 'no-cache, must-revalidate');
     res.setHeader('Pragma', 'no-cache');
     res.setHeader('Expires', '0');
   }
+
   if (req.method === 'OPTIONS') {
     return res.sendStatus(200);
   }

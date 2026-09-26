@@ -179,8 +179,27 @@ export async function fetchDivgenSituation(timeoutMs = 7000) {
 /**
  * Fetches DIVGEN live events with circuit-breaker & caching
  */
-export async function fetchDivgenEvents(timeoutMs = 9000) {
+export async function fetchDivgenEvents(timeoutMs = 3500, forceRefresh = false) {
   const startTime = Date.now();
+  const cachePath = 'data/divgen/latest.json';
+  const cached = readJson(cachePath, null);
+
+  // Return fresh cache instantly (TTL: 15 minutes) to avoid blocking HTTP clients
+  if (!forceRefresh && cached && cached.events && cached.events.length > 0) {
+    const ageMs = Date.now() - new Date(cached.metadata?.retrieved_at || 0).getTime();
+    if (ageMs < 15 * 60 * 1000) {
+      return {
+        source_id: 'divgen',
+        items: cached.events,
+        situation: cached.metadata?.situation || null,
+        latency_ms: 1,
+        state: 'cached',
+        http_status: 200,
+        error: null
+      };
+    }
+  }
+
   const result = {
     source_id: 'divgen',
     items: [],

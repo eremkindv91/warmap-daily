@@ -2,7 +2,7 @@
   "metadata": {
     "source": "DIVGEN",
     "source_url": "https://divgen.ru",
-    "retrieved_at": "2026-09-26T05:49:42.462Z",
+    "retrieved_at": "2026-09-26T05:56:30.373Z",
     "total_events": 4073,
     "situation": {
       "day": "2026-09-26",
@@ -23,7 +23,7 @@
       "description": "",
       "event_time": "2026-07-15T00:00:00+03:00",
       "publication_time": "2026-07-15T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.397Z",
+      "discovery_time": "2026-09-26T05:56:30.301Z",
       "coordinates": [
         34.76692,
         51.13337
@@ -60,7 +60,7 @@
       "description": "",
       "event_time": "2026-07-15T00:00:00+03:00",
       "publication_time": "2026-07-15T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.398Z",
+      "discovery_time": "2026-09-26T05:56:30.301Z",
       "coordinates": [
         34.29878,
         51.75116
@@ -97,7 +97,7 @@
       "description": "",
       "event_time": "2026-07-16T00:00:00+03:00",
       "publication_time": "2026-07-16T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.398Z",
+      "discovery_time": "2026-09-26T05:56:30.301Z",
       "coordinates": [
         37.72161,
         48.71555
@@ -134,7 +134,7 @@
       "description": "",
       "event_time": "2026-07-17T00:00:00+03:00",
       "publication_time": "2026-07-17T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.398Z",
+      "discovery_time": "2026-09-26T05:56:30.302Z",
       "coordinates": [
         35.32173,
         47.60339
@@ -171,7 +171,7 @@
       "description": "",
       "event_time": "2026-07-17T00:00:00+03:00",
       "publication_time": "2026-07-17T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.398Z",
+      "discovery_time": "2026-09-26T05:56:30.302Z",
       "coordinates": [
         36.6291,
         48.11041
@@ -208,7 +208,7 @@
       "description": "",
       "event_time": "2026-07-18T00:00:00+03:00",
       "publication_time": "2026-07-18T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.399Z",
+      "discovery_time": "2026-09-26T05:56:30.302Z",
       "coordinates": [
         37.60485,
         49.71825
@@ -245,7 +245,7 @@
       "description": "",
       "event_time": "2026-07-18T00:00:00+03:00",
       "publication_time": "2026-07-18T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.399Z",
+      "discovery_time": "2026-09-26T05:56:30.303Z",
       "coordinates": [
         37.04128,
         50.19886
@@ -282,7 +282,7 @@
       "description": "МО",
       "event_time": "2026-07-19T00:00:00+03:00",
       "publication_time": "2026-07-19T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.399Z",
+      "discovery_time": "2026-09-26T05:56:30.303Z",
       "coordinates": [
         37.01388,
         48.35973
@@ -319,7 +319,7 @@
       "description": "",
       "event_time": "2026-07-19T00:00:00+03:00",
       "publication_time": "2026-07-19T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.400Z",
+      "discovery_time": "2026-09-26T05:56:30.304Z",
       "coordinates": [
         37.83505,
         48.96929
@@ -356,7 +356,7 @@
       "description": "",
       "event_time": "2026-07-20T00:00:00+03:00",
       "publication_time": "2026-07-20T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.400Z",
+      "discovery_time": "2026-09-26T05:56:30.304Z",
       "coordinates": [
         36.87389,
         48.1757
@@ -393,7 +393,7 @@
       "description": "",
       "event_time": "2026-07-20T00:00:00+03:00",
       "publication_time": "2026-07-20T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.400Z",
+      "discovery_time": "2026-09-26T05:56:30.304Z",
       "coordinates": [
         37.635,
         48.55181
@@ -430,7 +430,7 @@
       "description": "",
       "event_time": "2026-07-21T00:00:00+03:00",
       "publication_time": "2026-07-21T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.401Z",
+      "discovery_time": "2026-09-26T05:56:30.305Z",
       "coordinates": [
         37.17597,
         50.23426
@@ -467,7 +467,7 @@
       "description": "https://t.me/KrasnolimanskyFront/20213",
       "event_time": "2026-07-21T00:00:00+03:00",
       "publication_time": "2026-07-21T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.401Z",
+      "discovery_time": "2026-09-26T05:56:30.305Z",
       "coordinates": [
         37.84766,
         48.83489
@@ -504,7 +504,7 @@
       "description": "",
       "event_time": "2026-07-22T00:00:00+03:00",
       "publication_time": "2026-07-22T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.401Z",
+      "discovery_time": "2026-09-26T05:56:30.306Z",
       "coordinates": [
         37.61923,
         50.24528
@@ -541,7 +541,7 @@
       "description": "",
       "event_time": "2026-07-23T00:00:00+03:00",
       "publication_time": "2026-07-23T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.402Z",
+      "discovery_time": "2026-09-26T05:56:30.306Z",
       "coordinates": [
         34.79851,
         51.09964
@@ -578,7 +578,7 @@
       "description": "заявление МО",
       "event_time": "2026-07-23T00:00:00+03:00",
       "publication_time": "2026-07-23T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.402Z",
+      "discovery_time": "2026-09-26T05:56:30.306Z",
       "coordinates": [
         37.17902,
         48.40886
@@ -615,7 +615,7 @@
       "description": "по Лосту",
       "event_time": "2026-07-23T00:00:00+03:00",
       "publication_time": "2026-07-23T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.402Z",
+      "discovery_time": "2026-09-26T05:56:30.307Z",
       "coordinates": [
         36.92539,
         48.27725
@@ -652,7 +652,7 @@
       "description": "",
       "event_time": "2026-07-24T00:00:00+03:00",
       "publication_time": "2026-07-24T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.403Z",
+      "discovery_time": "2026-09-26T05:56:30.307Z",
       "coordinates": [
         37.52091,
         50.2382
@@ -689,7 +689,7 @@
       "description": "",
       "event_time": "2026-07-24T00:00:00+03:00",
       "publication_time": "2026-07-24T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.403Z",
+      "discovery_time": "2026-09-26T05:56:30.308Z",
       "coordinates": [
         37.24035,
         50.2562
@@ -726,7 +726,7 @@
       "description": "",
       "event_time": "2026-07-24T00:00:00+03:00",
       "publication_time": "2026-07-24T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.403Z",
+      "discovery_time": "2026-09-26T05:56:30.308Z",
       "coordinates": [
         34.24643,
         51.83371
@@ -763,7 +763,7 @@
       "description": "",
       "event_time": "2026-07-24T00:00:00+03:00",
       "publication_time": "2026-07-24T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.404Z",
+      "discovery_time": "2026-09-26T05:56:30.308Z",
       "coordinates": [
         37.63117,
         48.56272
@@ -800,7 +800,7 @@
       "description": "",
       "event_time": "2026-07-25T00:00:00+03:00",
       "publication_time": "2026-07-25T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.404Z",
+      "discovery_time": "2026-09-26T05:56:30.309Z",
       "coordinates": [
         37.19022,
         50.19536
@@ -837,7 +837,7 @@
       "description": "МО",
       "event_time": "2026-07-26T00:00:00+03:00",
       "publication_time": "2026-07-26T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.404Z",
+      "discovery_time": "2026-09-26T05:56:30.309Z",
       "coordinates": [
         37.09695,
         48.37745
@@ -874,7 +874,7 @@
       "description": "",
       "event_time": "2026-07-26T00:00:00+03:00",
       "publication_time": "2026-07-26T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.405Z",
+      "discovery_time": "2026-09-26T05:56:30.310Z",
       "coordinates": [
         36.12143,
         47.85395
@@ -911,7 +911,7 @@
       "description": "",
       "event_time": "2026-07-27T00:00:00+03:00",
       "publication_time": "2026-07-27T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.405Z",
+      "discovery_time": "2026-09-26T05:56:30.310Z",
       "coordinates": [
         37.75708,
         48.69481
@@ -948,7 +948,7 @@
       "description": "",
       "event_time": "2026-07-27T00:00:00+03:00",
       "publication_time": "2026-07-27T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.405Z",
+      "discovery_time": "2026-09-26T05:56:30.310Z",
       "coordinates": [
         36.10682,
         47.85406
@@ -985,7 +985,7 @@
       "description": "",
       "event_time": "2026-07-27T00:00:00+03:00",
       "publication_time": "2026-07-27T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.406Z",
+      "discovery_time": "2026-09-26T05:56:30.311Z",
       "coordinates": [
         37.42112,
         48.55048
@@ -1022,7 +1022,7 @@
       "description": "",
       "event_time": "2026-07-27T00:00:00+03:00",
       "publication_time": "2026-07-27T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.406Z",
+      "discovery_time": "2026-09-26T05:56:30.311Z",
       "coordinates": [
         36.04259,
         47.74148
@@ -1059,7 +1059,7 @@
       "description": "",
       "event_time": "2026-07-27T00:00:00+03:00",
       "publication_time": "2026-07-27T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.406Z",
+      "discovery_time": "2026-09-26T05:56:30.311Z",
       "coordinates": [
         37.12072,
         50.20391
@@ -1096,7 +1096,7 @@
       "description": "",
       "event_time": "2026-07-28T00:00:00+03:00",
       "publication_time": "2026-07-28T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.406Z",
+      "discovery_time": "2026-09-26T05:56:30.312Z",
       "coordinates": [
         37.53115,
         50.24731
@@ -1133,7 +1133,7 @@
       "description": "",
       "event_time": "2026-07-28T00:00:00+03:00",
       "publication_time": "2026-07-28T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.407Z",
+      "discovery_time": "2026-09-26T05:56:30.312Z",
       "coordinates": [
         37.26628,
         50.24765
@@ -1170,7 +1170,7 @@
       "description": "",
       "event_time": "2026-07-28T00:00:00+03:00",
       "publication_time": "2026-07-28T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.407Z",
+      "discovery_time": "2026-09-26T05:56:30.312Z",
       "coordinates": [
         35.11951,
         51.01921
@@ -1207,7 +1207,7 @@
       "description": "",
       "event_time": "2026-07-28T00:00:00+03:00",
       "publication_time": "2026-07-28T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.407Z",
+      "discovery_time": "2026-09-26T05:56:30.312Z",
       "coordinates": [
         35.18094,
         51.01581
@@ -1244,7 +1244,7 @@
       "description": "",
       "event_time": "2026-07-28T00:00:00+03:00",
       "publication_time": "2026-07-28T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.408Z",
+      "discovery_time": "2026-09-26T05:56:30.313Z",
       "coordinates": [
         37.39952,
         48.54571
@@ -1281,7 +1281,7 @@
       "description": "",
       "event_time": "2026-07-28T00:00:00+03:00",
       "publication_time": "2026-07-28T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.408Z",
+      "discovery_time": "2026-09-26T05:56:30.313Z",
       "coordinates": [
         36.23921,
         50.33801
@@ -1318,7 +1318,7 @@
       "description": "",
       "event_time": "2026-07-28T00:00:00+03:00",
       "publication_time": "2026-07-28T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.408Z",
+      "discovery_time": "2026-09-26T05:56:30.314Z",
       "coordinates": [
         37.83091,
         48.97143
@@ -1355,7 +1355,7 @@
       "description": "",
       "event_time": "2026-07-28T00:00:00+03:00",
       "publication_time": "2026-07-28T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.408Z",
+      "discovery_time": "2026-09-26T05:56:30.314Z",
       "coordinates": [
         37.92206,
         48.89773
@@ -1392,7 +1392,7 @@
       "description": "",
       "event_time": "2026-07-29T00:00:00+03:00",
       "publication_time": "2026-07-29T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.409Z",
+      "discovery_time": "2026-09-26T05:56:30.314Z",
       "coordinates": [
         34.92073,
         51.08401
@@ -1429,7 +1429,7 @@
       "description": "",
       "event_time": "2026-07-29T00:00:00+03:00",
       "publication_time": "2026-07-29T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.409Z",
+      "discovery_time": "2026-09-26T05:56:30.314Z",
       "coordinates": [
         37.62714,
         48.5282
@@ -1466,7 +1466,7 @@
       "description": "",
       "event_time": "2026-07-29T00:00:00+03:00",
       "publication_time": "2026-07-29T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.409Z",
+      "discovery_time": "2026-09-26T05:56:30.315Z",
       "coordinates": [
         35.23968,
         51.01235
@@ -1503,7 +1503,7 @@
       "description": "",
       "event_time": "2026-07-29T00:00:00+03:00",
       "publication_time": "2026-07-29T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.410Z",
+      "discovery_time": "2026-09-26T05:56:30.315Z",
       "coordinates": [
         34.34875,
         51.75318
@@ -1540,7 +1540,7 @@
       "description": "",
       "event_time": "2026-07-29T00:00:00+03:00",
       "publication_time": "2026-07-29T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.410Z",
+      "discovery_time": "2026-09-26T05:56:30.315Z",
       "coordinates": [
         37.64697,
         48.56326
@@ -1577,7 +1577,7 @@
       "description": "",
       "event_time": "2026-07-29T00:00:00+03:00",
       "publication_time": "2026-07-29T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.410Z",
+      "discovery_time": "2026-09-26T05:56:30.316Z",
       "coordinates": [
         37.14855,
         48.35739
@@ -1614,7 +1614,7 @@
       "description": "",
       "event_time": "2026-07-29T00:00:00+03:00",
       "publication_time": "2026-07-29T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.410Z",
+      "discovery_time": "2026-09-26T05:56:30.316Z",
       "coordinates": [
         37.50535,
         50.23919
@@ -1651,7 +1651,7 @@
       "description": "МО",
       "event_time": "2026-07-29T00:00:00+03:00",
       "publication_time": "2026-07-29T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.411Z",
+      "discovery_time": "2026-09-26T05:56:30.316Z",
       "coordinates": [
         37.1343,
         48.39228
@@ -1688,7 +1688,7 @@
       "description": "",
       "event_time": "2026-07-29T00:00:00+03:00",
       "publication_time": "2026-07-29T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.411Z",
+      "discovery_time": "2026-09-26T05:56:30.317Z",
       "coordinates": [
         37.10555,
         48.40861
@@ -1725,7 +1725,7 @@
       "description": "",
       "event_time": "2026-07-30T00:00:00+03:00",
       "publication_time": "2026-07-30T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.411Z",
+      "discovery_time": "2026-09-26T05:56:30.317Z",
       "coordinates": [
         34.24713,
         51.82061
@@ -1762,7 +1762,7 @@
       "description": "",
       "event_time": "2026-07-30T00:00:00+03:00",
       "publication_time": "2026-07-30T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.412Z",
+      "discovery_time": "2026-09-26T05:56:30.317Z",
       "coordinates": [
         37.09491,
         50.18838
@@ -1799,7 +1799,7 @@
       "description": "",
       "event_time": "2026-07-30T00:00:00+03:00",
       "publication_time": "2026-07-30T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.412Z",
+      "discovery_time": "2026-09-26T05:56:30.318Z",
       "coordinates": [
         35.10853,
         51.03686
@@ -1836,7 +1836,7 @@
       "description": "",
       "event_time": "2026-07-30T00:00:00+03:00",
       "publication_time": "2026-07-30T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.412Z",
+      "discovery_time": "2026-09-26T05:56:30.318Z",
       "coordinates": [
         37.52775,
         50.22096
@@ -1873,7 +1873,7 @@
       "description": "",
       "event_time": "2026-07-30T00:00:00+03:00",
       "publication_time": "2026-07-30T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.413Z",
+      "discovery_time": "2026-09-26T05:56:30.318Z",
       "coordinates": [
         37.13087,
         48.41251
@@ -1910,7 +1910,7 @@
       "description": "Северный Ветер",
       "event_time": "2026-07-31T00:00:00+03:00",
       "publication_time": "2026-07-31T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.413Z",
+      "discovery_time": "2026-09-26T05:56:30.319Z",
       "coordinates": [
         37.17404,
         50.1941
@@ -1947,7 +1947,7 @@
       "description": "",
       "event_time": "2026-07-31T00:00:00+03:00",
       "publication_time": "2026-07-31T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.413Z",
+      "discovery_time": "2026-09-26T05:56:30.319Z",
       "coordinates": [
         37.80224,
         48.67917
@@ -1984,7 +1984,7 @@
       "description": "",
       "event_time": "2026-07-31T00:00:00+03:00",
       "publication_time": "2026-07-31T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.414Z",
+      "discovery_time": "2026-09-26T05:56:30.319Z",
       "coordinates": [
         37.58011,
         49.76608
@@ -2021,7 +2021,7 @@
       "description": "",
       "event_time": "2026-08-01T00:00:00+03:00",
       "publication_time": "2026-08-01T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.414Z",
+      "discovery_time": "2026-09-26T05:56:30.320Z",
       "coordinates": [
         37.87571,
         48.85026
@@ -2058,7 +2058,7 @@
       "description": "",
       "event_time": "2026-08-01T00:00:00+03:00",
       "publication_time": "2026-08-01T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.414Z",
+      "discovery_time": "2026-09-26T05:56:30.320Z",
       "coordinates": [
         37.35918,
         48.53457
@@ -2095,7 +2095,7 @@
       "description": "",
       "event_time": "2026-08-01T00:00:00+03:00",
       "publication_time": "2026-08-01T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.414Z",
+      "discovery_time": "2026-09-26T05:56:30.320Z",
       "coordinates": [
         35.97147,
         47.76771
@@ -2132,7 +2132,7 @@
       "description": "",
       "event_time": "2026-08-02T00:00:00+03:00",
       "publication_time": "2026-08-02T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.415Z",
+      "discovery_time": "2026-09-26T05:56:30.321Z",
       "coordinates": [
         37.5002,
         50.23172
@@ -2169,7 +2169,7 @@
       "description": "Северный Ветер",
       "event_time": "2026-08-03T00:00:00+03:00",
       "publication_time": "2026-08-03T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.415Z",
+      "discovery_time": "2026-09-26T05:56:30.321Z",
       "coordinates": [
         37.52784,
         50.24869
@@ -2206,7 +2206,7 @@
       "description": "",
       "event_time": "2026-08-03T00:00:00+03:00",
       "publication_time": "2026-08-03T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.415Z",
+      "discovery_time": "2026-09-26T05:56:30.321Z",
       "coordinates": [
         37.08929,
         48.4108
@@ -2243,7 +2243,7 @@
       "description": "Северный Ветер",
       "event_time": "2026-08-04T00:00:00+03:00",
       "publication_time": "2026-08-04T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.416Z",
+      "discovery_time": "2026-09-26T05:56:30.322Z",
       "coordinates": [
         37.21584,
         50.20031
@@ -2280,7 +2280,7 @@
       "description": "",
       "event_time": "2026-08-04T00:00:00+03:00",
       "publication_time": "2026-08-04T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.416Z",
+      "discovery_time": "2026-09-26T05:56:30.322Z",
       "coordinates": [
         34.33811,
         51.83016
@@ -2317,7 +2317,7 @@
       "description": "",
       "event_time": "2026-08-05T00:00:00+03:00",
       "publication_time": "2026-08-05T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.416Z",
+      "discovery_time": "2026-09-26T05:56:30.323Z",
       "coordinates": [
         34.24951,
         51.25107
@@ -2354,7 +2354,7 @@
       "description": "",
       "event_time": "2026-08-05T00:00:00+03:00",
       "publication_time": "2026-08-05T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.417Z",
+      "discovery_time": "2026-09-26T05:56:30.323Z",
       "coordinates": [
         36.00743,
         47.81096
@@ -2391,7 +2391,7 @@
       "description": "",
       "event_time": "2026-08-06T00:00:00+03:00",
       "publication_time": "2026-08-06T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.417Z",
+      "discovery_time": "2026-09-26T05:56:30.323Z",
       "coordinates": [
         34.38167,
         51.26377
@@ -2428,7 +2428,7 @@
       "description": "",
       "event_time": "2026-08-06T00:00:00+03:00",
       "publication_time": "2026-08-06T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.417Z",
+      "discovery_time": "2026-09-26T05:56:30.323Z",
       "coordinates": [
         37.85786,
         48.91985
@@ -2465,7 +2465,7 @@
       "description": "",
       "event_time": "2026-08-06T00:00:00+03:00",
       "publication_time": "2026-08-06T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.418Z",
+      "discovery_time": "2026-09-26T05:56:30.324Z",
       "coordinates": [
         34.28988,
         51.39203
@@ -2502,7 +2502,7 @@
       "description": "",
       "event_time": "2026-08-06T00:00:00+03:00",
       "publication_time": "2026-08-06T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.418Z",
+      "discovery_time": "2026-09-26T05:56:30.324Z",
       "coordinates": [
         37.13894,
         48.4235
@@ -2539,7 +2539,7 @@
       "description": "",
       "event_time": "2026-08-06T00:00:00+03:00",
       "publication_time": "2026-08-06T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.418Z",
+      "discovery_time": "2026-09-26T05:56:30.324Z",
       "coordinates": [
         36.86789,
         50.18641
@@ -2576,7 +2576,7 @@
       "description": "",
       "event_time": "2026-08-06T00:00:00+03:00",
       "publication_time": "2026-08-06T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.418Z",
+      "discovery_time": "2026-09-26T05:56:30.325Z",
       "coordinates": [
         36.23171,
         50.33133
@@ -2613,7 +2613,7 @@
       "description": "",
       "event_time": "2026-08-07T00:00:00+03:00",
       "publication_time": "2026-08-07T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.419Z",
+      "discovery_time": "2026-09-26T05:56:30.325Z",
       "coordinates": [
         37.52171,
         50.20647
@@ -2650,7 +2650,7 @@
       "description": "",
       "event_time": "2026-08-07T00:00:00+03:00",
       "publication_time": "2026-08-07T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.419Z",
+      "discovery_time": "2026-09-26T05:56:30.325Z",
       "coordinates": [
         36.90683,
         48.21404
@@ -2687,7 +2687,7 @@
       "description": "",
       "event_time": "2026-08-07T00:00:00+03:00",
       "publication_time": "2026-08-07T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.419Z",
+      "discovery_time": "2026-09-26T05:56:30.325Z",
       "coordinates": [
         36.29692,
         50.29789
@@ -2724,7 +2724,7 @@
       "description": "Северный Ветер",
       "event_time": "2026-08-08T00:00:00+03:00",
       "publication_time": "2026-08-08T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.420Z",
+      "discovery_time": "2026-09-26T05:56:30.326Z",
       "coordinates": [
         37.27775,
         50.24526
@@ -2761,7 +2761,7 @@
       "description": "",
       "event_time": "2026-08-08T00:00:00+03:00",
       "publication_time": "2026-08-08T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.420Z",
+      "discovery_time": "2026-09-26T05:56:30.326Z",
       "coordinates": [
         37.22879,
         50.36917
@@ -2798,7 +2798,7 @@
       "description": "",
       "event_time": "2026-08-08T00:00:00+03:00",
       "publication_time": "2026-08-08T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.420Z",
+      "discovery_time": "2026-09-26T05:56:30.327Z",
       "coordinates": [
         35.3013,
         47.58729
@@ -2835,7 +2835,7 @@
       "description": "",
       "event_time": "2026-08-08T00:00:00+03:00",
       "publication_time": "2026-08-08T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.421Z",
+      "discovery_time": "2026-09-26T05:56:30.327Z",
       "coordinates": [
         35.54695,
         47.56657
@@ -2872,7 +2872,7 @@
       "description": "МО",
       "event_time": "2026-08-09T00:00:00+03:00",
       "publication_time": "2026-08-09T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.421Z",
+      "discovery_time": "2026-09-26T05:56:30.327Z",
       "coordinates": [
         37.4247,
         48.5611
@@ -2909,7 +2909,7 @@
       "description": "МО",
       "event_time": "2026-08-09T00:00:00+03:00",
       "publication_time": "2026-08-09T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.421Z",
+      "discovery_time": "2026-09-26T05:56:30.328Z",
       "coordinates": [
         37.72258,
         48.71673
@@ -2946,7 +2946,7 @@
       "description": "",
       "event_time": "2026-08-09T00:00:00+03:00",
       "publication_time": "2026-08-09T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.422Z",
+      "discovery_time": "2026-09-26T05:56:30.328Z",
       "coordinates": [
         37.69495,
         48.56684
@@ -2983,7 +2983,7 @@
       "description": "",
       "event_time": "2026-08-09T00:00:00+03:00",
       "publication_time": "2026-08-09T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.422Z",
+      "discovery_time": "2026-09-26T05:56:30.328Z",
       "coordinates": [
         36.65005,
         48.0611
@@ -3020,7 +3020,7 @@
       "description": "",
       "event_time": "2026-08-10T00:00:00+03:00",
       "publication_time": "2026-08-10T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.422Z",
+      "discovery_time": "2026-09-26T05:56:30.329Z",
       "coordinates": [
         37.71624,
         48.56434
@@ -3057,7 +3057,7 @@
       "description": "",
       "event_time": "2026-08-10T00:00:00+03:00",
       "publication_time": "2026-08-10T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.423Z",
+      "discovery_time": "2026-09-26T05:56:30.329Z",
       "coordinates": [
         37.05826,
         48.41473
@@ -3094,7 +3094,7 @@
       "description": "",
       "event_time": "2026-08-11T00:00:00+03:00",
       "publication_time": "2026-08-11T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.423Z",
+      "discovery_time": "2026-09-26T05:56:30.329Z",
       "coordinates": [
         36.27411,
         50.30656
@@ -3131,7 +3131,7 @@
       "description": "",
       "event_time": "2026-08-11T00:00:00+03:00",
       "publication_time": "2026-08-11T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.423Z",
+      "discovery_time": "2026-09-26T05:56:30.330Z",
       "coordinates": [
         37.04916,
         48.39365
@@ -3168,7 +3168,7 @@
       "description": "",
       "event_time": "2026-08-11T00:00:00+03:00",
       "publication_time": "2026-08-11T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.423Z",
+      "discovery_time": "2026-09-26T05:56:30.330Z",
       "coordinates": [
         35.9864,
         47.81661
@@ -3205,7 +3205,7 @@
       "description": "",
       "event_time": "2026-08-11T00:00:00+03:00",
       "publication_time": "2026-08-11T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.424Z",
+      "discovery_time": "2026-09-26T05:56:30.330Z",
       "coordinates": [
         36.10285,
         47.87376
@@ -3242,7 +3242,7 @@
       "description": "",
       "event_time": "2026-08-11T00:00:00+03:00",
       "publication_time": "2026-08-11T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.424Z",
+      "discovery_time": "2026-09-26T05:56:30.331Z",
       "coordinates": [
         36.7388,
         48.09883
@@ -3279,7 +3279,7 @@
       "description": "Северный Ветер",
       "event_time": "2026-08-12T00:00:00+03:00",
       "publication_time": "2026-08-12T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.424Z",
+      "discovery_time": "2026-09-26T05:56:30.331Z",
       "coordinates": [
         37.52376,
         50.19737
@@ -3316,7 +3316,7 @@
       "description": "Лост / https://t.me/nm_dnr/15733",
       "event_time": "2026-08-12T00:00:00+03:00",
       "publication_time": "2026-08-12T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.425Z",
+      "discovery_time": "2026-09-26T05:56:30.332Z",
       "coordinates": [
         37.44809,
         48.55741
@@ -3353,7 +3353,7 @@
       "description": "Лост",
       "event_time": "2026-08-13T00:00:00+03:00",
       "publication_time": "2026-08-13T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.425Z",
+      "discovery_time": "2026-09-26T05:56:30.332Z",
       "coordinates": [
         34.4503,
         51.25665
@@ -3390,7 +3390,7 @@
       "description": "Минобороны",
       "event_time": "2026-08-14T00:00:00+03:00",
       "publication_time": "2026-08-14T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.426Z",
+      "discovery_time": "2026-09-26T05:56:30.332Z",
       "coordinates": [
         37.37341,
         48.56553
@@ -3427,7 +3427,7 @@
       "description": "",
       "event_time": "2026-08-14T00:00:00+03:00",
       "publication_time": "2026-08-14T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.426Z",
+      "discovery_time": "2026-09-26T05:56:30.333Z",
       "coordinates": [
         36.26523,
         50.29028
@@ -3464,7 +3464,7 @@
       "description": "",
       "event_time": "2026-08-14T00:00:00+03:00",
       "publication_time": "2026-08-14T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.426Z",
+      "discovery_time": "2026-09-26T05:56:30.333Z",
       "coordinates": [
         36.68953,
         48.02323
@@ -3501,7 +3501,7 @@
       "description": "",
       "event_time": "2026-08-15T00:00:00+03:00",
       "publication_time": "2026-08-15T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.427Z",
+      "discovery_time": "2026-09-26T05:56:30.334Z",
       "coordinates": [
         36.60645,
         47.96602
@@ -3538,7 +3538,7 @@
       "description": "Воин_ДВ",
       "event_time": "2026-08-15T00:00:00+03:00",
       "publication_time": "2026-08-15T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.428Z",
+      "discovery_time": "2026-09-26T05:56:30.334Z",
       "coordinates": [
         36.09241,
         47.8832
@@ -3575,7 +3575,7 @@
       "description": "",
       "event_time": "2026-08-15T00:00:00+03:00",
       "publication_time": "2026-08-15T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.428Z",
+      "discovery_time": "2026-09-26T05:56:30.334Z",
       "coordinates": [
         36.70549,
         47.98096
@@ -3612,7 +3612,7 @@
       "description": "",
       "event_time": "2026-08-15T00:00:00+03:00",
       "publication_time": "2026-08-15T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.428Z",
+      "discovery_time": "2026-09-26T05:56:30.335Z",
       "coordinates": [
         35.64857,
         47.55487
@@ -3649,7 +3649,7 @@
       "description": "",
       "event_time": "2026-08-15T00:00:00+03:00",
       "publication_time": "2026-08-15T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.429Z",
+      "discovery_time": "2026-09-26T05:56:30.335Z",
       "coordinates": [
         37.73941,
         48.57752
@@ -3686,7 +3686,7 @@
       "description": "",
       "event_time": "2026-08-16T00:00:00+03:00",
       "publication_time": "2026-08-16T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.429Z",
+      "discovery_time": "2026-09-26T05:56:30.335Z",
       "coordinates": [
         37.46559,
         50.25546
@@ -3723,7 +3723,7 @@
       "description": "",
       "event_time": "2026-08-17T00:00:00+03:00",
       "publication_time": "2026-08-17T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.429Z",
+      "discovery_time": "2026-09-26T05:56:30.336Z",
       "coordinates": [
         35.92407,
         47.74879
@@ -3760,7 +3760,7 @@
       "description": "",
       "event_time": "2026-08-18T00:00:00+03:00",
       "publication_time": "2026-08-18T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.429Z",
+      "discovery_time": "2026-09-26T05:56:30.336Z",
       "coordinates": [
         37.09542,
         48.41986
@@ -3797,7 +3797,7 @@
       "description": "",
       "event_time": "2026-08-18T00:00:00+03:00",
       "publication_time": "2026-08-18T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.430Z",
+      "discovery_time": "2026-09-26T05:56:30.336Z",
       "coordinates": [
         34.2829,
         51.50898
@@ -3834,7 +3834,7 @@
       "description": "",
       "event_time": "2026-08-18T00:00:00+03:00",
       "publication_time": "2026-08-18T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.430Z",
+      "discovery_time": "2026-09-26T05:56:30.337Z",
       "coordinates": [
         37.68138,
         49.63061
@@ -3871,7 +3871,7 @@
       "description": "",
       "event_time": "2026-08-19T00:00:00+03:00",
       "publication_time": "2026-08-19T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.430Z",
+      "discovery_time": "2026-09-26T05:56:30.337Z",
       "coordinates": [
         37.58919,
         49.74317
@@ -3908,7 +3908,7 @@
       "description": "",
       "event_time": "2026-08-20T00:00:00+03:00",
       "publication_time": "2026-08-20T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.431Z",
+      "discovery_time": "2026-09-26T05:56:30.337Z",
       "coordinates": [
         37.47622,
         50.19196
@@ -3945,7 +3945,7 @@
       "description": "",
       "event_time": "2026-08-20T00:00:00+03:00",
       "publication_time": "2026-08-20T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.431Z",
+      "discovery_time": "2026-09-26T05:56:30.337Z",
       "coordinates": [
         37.18874,
         48.49263
@@ -3982,7 +3982,7 @@
       "description": "",
       "event_time": "2026-08-20T00:00:00+03:00",
       "publication_time": "2026-08-20T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.431Z",
+      "discovery_time": "2026-09-26T05:56:30.338Z",
       "coordinates": [
         37.07007,
         48.40824
@@ -4019,7 +4019,7 @@
       "description": "",
       "event_time": "2026-08-20T00:00:00+03:00",
       "publication_time": "2026-08-20T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.432Z",
+      "discovery_time": "2026-09-26T05:56:30.338Z",
       "coordinates": [
         37.57401,
         48.51854
@@ -4056,7 +4056,7 @@
       "description": "",
       "event_time": "2026-08-21T00:00:00+03:00",
       "publication_time": "2026-08-21T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.432Z",
+      "discovery_time": "2026-09-26T05:56:30.338Z",
       "coordinates": [
         36.04761,
         47.91047
@@ -4093,7 +4093,7 @@
       "description": "",
       "event_time": "2026-08-21T00:00:00+03:00",
       "publication_time": "2026-08-21T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.432Z",
+      "discovery_time": "2026-09-26T05:56:30.339Z",
       "coordinates": [
         37.60672,
         49.70661
@@ -4130,7 +4130,7 @@
       "description": "",
       "event_time": "2026-08-21T00:00:00+03:00",
       "publication_time": "2026-08-21T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.432Z",
+      "discovery_time": "2026-09-26T05:56:30.339Z",
       "coordinates": [
         37.45411,
         48.53548
@@ -4167,7 +4167,7 @@
       "description": "",
       "event_time": "2026-08-24T00:00:00+03:00",
       "publication_time": "2026-08-24T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.433Z",
+      "discovery_time": "2026-09-26T05:56:30.339Z",
       "coordinates": [
         37.62362,
         48.5636
@@ -4204,7 +4204,7 @@
       "description": "",
       "event_time": "2026-08-24T00:00:00+03:00",
       "publication_time": "2026-08-24T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.433Z",
+      "discovery_time": "2026-09-26T05:56:30.340Z",
       "coordinates": [
         36.03413,
         47.70075
@@ -4241,7 +4241,7 @@
       "description": "",
       "event_time": "2026-08-24T00:00:00+03:00",
       "publication_time": "2026-08-24T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.433Z",
+      "discovery_time": "2026-09-26T05:56:30.340Z",
       "coordinates": [
         34.72366,
         51.16761
@@ -4278,7 +4278,7 @@
       "description": "",
       "event_time": "2026-08-25T00:00:00+03:00",
       "publication_time": "2026-08-25T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.434Z",
+      "discovery_time": "2026-09-26T05:56:30.340Z",
       "coordinates": [
         37.82541,
         48.86675
@@ -4315,7 +4315,7 @@
       "description": "",
       "event_time": "2026-08-25T00:00:00+03:00",
       "publication_time": "2026-08-25T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.434Z",
+      "discovery_time": "2026-09-26T05:56:30.341Z",
       "coordinates": [
         37.88084,
         48.90741
@@ -4352,7 +4352,7 @@
       "description": "",
       "event_time": "2026-08-25T00:00:00+03:00",
       "publication_time": "2026-08-25T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.434Z",
+      "discovery_time": "2026-09-26T05:56:30.341Z",
       "coordinates": [
         37.12366,
         48.48043
@@ -4389,7 +4389,7 @@
       "description": "",
       "event_time": "2026-08-26T00:00:00+03:00",
       "publication_time": "2026-08-26T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.434Z",
+      "discovery_time": "2026-09-26T05:56:30.341Z",
       "coordinates": [
         34.82842,
         51.07511
@@ -4426,7 +4426,7 @@
       "description": "Воин ДВ",
       "event_time": "2026-08-26T00:00:00+03:00",
       "publication_time": "2026-08-26T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.435Z",
+      "discovery_time": "2026-09-26T05:56:30.341Z",
       "coordinates": [
         35.98279,
         47.8305
@@ -4463,7 +4463,7 @@
       "description": "Минобороны",
       "event_time": "2026-08-26T00:00:00+03:00",
       "publication_time": "2026-08-26T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.435Z",
+      "discovery_time": "2026-09-26T05:56:30.342Z",
       "coordinates": [
         37.27891,
         48.50939
@@ -4500,7 +4500,7 @@
       "description": "Воин ДВ",
       "event_time": "2026-08-27T00:00:00+03:00",
       "publication_time": "2026-08-27T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.436Z",
+      "discovery_time": "2026-09-26T05:56:30.343Z",
       "coordinates": [
         36.06637,
         47.93003
@@ -4537,7 +4537,7 @@
       "description": "",
       "event_time": "2026-08-28T00:00:00+03:00",
       "publication_time": "2026-08-28T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.436Z",
+      "discovery_time": "2026-09-26T05:56:30.343Z",
       "coordinates": [
         37.10934,
         48.45253
@@ -4574,7 +4574,7 @@
       "description": "",
       "event_time": "2026-08-28T00:00:00+03:00",
       "publication_time": "2026-08-28T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.436Z",
+      "discovery_time": "2026-09-26T05:56:30.343Z",
       "coordinates": [
         35.90056,
         47.5325
@@ -4611,7 +4611,7 @@
       "description": "",
       "event_time": "2026-08-28T00:00:00+03:00",
       "publication_time": "2026-08-28T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.437Z",
+      "discovery_time": "2026-09-26T05:56:30.344Z",
       "coordinates": [
         35.81763,
         47.53957
@@ -4648,7 +4648,7 @@
       "description": "",
       "event_time": "2026-08-28T00:00:00+03:00",
       "publication_time": "2026-08-28T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.437Z",
+      "discovery_time": "2026-09-26T05:56:30.344Z",
       "coordinates": [
         35.98979,
         47.5434
@@ -4685,7 +4685,7 @@
       "description": "",
       "event_time": "2026-08-28T00:00:00+03:00",
       "publication_time": "2026-08-28T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.437Z",
+      "discovery_time": "2026-09-26T05:56:30.344Z",
       "coordinates": [
         37.63573,
         49.06419
@@ -4722,7 +4722,7 @@
       "description": "",
       "event_time": "2026-08-29T00:00:00+03:00",
       "publication_time": "2026-08-29T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.438Z",
+      "discovery_time": "2026-09-26T05:56:30.344Z",
       "coordinates": [
         34.95221,
         51.0811
@@ -4759,7 +4759,7 @@
       "description": "",
       "event_time": "2026-08-29T00:00:00+03:00",
       "publication_time": "2026-08-29T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.438Z",
+      "discovery_time": "2026-09-26T05:56:30.345Z",
       "coordinates": [
         37.18803,
         48.50205
@@ -4796,7 +4796,7 @@
       "description": "",
       "event_time": "2026-08-30T00:00:00+03:00",
       "publication_time": "2026-08-30T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.438Z",
+      "discovery_time": "2026-09-26T05:56:30.345Z",
       "coordinates": [
         35.25109,
         50.93336
@@ -4833,7 +4833,7 @@
       "description": "",
       "event_time": "2026-08-30T00:00:00+03:00",
       "publication_time": "2026-08-30T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.438Z",
+      "discovery_time": "2026-09-26T05:56:30.345Z",
       "coordinates": [
         35.09196,
         51.09724
@@ -4870,7 +4870,7 @@
       "description": "",
       "event_time": "2026-08-31T00:00:00+03:00",
       "publication_time": "2026-08-31T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.439Z",
+      "discovery_time": "2026-09-26T05:56:30.346Z",
       "coordinates": [
         37.79211,
         48.58064
@@ -4907,7 +4907,7 @@
       "description": "",
       "event_time": "2026-08-31T00:00:00+03:00",
       "publication_time": "2026-08-31T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.439Z",
+      "discovery_time": "2026-09-26T05:56:30.346Z",
       "coordinates": [
         35.88392,
         47.53806
@@ -4944,7 +4944,7 @@
       "description": "",
       "event_time": "2026-08-31T00:00:00+03:00",
       "publication_time": "2026-08-31T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.439Z",
+      "discovery_time": "2026-09-26T05:56:30.346Z",
       "coordinates": [
         37.33345,
         48.57588
@@ -4981,7 +4981,7 @@
       "description": "",
       "event_time": "2026-09-01T00:00:00+03:00",
       "publication_time": "2026-09-01T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.440Z",
+      "discovery_time": "2026-09-26T05:56:30.347Z",
       "coordinates": [
         37.44809,
         48.57633
@@ -5018,7 +5018,7 @@
       "description": "",
       "event_time": "2026-09-01T00:00:00+03:00",
       "publication_time": "2026-09-01T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.440Z",
+      "discovery_time": "2026-09-26T05:56:30.347Z",
       "coordinates": [
         35.88864,
         47.60223
@@ -5055,7 +5055,7 @@
       "description": "",
       "event_time": "2026-09-02T00:00:00+03:00",
       "publication_time": "2026-09-02T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.440Z",
+      "discovery_time": "2026-09-26T05:56:30.348Z",
       "coordinates": [
         36.17987,
         50.33067
@@ -5092,7 +5092,7 @@
       "description": "",
       "event_time": "2026-09-03T00:00:00+03:00",
       "publication_time": "2026-09-03T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.440Z",
+      "discovery_time": "2026-09-26T05:56:30.348Z",
       "coordinates": [
         35.86864,
         47.52578
@@ -5129,7 +5129,7 @@
       "description": "",
       "event_time": "2026-09-03T00:00:00+03:00",
       "publication_time": "2026-09-03T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.441Z",
+      "discovery_time": "2026-09-26T05:56:30.348Z",
       "coordinates": [
         37.3645,
         50.18811
@@ -5166,7 +5166,7 @@
       "description": "МО; https://t.me/c/1656374668/110446",
       "event_time": "2026-09-03T00:00:00+03:00",
       "publication_time": "2026-09-03T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.441Z",
+      "discovery_time": "2026-09-26T05:56:30.349Z",
       "coordinates": [
         37.66774,
         48.58558
@@ -5203,7 +5203,7 @@
       "description": "",
       "event_time": "2026-09-04T00:00:00+03:00",
       "publication_time": "2026-09-04T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.441Z",
+      "discovery_time": "2026-09-26T05:56:30.349Z",
       "coordinates": [
         37.0683,
         48.421
@@ -5240,7 +5240,7 @@
       "description": "",
       "event_time": "2026-09-04T00:00:00+03:00",
       "publication_time": "2026-09-04T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.442Z",
+      "discovery_time": "2026-09-26T05:56:30.349Z",
       "coordinates": [
         37.7643,
         48.77356
@@ -5277,7 +5277,7 @@
       "description": "",
       "event_time": "2026-09-05T00:00:00+03:00",
       "publication_time": "2026-09-05T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.442Z",
+      "discovery_time": "2026-09-26T05:56:30.350Z",
       "coordinates": [
         37.63949,
         48.59642
@@ -5314,7 +5314,7 @@
       "description": "",
       "event_time": "2026-09-05T00:00:00+03:00",
       "publication_time": "2026-09-05T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.442Z",
+      "discovery_time": "2026-09-26T05:56:30.350Z",
       "coordinates": [
         37.78885,
         48.80258
@@ -5351,7 +5351,7 @@
       "description": "",
       "event_time": "2026-09-06T00:00:00+03:00",
       "publication_time": "2026-09-06T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.443Z",
+      "discovery_time": "2026-09-26T05:56:30.350Z",
       "coordinates": [
         37.05112,
         48.42084
@@ -5388,7 +5388,7 @@
       "description": "",
       "event_time": "2026-09-06T00:00:00+03:00",
       "publication_time": "2026-09-06T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.443Z",
+      "discovery_time": "2026-09-26T05:56:30.351Z",
       "coordinates": [
         35.67465,
         47.58237
@@ -5425,7 +5425,7 @@
       "description": "",
       "event_time": "2026-09-06T00:00:00+03:00",
       "publication_time": "2026-09-06T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.443Z",
+      "discovery_time": "2026-09-26T05:56:30.351Z",
       "coordinates": [
         37.30957,
         48.52763
@@ -5462,7 +5462,7 @@
       "description": "",
       "event_time": "2026-09-07T00:00:00+03:00",
       "publication_time": "2026-09-07T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.443Z",
+      "discovery_time": "2026-09-26T05:56:30.352Z",
       "coordinates": [
         37.78293,
         48.56644
@@ -5499,7 +5499,7 @@
       "description": "",
       "event_time": "2026-09-08T00:00:00+03:00",
       "publication_time": "2026-09-08T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.444Z",
+      "discovery_time": "2026-09-26T05:56:30.352Z",
       "coordinates": [
         37.55814,
         50.21953
@@ -5536,7 +5536,7 @@
       "description": "",
       "event_time": "2026-09-09T00:00:00+03:00",
       "publication_time": "2026-09-09T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.444Z",
+      "discovery_time": "2026-09-26T05:56:30.352Z",
       "coordinates": [
         37.57058,
         50.26049
@@ -5573,7 +5573,7 @@
       "description": "",
       "event_time": "2026-09-09T00:00:00+03:00",
       "publication_time": "2026-09-09T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.444Z",
+      "discovery_time": "2026-09-26T05:56:30.353Z",
       "coordinates": [
         35.79998,
         47.55568
@@ -5610,7 +5610,7 @@
       "description": "",
       "event_time": "2026-09-09T00:00:00+03:00",
       "publication_time": "2026-09-09T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.445Z",
+      "discovery_time": "2026-09-26T05:56:30.353Z",
       "coordinates": [
         36.9841,
         48.29953
@@ -5647,7 +5647,7 @@
       "description": "",
       "event_time": "2026-09-10T00:00:00+03:00",
       "publication_time": "2026-09-10T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.445Z",
+      "discovery_time": "2026-09-26T05:56:30.353Z",
       "coordinates": [
         36.28063,
         50.28572
@@ -5684,7 +5684,7 @@
       "description": "",
       "event_time": "2026-09-10T00:00:00+03:00",
       "publication_time": "2026-09-10T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.445Z",
+      "discovery_time": "2026-09-26T05:56:30.354Z",
       "coordinates": [
         37.56826,
         50.16458
@@ -5721,7 +5721,7 @@
       "description": "",
       "event_time": "2026-09-11T00:00:00+03:00",
       "publication_time": "2026-09-11T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.445Z",
+      "discovery_time": "2026-09-26T05:56:30.354Z",
       "coordinates": [
         36.25797,
         50.323
@@ -5758,7 +5758,7 @@
       "description": "Минобороны",
       "event_time": "2026-09-11T00:00:00+03:00",
       "publication_time": "2026-09-11T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.446Z",
+      "discovery_time": "2026-09-26T05:56:30.354Z",
       "coordinates": [
         37.02358,
         48.41701
@@ -5795,7 +5795,7 @@
       "description": "Воин ДВ",
       "event_time": "2026-09-11T00:00:00+03:00",
       "publication_time": "2026-09-11T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.446Z",
+      "discovery_time": "2026-09-26T05:56:30.355Z",
       "coordinates": [
         36.05438,
         47.86092
@@ -5832,7 +5832,7 @@
       "description": "",
       "event_time": "2026-09-12T00:00:00+03:00",
       "publication_time": "2026-09-12T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.447Z",
+      "discovery_time": "2026-09-26T05:56:30.355Z",
       "coordinates": [
         37.28215,
         48.54744
@@ -5869,7 +5869,7 @@
       "description": "",
       "event_time": "2026-09-12T00:00:00+03:00",
       "publication_time": "2026-09-12T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.447Z",
+      "discovery_time": "2026-09-26T05:56:30.356Z",
       "coordinates": [
         37.40364,
         48.57178
@@ -5906,7 +5906,7 @@
       "description": "Северный Ветер",
       "event_time": "2026-09-13T00:00:00+03:00",
       "publication_time": "2026-09-13T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.447Z",
+      "discovery_time": "2026-09-26T05:56:30.356Z",
       "coordinates": [
         37.45753,
         50.3597
@@ -5943,7 +5943,7 @@
       "description": "",
       "event_time": "2026-09-13T00:00:00+03:00",
       "publication_time": "2026-09-13T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.448Z",
+      "discovery_time": "2026-09-26T05:56:30.357Z",
       "coordinates": [
         36.89415,
         48.20883
@@ -5980,7 +5980,7 @@
       "description": "",
       "event_time": "2026-09-13T00:00:00+03:00",
       "publication_time": "2026-09-13T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.448Z",
+      "discovery_time": "2026-09-26T05:56:30.357Z",
       "coordinates": [
         35.71492,
         47.59777
@@ -6017,7 +6017,7 @@
       "description": "Северный Ветер",
       "event_time": "2026-09-14T00:00:00+03:00",
       "publication_time": "2026-09-14T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.448Z",
+      "discovery_time": "2026-09-26T05:56:30.357Z",
       "coordinates": [
         37.53478,
         50.26405
@@ -6054,7 +6054,7 @@
       "description": "Северный Ветер",
       "event_time": "2026-09-14T00:00:00+03:00",
       "publication_time": "2026-09-14T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.449Z",
+      "discovery_time": "2026-09-26T05:56:30.358Z",
       "coordinates": [
         37.03888,
         50.16447
@@ -6091,7 +6091,7 @@
       "description": "Минобороны",
       "event_time": "2026-09-14T00:00:00+03:00",
       "publication_time": "2026-09-14T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.449Z",
+      "discovery_time": "2026-09-26T05:56:30.359Z",
       "coordinates": [
         35.69946,
         47.54641
@@ -6128,7 +6128,7 @@
       "description": "Воин ДВ",
       "event_time": "2026-09-14T00:00:00+03:00",
       "publication_time": "2026-09-14T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.450Z",
+      "discovery_time": "2026-09-26T05:56:30.359Z",
       "coordinates": [
         35.86898,
         47.60437
@@ -6165,7 +6165,7 @@
       "description": "",
       "event_time": "2026-09-14T00:00:00+03:00",
       "publication_time": "2026-09-14T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.450Z",
+      "discovery_time": "2026-09-26T05:56:30.360Z",
       "coordinates": [
         37.36244,
         50.16898
@@ -6202,7 +6202,7 @@
       "description": "",
       "event_time": "2026-09-14T00:00:00+03:00",
       "publication_time": "2026-09-14T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.450Z",
+      "discovery_time": "2026-09-26T05:56:30.360Z",
       "coordinates": [
         37.71503,
         49.11748
@@ -6239,7 +6239,7 @@
       "description": "Северный Ветер",
       "event_time": "2026-09-15T00:00:00+03:00",
       "publication_time": "2026-09-15T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.451Z",
+      "discovery_time": "2026-09-26T05:56:30.360Z",
       "coordinates": [
         37.51797,
         50.18305
@@ -6276,7 +6276,7 @@
       "description": "",
       "event_time": "2026-09-15T00:00:00+03:00",
       "publication_time": "2026-09-15T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.451Z",
+      "discovery_time": "2026-09-26T05:56:30.361Z",
       "coordinates": [
         37.70988,
         49.08061
@@ -6313,7 +6313,7 @@
       "description": "",
       "event_time": "2026-09-16T00:00:00+03:00",
       "publication_time": "2026-09-16T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.451Z",
+      "discovery_time": "2026-09-26T05:56:30.361Z",
       "coordinates": [
         36.01284,
         47.63763
@@ -6350,7 +6350,7 @@
       "description": "",
       "event_time": "2026-09-16T00:00:00+03:00",
       "publication_time": "2026-09-16T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.452Z",
+      "discovery_time": "2026-09-26T05:56:30.362Z",
       "coordinates": [
         37.79057,
         49.17115
@@ -6387,7 +6387,7 @@
       "description": "",
       "event_time": "2026-09-16T00:00:00+03:00",
       "publication_time": "2026-09-16T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.452Z",
+      "discovery_time": "2026-09-26T05:56:30.362Z",
       "coordinates": [
         37.70482,
         48.58904
@@ -6424,7 +6424,7 @@
       "description": "",
       "event_time": "2026-09-16T00:00:00+03:00",
       "publication_time": "2026-09-16T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.452Z",
+      "discovery_time": "2026-09-26T05:56:30.362Z",
       "coordinates": [
         37.77924,
         49.07567
@@ -6461,7 +6461,7 @@
       "description": "",
       "event_time": "2026-09-17T00:00:00+03:00",
       "publication_time": "2026-09-17T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.452Z",
+      "discovery_time": "2026-09-26T05:56:30.363Z",
       "coordinates": [
         37.2567,
         50.35663
@@ -6498,7 +6498,7 @@
       "description": "",
       "event_time": "2026-09-17T00:00:00+03:00",
       "publication_time": "2026-09-17T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.453Z",
+      "discovery_time": "2026-09-26T05:56:30.363Z",
       "coordinates": [
         37.55306,
         49.76793
@@ -6535,7 +6535,7 @@
       "description": "СК https://t.me/creamy_caprice/12989",
       "event_time": "2026-09-17T00:00:00+03:00",
       "publication_time": "2026-09-17T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.453Z",
+      "discovery_time": "2026-09-26T05:56:30.363Z",
       "coordinates": [
         35.37627,
         47.58136
@@ -6572,7 +6572,7 @@
       "description": "",
       "event_time": "2026-09-18T00:00:00+03:00",
       "publication_time": "2026-09-18T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.453Z",
+      "discovery_time": "2026-09-26T05:56:30.364Z",
       "coordinates": [
         37.24073,
         48.52547
@@ -6609,7 +6609,7 @@
       "description": "",
       "event_time": "2026-09-18T00:00:00+03:00",
       "publication_time": "2026-09-18T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.454Z",
+      "discovery_time": "2026-09-26T05:56:30.364Z",
       "coordinates": [
         37.73529,
         48.59341
@@ -6646,7 +6646,7 @@
       "description": "Северный Ветер",
       "event_time": "2026-09-19T00:00:00+03:00",
       "publication_time": "2026-09-19T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.454Z",
+      "discovery_time": "2026-09-26T05:56:30.365Z",
       "coordinates": [
         37.49596,
         50.30228
@@ -6683,7 +6683,7 @@
       "description": "",
       "event_time": "2026-09-19T00:00:00+03:00",
       "publication_time": "2026-09-19T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.454Z",
+      "discovery_time": "2026-09-26T05:56:30.365Z",
       "coordinates": [
         37.5685,
         49.82857
@@ -6720,7 +6720,7 @@
       "description": "Минобороны",
       "event_time": "2026-09-19T00:00:00+03:00",
       "publication_time": "2026-09-19T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.455Z",
+      "discovery_time": "2026-09-26T05:56:30.366Z",
       "coordinates": [
         36.97284,
         48.37221
@@ -6757,7 +6757,7 @@
       "description": "",
       "event_time": "2026-09-20T00:00:00+03:00",
       "publication_time": "2026-09-20T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.455Z",
+      "discovery_time": "2026-09-26T05:56:30.366Z",
       "coordinates": [
         36.21231,
         47.87606
@@ -6794,7 +6794,7 @@
       "description": "Минобороны",
       "event_time": "2026-09-21T00:00:00+03:00",
       "publication_time": "2026-09-21T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.456Z",
+      "discovery_time": "2026-09-26T05:56:30.366Z",
       "coordinates": [
         36.98134,
         50.16094
@@ -6831,7 +6831,7 @@
       "description": "",
       "event_time": "2026-09-21T00:00:00+03:00",
       "publication_time": "2026-09-21T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.456Z",
+      "discovery_time": "2026-09-26T05:56:30.367Z",
       "coordinates": [
         37.25085,
         50.14687
@@ -6868,7 +6868,7 @@
       "description": "",
       "event_time": "2026-09-21T00:00:00+03:00",
       "publication_time": "2026-09-21T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.456Z",
+      "discovery_time": "2026-09-26T05:56:30.367Z",
       "coordinates": [
         37.0665,
         48.4464
@@ -6905,7 +6905,7 @@
       "description": "",
       "event_time": "2026-09-22T00:00:00+03:00",
       "publication_time": "2026-09-22T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.457Z",
+      "discovery_time": "2026-09-26T05:56:30.368Z",
       "coordinates": [
         37.08418,
         48.49625
@@ -6942,7 +6942,7 @@
       "description": "",
       "event_time": "2026-09-23T00:00:00+03:00",
       "publication_time": "2026-09-23T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.457Z",
+      "discovery_time": "2026-09-26T05:56:30.368Z",
       "coordinates": [
         37.25996,
         50.37755
@@ -6979,7 +6979,7 @@
       "description": "",
       "event_time": "2026-09-23T00:00:00+03:00",
       "publication_time": "2026-09-23T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.457Z",
+      "discovery_time": "2026-09-26T05:56:30.368Z",
       "coordinates": [
         35.10681,
         51.08368
@@ -7016,7 +7016,7 @@
       "description": "Северный Ветер",
       "event_time": "2026-09-23T00:00:00+03:00",
       "publication_time": "2026-09-23T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.457Z",
+      "discovery_time": "2026-09-26T05:56:30.369Z",
       "coordinates": [
         37.4814,
         50.30732
@@ -7053,7 +7053,7 @@
       "description": "",
       "event_time": "2026-09-23T00:00:00+03:00",
       "publication_time": "2026-09-23T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.458Z",
+      "discovery_time": "2026-09-26T05:56:30.369Z",
       "coordinates": [
         35.93616,
         47.62544
@@ -7090,7 +7090,7 @@
       "description": "",
       "event_time": "2026-09-23T00:00:00+03:00",
       "publication_time": "2026-09-23T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.458Z",
+      "discovery_time": "2026-09-26T05:56:30.370Z",
       "coordinates": [
         37.1604,
         48.51842
@@ -7127,7 +7127,7 @@
       "description": "",
       "event_time": "2026-09-24T00:00:00+03:00",
       "publication_time": "2026-09-24T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.459Z",
+      "discovery_time": "2026-09-26T05:56:30.370Z",
       "coordinates": [
         37.31541,
         50.28418
@@ -7164,7 +7164,7 @@
       "description": "",
       "event_time": "2026-09-24T00:00:00+03:00",
       "publication_time": "2026-09-24T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.459Z",
+      "discovery_time": "2026-09-26T05:56:30.370Z",
       "coordinates": [
         35.98584,
         47.87042
@@ -7201,7 +7201,7 @@
       "description": "",
       "event_time": "2026-09-24T00:00:00+03:00",
       "publication_time": "2026-09-24T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.460Z",
+      "discovery_time": "2026-09-26T05:56:30.371Z",
       "coordinates": [
         37.03195,
         48.42203
@@ -7238,7 +7238,7 @@
       "description": "",
       "event_time": "2026-09-24T00:00:00+03:00",
       "publication_time": "2026-09-24T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.460Z",
+      "discovery_time": "2026-09-26T05:56:30.371Z",
       "coordinates": [
         37.80069,
         48.96624
@@ -7275,7 +7275,7 @@
       "description": "",
       "event_time": "2026-09-24T00:00:00+03:00",
       "publication_time": "2026-09-24T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.460Z",
+      "discovery_time": "2026-09-26T05:56:30.371Z",
       "coordinates": [
         37.74962,
         48.65661
@@ -7312,7 +7312,7 @@
       "description": "Северный Ветер",
       "event_time": "2026-09-25T00:00:00+03:00",
       "publication_time": "2026-09-25T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.460Z",
+      "discovery_time": "2026-09-26T05:56:30.372Z",
       "coordinates": [
         37.3512,
         50.29055
@@ -7349,7 +7349,7 @@
       "description": "",
       "event_time": "2026-09-25T00:00:00+03:00",
       "publication_time": "2026-09-25T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.461Z",
+      "discovery_time": "2026-09-26T05:56:30.372Z",
       "coordinates": [
         37.78816,
         48.92836
@@ -7386,7 +7386,7 @@
       "description": "",
       "event_time": "2026-09-26T00:00:00+03:00",
       "publication_time": "2026-09-26T00:00:00+03:00",
-      "discovery_time": "2026-09-26T05:49:42.461Z",
+      "discovery_time": "2026-09-26T05:56:30.373Z",
       "coordinates": [
         36.89591,
         48.17479
